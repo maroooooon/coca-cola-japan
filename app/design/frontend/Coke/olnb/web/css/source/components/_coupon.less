@@ -1,0 +1,37 @@
+.block.discount {
+  border-top: 1px solid @color-border;
+  border-bottom: 1px solid @color-border;
+  padding: 2rem 0;
+  margin: 2rem 0 0;
+
+  .title {
+    display: none;
+  }
+
+  .content {
+    display: block !important;
+  }
+
+  .control {
+    display: flex;
+
+    .actions {
+      margin: 0;
+    }
+
+    input {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      flex: 1;
+
+      & + * {
+        margin-bottom: 0;
+      }
+    }
+
+    button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}

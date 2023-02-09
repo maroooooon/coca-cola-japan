@@ -1,0 +1,15 @@
+<?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ */
+
+$vouchers = $block->getVouchers();
+?>
+
+<?php if (count($vouchers)): ?>
+    <ul>
+    <?php foreach($vouchers as $voucher): ?>
+        <li><?= $voucher ?></li>
+    <?php endforeach; ?>
+    </ul>
+<?php endif; ?>

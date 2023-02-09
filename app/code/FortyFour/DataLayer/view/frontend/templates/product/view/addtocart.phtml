@@ -1,0 +1,67 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+
+$config = $block->getLayout()->createBlock(\Magento\Config\Block\System\Config\Form::class);
+$configValue = $config->getConfigValue('coke_bundledControls/bundled_controls/bundled_controls_sku');
+?>
+<?php $_product = $block->getProduct(); ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php if ($_product->isSaleable()) :?>
+    <div class="box-tocart">
+        <div class="fieldset">
+            <?php if ($block->shouldRenderQuantity()) :?>
+                <div class="field qty">
+                    <label class="label" for="qty"><span><?= $block->escapeHtml(__('Qty')) ?></span></label>
+                    <div class="control">
+                        <input type="number"
+                               name="qty"
+                               id="qty"
+                               min="0"
+                               value="<?= $block->getProductDefaultQty() * 1 ?>"
+                               title="<?= $block->escapeHtmlAttr(__('Qty')) ?>"
+                               class="input-text qty"
+                               data-validate="<?= $block->escapeHtmlAttr(json_encode($block->getQuantityValidators())) ?>"
+                        />
+                    </div>
+                </div>
+            <?php endif; ?>
+            <div class="actions">
+                <button type="submit"
+                        title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
+                        class="action primary tocart"
+                        id="product-addtocart-button" disabled
+                        data-mage-init='{
+                            "FortyFour_DataLayer/js/action/brand": {
+                                "brand": "<?= $block->escapeHtml($_product->getAttributeText('brand')) ?>",
+                                "product_name": "<?= $block->escapeHtml($_product->getName()) ?>"
+                            }
+                        }'
+                >
+                    <span><?= $block->escapeHtml($buttonTitle) ?></span>
+                </button>
+                <?= $block->getChildHtml('', true) ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/js/validate-product": {}
+        },
+
+        "*": {
+            "Magento_Checkout/js/bundled_controls": {
+                "addToCartMessage":"<?= __('The order cannot proceed') ?>",
+                "bundledControlMessage":"<?= __('Cannot be included in the package') ?>",
+                "pleaseEmptyCart":"<?= __('Please empty cart') ?>",
+                "bundledControlsSku":"<?= $configValue ?>"
+            }
+        }
+    }
+</script>

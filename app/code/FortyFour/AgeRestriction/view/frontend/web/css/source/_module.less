@@ -1,0 +1,58 @@
+& when (@media-common = true) {
+    .agerestriction-invalid-index {
+        .page-main {
+            .page-title-wrapper {
+                display: none;
+            }
+        }
+    }
+
+    .agerestriction-index-index {
+        .page-main {
+            .page-title-wrapper {
+                display: none;
+            }
+        }
+
+        .ui-datepicker {
+            min-width: 300px;
+        }
+    }
+
+    .age-restriction-verify-age {
+        &.is-not-valid {
+            background: rgba(0, 0, 0, .95);
+            height: 100vh;
+            position: fixed;
+            width: 100vw;
+            z-index: 500;
+        }
+
+        .store-logo {
+            height: auto;
+            margin-bottom: 40px;
+            max-width: 150px;
+        }
+    }
+
+    .age-restriction-verify-age-popup {
+        background: white;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 60px;
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+
+        .subheading {
+            margin-top: 0;
+        }
+
+        .field,
+        .actions {
+            margin: 20px 0;
+        }
+    }
+}

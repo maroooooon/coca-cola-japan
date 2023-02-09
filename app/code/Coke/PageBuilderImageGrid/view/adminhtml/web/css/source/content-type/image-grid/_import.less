@@ -1,0 +1,40 @@
+//
+//  Image Grid Admin Styles
+//  _____________________________________________
+
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+    .icon-pagebuilder-image-grid {
+        content: url("@{baseDir}Coke_PageBuilderImageGrid/css/images/content-type/image-grid/appearance/icon-pagebuilder-image-grid.svg");
+        width: 18px;
+        height: 18px;
+        margin-bottom: -3px;
+    }
+    .pagebuilder-content-type.pagebuilder-image-grid {
+        min-height: 300px;
+
+        // Grid Title
+        .image-grid-title {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .element-children {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            column-gap: 20px;
+            row-gap: 10px;
+            .pagebuilder-drop-indicator {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

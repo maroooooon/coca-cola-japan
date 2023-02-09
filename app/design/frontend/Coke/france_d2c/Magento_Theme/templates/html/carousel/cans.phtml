@@ -1,0 +1,61 @@
+<?php
+$viewModel = $block->getData('viewModel');
+$cans = $viewModel->getCansForCarousel();
+$types = $viewModel->getCanTypes();
+?>
+
+<section id="cans" class="category-carousel coca-cola">
+    <div id="can-carousel" class="carousel" style="opacity: 0;transition: opacity 0.5s ease;">
+        <?php foreach($cans as $can): ?>
+            <div class="item" data-url="<?= $can['url']; ?>">
+                <div class="image">
+                    <?php foreach($can['images'] as $img): ?>
+                        <img src="<?= $img['url'] ?>"
+                             alt="<?= $can['name'] ?>"
+                             data-type="<?= $img['type']; ?>" />
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <div class="can-selection">
+        <div class="top">
+            <strong><?= __("Sélectionnez votre goût"); ?></strong>
+        </div>
+        <div class="middle">
+        <?php foreach($types as $type): 
+            $dataType = str_replace(' ', '-', strtolower($type['label']))
+        ?>
+            <button class="can-toggle" data-type="<?= $dataType; ?>" data-id="<?= $type['value']; ?>">
+                <div class="can-img">
+                    <?php if($dataType === 'coca-cola'): ?>
+                        <img alt="Coca-Cola" src='<?= $this->getViewFileUrl('images/coca-cola.jpeg'); ?>' />
+                    <?php endif; ?>
+                    <?php if($dataType === 'coca-cola-sans-sucres'): ?>
+                        <img alt="Coca-Cola" src='<?= $this->getViewFileUrl('images/coca-cola-sans-sucres.jpeg'); ?>' />
+                    <?php endif; ?>
+                </div>
+                <div class="can-title">
+                    <strong><?= __($type['label']); ?></strong>
+                </div>
+            </button>
+        <?php endforeach; ?>
+        </div>
+        <div class="bottom">
+            <strong><?= __("Il est temps de passer à la création !"); ?></strong>
+            <div class="arrow-button">
+                <button id="canCta" class="pagebuilder-button-secondary" type="button"><?= __("CRÉEZ VOTRE CANETTE ICI"); ?></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/x-magento-init">
+    {
+        "#cans": {
+            "cans": {
+                "types": <?= json_encode($types); ?>
+            }
+        }
+    }
+</script>

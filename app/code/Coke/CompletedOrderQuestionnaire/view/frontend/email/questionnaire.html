@@ -1,0 +1,69 @@
+<!--@subject {{trans "【アンケートご協力のお願い】%store_name モニターキャンペーン" store_name=$store_data.name |raw}} @-->
+<!--@vars {
+"var store_data.name": "Store Name",
+"var order.increment_id": "Order Increment Id",
+"var order.customer_email": "Customer Email",
+"var customer_name": "Customer Name",
+"var delivery_date": "Delivery Date"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-information">
+        <td>
+            <p>
+                ■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■■□■□■□■□■<br />
+<br />
+                【アンケートご協力のお願い】 My Coke Store モニターキャンペーン [所要時間：5分程度]<br />
+<br />
+                ■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■■□■□■□■□<br />
+<br />
+                こんにちは。My Coke Storeです。<br />
+                先日はモニターキャンペーンへのエントリー、および<br />
+                クーポンのご利用ありがとうございました。<br />
+<br />
+                モニターキャンペーンでクーポンをご利用頂いた皆様にお願いしているアンケートのご案内です。<br />
+                ※既にご回答・ご連絡を差し上げているお客様にも配信されている可能性があります。予めご了承ください。<br />
+<br />
+                みなさまからいただく貴重なご意見は、<br />
+                今後のサービス向上に活かして参ります。<br />
+                また、改善の内容については、サイト上でもご案内をしていく予定です。<br />
+<br />
+                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br />
+<br />
+                アンケートの回答期間は2022年2月1日(火)～2月28日(月)です。<br />
+<br />
+                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br />
+                ◆アンケートにご協力いただきたい方<br />
+                ・本メールをお受け取りになったご本人様<br />
+<br />
+                ◆アンケートへは、下記URLよりログインしてお答えください。<br />
+<br />
+                ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝<br />
+                <a href="https://mycs.qualtrics.com/jfe/form/SV_d13tXrSWKshahxk">https://mycs.qualtrics.com/jfe/form/SV_d13tXrSWKshahxk</a><br />
+                ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝<br />
+<br />
+                なお、アンケートの最後に、後日実施するインタビューへのご協力可否のお伺いを記載しております。<br />
+                ご応募を多数いただきました場合は、当社の任意で選定をさせていただき、ご協力いただく方にのみご連絡をさせていただきます。<br />
+                インタビューに参加いただく方には、謝礼としてQUOカードをプレゼントする予定ですので、是非エントリーをいただければ幸いです。<br />
+                ____________________________________________________________________<br />
+<br />
+                みなさまのご意見を心よりお待ちしております！<br />
+                ____________________________________________________________________<br />
+<br />
+                My Coke Store：<a href="https://mycokestore.cocacola.co.jp/">https://mycokestore.cocacola.co.jp/</a><br />
+                お客様サポートセンター：<a href="https://mycokestore.zendesk.com/hc/ja/requests/new">https://mycokestore.zendesk.com/hc/ja/requests/new</a><br />
+<br />
+                ・お問合せをいただく際には、「モニターキャンペーンのアンケート」についてと<br />
+                お知らせいただきますようお願いいたします。<br />
+<br />
+                ・このメールはモニターキャンペーンに応募いただいて<br />
+                いる方にお送りしています。<br />
+            </p>
+        </td>
+    </tr>
+</table>
+
+
+{{template config_path="design/email/footer_template"}}

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_form_template_handle"/>
+    <body>
+        <referenceBlock name="customer_address_edit">
+            <arguments>
+                <argument name="check_attributes_on_render" xsi:type="array">
+                    <item name="telephone" xsi:type="string">telephone</item>
+                    <item name="company" xsi:type="string">company</item>
+                </argument>
+                <argument name="address_restriction" xsi:type="object">FortyFour\ShippingAddressRestriction\ViewModel\Customer\Address</argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

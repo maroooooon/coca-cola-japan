@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="sales_email_order_message_denied_template"
+              label="Message Denied"
+              file="order_rejected.html"
+              type="html"
+              module="CokeEurope_PersonalizedProduct"
+              area="frontend"/>
+    <template id="sales_email_order_message_approved_template"
+              label="Message Approved"
+              file="order_approved.html"
+              type="html"
+              module="CokeEurope_PersonalizedProduct"
+              area="frontend"/>
+</config>

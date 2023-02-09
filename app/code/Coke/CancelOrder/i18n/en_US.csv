@@ -1,0 +1,5 @@
+"Cancel Order","Cancel Order",module,Coke_CancelOrder
+"Cancel Order #%1","Cancel Order #%1",module,Coke_CancelOrder
+"Are you sure you want to cancel your order? This action cannot be undone.","Are you sure you want to cancel your order? This action cannot be undone.",module,Coke_CancelOrder
+"Canceling this order will not cancel your subscription.","Canceling this order will not cancel your subscription.",module,Coke_CancelOrder
+"Sorry, we are unable to cancel the order.","Sorry, we are unable to cancel the order.",module,Coke_CancelOrder

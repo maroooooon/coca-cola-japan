@@ -1,0 +1,92 @@
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+    .page-layout-personalized-product {
+        .swatch-attribute {
+            display: none;
+            margin-bottom: 20px;
+            // Label
+            .swatch-attribute-label {
+                color: #727272;
+                font-size: 18px;
+                font-weight: 400;
+            }
+            // Options
+            .swatch-attribute-options {
+                margin: 0;
+                margin-top: 20px;
+            }
+            // Hide Selected Option
+            .swatch-attribute-selected-option {
+                display: none;
+            }
+            // Image Swatch
+            .swatch-option.image {
+                padding: 0;
+                background-size: cover !important;
+                background-repeat: no-repeat;
+            }
+            // Brand
+            &.brand_swatch {
+                .swatch-option.image {
+                    max-width: 50px;
+                    max-height: 50px;
+                    border-radius: 50%;
+                }
+            }
+            // Package
+            &.package_bev_type {
+                .swatch-option.image {
+                    max-width: 250px;
+                    max-height: 74px;
+                }
+            }
+            // Pattern
+            &.pattern {
+                .swatch-option.image {
+                    max-width: 100px;
+                    max-height: 68px;
+                }
+            }
+
+            // Active
+            &.active {
+                display: block;
+            }
+        }
+    }
+}
+
+//  Desktop
+//  _____________________________________________
+@media only screen and (min-width: @screen__m) {
+    .page-layout-personalized-product {
+        .swatch-attribute {
+            // Package
+            &.package_bev_type {
+                .swatch-option.image {
+                    width: 250px;
+                    height: 74px;
+                    min-width: 250px;
+                    max-width: 250px;
+                }
+            }
+        }
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+@media only screen and (max-width: @screen__m) {
+    .page-layout-personalized-product {
+        .swatch-attribute {
+            // Package
+            &.package_bev_type {
+                .swatch-option.image {
+                    max-width: 150px;
+                    max-height: 44px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="Coke_CompletedOrderQuestionnaire::sendReminder" xsi:type="object">Coke\CompletedOrderQuestionnaire\Console\Command\SendReminder</item>
+                <item name="Coke_CompletedOrderQuestionnaire::sendTocAlert" xsi:type="object">Coke\CompletedOrderQuestionnaire\Console\Command\SendTocAlert</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,135 @@
+& when (@media-common = true) {
+    .account {
+        .main {
+            a {
+                span {
+                    color: @color-red;
+                }
+            }
+        }
+
+        .block-title {
+            border-bottom: 1px solid @color-gray-middle2;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+
+            strong {
+                font-size: 2.5rem;
+                font-weight: @font-weight__regular;
+            }
+        }
+
+        .box {
+            .box-actions {
+                .action {
+                    &:nth-child(2) {
+                        &::before {
+                            border-left: 1px solid #a6a6a6;
+                            content: '';
+                            display: inline-block;
+                            height: 12px;
+                            margin: 0 10px;
+                            vertical-align: -1px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .account-nav-content {
+            .item {
+                &:not(current) {
+                    a {
+                        color: gray;
+                    }
+                }
+            }
+        }
+
+        .form-address-edit,
+        .form-edit-account {
+            clear: both;
+
+            .legend {
+                margin-left: 0;
+            }
+
+            .field {
+                &.telephone {
+                    .validator {
+                        width: 100% !important;
+                    }
+                }
+
+                &.choice {
+                    &::before {
+                        display: none;
+                    }
+                }
+
+                &:not(.choice) {
+                    > .control {
+                        width: auto;
+                        float: none;
+                    }
+
+                    > label {
+                        float: none;
+                        font-weight: @font-weight__regular;
+                        text-align: left;
+                        width: auto;
+                    }
+                }
+            }
+
+            .fieldset {
+                margin-bottom: 80px;
+
+                > .field {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}
+
+// mobile
+//.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+//}
+
+// desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .account {
+        .page-title-wrapper {
+            .page-title {
+                margin-top: 0;
+
+                span {
+                    font-weight: @font-weight__bold;
+                }
+            }
+        }
+
+        .form-address-edit,
+        .form-edit-account {
+            > .fieldset {
+                float: left;
+                width: 48%;
+
+                &:nth-child(2) {
+                    float: right;
+                }
+            }
+
+            .actions-toolbar {
+                margin-left: 0 !important;
+
+                &::before {
+                    clear: both;
+                    content: '';
+                    display: table;
+                }
+            }
+        }
+    }
+}

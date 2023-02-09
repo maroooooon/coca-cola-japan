@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="voucher_voucher_email_template"
+              label="Send Vouchers Email"
+              file="voucher_email.html"
+              type="html"
+              module="FortyFour_Voucher"
+              area="frontend"/>
+</config>

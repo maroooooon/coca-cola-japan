@@ -1,0 +1,76 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/* @var $block \Magento\Catalog\Block\Product\View\Options */
+$viewModel = $block->getData('viewModel');
+$options = $block->decorateArray($block->getOptions());
+$product = $block->getProduct();
+$productId = $product->getId();
+$productSku = $product->getSku();
+//$canSkus = $viewModel->getCanSkus();
+$labels = $product->getSubtitle() ? explode('…', $product->getSubtitle()) : null;
+?>
+<?php if ($note = $product->getData('note')): ?>
+    <div class="product-note-wrapper">
+        <p><?= $block->escapeHtml($note); ?></p>
+    </div>
+<?php endif; ?>
+<?php if (count($options)) :?>
+    <script type="text/x-magento-init">
+        {
+            "#product_addtocart_form": {
+                "priceOptions": {
+                    "optionConfig": <?= /* @noEscape */ $block->getJsonConfig() ?>,
+                    "controlContainer": ".field",
+                    "priceHolderSelector": "[data-product-id='<?= $block->escapeHtml($productId) ?>'][data-role=priceBox]"
+                }
+            },
+            "#maincontent": {
+                "productPreview": {
+                    "sku": "<?= $block->escapeHtml($productSku) ?>",
+                    "label_pos_offset": "<?= $product->getData('label_pos_offset'); ?>",
+                    "label_max_width": "<?= $product->getData('label_max_width'); ?>"
+                }
+            }
+        }
+    </script>
+    <?php if($labels && $labels[0]): ?>
+        <strong class="phrase-label"><?= $labels[0]; ?></strong>
+    <?php endif; ?>
+    <?php foreach ($options as $index => $option) : ?>
+        <div class="phrase line-<?= $index; ?>">
+            <?= $block->getOptionHtml($option) ?>
+        </div>
+    <?php endforeach; ?>
+    <?php if($labels && $labels[1]): ?>
+        <strong class="phrase-label"><?= $labels[1]; ?></strong>
+    <?php endif; ?>
+    <script>
+        require([
+            "jquery",
+            "mage/mage"
+        ], function($){
+            var dataForm = $('#product_addtocart_form');
+            dataForm.mage('validation', {
+                errorPlacement: function(error, element) {
+                    if (element.hasClass('phraseInput')) {
+                        var parent = $(element).closest('.phrase');
+                        $(parent).addClass('invalid');
+                        $(parent).find('.message').html(error).show();
+                    } else if(element.hasClass('swatch-input')) {
+                        if (element.data().attrName === "brand_swatch" && error.hasClass('mage-error')) {
+                            $(element).after('<div for="' + element.data().selector + '" class="mage-error"><?= __('Please select your favorite type of brand in 1.') ?></div>');
+                        } else if (element.data().attrName === "personalized_bottle_label" && error.hasClass('mage-error')) {
+                            $(element).after('<div for="' + element.data().selector + '" class="mage-error"><?= __('Please select the label in 2.') ?></div>');
+                        } else {
+                            $(element).after(error);
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+<?php endif; ?>

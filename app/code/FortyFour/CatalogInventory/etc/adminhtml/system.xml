@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="cataloginventory">
+            <group id="options">
+                <field id="max_qty_entire_cart" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Maximum Qty Allowed for the Entire Shopping Cart</label>
+                    <validate>validate-number validate-greater-than-zero</validate>
+                </field>
+            </group>
+            <group id="item_options">
+                <field id="max_sale_qty" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Maximum Qty Allowed in Shopping Cart</label>
+                    <validate>validate-number validate-greater-than-zero</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

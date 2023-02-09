@@ -1,0 +1,65 @@
+<?php
+/**
+ * @var \Aheadworks\Sarp2\Block\Customer\Subscriptions\Edit\NextPaymentDate $block
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Coke\Sarp2\ViewModel\NextPaymentDate $viewModel
+ */
+
+$viewModel = $block->getViewModel();
+$profile = $viewModel->getProfile();
+$nextPaymentDate = $block->getNextPaymentDate();
+$futurePaymentDate = $viewModel->getFuturePaymentDate($profile, $block->getNextPaymentDate());
+?>
+
+<div class="aw-sarp2__skip-next-payment-date-form">
+    <p class="label" for="next-payment-date">
+        <span><?= $escaper->escapeHtml(__('Next Payment Date: %1', $nextPaymentDate)) ?></span>
+    </p>
+    <button class="action primary"
+            title="<?= $escaper->escapeHtml(__('Change Subscription Payment Date')) ?>"
+            data-mage-init='{
+                "Coke_Sarp2/js/skip-next-payment-date/modal": {
+                    "modalSelector": "#skip-next-payment-date-modal-content",
+                    "closeModalSelector": "#skip-next-payment-date-modal-content .close-modal",
+                    "submitSelector": "#skip-next-payment-date-modal-content .actions .skip-next-payment-date",
+                    "formSelector": "#skip-next-payment-date-form"
+                }
+            }'>
+        <span><?= $escaper->escapeHtml(__('Skip')) ?></span>
+    </button>
+    <form class="form validate skip-next-payment-date-form"
+          action="<?= $escaper->escapeUrl($viewModel->getSaveSkipPaymentDateUrl($profile->getId())) ?>"
+          method="post"
+          id="skip-next-payment-date-form">
+        <fieldset class="fieldset">
+            <input type="hidden"
+                   name="next-payment-date"
+                   class="input-text"
+                   value="<?= /** @noEscape  */ $futurePaymentDate ?>" />
+        </fieldset>
+    </form>
+</div>
+
+<div class="skip-next-payment-date-modal-wrapper" style="display:none;">
+    <div id="skip-next-payment-date-modal-content" class="skip-next-payment-date-modal-content">
+
+        <h3 class="heading"><?= $escaper->escapeHtml(__('Skip this Subscription')) ?></h3>
+        <p><?= $escaper->escapeHtml(__('Are you sure you want to skip this Subscription Payment Date? This action cannot be undone.')) ?></p>
+        <p><?= $escaper->escapeHtml(__('Your next Subscription Payment Date will be: %1', $futurePaymentDate)) ?></p>
+
+        <div class="actions">
+            <div class="primary">
+                <a href="#"
+                   class="action primary submit skip-next-payment-date">
+                    <span><?= $escaper->escapeHtml(__('Yes')) ?></span>
+                </a>
+            </div>
+            <div class="secondary">
+                <a href="#"
+                   class="action secondary close-modal">
+                    <span><?= $escaper->escapeHtml(__('No')) ?></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

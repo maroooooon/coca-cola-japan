@@ -1,0 +1,44 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Customer\Block\Form\Login $block */
+?>
+<?php
+/**
+ * Customer login form template
+ *
+ * @see \Magento\Customer\Block\Form\Login
+ * @var $block \Magento\Customer\Block\Form\Login
+ * @var $resolutionsModel \Coke\OLNB\ViewModel\Resolutions
+ */
+?>
+<?php $cds = $this->helper('Coke\Cds\Helper\Cds'); ?>
+<?php $resolutionsModel = $block->getData('resolution_view_model'); ?>
+<div class="block block-customer-form block-customer-login">
+    <p><?= $block->escapeHtml(__('If you have an account, sign in with your email address.')) ?></p>
+    <div class="block-content" aria-labelledby="block-customer-login-heading">
+        <div id='ces-login-form' class='cds-form form form-login'></div>
+        <p class="terms"><?= $block->escapeHtml(__('By logging in, you agree to Coca Cola\'s Terms of use and Privacy Policy')) ?></p>
+        <div id='ces-social-login-form' class="cds-form"></div>
+        <div id='cds-merge-account' class="cds-form"></div>
+        <div id='cds-post-login' class="cds-form"></div>
+        <p class="forgotten-pw"><a href="<?= $block->escapeUrl($block->getForgotPasswordUrl()) ?>"><span><?= $block->escapeHtml(__('Forgot Your Password?')) ?></span></a></p>
+        <p class="create-account"><?= __('Not a member?') ?>
+            <a href="<?= /* @escapeNotVerified */ $block->getUrl('customer/account/create') ?>"><span><?= $block->escapeHtml(__('Join Us')) ?></span></a><br>
+            <a href="<?= /* @escapeNotVerified */ $block->escapeUrl($resolutionsModel->getResolutionCategoryUrl()) ?>"><span><?= $block->escapeHtml(__('Continue without log in')) ?></span></a>
+        </p>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#ces-login-form": {
+            "Coke_Cds/js/pages/sign-in": {
+                "loginId": "ces-login-form",
+                "postLoginId": "cds-post-login",
+                "socialLoginId": "ces-social-login-form",
+                "mergeAccountId": "cds-merge-account"
+            }
+        }
+    }
+</script>

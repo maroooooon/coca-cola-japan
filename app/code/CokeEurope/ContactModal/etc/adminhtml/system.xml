@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="coke_europe" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="990" translate="label">
+            <label>Europe</label>
+            <tab>Coke</tab>
+            <resource>CokeEurope_ContactModal::config</resource>
+            <group id="contact_modal" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1" translate="label">
+                <label>Contact Modal</label>
+                <field id="enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1" translate="label comment" type="select">
+                    <label>Enable</label>
+                    <comment>Select Yes to enable the contact modal for this store view.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="message" type="textarea" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Message</label>
+					<comment>Enter the message to display in the contact modal for this store view.</comment>
+				</field>
+            </group>
+        </section>
+    </system>
+</config>

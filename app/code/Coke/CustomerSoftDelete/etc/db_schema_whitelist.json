@@ -1,0 +1,8 @@
+{
+    "customer_entity": {
+        "column": {
+            "original_email": true,
+            "email": true
+        }
+    }
+}

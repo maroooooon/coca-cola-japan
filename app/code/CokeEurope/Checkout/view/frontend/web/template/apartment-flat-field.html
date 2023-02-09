@@ -1,0 +1,20 @@
+<div class="field street" data-bind="attr: {style: 'margin-bottom: 10px'}">
+    <label for="apartment-flat-field" class="label not-required"><span></span></label>
+    <div class="control">
+        <div class="field street">
+            <input type="text"
+                   name="apartment_flat_field"
+                   title=""
+                   id="apartment-flat-field"
+                   class="input-text "
+                   data-bind="
+                   value: value,
+                    valueUpdate: 'keyup',
+					attr: {
+					    name: element.dataScope,
+						placeholder: $t('Flat / Unit / Apartment')
+					}"
+            />
+        </div>
+    </div>
+</div>

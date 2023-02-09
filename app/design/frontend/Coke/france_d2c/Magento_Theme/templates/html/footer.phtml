@@ -1,0 +1,56 @@
+<?php /** @var \Magento\Framework\View\Element\Template $block */ ?>
+<footer id="site-footer">
+    <div class="container">
+        <div class="layout">
+            <div class="column left">
+                <?php if ($this->getChildHtml('left')) : ?>
+                    <nav>
+                        <?= $this->getChildHtml('left'); ?>
+                    </nav>
+                <?php endif; ?>
+                <div class="below-links">
+                    <div class="logo">
+                        <img src="<?= $this->getViewFileUrl('images/coca-cola-logo-white.svg'); ?>" />
+                    </div>
+                    <div class="social">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="https://www.facebook.com/cocacolafrance/" title="<?= __('Facebook'); ?>" target="_blank">
+                                        <img src="<?= $this->getViewFileUrl('images/facebook.svg'); ?>" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/cocacolafr" title="<?= __('Twitter'); ?>" target="_blank">
+                                        <img src="<?= $this->getViewFileUrl('images/twitter.svg'); ?>" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://instagram.com/cocacolafr" title="<?= __('Instagram'); ?>" target="_blank">
+                                        <img src="<?= $this->getViewFileUrl('images/instagram.svg'); ?>" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="column right">
+                <div class="above-links">
+                    <p><?= __('Ce service est fourni par'); ?></p>
+                    <img src="<?= $this->getViewFileUrl('images/tessi-logo-white.svg'); ?>" />
+                </div>
+                <?php if ($this->getChildHtml('right')) : ?>
+                    <nav>
+                        <?= $this->getChildHtml('right'); ?>
+                    </nav>
+                <?php endif; ?>
+            </div>
+        </div>
+        <?php if ($this->getChildHtml('bottom')) : ?>
+            <div class="footer-bottom">
+                <?= $this->getChildHtml('bottom'); ?>
+            </div>
+        <?php endif; ?>
+    </div>
+</footer>

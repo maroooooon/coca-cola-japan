@@ -1,0 +1,23 @@
+<div class="field dob" style="display: none;">
+    <label class="label" for="dob"><span><?= $block->escapeHtml(__('Date of Birth')) ?></span></label>
+    <div class="control">
+        <label>
+            <select name="day" id="dob-day">
+                <option value="none" selected="selected">None</option>
+            </select>
+            <?= $block->escapeHtml(__('Day')) ?>
+        </label>
+        <label>
+            <select name="month" id="dob-month">
+                <option value="none" selected="selected">None</option>
+            </select>
+            <?= $block->escapeHtml(__('Month')) ?>
+        </label>
+        <label>
+            <select name="year" id="dob-year">
+                <option value="none" selected="selected">None</option>
+            </select>
+            <?= $block->escapeHtml(__('Year')) ?>
+        </label>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <coke_bundledControls>
+            <bundled_controls>
+                <enable>1</enable>
+                <bundled_controls_sku>SKU-Sub-1-regcoke-24pz</bundled_controls_sku>
+            </bundled_controls>
+        </coke_bundledControls>
+        <coke_Japan>
+            <StoreName>
+                <enable>0</enable>
+            </StoreName>
+        </coke_Japan>
+    </default>
+    <websites>
+        <jp_marche>
+            <coke_Japan>
+                <StoreName>
+                    <enable>1</enable>
+                </StoreName>
+            </coke_Japan>
+        </jp_marche>
+    </websites>
+</config>

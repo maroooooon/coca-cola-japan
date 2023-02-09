@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="coke_customer" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Customers</label>
+            <tab>Coke</tab>
+            <resource>Magento_Customer::config_customer</resource>
+            <group id="dob" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Date of Birth Options</label>
+                <field id="min_age_validation" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Minimum Age Required</label>
+                    <validate>required-entry validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="save_dob" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Save Validated DOB</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="toc_link" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Url Key of Terms and Conditions Page</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

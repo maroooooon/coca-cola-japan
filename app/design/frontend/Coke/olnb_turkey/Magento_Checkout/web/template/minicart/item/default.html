@@ -1,0 +1,78 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<li class="item product product-item" data-role="product-item">
+    <div class="product">
+        <!-- ko if: product_has_url -->
+        <a data-bind="attr: {href: product_url, title: product_name}" tabindex="-1" class="product-item-photo">
+            <!-- ko foreach: $parent.getRegion('itemImage') -->
+                <!-- ko template: {name: getTemplate(), data: item.product_image} --><!-- /ko -->
+            <!-- /ko -->
+        </a>
+        <!-- /ko -->
+        <!-- ko ifnot: product_has_url -->
+        <span class="product-item-photo">
+            <!-- ko foreach: $parent.getRegion('itemImage') -->
+                <!-- ko template: {name: getTemplate(), data: item.product_image} --><!-- /ko -->
+            <!-- /ko -->
+        </span>
+        <!-- /ko -->
+
+        <div class="product-item-details">
+            <div class="top-row-wrap">
+                <strong class="product-item-name">
+                    <!-- ko if: product_has_url -->
+                    <a data-bind="attr: {href: product_url}, html: product_name"></a>
+                    <!-- /ko -->
+                    <!-- ko ifnot: product_has_url -->
+                        <!-- ko text: product_name --><!-- /ko -->
+                    <!-- /ko -->
+                </strong>
+            </div>
+
+            <!-- ko if: options.length -->
+            <ul class="item-options">
+                <!-- ko foreach: { data: options, as: 'option' } -->
+                <li>
+                    <span class="label"><!-- ko text: option.label --><!-- /ko --></span>
+                    <span class="values">
+                        <!-- ko if: Array.isArray(option.value) -->
+                            <span data-bind="html: option.value.join('<br>')"></span>
+                        <!-- /ko -->
+                        <!-- ko if: (!Array.isArray(option.value) && option.option_type == 'file') -->
+                            <span data-bind="html: option.value"></span>
+                        <!-- /ko -->
+                        <!-- ko if: (!Array.isArray(option.value) && option.option_type != 'file') -->
+                            <span data-bind="text: option.value"></span>
+                        <!-- /ko -->
+                    </span>
+                </li>
+                <!-- /ko -->
+            </ul>
+            <!-- /ko -->
+
+            <div class="actions">
+
+                <div class="product actions item-actions">
+                    <!-- ko if: is_visible_in_site_visibility -->
+                    <div class="primary">
+                        <a data-bind="attr: {href: configure_url, title: $t('Edit item')}" class="action edit">
+                            <i class="ion ion-md-create"></i>
+                        </a>
+                    </div>
+                    <!-- /ko -->
+                    <div class="secondary">
+                        <a href="#" data-bind="attr: {'data-cart-item': item_id, title: $t('Remove item')}"
+                           class="action delete">
+                            <i class="ion ion-ios-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</li>

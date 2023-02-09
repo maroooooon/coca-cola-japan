@@ -1,0 +1,40 @@
+<?php
+/**
+ * @var Magento\Framework\View\Element\Template $block
+ */
+?>
+<section id="order-history">
+    <div class="custom-table recent-orders">
+        <div class="table-actions">
+            <strong><?= /* @noEscape */ __('Recent Orders'); ?></strong>
+            <div class="view-all">
+                <a href='<?= /* @noEscape */ $block->getUrl('company/order/history'); ?>' title='<?= /* @noEscape */ __('View All'); ?>'>
+                    <span><?= /* @noEscape */ __('View All'); ?></span>
+                </a>
+            </div>
+        </div>
+        <div class="table-content">
+            <div id="order-history-table"></div>
+            <div id="order-history-loader" class="table-loader">
+                <div class="spinner"></div>
+            </div>
+            <div id="order-history-empty" class="no-results">
+                <p><?= /* @noEscape */ __('No results found..'); ?></p>
+                <a href="<?= /* @noEscape */ $block->getUrl('products'); ?>">
+                    <button><?= /* @noEscape */ __('Start Shopping'); ?></button>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/x-magento-init">
+    {
+        "#order-history": {
+            "Coke_Japan/js/order/history": {
+                "size": <?= /* noEscape */ $block->getData('size'); ?>,
+                "action": "<?= /* noEscape */ $block->getUrl('company/actions/getorderhistory'); ?>"
+            }
+        }
+    }
+</script>

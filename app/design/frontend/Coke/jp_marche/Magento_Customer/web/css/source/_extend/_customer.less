@@ -1,0 +1,281 @@
+//  Common
+& when (@media-common = true) {
+    .account{
+        &.page-layout-2columns-left {
+            .column.main{
+                padding-left: 0;
+            }
+        }
+
+        .page-title-wrapper {
+            > .page-title {
+                float: none;
+            }
+        }
+
+        .page-main{
+            .block{
+                .block-title{
+                    border-bottom: 2px solid @coke-turquoise;
+                    margin-bottom: 20px;
+                    display: flex;
+                    align-items: end;
+                    padding-bottom: 15px;
+                    strong{
+                        font-size: 18px;
+                        color: @coke-brown;
+                        font-weight: 700;
+                    }
+                    .action{
+                        .lib-button-gray();
+                        border-radius: 50px;
+                        margin-left: auto !important;
+                    }
+                }
+                .block-content{
+                    .box{
+                        .box-title{
+                            font-size: 18px;
+                        }
+                        .box-content{
+
+                        }
+                    }
+                    .box-actions{
+                        .action{
+                            .lib-button-gray();
+                            border-radius: 50px;
+                            margin-top: 10px;
+                        }
+                    }
+                }
+            }
+
+            table{
+                th,td{
+                    border-color: @coke-turquoise !important;
+                }
+                tr:not(:first-child){
+                    border-top: 1px solid @coke-turquoise;
+                }
+            }
+        }
+
+        .sidebar{
+            .block-collapsible-nav .content{
+                background: @color-white;
+            }
+            .nav.items{
+                strong{
+                    color: @coke-brown;
+                }
+                a{
+                    color: @coke-brown;
+                }
+                .sign-out{
+                    margin-top: 10px;
+                    .lib-button-gray();
+                    border-radius: 50px;
+                }
+            }
+        }
+
+        .sidebar-additional{
+            display: none;
+        }
+
+        .customer-withdrawal-modal{
+            .modal-inner-wrap{
+                max-width: 600px;
+
+                .action{
+                    max-width: 320px;
+                    margin: 20px auto 0;
+                    display: block;
+                }
+            }
+        }
+
+        &.sales-order-print {
+            .page-main {
+                .logo {
+                    display: block;
+                    margin: 30px 0;
+                }
+
+                h1{
+                    font-size: 25px;
+                }
+
+                table{
+                    th,td{
+                        border-color: @coke-dark !important;
+                    }
+                    tr:not(:first-child){
+                        border-color: @coke-dark;
+                    }
+                }
+
+                .block .block-title{
+                    border-color: @coke-dark;
+                }
+            }
+        }
+
+        .field.street .field{
+            label.label[for="street_2"]{
+                display: block;
+                position: static;
+                margin: 0 0 5px;
+                width: auto;
+                height: auto;
+                font-weight: 700;
+            }
+        }
+    }
+
+    .customer-account-login .login-container,
+    .customer-account-create{
+        .block-title,
+        legend.legend{
+            color: @color-white;
+            background: @coke-brown;
+            font-weight: 700;
+            font-size: 20px;
+            border: none;
+            padding: 10px 15px;
+            width: 100%;
+            strong{
+                font-weight: 700 !important;
+            }
+        }
+
+        .required-text-bottom{
+            color: @color-red10;
+        }
+    }
+
+    .customer-account-create{
+        .fieldset {
+            .field {
+                &.dob {
+                    margin-bottom: 10px;
+
+                    .control {
+                        display: flex;
+
+                        label {
+                            justify-content: space-between;
+                            min-width: 100px;
+                            padding-right: @indent__m;
+                            width: 20%;
+
+                            &:nth-child(1) {
+                                order: -1;
+                            }
+
+                            &:nth-child(2) {
+                                order: -2;
+                            }
+
+                            &:nth-child(3) {
+                                order: -3;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .customer-address-form {
+        form {
+            .field {
+                &.hidden {
+                    display: none !important;
+                }
+            }
+        }
+    }
+
+    .required-text-bottom {
+        color: #e02b27;
+    }
+
+    .login-container{
+        .fieldset:after{
+            content: '';
+        }
+    }
+}
+
+// Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .account{
+        .page-main{
+            .block{
+                .block-title{
+                    strong{
+                        font-size: 24px;
+                    }
+                    .action{
+                    }
+                }
+            }
+
+            #additional-addresses-table{
+                th,td{
+                    padding: 8px 5px;
+                }
+            }
+        }
+    }
+
+    .aw-sarp2-customer-subscriptions{
+        table{
+            > thead,
+            > tfoot,
+            > tbody{
+                > tr{
+                    th,
+                    td{
+                        padding-left: 5px;
+                        padding-right: 5px;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+
+        .col.products{
+            max-width: 200px;
+        }
+    }
+}
+
+// Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .account{
+        .columns {
+            .sidebar-main {
+                order: -1;
+
+                .block-collapsible-nav {
+                    margin-top: -41px;
+                    margin-bottom: 10px;
+                    position: relative;
+                }
+
+                .block-collapsible-nav-content {
+                    padding-top: 5px;
+                }
+            }
+        }
+    }
+    .control {
+        #dob-year {
+            padding: 5px 8px 4px;
+        }
+    }
+}
+

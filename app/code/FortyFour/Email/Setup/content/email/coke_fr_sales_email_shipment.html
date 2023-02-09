@@ -1,0 +1,58 @@
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">Bonjour {{trans "%name," name=$order.getCustomerName()}}</p>
+            <p>Nous vous informons que votre commande de bouteilles personnalisées à été expédiée et vous parviendra sous 3 jours ouvrés maximum.</p>
+            <p> Si vous avez des questions concernant votre commande, vous pouvez nous contacter en complétant le <a href="https://www.cocacolastore.fr/contact-us/">formulaire de contact.</a></p>
+
+            <p>Voici le détail de la commande expédiée :</p>
+
+            <h1>{{trans "Your Shipment #%shipment_id for Order #%order_id" shipment_id=$shipment.increment_id order_id=$order.increment_id}}</h1>
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>
+            {{depend comment}}
+            <table class="message-info">
+                <tr>
+                    <td>
+                        {{var comment|escape|nl2br}}
+                    </td>
+                </tr>
+            </table>
+            {{/depend}}
+            {{block class='Magento\\Framework\\View\\Element\\Template' area='frontend' template='Magento_Sales::email/shipment/track.phtml' shipment=$shipment order=$order}}
+            <table class="order-details">
+                <tr>
+                    <td class="address-details">
+                        <h3>{{trans "Billing Info"}}</h3>
+                        <p>{{var formattedBillingAddress|raw}}</p>
+                    </td>
+                    {{depend order.getIsNotVirtual()}}
+                    <td class="address-details">
+                        <h3>{{trans "Shipping Info"}}</h3>
+                        <p>{{var formattedShippingAddress|raw}}</p>
+                    </td>
+                    {{/depend}}
+                </tr>
+                <tr>
+                    <td class="method-info">
+                        <h3>{{trans "Payment Method"}}</h3>
+                        {{var payment_html|raw}}
+                    </td>
+                    {{depend order.getIsNotVirtual()}}
+                    <td class="method-info">
+                        <h3>{{trans "Shipping Method"}}</h3>
+                        <p>{{var order.getShippingDescription()}}</p>
+                    </td>
+                    {{/depend}}
+                </tr>
+            </table>
+            {{layout handle="sales_email_order_shipment_items" shipment=$shipment order=$order}}
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

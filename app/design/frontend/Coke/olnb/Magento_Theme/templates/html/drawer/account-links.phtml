@@ -1,0 +1,131 @@
+<?php /** @var \Magento\Theme\Block\Html\Header $block */ ?>
+
+<ul class="account-links" data-bind="scope: 'customer'">
+    <!-- ko if: customer().fullname  -->
+    <li data-toggle="account-links">
+        <a class="highlighted" href="<?= /* @escapeNotVerified */ $block->getUrl('customer/account') ?>">
+            <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22px" fill="none" viewBox="0 0 24 22">
+                    <path fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13.832c2.209 0 4-1.631 4-3.64 0-2.01-1.791-3.641-4-3.641-2.208 0-4 1.63-4 3.64 0 2.01 1.792 3.641 4 3.641z" clip-rule="evenodd"/>
+                    <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.631 20c-.939-1.465-3.563-2.527-6.63-2.527-3.069 0-5.693 1.062-6.632 2.527M21.368 17.24C22.397 15.717 23 13.93 23 12.012 23 6.482 18.076 2 12 2 5.925 2 1 6.482 1 12.012c0 1.918.604 3.705 1.633 5.228"/>
+                </svg>
+            </span>
+            <span class="title">
+                <span
+                    data-bind="text: new String('<?= $block->escapeHtml(__('Hello, %1!', '%1')) ?>').replace('%1', customer().fullname)">
+                </span>
+            </span>
+        </a>
+        <ul>
+            <li>
+                <a href="<?= /* @escapeNotVerified */ $block->getUrl('customer/account/edit/') ?>">
+                    <span class="icon"></span>
+                    <span class="title"><?= $block->escapeHtml(__('Account Settings')) ?></span>
+                </a>
+            </li>
+            <li>
+                <a href="<?= /* @escapeNotVerified */ $block->getUrl('stripe/customer/cards/') ?>">
+                    <span class="icon"></span>
+                    <span class="title"><?= $block->escapeHtml(__('Payment Options')) ?></span>
+                </a>
+            </li>
+            <li>
+                <a href="<?= /* @escapeNotVerified */ $block->getUrl('sales/order/history') ?>">
+                    <span class="icon"></span>
+                    <span class="title"><?= $block->escapeHtml(__('Orders')) ?></span>
+                </a>
+            </li>
+            <li>
+                <a class="log-out" href="<?= /* @escapeNotVerified */ $block->getUrl('customer/account/logout') ?>">
+                    <span class="icon"></span>
+                    <span class="title"><?= $block->escapeHtml(__('Log Out')) ?></span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <!-- /ko -->
+    <!-- ko ifnot: customer().fullname  -->
+    <li>
+        <a class="highlighted" href="<?= /* @escapeNotVerified */ $block->getUrl('customer/account') ?>">
+            <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22px" fill="none" viewBox="0 0 24 22">
+                    <path fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13.832c2.209 0 4-1.631 4-3.64 0-2.01-1.791-3.641-4-3.641-2.208 0-4 1.63-4 3.64 0 2.01 1.792 3.641 4 3.641z" clip-rule="evenodd"/>
+                    <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.631 20c-.939-1.465-3.563-2.527-6.63-2.527-3.069 0-5.693 1.062-6.632 2.527M21.368 17.24C22.397 15.717 23 13.93 23 12.012 23 6.482 18.076 2 12 2 5.925 2 1 6.482 1 12.012c0 1.918.604 3.705 1.633 5.228"/>
+                </svg>
+            </span>
+            <span class="title"><?= $block->escapeHtml(__('Sign In')) ?></span>
+        </a>
+    </li>
+    <!-- /ko -->
+    <!-- <li>
+        <a href="#">
+            <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17px" fill="none" viewBox="0 0 16 19">
+                    <path stroke="#000" stroke-miterlimit="10" stroke-width="2" d="M13.461 1H2.091c-.34 0-.605.266-.605.605v15.702c0 .241.145.46.338.556.194.097.46.073.654-.073l5.298-4.427 5.298 4.427c.121.097.242.146.387.146.097 0 .17-.025.266-.049.218-.097.34-.314.34-.556V1.605c0-.339-.267-.605-.606-.605z"/>
+                </svg>
+            </span>
+            <span class="title"><?= $block->escapeHtml(__('Save')) ?></span>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19px" fill="none" viewBox="0 0 20 22">
+                    <path stroke="#000" stroke-width="2" d="M8.313 3.459C5.386 4.204 3.25 6.81 3.25 9.94v4.47c0 .41-.337.745-.75.745-.825 0-1.5.67-1.5 1.49s.675 1.49 1.5 1.49h15c.825 0 1.5-.67 1.5-1.49s-.675-1.49-1.5-1.49c-.413 0-.75-.335-.75-.745V9.94c0-3.129-2.137-5.736-5.063-6.481v-.783C11.688 1.745 10.938 1 10 1c-.938 0-1.688.745-1.688 1.676v.783zm-.938 14.933h5.25C12.625 19.845 11.463 21 10 21s-2.625-1.155-2.625-2.608z"/>
+                </svg>
+            </span>
+            <span class="title"><?= $block->escapeHtml(__('Notifications')) ?></span>
+        </a>
+    </li> -->
+    <li>
+        <a href="<?php echo $block->getUrl(''); ?>">
+            <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="21px" fill="none" viewBox="0 0 21 21">
+                    <path stroke="#000" stroke-width="2" d="M17.47 3.942l-.021-.022-.024-.02-.45-.398c-.386-.371-.907-.57-1.426-.57-.53 0-1.063.208-1.452.596l-.492.492c-.245-.128-.496-.238-.753-.333V3.05c0-1.132-.917-2.049-2.049-2.049h-.635C9.036 1 8.12 1.917 8.12 3.049v.644c-.258.098-.507.21-.746.335l-.5-.5c-.388-.388-.922-.596-1.452-.596-.53 0-1.064.208-1.452.596l-.012.012-.01.011-.406.432c-.38.387-.583.915-.583 1.439 0 .53.208 1.064.597 1.452l.658.658c-.081.193-.154.389-.219.588H3.05C1.917 8.12 1 9.036 1 10.168v.635c0 1.132.917 2.049 2.049 2.049h.919c.065.198.137.395.218.587l-.658.658c-.804.805-.804 2.1 0 2.905l.442.441.707-.707-.707.707c.388.388.922.597 1.452.597.53 0 1.064-.209 1.452-.597l.492-.492c.245.128.496.239.754.333v.639c0 1.131.916 2.048 2.048 2.048h.635c1.132 0 2.049-.917 2.049-2.048v-.645c.257-.097.506-.21.745-.335l.5.5c.389.388.922.597 1.452.597.53 0 1.064-.209 1.453-.597l.441-.441c.388-.389.597-.922.597-1.453 0-.53-.209-1.063-.597-1.452l-.658-.658c.08-.192.154-.389.218-.587h.947c1.132 0 2.049-.917 2.049-2.049v-.616c.04-1.19-.906-2.095-2.049-2.095h-.919c-.065-.199-.138-.395-.218-.588l.658-.658c.388-.388.596-.922.596-1.452 0-.53-.208-1.064-.596-1.452zM10.5 13.06c-1.274 0-2.395-1.1-2.395-2.587S9.226 7.884 10.5 7.884c1.274 0 2.395 1.101 2.395 2.588s-1.121 2.587-2.395 2.587z"/>
+                </svg>
+            </span>
+            <span class="title"><?= $block->escapeHtml(__('How it Works')) ?></span>
+        </a>
+    </li>
+    <li>
+        <a href="<?php echo $block->getUrl('faq'); ?>">
+            <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="21" fill="none" viewBox="0 0 19 19">
+                    <path stroke="#000" stroke-miterlimit="10" stroke-width="2" d="M9.5 18c4.694 0 8.5-3.806 8.5-8.5S14.194 1 9.5 1 1 4.806 1 9.5 4.806 18 9.5 18z"/>
+                    <path fill="#000" d="M9.32 11.074c-.36 0-.674-.303-.674-.7 0-1.072.674-2.005 1.641-2.308.427-.14.72-.536.697-1.003 0-.84-.674-1.539-1.484-1.539-.81 0-1.484.7-1.484 1.54 0 .372-.292.699-.675.699-.36 0-.674-.303-.674-.7.045-1.609 1.304-2.915 2.856-2.915 1.551 0 2.81 1.306 2.81 2.915 0 1.073-.674 2.006-1.641 2.309-.427.14-.72.536-.697 1.003 0 .373-.315.7-.675.7zM9.5 14.852c.521 0 .944-.423.944-.945 0-.521-.423-.944-.944-.944-.522 0-.945.423-.945.944 0 .522.423.945.945.945z"/>
+                </svg>
+            </span>
+            <span class="title"><?= $block->escapeHtml(__('Help')) ?></span>
+        </a>
+    </li>
+</ul>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "customer": {
+                    "component": "Magento_Customer/js/view/customer"
+                }
+            }
+        }
+    }
+}
+</script>
+
+<script>
+require([
+    'jquery',
+    'domReady!'
+], function ($) {
+    $('*[data-toggle="account-links"]').on('click', function(e) {
+        e.preventDefault();
+        $('body').addClass('_drawer-open');
+    });
+
+    $('*[data-close="drawer"]').on('click', function(e) {
+        e.preventDefault();
+        $('body').removeClass('_drawer-open');
+    });
+});
+</script>

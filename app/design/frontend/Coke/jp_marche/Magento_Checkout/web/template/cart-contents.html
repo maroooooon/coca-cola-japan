@@ -1,0 +1,74 @@
+<form action="/checkout/cart/updatePost" method="post" id="form-validate">
+    <div class="cart table-wrapper">
+        <table id="shopping-cart-table" class="cart items data table">
+            <thead>
+            <tr>
+                <th class="col item" scope="col"><span data-bind="i18n: 'Item'"></span></th>
+                <th class="col price" scope="col"><span data-bind="i18n: 'Price'"></span></th>
+                <th class="col qty" scope="col"><span data-bind="i18n: 'Qty'"></span></th>
+                <th class="col subtotal" scope="col"><span data-bind="i18n: 'Subtotal'"></span></th>
+            </tr>
+            </thead>
+
+            <!-- ko foreach: { data: getDetails(), as: 'item' } -->
+            <tbody class="cart item">
+            <tr class="item-info">
+                <td data-th="i18n: 'Item'" class="col item">
+                    <a data-bind="attr: {href: item.product_url}"
+                       tabindex="-1"
+                       class="product-item-photo">
+                             <span class="product-image-container"
+                                   data-bind="attr: {'style': 'height: 160px; width: 110px;' }">
+                                    <span class="product-image-wrapper">
+                                        <img data-bind="attr: {
+                                        'src': item.product_image.src,
+                                        'width': item.product_image.width,
+                                        'height': item.product_image.height,
+                                        'alt': item.product_image.alt,
+                                        'title': item.product_image.alt
+                                        }"/>
+                                    </span>
+                             </span>
+                    </a>
+                    <div class="product-item-details">
+                        <strong class="product-item-name">
+                            <a data-bind="attr: {href: item.product_url},text:item.product_name"></a>
+                        </strong>
+                        <dl class="item-options">
+                            <!-- ko foreach: { data: item.options, as: 'option' } -->
+                            <dt data-bind="text: option.label"></dt>
+                            <dd>
+                                <!-- ko if: Array.isArray(option.value) -->
+                                <span data-bind="html: option.value.join('<br>')"></span>
+                                <!-- /ko -->
+                                <!-- ko ifnot: Array.isArray(option.value) -->
+                                <span data-bind="html: option.value"></span>
+                                <!-- /ko -->
+                                <!-- ko if: option.whitelist_status_pending -->
+                                <span class="whitelist-badge" data-bind="i18n: 'In Review'"></span>
+                                <!-- /ko -->
+                            </dd>
+                            <!-- /ko -->
+                        </dl>
+                    </div>
+                </td>
+                <td class="col price"
+                    data-th="価格"
+                    data-bind="html: item.product_price">
+                </td>
+                <td class="col qty" data-th="数量">
+                    <span data-bind="text: item.qty"></span>
+                </td>
+                <td class="col subtotal" data-th="小計(税込み)">
+                        <span class="price-including-tax" data-label="税込">
+                             <span class="cart-price">
+                                <span class="price" data-bind="text: item.product_total_price_value"></span>
+                            </span>
+                        </span>
+                </td>
+            </tr>
+            </tbody>
+            <!-- /ko -->
+        </table>
+    </div>
+</form>

@@ -1,0 +1,28 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ * @var $block \Magento\Framework\View\Element\Template
+ * @var $viewModel \Coke\PersonalizedProduct\ViewModel\Product\Personalization
+ */
+$viewModel = $block->getViewModel();
+$steps = $viewModel->getStepsConfig();
+?>
+
+<div class="personalized-product-instructions">
+    <div class="instructions-top">
+        <div class="step-title">
+            <strong id="step_title"><?= __($steps[1]['title']); ?></strong>
+        </div>
+        <div class="step-price">
+            <?= $block->getChildHtml('product.info.price', true) ?>
+        </div>
+    </div>
+    <div class="instructions-bottom">
+        <div class="step-description">
+            <p id="step_description">
+                <?= __($steps[1]['description']); ?>
+            </p>
+        </div>
+    </div>
+</div>

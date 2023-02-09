@@ -1,0 +1,464 @@
+._pdp-media-grey-bg {
+  background: @color-grey100;
+  border-radius: 9999em;
+  padding: 2rem;
+
+  > img {
+    max-width: 75%;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+  }
+}
+
+body.catalog-product-view {
+  #maincontent {
+    @media (max-width: @bp-sm-max) {
+      padding-top: 0;
+    }
+
+    @media (max-width: @bp-xs-max) {
+      padding-bottom: @grid-gutter;
+    }
+  }
+
+  #description,
+  .page-main-details {
+    display: none !important;
+  }
+
+  .mp_social_share_inline_under_cart {
+    float: none;
+    padding: 0;
+    margin: @grid-gutter 0 0;
+
+    @media (min-width: @bp-sm-min) {
+      margin: 3.5rem 0 0;
+    }
+
+    .a2a_kit {
+      margin-left: -0.5rem;
+
+      > * {
+        padding: 0.5rem 0.5rem 0;
+      }
+    }
+  }
+
+  &.turkey_turkish {
+    .message.error {
+      .message.invert();
+      .message.invert.error();
+    }
+  }
+}
+
+.pdp-wrapper {
+  @media (min-width: @bp-sm-min) {
+    .__flex(
+      @direction-mob: column;
+      @align-items-mob: flex-start;
+      @justify-content-mob: center;
+      @spacing: 5rem;
+      @spacing-mob: 0;
+      @spacing-sm: 3rem;
+      @spacing-md: 3rem;
+    );
+  }
+
+  .pdp-details {
+    @media (min-width: @bp-sm-min) {
+      text-align: left;
+    }
+  }
+  
+  .pdp-media {
+    margin-bottom: 2rem;
+
+    @media (min-width: @bp-sm-min) {
+      margin-bottom: 0;
+      width: 50%;
+    }
+  }
+}
+
+.pdp-media {
+  padding: @grid-gutter 4rem;
+
+  @media (min-width: @bp-sm-min) {
+    padding: 0;
+  }
+
+  .img-wrap {
+    pointer-events: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > img {
+      max-width: 80%;
+      transition: @transition-default;
+    }
+
+    &.has-grey-bg {
+      ._pdp-media-grey-bg
+    }
+  }
+
+  .action-skip-wrapper {
+    display: none;
+  }
+
+  // mobile stick image
+  @media (max-width: @bp-sm-max) {
+    transition: @transition-default;
+    position: sticky;
+    background: #fff;
+    z-index: 8;
+    padding-top: 0;
+
+    @media (max-width: @bp-xs-max) {
+      margin-left: -@grid-gutter;
+      margin-right: -@grid-gutter;
+    }
+  
+    &.small-img {
+      @media (max-width: @bp-xs-max) {
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+      }
+
+      .img-wrap {
+        > img {
+          max-width: 150px;
+
+          @media (max-width: 320px) {
+            max-width: 120px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.product-info-price {
+  .price {
+    font-weight: @font-brand-weight-bold;
+    color: @color-header;
+  }
+}
+
+.product-add-form {
+  @media (min-width: @bp-lg-min) {
+    max-width: 75%;
+  }
+}
+
+.box-tocart {
+  margin-top: 3rem;
+
+  .info-row {
+    @media (min-width: @bp-sm-min) {
+      display: flex;
+      align-items: flex-end;
+      width: 100%;
+      flex-direction: row-reverse;
+    }
+
+    .prices-container {
+      @media (min-width: @bp-sm-min) {
+        margin-bottom: 1.1;
+      }
+    }
+
+    .price-box {
+      @media (min-width: @bp-sm-min) {
+        margin: 0;
+      }
+    }
+
+    .qty-toggler {
+      margin-top: 1rem;
+
+      @media (min-width: @bp-sm-min) {
+        flex: 1;
+        margin-top: 0;
+        margin-right: 2rem;
+      }
+    }
+  }
+
+  .price {
+    font-weight: @font-weight-500;
+  }
+
+  .actions {
+    margin-top: 2rem;
+    text-align: center;
+
+    @media (min-width: @bp-sm-min) {
+      text-align: left;
+    }
+
+    button {
+      ._btn-size-lg();
+      ._btn-min-width-25();
+    }
+  }
+}
+
+.product-add-form {
+  position: relative;
+}
+
+.product-options-wrapper {
+  label {
+    color: @color-header;
+    font-weight: @font-weight-500;
+  }
+
+  .field .control {
+    .ui-helper-hidden-accessible {
+      color: @color-text;
+      display: block;
+      margin: -0.5rem 0 1rem;
+      line-height: 1.1;
+      font-size: @size-text-sm;
+
+      &:empty {
+        display: none;
+      }
+    }
+
+    .note {
+      color: @color-text-disabled;
+      margin-top: 0.75rem;
+
+      span {
+        color: @color-text;
+        font-weight: @font-weight-400;
+      }
+
+      &.mage-error {
+        span {
+          color: @color-error;
+        }
+      }
+    }
+  }
+
+  .step-control {
+    .control {
+      span:first-child {
+        display: none;
+      }
+    }
+  }
+
+  .field-step-1 {
+    label {
+      font-size: @size-text-xlg;
+    }
+
+    .step-control + .step-footer {
+      margin: 0.75rem 0 0;
+    }
+  }
+
+  .field-step-2 {
+    margin-top: 3rem;
+  }
+
+  .step-footer {
+    @media (min-width: @bp-xs-min) {
+      display: flex;
+      align-items: center;
+    }
+
+    label {
+      margin: 0;
+      display: block;
+
+      & + .step {
+        margin-top: 0.75rem;
+
+        @media (min-width: @bp-xs-min) {
+          margin-top: 0;
+        }
+      }
+    }
+
+    a {
+      margin-left: auto;
+      font-size: @size-text-xs;
+      font-weight: @font-weight-400;
+      ._link-black-underlined();
+
+      &.step-2 {
+        @media (min-width: @bp-xs-min) and (max-width: @bp-sm-max) {
+          margin-top: -4.4rem;
+        }
+
+        @media (min-width: @bp-md-min) {
+          margin-top: -4.4rem;
+        }
+      }
+    }
+  }
+
+  .preview-changes-wrapper {
+    margin: 0.5rem 0;
+
+    #preview-changes {
+      ._link-black-underlined();
+      font-weight: @font-weight-400;
+    }
+  }
+}
+
+.pdp-txt-details {
+  .title {
+    font-weight: @font-weight-400;
+    margin-bottom: 1.5rem;
+    text-transform: none;
+    letter-spacing: @letter-spacing-sm;
+  }
+
+  section + section {
+    margin-top: 4.5rem;
+
+    @media (min-width: @bp-lg-min) {
+      margin-top: 6rem;
+    }
+  }
+}
+
+// katy perry PDP
+.pdp-wrapper._katy-perry-pdp {
+  .pdp-media {
+    .overlays {
+      position: absolute;
+      left: -2rem;
+      top: 15px;
+      width: 90px;
+
+      @media (min-width: @bp-sm-min) {
+        left: 0;
+      }
+
+      @media (min-width: @bp-md-min) {
+        left: 22%;
+        top: 20%;
+      }
+
+      .limited-edition-badge {
+        width: 90px;
+      }
+
+      .katy-perry-logo {
+        width: 80px;
+        height: auto;
+      }
+    }
+  }
+
+  .pdp-details {
+    @media (min-width: @bp-sm-min) {
+      position: sticky;
+      top: @header-height-desktop + 3rem;
+    }
+  }
+
+  .kp-title {
+    margin-bottom: 2.5rem;
+  
+    h1 {
+      display: flex;
+      align-items: center;
+  
+      > img {
+        margin: 0;
+
+        &:last-child {
+          margin-left: 1rem;
+          width: 40px;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  .pdp-txt-details {
+    @media (max-width: @bp-sm-max) {
+      // border-top: 1px solid @color-border;
+      // margin-top: @grid-gutter;
+      padding-top: @grid-gutter;
+      padding-bottom: 4rem;
+    }
+
+    @media (min-width: @bp-sm-min) {
+      margin-top: 3rem;
+    }
+
+    @media (min-width: @bp-md-min) {
+      margin-top: 4rem;
+    }
+
+    .title {
+      margin-top: -3rem;
+      position: relative;
+      z-index: 3;
+    }
+
+    .spotlight-img {
+      background-color: @color-grey600;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      position: relative;
+      height: 220px;
+      background-image: url(../images/kp-sp.jpg);
+
+      @media (min-width: @bp-md-min) {
+        height: 260px;
+      }
+
+      @media (min-width: @bp-lg-min) {
+        height: 300px;
+      }
+
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 1;
+      }
+
+      &:before {
+        .__overlay();
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+      }
+
+      &:after {
+        z-index: 2;
+        top: auto;
+        height: 65%;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+      }
+    }
+
+    .one-logo {
+      margin-bottom: 1.5rem;
+    }
+  }
+}

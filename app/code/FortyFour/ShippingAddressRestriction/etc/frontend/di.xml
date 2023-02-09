@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="FortyFour_ShippingAddressRestriction::checkoutLayoutPlugin"
+                type="FortyFour\ShippingAddressRestriction\Plugin\CheckoutLayoutPlugin"
+                sortOrder="100" />
+    </type>
+    <type name="Magento\Customer\Block\Address\Edit">
+        <plugin name="FortyFour_ShippingAddressRestriction::customerAddressEditBlockPlugin"
+                type="FortyFour\ShippingAddressRestriction\Plugin\CustomerAddressEditBlockPlugin" />
+    </type>
+
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="FortyFour_ShippingAddressRestriction::checkoutConfigProvider"
+                      xsi:type="object">FortyFour\ShippingAddressRestriction\Model\CheckoutConfigProvider</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

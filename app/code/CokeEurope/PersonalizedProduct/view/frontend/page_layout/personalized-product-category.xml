@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
+    <update handle="1column" />
+    <move element="category.cms" destination="content" after="-" />
+    <move element="catalog.leftnav" destination="product_list_toolbar" />
+    <move element="catalog.navigation.state" destination="product_list_toolbar" />
+    <referenceContainer name="main">
+        <!-- Remove unused blocks -->
+        <referenceBlock name="breadcrumbs" remove="true" />
+        <referenceBlock name="page.main.title" remove="true" />
+        <referenceBlock name="category.products.list">
+            <action method="setTemplate" ifconfig="coke_europe/personalized_product/enabled">
+                <argument name="template" xsi:type="string">CokeEurope_PersonalizedProduct::catalog/list.phtml</argument>
+            </action>
+            <!-- Custom Toolbar-->
+            <referenceBlock name="product_list_toolbar">
+                <action method="setTemplate" ifconfig="coke_europe/personalized_product/enabled">
+                    <argument name="template" xsi:type="string">CokeEurope_PersonalizedProduct::catalog/toolbar.phtml</argument>
+                </action>
+                <!-- Sort descending by default -->
+                <action method="setDefaultDirection">
+                    <argument name="dir" xsi:type="string">desc</argument>
+                </action>
+            </referenceBlock>
+            <!-- Custom Product Renderer -->
+            <referenceBlock name="category.product.type.details.renderers">
+                <block class="Magento\Framework\View\Element\Template" name="category.product.type.details.renderers.card" as="product_card" template="CokeEurope_PersonalizedProduct::product/card.phtml" />
+            </referenceBlock>
+        </referenceBlock>
+    </referenceContainer>
+</layout>

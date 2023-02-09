@@ -1,0 +1,174 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Email extend styles
+//  _____________________________________________
+
+//  This file should be used for theme-specific styles for emails that extend or modify the styles in _email.less
+//  This will allow you to edit email styles without copying and editing the _email.less file
+
+//  Custom fonts are declared here, rather than in _email-base.less, as it allows for custom fonts to be changed/removed
+//  in custom themes.
+
+//  Importing fonts from an external CSS file, rather than embedding @font-face declarations inside the <style> tag,
+//  as the latter will cause font rendering issues if the web fonts are inaccessible.
+
+@import url("@{baseUrl}css/email-fonts.css");
+@import '_extend/_variables.less';
+
+@font-family-name__base: 'TCCC-UnityText', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@font-family__primary: 'TCCC-UnityText', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+@button-primary__background: #000;
+@button-primary__hover__background: lighten(@button-primary__background, 10%);
+@button__font-size: 16px;
+@button__border-radius: 8px;
+
+@color-gray95: #f9f9f9;
+@background-color-gray: @color-gray95;
+@coke-orange:#cc5801;
+@color-white:#fff;
+@color-black:#000;
+
+//
+//  Header
+//  ---------------------------------------------
+.header{
+    text-align: center;
+}
+
+//
+//  Footer
+//  ---------------------------------------------
+.footer{
+    background: @background-color-gray;
+
+    a{
+    }
+    .footer-title{
+        text-align: center;
+        font-size: 18px;
+        font-weight: 600;
+        margin-top: 20px;
+    }
+
+    .footer-links{
+        width: 100%;
+        margin: 0 auto;
+
+        .button{
+            width: 50%;
+            padding: 15px;
+            .inner-wrapper{
+                width: 100%;
+                td{
+                    background: transparent !important;
+                    &:hover{
+                        background: transparent !important;
+                    }
+                }
+
+                a{
+                    background: @button-primary__background;
+                    border: none;
+                    padding: 10px 15px;
+                    width: ~'calc(100% - 30px)';
+                }
+            }
+        }
+    }
+}
+
+//
+//  Buttons
+//  ---------------------------------------------
+
+.button {
+    .inner-wrapper {
+        td {
+            a {
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+
+//
+// Main Content
+//
+.main-content{
+    font-size: 16px;
+}
+
+.title-center{
+    text-align: center;
+}
+
+.badge{
+    margin-left: 20px;
+    margin-top: 10px;
+    &.badge-pending{
+        font-size: 12px;
+        letter-spacing: .8px;
+        text-transform: uppercase;
+        color: @color-white;
+        background: @coke-orange;
+        border-radius: 50px;
+        padding: 5px 10px;
+        display: inline-block;
+    }
+}
+
+.order-details{
+    background: @background-color-gray;
+    margin-bottom: 30px;
+
+    tr {
+        > .address-details,
+        > .method-info {
+            padding: @email-content__padding__base !important;
+            width: 50%;
+
+            h3{
+                text-transform: uppercase;
+                font-size: 14px;
+                font-weight: 700;
+                letter-spacing: .8px;
+            }
+        }
+    }
+}
+
+.shipment-track{
+    margin-bottom: 30px;
+    tr {
+        th{
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: .8px;
+        }
+    }
+}
+
+.message-denied-reason{
+    background: @background-color-gray;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    tr{
+        > td{
+            padding: 10px;
+            h3{
+                text-transform: uppercase;
+                font-size: 14px;
+                font-weight: 700;
+                letter-spacing: .8px;
+            }
+        }
+    }
+}

@@ -1,0 +1,62 @@
+"Drink Responsibly","Απολαύστε Υπεύθυνα"
+"Privacy Policy","Πολιτική Προστασίας Δεδομένων"
+"In order to access our site, please enter your birthday below.","Για να έχεις πρόσβαση στη σελίδα, πρέπει να είσαι άνω των 18. Παρακαλούμε δήλωσε την ηλικία σου παρακάτω.",module,FortyFour_AgeRestriction
+"Birthday","Ημερ/νια Γέννησης",module,FortyFour_AgeRestriction
+"Enter","Πάμε",module,FortyFour_AgeRestriction
+"Go to Today","Σήμερα",module,FortyFour_AgeRestriction
+"Products","Προϊόντα"
+"Confirm Email","Επιβεβαίωση Email"
+"Pack Count","Συσκευασία"
+"Buy Now","Αγόρασε Τώρα"
+"I want to learn about Topo Chico news, exclusive offers and products via email.","Θέλω να μαθαίνω για τα Topo Chico νέα, προϊόντα και αποκλειστικές προσφορές μέσω email."
+"Shopping Options","Επιλογές αγορών",module,Magento_Catalog
+"Shopping Options","Επιλογές αγορών",module,Magento_LayeredNavigation
+"Position","Θέση"
+"Apply Discount Code","Εφάρμοσε τον κωδικό έκπτωσης"
+"Enter discount code","Πληκτρολόγησε εδώ"
+"Apply Discount","OK",module,Magento_Checkout
+"Update Shopping Cart","Ενημέρωσε το καλάθι αγορών",module,Magento_Checkout
+"Proceed to Checkout","Προχώρησε σε Αγορά",module,Magento_Checkout
+"See Details","Δες λεπτομέρειες",module,Magento_Checkout
+"See Details","Δες λεπτομέρειες",module,Magento_Review
+"See Details","Δες λεπτομέρειες",module,Magento_Wishlist
+"You added %1 to your <a href=""%2"">shopping cart</a>.","Πρόσθεσες το %1 στο <a href=""%2"">καλάθι αγορών σου</a>."
+"Order Confirmation Number","Αριθμός παραγγελίας (Προαιρετικό)",module,Coke_Contact
+"What’s on your mind?","Μήνυμα",module,Magento_Contact
+"Submit","Αποστολή",module,Magento_Contact
+"Jot us a note and we’ll get back to you as quickly as possible.","Θα χαρούμε να σε ακούσουμε!",module,Magento_Contact
+"Enter your destination to get a shipping estimate.","Συμπλήρωσε τα στοιχεία σου για εκτίμηση κόστους μεταφορικών."
+"Drink Responsibly",""Απολαύστε Υπεύθυνα"
+"Privacy Policy","Πολιτική Απορρήτου"
+"Terms & Conditions","Όροι & Προϋποθέσεις"
+"Cookie Policy","Πολιτική Χρήσης Cookies"
+"FAQ","Συχνές Ερωτήσεις"
+"Contact Us","Επικοινώνησε μαζί μας"
+"Sorry, you are allowed to have only %1 items in total in your cart.","Λυπούμαστε, επιτρέπονται μέχρι %1 τεμάχια συνολικά στο καλάθι."
+"Delivery Comment","Σχόλια Παράδοσης"
+"Zip/Postal Code","ΤΑΧ. ΚΩΔΙΚΑΣ"
+"I want to learn about Topo Chico news, exclusive offers and products via email.","Θέλω να μαθαίνω για τα Topo Chico νέα, προϊόντα και αποκλειστικές προσφορές μέσω email."
+"Pay by Card (Stripe)", "Πληρωμή με κάρτα (Stripe)"
+"Enter your card details:", "Εισήγαγε τα στοιχεία της κάρτας σου:"
+"Your card details are protected using PCI DSS v3.2 security standards.", "Τα στοιχεία της κάρτας σου προστατεύονται χρησιμοποιώντας PCI DSS v3.2 πρότυπα ασφαλείας."
+"Subtotal","Αξία Προϊόντων"
+"Cart Subtotal","Αξία Προϊόντων"
+"Shipping","Μεταφορικά"
+"Tax", "Φ.Π.Α"
+"Order Total", "Σύνολο Παραγγελίας"
+"Thank you for your order from %store_name.","Σε ευχαριστούμε για την παραγγελία σου από το %store_name.",module,Magento_Sales
+"Once your package ships we will send an email with a link to track your order.","Μόλις το πακέτο σου αποσταλεί θα στείλουμε ένα email με ένα σύνδεσμο για να παρακολουθήσεις την παραγγελία σου.",module,Magento_Sales
+"Your Order <span class=""no-link"">#%increment_id</span>","Η Παραγγελία σου <span class=""no-link""> #%increment_id</span>",module,Magento_Sales
+"Placed on <span class=""no-link"">%created_at</span>","καταχωρήθηκε στις <span class=""no-link"">%created_at</span>",module,Magento_Sales
+"Tax","Φ.Π.Α"
+"Your %store_name order has shipped","Αποστολή της παραγγελίας σου από %store_name",module,Magento_Sales
+"Your shipping confirmation is below. Thank you again for your business.","Η επιβεβαίωση της αποστολής σου είναι παρακάτω. Σε ευχαριστούμε και πάλι για την εμπιστοσύνη σου.",module,Magento_Sales
+"Credit memo for your %store_name order","Πιστωτικό υπόμνημα για την παραγγελία σου στο %store_name",module,Magento_Sales
+"Your %store_name order confirmation","Επιβεβαίωση της παραγγελίας σου στο %store_name",module,Magento_Sales
+"Enter your destination to get a shipping estimate.","Παρακαλούμε συμπλήρωσε τον Ταχ. Κώδικα σου ώστε να μπορέσουμε να εκτιμήσουμε το κόστος αποστολής."
+"Sorry, no quotes are available for this order at this time","Παρακαλούμε συμπλήρωσε τον Ταχ. Κώδικα σου ώστε να μπορέσουμε να εκτιμήσουμε το κόστος αποστολής."
+"Terms and Conditions","Όροι & Προϋποθέσεις"
+"To proceed, please confirm:","Για να προχωρήσεις, παρακαλούμε επιβεβαίωσε:"
+"Are you over 18 years old?","Είσαι άνω των 18 ετών;"
+"Yes","ΝΑΙ"
+"No","ΟΧΙ"

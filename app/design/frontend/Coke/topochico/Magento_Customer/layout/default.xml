@@ -1,0 +1,13 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header-wrapper">
+            <block name="header.account"
+                   class="Magento\Customer\Block\Account\AuthorizationLink"
+                   template="Magento_Customer::account-header.phtml"
+                   before="minicart"/>
+        </referenceContainer>
+    </body>
+</page>
+
+
+

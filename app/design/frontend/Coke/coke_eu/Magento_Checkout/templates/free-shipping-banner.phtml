@@ -1,0 +1,25 @@
+<?php
+$_helper = $this->helper(\CokeEurope\Checkout\Helper\Config::class);
+?>
+<div class="free-shipping-banner" id="free-shipping-banner">
+    <div data-bind="scope: 'freeshippingbanner'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
+</div>
+
+<!-- TODO: add in correct threshold/pull threshold from backend -->
+<script type="text/x-magento-init">
+{
+    "#free-shipping-banner": {
+        "Magento_Ui/js/core/app": {
+           "components": {
+               "freeshippingbanner": {
+                   "component": "Magento_Checkout/js/view/free-shipping-banner",
+                   "is_enabled": <?= ($_helper->getFreeShippingSubtotal()) ? 1 : 0 ?>,
+                   "threshold": <?= ($_helper->getFreeShippingSubtotal()) ? $_helper->getFreeShippingSubtotal() : 0 ?>
+               }
+           }
+        }
+    }
+}
+</script>

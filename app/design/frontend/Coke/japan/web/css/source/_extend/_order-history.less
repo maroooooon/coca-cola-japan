@@ -1,0 +1,40 @@
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+    .japan {
+        .column.main {
+            // Order History Block
+            .block.coke-japan-order-history {
+                display: flex;
+                flex-direction: column;
+                .block-title {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    &::before,
+                    &::after {
+                        display: none;
+                    }
+                }
+                .block-content {
+                    position: relative;
+                    padding: 0;
+                    &::before,
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//  Desktop
+//  _____________________________________________
+@media only screen and (min-width: @screen__m) {
+}
+
+//  Mobile
+//  _____________________________________________
+@media only screen and (max-width: @screen__m) {
+}

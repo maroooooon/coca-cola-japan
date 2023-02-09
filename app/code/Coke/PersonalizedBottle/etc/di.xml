@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Swatches\Block\Product\Renderer\Configurable" type="Coke\PersonalizedBottle\Preference\Block\Product\Renderer\ConfigurablePreference"/>
+    <preference for="Magento\CatalogImportExport\Model\Import\Product\Option"
+                type="Coke\PersonalizedBottle\Preference\Model\Import\Product\Option"></preference>
+</config>

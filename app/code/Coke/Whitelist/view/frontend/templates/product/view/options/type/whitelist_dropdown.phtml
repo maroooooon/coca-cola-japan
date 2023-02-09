@@ -1,0 +1,28 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+
+<?php /* @var $block \Coke\Whitelist\Block\Product\View\Options\Type\Whitelist */ ?>
+<?php
+$_option = $block->getOption();
+$class = ($_option->getIsRequire()) ? ' required' : '';
+?>
+<div class="field<?= /* @noEscape */ $class ?>">
+    <label class="label" for="select_<?= $block->escapeHtmlAttr($_option->getId()) ?>">
+        <span><?= $block->escapeHtml(__($_option->getData('step_label') ?: $_option->getTitle())) ?></span>
+    </label>
+    <div class="control">
+        <div class="message"></div>
+        <span class="field-wrapper<?php if ($block->getOption()->getData('decorated_is_last') && $block->getOption()->getData('decorated_is_last') == true): ?> last-phrase<?php endif; ?>">
+            <?= $block->getValuesHtml() ?>
+            <?php if ($block->getOption()->getData('decorated_is_last') && $block->getOption()->getData('decorated_is_last') == true): ?>
+                <button type="button" class="preview">
+                    <span><?= __('Preview') ?></span>
+                </button>
+            <?php endif; ?>
+        </span>
+    </div>
+</div>

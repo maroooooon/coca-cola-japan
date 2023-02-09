@@ -1,0 +1,91 @@
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+    .page-layout-personalized-product {
+        // How it Works Section
+        .section--how-it-works {
+            background: #000000;
+            // Section Title
+            .section-title {
+                width: 100%;
+                max-width: 100%;
+                background: linear-gradient(90deg, #78e6a0 0%, #82e1ff 100%);
+                padding: 20px;
+                padding-bottom: 25px;
+                h2 {
+                    color: #000000;
+                    font-family: "TCCC-UnityHeadline", "Montserrat",
+                        "Helvetica Neue", Helvetica, Arial, sans-serif;
+                    font-weight: bold;
+                    margin: 0;
+                }
+            }
+            // Section Content
+            .section-content {
+                padding: 40px 0;
+                background: #000000;
+            }
+        }
+    }
+}
+
+//  Desktop
+//  _____________________________________________
+@media only screen and (min-width: @screen__m) {
+    .page-layout-personalized-product {
+        // How it Works Section
+        .section--how-it-works {
+            // Section Title
+            .section-title {
+                text-align: center;
+                h2 {
+                    font-size: 54px;
+                }
+            }
+            // Section Content
+            .section-content {
+            }
+        }
+    }
+}
+
+//  Medium Screens
+//  _____________________________________________
+@media only screen and (min-width: @screen__m) and (max-width: 1380px) {
+    .page-layout-personalized-product {
+        // How it Works Section
+        .section--how-it-works {
+            // Section Title
+            .section-title {
+                h2 {
+                    font-size: 34px;
+                }
+            }
+            // Section Content
+            .section-content {
+            }
+        }
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+@media only screen and (max-width: @screen__m) {
+    .page-layout-personalized-product {
+        .page-layout-personalized-product {
+            // How it Works Section
+            .section--how-it-works {
+                // Section Title
+                .section-title {
+                    text-align: left;
+                    h2 {
+                        font-size: 24px;
+                    }
+                }
+                // Section Content
+                .section-content {
+                }
+            }
+        }
+    }
+}

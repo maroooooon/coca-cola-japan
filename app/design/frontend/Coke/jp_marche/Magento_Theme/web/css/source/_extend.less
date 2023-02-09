@@ -1,0 +1,25 @@
+//  Common
+& when (@media-common = true) {
+    .page-main {
+        > .page-title-wrapper {
+            .page-title {
+                font-weight: @font-weight__bold;
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+// Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .mobile-only{
+        display: none !important;
+    }
+}
+
+// Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .desktop-only{
+        display: none !important;
+    }
+}

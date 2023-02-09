@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Aheadworks\Sarp2\Block\Adminhtml\Subscription\Edit\CancelButton">
+        <plugin name="Coke_Sarp2::adminhtmlCancelButtonPlugin"
+                type="Coke\Sarp2\Plugin\Adminhtml\CancelButtonPlugin"/>
+    </type>
+    <type name="Aheadworks\Sarp2\Model\ResourceModel\Profile\Grid\Collection">
+        <plugin name="Coke_Sarp2::profileGridCollectionPlugin"
+                type="Coke\Sarp2\Plugin\Adminhtml\ProfileGridCollectionPlugin"/>
+    </type>
+</config>

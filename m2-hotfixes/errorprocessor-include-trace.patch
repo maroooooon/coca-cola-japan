@@ -1,0 +1,12 @@
+diff --git a/vendor/magento/framework/Webapi/ErrorProcessor.php b/vendor/magento/framework/Webapi/ErrorProcessor.php
+--- a/vendor/magento/framework/Webapi/ErrorProcessor.php	(date 1642222025741)
++++ b/vendor/magento/framework/Webapi/ErrorProcessor.php	(date 1642222025741)
+@@ -203,7 +203,7 @@
+     protected function _critical(\Exception $exception)
+     {
+         $reportId = uniqid("webapi-");
+-        $message = "Report ID: {$reportId}; Message: {$exception->getMessage()}";
++        $message = "Report ID: {$reportId}; Message: {$exception->getMessage()} Trace: {$exception->getTraceAsString()}";
+         $code = $exception->getCode();
+         $exception = new \Exception($message, $code, $exception);
+         $this->_logger->critical($exception);

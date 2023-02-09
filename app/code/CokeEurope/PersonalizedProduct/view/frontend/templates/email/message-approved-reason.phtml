@@ -1,0 +1,13 @@
+<!--TODO: Placeholder phmtl for message approved reason.  -->
+<!--
+added to email template order_approved.html.
+{{layout handle="sales_email_order_message_approved" order=$order moderatedMessages=$order_data.moderatedMessages area="frontend"}}
+-->
+<table class="message-approved-reason">
+    <tr>
+        <td colspan="2">
+            <h3><?= __("The following message is now approved")?></h3>
+            <p><?= __($block->getData('moderated_messages'))?></p>
+        </td>
+    </tr>
+</table>

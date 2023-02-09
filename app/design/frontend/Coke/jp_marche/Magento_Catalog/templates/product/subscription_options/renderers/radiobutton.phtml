@@ -1,0 +1,61 @@
+<?php
+/* @var $block \Aheadworks\Sarp2\Block\Product\SubscriptionOptions\Renderer\Radiobutton */
+// @codingStandardsIgnoreFile
+$optionsBlock = $block->getRenderedBlock();
+$selectedOptionIndex = 4;
+?>
+<div class="aw-sarp2-subscription__wrapper-options">
+    <?php if (!$optionsBlock->isFirstOptionNoPlan()) echo $optionsBlock->getChildHtml('tooltip.before') ?>
+
+    <?php $optCount = count($optionsBlock->getOptionArray())?>
+    <?php $counter = 0; ?>
+
+    <div class="aw-sarp2-subscription__options-list">
+        <?php foreach ($optionsBlock->getOptionArray() as $optionId => $optionLabel): ?>
+        <?php $counter += 1; ?>
+            <?php $htmlId = 'aw-sarp2-subscription-option-' . $optionId ?>
+            <div class="field choice"
+                 data-option="<?= $optionId ?>"
+            >
+                <input type="radio"
+                       class="radio product option"
+                       data-validate="{'validate-one-required-by-name':true}"
+                       id="<?= /* @noEscape */ $htmlId ?>"
+                       name="aw_sarp2_subscription_type"
+                   <?php if (0 == $optionId): ?>
+                       checked="checked"
+                   <?php endif ?>
+                    <?php if ($optCount >= $selectedOptionIndex && $counter === $selectedOptionIndex): ?>
+                        data-default="selected"
+                    <?php endif ?>
+                       value="<?= /* @noEscape */ $optionId ?>"
+                       aria-required="true">
+                <label class="label" for="<?= /* @noEscape */ $htmlId ?>">
+                    <span><?= $optionsBlock->escapeHtml($optionLabel) ?></span>
+                    <?php if (!(int)$optionId == 0): ?>
+                        <span class="price"><?= $optionsBlock->getConfigData()['subscriptionDetails'][$optionId]['regular_payment']['value'] ?>
+                            <?php
+                                $labelArg = $optionsBlock->getConfigData()['subscriptionDetails'][$optionId]['regular_payment']['label']->getArguments();
+                                if($labelArg && $labelArg[0]){
+                                    echo '<span> /'.$labelArg[0].'</span>';
+                                }
+                            ?>
+                        </span>
+
+                    <?php else:?>
+                    <span class="price"><?= '￥'.number_format($optionsBlock->getConfigData()['regularPrices']['options'][0]['finalPrice']['amount'],0)?></span>
+                    <?php endif ?>
+                </label>
+            </div>
+
+            <?php if ($optionsBlock->isFirstOptionNoPlan() && (int)$optionId == 0) echo $optionsBlock->getChildHtml('tooltip.before') ?>
+        <?php endforeach; ?>
+    </div>
+
+    <?php echo $optionsBlock->getChildHtml('tooltip.after') ?>
+</div>
+
+<style>
+    /* hide price only with subscription options*/
+    .price-box.price-configured_price, .product-info-main .product-info-price{display: none}
+</style>

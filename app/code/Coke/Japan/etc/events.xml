@@ -1,0 +1,16 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="logicbroker_after_to_api_item">
+        <observer name="Coke_Japan::logicbroker_add_order_item_info"
+                  instance="Coke\Japan\Observer\AddAttributesToLogicBrokerOrderItem" />
+    </event>
+
+    <event name="logicbroker_after_convert_order">
+        <observer name="Coke_Japan::logicbroker_add_order_info"
+                  instance="Coke\Japan\Observer\AddAttributesToLogicBrokerOrder" />
+    </event>
+
+    <event name="email_order_set_template_vars_before">
+        <observer name="Coke_Japan::emailOrderSetTemplateVarsBefore"
+                  instance="Coke\Japan\Observer\EmailOrderSetTemplateVarsBefore"/>
+    </event>
+</config>

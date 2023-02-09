@@ -1,0 +1,19 @@
+
+<select class="select"
+        name="region"
+        data-bind="visible: !isBillingAddress(),
+        attr: { title: title },
+        optgroup: allowedRegions,
+        optionsValue: 'value',
+        optionsText: 'label',
+        event: { change: afterSelectRegion }"
+/>
+
+<input type="text"
+       name="region"
+       class="input-text required-entry",
+       data-bind="visible: isBillingAddress(),
+       attr: { title: title },
+       valueUpdate: 'keyup',
+       value: selectedRegion"
+/>

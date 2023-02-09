@@ -1,0 +1,84 @@
+<?php 
+/** @var \Magento\Framework\View\Element\Template $block */ 
+/** @var \Coke\France\ViewModel\Data $viewModel */ 
+$viewModel = $block->getData('viewModel');
+$links = $viewModel->getLevelTwo();
+?>
+
+<section id="dropdown-menu" class="coke-megamenu-dropdown" style="display: none;">
+    <div class="container">
+        <div class="layout">
+            <div class="text-links">
+                <?php if($links): ?>
+                <?php foreach ($links as $link): ?>
+                <nav>
+                    <div class="nav-parent">
+                        <a href="<?= $link['target']; ?>" aria-label="<?= $link['target']; ?>">
+                            <strong><?= $link['title']; ?></strong>
+                        </a>
+                    </div>
+                    <?php if($link['children']): ?>
+                    <ul>
+                        <?php foreach($link['children'] as $child): // Subcategories ?>
+                        <li>
+                            <a href="<?= $child->getUrl(); ?>" aria-label="<?= $child->getName();?>" data-category="<?= $child->getId();?>">
+                                <span><?= $child->getName();?></span>
+                            </a>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                    <?php endif; ?>
+                </nav>
+                <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+            <div class="image-links">
+                <?php if($links): ?>
+                <?php $i = 0; foreach ($links as $link): $i++; ?>
+                <?php if($link['children']): ?>
+                <?php if($i <= 1) : ?>
+                <nav>
+                    <ul>
+                        <?php foreach($link['children'] as $child): // Subcategories ?>
+                        <li>
+                            <a href="<?= $child->getUrl(); ?>" aria-label="<?= $child->getName();?>" data-category="<?= $child->getId();?>">
+                                <?php if($viewModel->getImageUrl($child->getId())): ?>
+                                <img src="<?= $viewModel->getImageUrl($child->getId()); ?>"
+                                    alt="<?= $child->getName();?>" />
+                                <?php endif; ?>
+                                <span><?= $child->getName();?></span>
+                            </a>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </nav>
+                <?php else: ?>
+                <nav>
+                    <ul>
+                        <?php foreach($link['children'] as $child): // Subcategories ?>
+                        <li>
+                            <a href="<?= $child->getUrl(); ?>" aria-label="<?= $child->getName();?>" 
+                            style="background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.6)),
+                                    url(<?= $viewModel->getImageUrl($child->getId()); ?>);" data-category="<?= $child->getId();?>">
+                                <span><?= $child->getName();?></span>
+                            </a>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </nav>
+                <?php endif; ?>
+                <?php endif; ?>
+                <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/x-magento-init">
+    {
+        "#site-header": {
+            "megaMenu": {}
+        }
+    }
+</script>

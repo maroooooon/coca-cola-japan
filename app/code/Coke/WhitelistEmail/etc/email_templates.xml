@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="coke_whitelist_email_order_denied_template" label="Whitelist Order Denied"
+              file="order_denied.html" type="html" module="Coke_WhitelistEmail" area="frontend"/>
+    <template id="coke_whitelist_email_order_approved_template" label="Whitelist Order Approved"
+              file="order_approved.html" type="html" module="Coke_WhitelistEmail" area="frontend"/>
+    <template id="coke_whitelist_email_order_under_review_template" label="Whitelist Order Under Review"
+              file="order_under_review.html" type="html" module="Coke_WhitelistEmail" area="frontend"/>
+</config>

@@ -1,0 +1,54 @@
+http://{all}/:
+  type: upstream
+  upstream: mymagento:php
+https://{all}/:
+  type: upstream
+  upstream: mymagento:php
+http://{default}/:
+  type: upstream
+  upstream: mymagento:php
+https://{default}/:
+  type: upstream
+  upstream: mymagento:php
+https://d-france-d2c.{default}/:
+  type: upstream
+  upstream: mymagento:php
+https://d-topochico-gr.{default}/:
+  type: upstream
+  upstream: mymagento:php
+https://d-egypt.{default}/:
+  type: upstream
+  upstream: mymagento:php
+https://d-coke-eu-fi.{default}/:
+  type: upstream
+  upstream: mymagento:php
+https://d-coke-eu-ie.{default}/:
+  type: upstream
+  upstream: mymagento:php
+https://d-coke-eu-uk.{default}/:
+  type: upstream
+  upstream: mymagento:php
+https://d-coke-eu-fr.{default}/:
+  type: upstream
+  upstream: mymagento:php
+https://d-coke-eu-be.{default}/:
+  type: upstream
+  upstream: mymagento:php
+https://d-coke-eu-de.{default}/:
+  type: upstream
+  upstream: mymagento:php
+https://d-coke-eu-nl.{default}/:
+  type: upstream
+  upstream: mymagento:php
+https://d-coke-eu-ie-ni.{default}/:
+  type: upstream
+  upstream: mymagento:php
+https://d-coke-eu-tr.{default}/:
+  type: upstream
+  upstream: mymagento:php
+https://d-coke-eu-no.{default}/:
+  type: upstream
+  upstream: mymagento:php
+https://d-jp-marche.{default}/:
+  type: upstream
+  upstream: mymagento:php

@@ -1,0 +1,418 @@
+//  Common
+& when (@media-common = true) {
+    .subscription-intro{
+        p{
+            font-size: 13px;
+            font-weight: 700;
+            &:nth-child(1){
+                color: @coke-red;
+                font-size: 20px;
+            }
+            &:nth-child(2){
+                font-size: 20px;
+            }
+            span{
+                &.dot{
+                    position: relative;
+                    &:before{
+                        content: '';
+                        width: 3px;
+                        height: 3px;
+                        border-radius: 50px;
+                        background: @coke-red;
+                        display: block;
+                        position: absolute;
+                        top:0;
+                        left: 0;
+                        right: 0;
+                        margin: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    .subscription-limited-box{
+        padding: 30px 0;
+
+        .white-label{
+            span{
+                background: @color-white;
+                font-size: 19px;
+                font-weight: 700;
+                border-radius: 50px;
+                padding: 0 10px;
+            }
+        }
+
+        .title{
+            font-size: 34px;
+            font-weight: 700;
+        }
+
+        .limited-offer{
+            margin: 0 auto 20px;
+            justify-content: center;
+
+            .col{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                > *{
+                    flex-basis: 100%;
+                }
+                &:not(:nth-child(2)){
+                    background: @color-white;
+                    border-radius: 10px;
+                    max-width: 300px;
+                    border:3px solid @coke-red;
+                    padding: 20px 10px;
+                }
+            }
+
+            p{
+                font-size: 16px;
+                font-weight: 700;
+                margin-bottom: 0;
+                &.red-focus{
+                    color: @coke-red;
+                    line-height: 1.2 !important;
+                    font-size: 24px;
+                    span{
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            span.plus-red{
+                display: block;
+                color: @coke-red;
+                line-height: 1;
+                font-size: 40px;
+            }
+        }
+
+        p.note{
+            font-size: 14px;
+        }
+
+        .actions{
+            margin-top: 30px;
+            .action{
+                max-width: 360px;
+                .lib-icon-font(
+                    @_icon-font-content: @icon-down,
+                    @_icon-font-size: 45px,
+                    @_icon-font-line-height: 16px,
+                    @_icon-font-position: after
+                );
+            }
+        }
+    }
+
+    .subscription-qa-list{
+        ul{
+            list-style: none;
+            padding-left: 0;
+            li{
+                margin-bottom: 30px;
+                > ul{
+                    margin-top: 5px;
+                    padding-left: 20px;
+                }
+            }
+        }
+    }
+
+    .subscription-benefits-row {
+        margin-top: 10px;
+
+        .subscription-benefit {
+            align-items: center;
+            display: flex;
+            max-width: 400px;
+            flex-direction: column;
+
+            .subscription-icon {
+                max-width: 70px;
+                min-height: 70px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex: 1 0 auto;
+            }
+
+            .benefit {
+                font-size: 12px;
+                font-weight: 500;
+                margin-top: 5px;
+                text-align: center;
+            }
+        }
+    }
+
+    .subscription-benefit-points{
+        .title-block{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .red-circle-badge{
+                color:@coke-red;
+                border: 2px solid @coke-red;
+                font-weight: 700;
+                font-size: 11px;
+                border-radius: 50px;
+                width: 57px;
+                min-height: 57px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .subscription-flow{
+        .title-bar {
+            color: @color-white;
+            text-align: center;
+            position: relative;
+            font-size: 16px;
+            font-weight: 700;
+            background: #828282;
+            padding: 8px 10px;
+            margin-bottom: 10px;
+            &.title-bar-1{
+                background: @coke-red;
+            }
+
+            .select-bottles{
+                position: absolute;
+                background: @color-white;
+                color: @coke-red;
+                padding: 3px 10px;
+                p{
+                    font-size: 12px;
+                    margin-bottom: 0;
+                    position: relative;
+                }
+                img{
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .pagebuilder-column.flow-step{
+        overflow: hidden;
+        [data-content-type="text"]:first-child{
+            p{
+                span{
+                    border-bottom: 1px solid;
+                }
+                font-weight: 700;
+            }
+        }
+
+    }
+}
+
+// Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .subscription-intro{
+        p{
+            font-size: 20px;
+            &:nth-child(1){
+                font-size: 26px;
+            }
+            &:nth-child(2){
+                font-size: 38px;
+            }
+            span {
+                &.dot {
+                    &:before {
+                        width: 5px;
+                        height: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    .subscription-limited-box{
+        padding: 50px 0;
+        .white-label{
+            span{
+                font-size: 24px;
+            }
+        }
+
+        .title{
+            font-size: 57px;
+        }
+
+        .limited-offer {
+            span.plus-red{
+                font-size: 88px;
+            }
+            p{
+                font-size: 25px;
+                &.red-focus{
+                    font-size: 50px;
+                    span{
+                        font-size: 36px;
+                    }
+                }
+            }
+        }
+
+        p.note{
+            font-size: 16px;
+        }
+    }
+
+    .subscription-benefits-row {
+        flex-direction: row;
+        margin-top: 20px;
+
+        .subscription-benefit {
+            max-width: 100%;
+
+            .subscription-icon {
+                margin-right: 0;
+                max-width: 100%;
+            }
+
+            .benefit {
+                margin-top: 20px;
+                font-size: 22px;
+            }
+        }
+    }
+
+    .subscription-flow{
+        .title-bar {
+            font-size: 24px;
+
+            &.title-bar-1{
+                text-align: left;
+            }
+
+            .select-bottles{
+                right: 10px;
+                bottom:8px;
+                border-radius: 50px;
+                padding: 3px 10px;
+                display: flex;
+                p{
+                    font-size: 16px;
+                    padding-right: 10px;
+                    margin-right: 5px;
+                    &:after{
+                        content: '';
+                        width: 0;
+                        height: 0;
+                        border-top: 5px solid transparent;
+                        border-bottom: 5px solid transparent;
+                        border-left: 5px solid @coke-red;
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        transform: translate(0,-50%);
+                    }
+                }
+                img{
+                    margin: -130px 0 0;
+                    display: block;
+                }
+            }
+        }
+    }
+}
+// Desktop XL
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
+    .subscription-flow{
+        .title-bar {
+            &.title-bar-1{
+                text-align: center;
+            }
+        }
+    }
+}
+
+// Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .subscription-flow{
+        .flex{
+            margin-left: -10px;
+            margin-right: -10px;
+            align-items: baseline;
+            .col-6{
+                width: ~'calc(50% - 20px)';
+                margin: 0 10px;
+            }
+        }
+        .title-bar {
+            &.title-bar-1{
+                margin-top: 35px;
+            }
+
+            .select-bottles{
+                top:-35px;
+                left: 0;
+                width: 100%;
+                border:1px solid @coke-red;
+
+                &:after,
+                &:before{
+                    content: '';
+                    position: absolute;
+                    bottom:-5px;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    width: 0;
+                    height: 0;
+                    border-left: 5px solid transparent;
+                    border-right: 5px solid transparent;
+                    border-top: 5px solid @coke-red;
+                }
+                &:before{
+                    border-top-color: @color-white;
+                    bottom:-4px;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+
+    .pagebuilder-column.flow-step.flow-step1.mobile-only{
+        flex-basis: ~'calc(50% - 20px)';
+        img{
+            max-width: 60px;
+        }
+    }
+
+    .pagebuilder-column.flow-step{
+        p{
+            font-size: 14px;
+        }
+    }
+
+    .subscription-featured-products{
+        .pagebuilder-column{
+            p,
+            p span{
+                font-size: 12px !important;
+            }
+
+            .pagebuilder-button-primary{
+                font-size: 12px;
+                padding: 5px 10px;
+            }
+        }
+    }
+}
+

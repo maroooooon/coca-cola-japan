@@ -1,0 +1,25 @@
+<?php
+/**
+ * @var \FortyFour\ShareSite\Block\Html\ShareSite $block
+ */
+
+$wrapperElement = $block->getWrapperElement() ? $block->getWrapperElement() : 'div';
+?>
+
+<<?= $wrapperElement ?> class="share-site-link-container">
+    <div class="share-site-link">
+        <a href="#"
+           onclick="return false;"
+           class="share-site"
+           data-mage-init='{ "FortyFour_ShareSite/js/action/copy-to-clipboard": {"baseUrl": "<?= $block->escapeUrl($block->getBaseUrl()) ?>"} }'>
+            <img class="share-site-icon"
+                 src="<?= $block->escapeUrl($block->getViewFileUrl('FortyFour_ShareSite::images/icon/share-icon.png')) ?>" />
+            <span><?= __('Share site') ?></span>
+        </a>
+    </div>
+    <div class="share-site-popup">
+        <div class="content">
+            <p><?= __('Site URL has been copied to your clipboard.') ?></p>
+        </div>
+    </div>
+</<?= $wrapperElement ?>>

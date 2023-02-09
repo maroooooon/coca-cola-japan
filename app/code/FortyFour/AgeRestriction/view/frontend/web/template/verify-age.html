@@ -1,0 +1,40 @@
+<div class="min-age-invalid" data-bind="visible: isMinAgeNotMet()">
+    <h2 class="subheading" data-bind="i18n: 'Sorry!'"></h2>
+    <p>
+        <span data-bind="i18n: 'You must be over 18 to visit this website.'"></span>
+    </p>
+    <div class="actions primary">
+        <a data-bind="attr: { href: redirectUrl }" class="no-link">
+            <button class="action primary">
+                <span data-bind="text: getRedirectString()"></span>
+            </button>
+        </a>
+    </div>
+</div>
+
+<div class="min-age-validate" data-bind="visible: !isMinAgeNotMet()">
+    <p>
+        <span data-bind="i18n: 'In order to access our site, please enter your birthday below.'"></span>
+    </p>
+    <div class="field">
+        <label for="birthday_input" data-bind="i18n: 'Birthday'"></label>
+        <input type="text"
+               class="input-text"
+               id="birthday_input"
+               style="width: auto"
+               name="birthday"
+               readonly="readonly"
+               data-bind="mageInit: { 'FortyFour_AgeRestriction/js/view/calendar': {} },
+               event: { change: setBirthday },
+               value: birthday"
+        />
+    </div>
+    <div class="actions primary">
+        <button class="action primary"
+                title="Enter"
+                id="validate-age"
+                data-bind="click: validateMinimumAge, enable: birthday">
+            <span data-bind="i18n: 'Enter'"></span>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+<?php /** @var \Magento\Theme\Block\Html\Header $block */ ?>
+
+<ul class="account-links" data-bind="scope: 'customer'">
+    <!-- ko if: customer().fullname  -->
+    <li data-toggle="account-links">
+        <a class="highlighted" href="<?= /* @escapeNotVerified */ $block->getUrl('customer/account') ?>">
+            <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22px" fill="none" viewBox="0 0 24 22">
+                    <path fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13.832c2.209 0 4-1.631 4-3.64 0-2.01-1.791-3.641-4-3.641-2.208 0-4 1.63-4 3.64 0 2.01 1.792 3.641 4 3.641z" clip-rule="evenodd"/>
+                    <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.631 20c-.939-1.465-3.563-2.527-6.63-2.527-3.069 0-5.693 1.062-6.632 2.527M21.368 17.24C22.397 15.717 23 13.93 23 12.012 23 6.482 18.076 2 12 2 5.925 2 1 6.482 1 12.012c0 1.918.604 3.705 1.633 5.228"/>
+                </svg>
+            </span>
+            <span class="title">
+                <span
+                    data-bind="text: new String('<?= $block->escapeHtml(__('Hello, %1!', '%1')) ?>').replace('%1', customer().fullname)">
+                </span>
+            </span>
+        </a>
+        <ul>
+            <li>
+                <a href="<?= /* @escapeNotVerified */ $block->getUrl('customer/account/edit/') ?>">
+                    <span class="icon"></span>
+                    <span class="title"><?= $block->escapeHtml(__('Account Settings')) ?></span>
+                </a>
+            </li>
+            <li>
+                <a href="<?= /* @escapeNotVerified */ $block->getUrl('sales/order/history') ?>">
+                    <span class="icon"></span>
+                    <span class="title"><?= $block->escapeHtml(__('Orders')) ?></span>
+                </a>
+            </li>
+            <li>
+                <a class="log-out" href="<?= /* @escapeNotVerified */ $block->getUrl('customer/account/logout') ?>">
+                    <span class="icon"></span>
+                    <span class="title"><?= $block->escapeHtml(__('Log Out')) ?></span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <!-- /ko -->
+    <!-- ko ifnot: customer().fullname  -->
+    <li>
+        <a class="highlighted" href="<?= /* @escapeNotVerified */ $block->getUrl('customer/account') ?>">
+            <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22px" fill="none" viewBox="0 0 24 22">
+                    <path fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13.832c2.209 0 4-1.631 4-3.64 0-2.01-1.791-3.641-4-3.641-2.208 0-4 1.63-4 3.64 0 2.01 1.792 3.641 4 3.641z" clip-rule="evenodd"/>
+                    <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.631 20c-.939-1.465-3.563-2.527-6.63-2.527-3.069 0-5.693 1.062-6.632 2.527M21.368 17.24C22.397 15.717 23 13.93 23 12.012 23 6.482 18.076 2 12 2 5.925 2 1 6.482 1 12.012c0 1.918.604 3.705 1.633 5.228"/>
+                </svg>
+            </span>
+            <span class="title"><?= $block->escapeHtml(__('Sign In')) ?></span>
+        </a>
+    </li>
+    <!-- /ko -->
+    <li>
+        <a href="<?php echo $block->getUrl('contact'); ?>">
+            <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="21" fill="none" viewBox="0 0 19 19">
+                    <path stroke="#000" stroke-miterlimit="10" stroke-width="2" d="M9.5 18c4.694 0 8.5-3.806 8.5-8.5S14.194 1 9.5 1 1 4.806 1 9.5 4.806 18 9.5 18z"/>
+                    <path fill="#000" d="M9.32 11.074c-.36 0-.674-.303-.674-.7 0-1.072.674-2.005 1.641-2.308.427-.14.72-.536.697-1.003 0-.84-.674-1.539-1.484-1.539-.81 0-1.484.7-1.484 1.54 0 .372-.292.699-.675.699-.36 0-.674-.303-.674-.7.045-1.609 1.304-2.915 2.856-2.915 1.551 0 2.81 1.306 2.81 2.915 0 1.073-.674 2.006-1.641 2.309-.427.14-.72.536-.697 1.003 0 .373-.315.7-.675.7zM9.5 14.852c.521 0 .944-.423.944-.945 0-.521-.423-.944-.944-.944-.522 0-.945.423-.945.944 0 .522.423.945.945.945z"/>
+                </svg>
+            </span>
+            <span class="title"><?= $block->escapeHtml(__('Contact Us')) ?></span>
+        </a>
+    </li>
+</ul>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "customer": {
+                    "component": "Magento_Customer/js/view/customer"
+                }
+            }
+        }
+    }
+}
+</script>
+
+<script>
+    require([
+        'jquery',
+        'domReady!'
+    ], function ($) {
+        $('*[data-toggle="account-links"]').on('click', function(e) {
+            e.preventDefault();
+            $('body').addClass('_drawer-open');
+        });
+
+        $('*[data-close="drawer"]').on('click', function(e) {
+            e.preventDefault();
+            $('body').removeClass('_drawer-open');
+        });
+    });
+</script>

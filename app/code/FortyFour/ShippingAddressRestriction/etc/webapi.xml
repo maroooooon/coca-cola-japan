@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/shipping-address-restriction/regions" method="POST">
+        <service class="FortyFour\ShippingAddressRestriction\Api\RegionServiceInterface" method="getRegionsByCity"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/shipping-address-restriction/cities" method="GET">
+        <service class="FortyFour\ShippingAddressRestriction\Api\CityServiceInterface" method="getCities"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+</routes>

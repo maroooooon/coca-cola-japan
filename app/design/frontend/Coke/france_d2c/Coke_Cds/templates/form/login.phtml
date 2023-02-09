@@ -1,0 +1,56 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Customer\Block\Form\Login $block */
+?>
+<?php
+/**
+ * Customer login form template
+ *
+ * @see \Magento\Customer\Block\Form\Login
+ * @var $block \Magento\Customer\Block\Form\Login
+ */
+
+/** @var \Coke\Cds\ViewModel\CdsBlock $viewModel */
+$viewModel = $block->getViewModel();
+?>
+<div class="block block-customer-login">
+    <div class="block-title">
+        <strong id="block-customer-login-heading" role="heading" aria-level="2">
+            <?= $block->escapeHtml(__('Registered Customers')) ?>
+        </strong>
+    </div>
+    <div class="block-content" aria-labelledby="block-customer-login-heading">
+        <div class="field note">
+            <?= __('If you have an account, sign in with your email address.'); ?>
+        </div>
+
+        <div id='ces-login-form' class='cds-form form form-login'></div>
+        <span class="required-fields-label"><?= $block->escapeHtml(__('* Required Fields')) ?></span>
+        <div class="secondary">
+            <a class="action remind"
+               href="<?= $block->escapeUrl($block->getForgotPasswordUrl()) ?>">
+                <span><?= $block->escapeHtml(__('Forgot Your Password?')) ?></span>
+            </a>
+        </div>
+
+        <div id='ces-social-login-form' class="cds-form"></div>
+        <div id='cds-merge-account' class="cds-form"></div>
+        <div id='cds-post-login' class="cds-form"></div>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#ces-login-form": {
+            "Coke_Cds/js/pages/sign-in": {
+                "loginId": "ces-login-form",
+                "postLoginId": "cds-post-login",
+                "socialLoginId": "ces-social-login-form",
+                "mergeAccountId": "cds-merge-account",
+                "loginPostUrl": "<?= $viewModel ? $viewModel->getLoginPostUrl() : '' ?>",
+                "emailAddress": "<?= $block->escapeJs($this->getRequest()->getParam('email')); ?>"
+            }
+        }
+    }
+</script>

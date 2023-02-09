@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <aw_sarp2>
+            <general>
+                <set_shipping_address_to_order>0</set_shipping_address_to_order>
+                <free_shipping_subscriptions>0</free_shipping_subscriptions>
+            </general>
+            <subscription_editing>
+                <can_skip_next_payment_date>0</can_skip_next_payment_date>
+            </subscription_editing>
+            <force_login>
+                <enabled>0</enabled>
+                <message><![CDATA[Sorry, we only allow registered users to purchase subscription products. In order to proceed, please <a href="{{url}}customer/account/login">login</a> or <a href="{{url}}customer/account/create">create</a> an account.]]></message>
+            </force_login>
+            <delivery_date>
+                <processing_time>2</processing_time>
+            </delivery_date>
+            <cancel_email_cron_setting>
+                <cron_schedule>*/15 * * * *</cron_schedule>
+            </cancel_email_cron_setting>
+        </aw_sarp2>
+    </default>
+    <websites>
+        <jp_marche>
+            <aw_sarp2>
+                <general>
+                    <free_shipping_subscriptions>1</free_shipping_subscriptions>
+                </general>
+                <force_login>
+                    <enabled>1</enabled>
+                    <message><![CDATA[定期便の購入には会員登録が必要になります。お手数ですが、<a href="{{url}}customer/account/login">ログイン</a> もしくは <a href="{{url}}customer/account/create">会員登録</a> をお願いします。]]></message>
+                </force_login>
+            </aw_sarp2>
+        </jp_marche>
+    </websites>
+</config>

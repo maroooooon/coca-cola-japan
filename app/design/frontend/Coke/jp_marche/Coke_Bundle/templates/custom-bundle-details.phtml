@@ -1,0 +1,58 @@
+<div class="custom-bundle-details-container">
+    <div class="section-title">
+        <span>MY BUNDLE</span>
+        <?= __('Myバンドルについて') ?>
+    </div>
+    <div class="custom-bundle-details">
+        <p>3種類のお好きな製品を組み合わせて まとめて購入できる便利なセットです。</p>
+        <p>6本、12本、24本のセットが御座います。各製品の本数は2本単位で選択することができます。</p>
+    </div>
+</div>
+<div class="custom-bundle-how-to">
+    <div class="section-title">
+        <span>HOW TO</span>
+        <?= __('Myバンドルの選び方') ?>
+    </div>
+    <div class="custom-bundle-how-to-steps flex desktop-only">
+        <div class="step-block step-block-1">
+            <img src="<?= $block->getViewFileUrl('Coke_Bundle::images/mybundle_icon_step1.png'); ?>" />
+        </div>
+        <div class="divider"></div>
+        <div class="step-block step-block-2">
+            <img src="<?= $block->getViewFileUrl('Coke_Bundle::images/mybundle_icon_step2.png'); ?>" />
+        </div>
+        <div class="divider"></div>
+        <div class="step-block step-block-3">
+            <img src="<?= $block->getViewFileUrl('Coke_Bundle::images/mybundle_icon_step3.png'); ?>" />
+        </div>
+        <div class="divider"></div>
+        <div class="step-block step-block-4">
+            <img src="<?= $block->getViewFileUrl('Coke_Bundle::images/mybundle_icon_step4.png'); ?>" />
+        </div>
+    </div>
+    <div class="custom-bundle-how-to-steps flex mobile-only">
+        <div class="step-block step-block-1">
+            <p class="label"><img src="<?= $block->getViewFileUrl('Coke_Bundle::images/mybundle_icon_1-1.png'); ?>" /></p>
+            <p class="text">容量と全体の本数を選ぶ</p>
+            <p class="icon"><img src="<?= $block->getViewFileUrl('Coke_Bundle::images/mybundle_icon_1-2.png'); ?>" /></p>
+        </div>
+        <div class="divider"></div>
+        <div class="step-block step-block-2">
+            <p class="label"><img src="<?= $block->getViewFileUrl('Coke_Bundle::images/mybundle_icon_2-1.png'); ?>" /></p>
+            <p class="text">商品を3つ選ぶ</p>
+            <p class="icon"><img src="<?= $block->getViewFileUrl('Coke_Bundle::images/mybundle_icon_2-2.png'); ?>" /></p>
+        </div>
+        <div class="divider"></div>
+        <div class="step-block step-block-3">
+            <p class="label"><img src="<?= $block->getViewFileUrl('Coke_Bundle::images/mybundle_icon_3-1.png'); ?>" /></p>
+            <p class="text">各商品の本数を選ぶ</p>
+            <p class="icon"><img src="<?= $block->getViewFileUrl('Coke_Bundle::images/mybundle_icon_3-2.png'); ?>" /></p>
+        </div>
+        <div class="divider"></div>
+        <div class="step-block step-block-4">
+            <p class="label"><img src="<?= $block->getViewFileUrl('Coke_Bundle::images/mybundle_icon_4-1.png'); ?>" /></p>
+            <p class="text">カートに入れる</p>
+            <p class="icon"><img src="<?= $block->getViewFileUrl('Coke_Bundle::images/mybundle_icon_4-2.png'); ?>" /></p>
+        </div>
+    </div>
+</div>

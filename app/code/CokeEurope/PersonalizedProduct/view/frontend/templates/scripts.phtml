@@ -1,0 +1,47 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ * @var $block \Magento\Framework\View\Element\Template
+ * @var $viewModel CokeEurope\PersonalizedProduct\ViewModel\Product\Personalization
+ */
+$viewModel = $block->getViewModel();
+$moderation = $viewModel->getModeration();
+?>
+
+<!-- Add moderation script by Enable -->
+<?php if($moderation['enabled'] && $moderation['script_url']): ?>
+  <script type="text/javascript">
+    function callback(response) {
+      const event = new CustomEvent('enableCheck', {detail: response});
+      document.dispatchEvent(event);
+    }
+    function EnableCheckReadyChange(country, isReady){
+      const event = new CustomEvent('enableStatusChange', {detail: {country, isReady}});
+      document.dispatchEvent(event);
+    }
+
+    function EnableCheckLoaded(){
+      if (EnableCheckBrowserIsSupported()) {
+        var inputs = [
+            ...document.querySelectorAll("[data-enable-moderation]"),
+        ].map((input) => input.id);
+        inputs.push(""); // Add empty string for "To" field that enable expects 
+        EnableCheckInit("A1", callback, "gb", "en", inputs, true);
+      }
+    }
+
+  </script>
+<?php endif; ?>
+
+<script type="text/x-magento-init">
+  {
+    "#personalized_product": {
+      "CokeEurope_PersonalizedProduct/js/personalized-product": {
+        "stepsData": <?= json_encode($viewModel->getStepsConfig()); ?>,
+        "enableModeration": <?= json_encode($moderation['enabled']); ?>,
+        "enableScriptSrc": "<?= $moderation['script_url']; ?>"
+      }
+    }
+  }
+</script>

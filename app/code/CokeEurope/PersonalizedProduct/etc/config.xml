@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <coke_europe>
+            <cart>
+                <cart_maximum_enable>false</cart_maximum_enable>
+                <cart_maximum>0</cart_maximum>
+            </cart>
+            <personalized_product>
+                <enabled>0</enabled>
+            </personalized_product>
+        </coke_europe>
+    </default>
+    <websites>
+        <coke_eu>
+            <coke_europe>
+                <cart>
+                    <cart_maximum_enabled>true</cart_maximum_enabled>
+                    <cart_maximum>32</cart_maximum>
+                </cart>
+                <moderation>
+                    <script_url>https://prizehandling.com/profanitydemo/j</script_url>
+                    <emails>
+                        <approved_message_email>
+                            <template_id>sales_email_order_message_approved_template</template_id>
+                            <from_email>opentobetterie@cocacola.eu</from_email>
+                            <from_name>The Coca-Cola Company</from_name>
+                        </approved_message_email>
+                        <rejected_message_email>
+                            <template_id>sales_email_order_message_denied_template</template_id>
+                            <from_email>opentobetterie@cocacola.eu</from_email>
+                            <from_name>The Coca-Cola Company</from_name>
+                        </rejected_message_email>
+                    </emails>
+                </moderation>
+                <personalized_product>
+                    <personalized_product_sku>personalized-product</personalized_product_sku>
+                    <personalized_product_atc_message><![CDATA[Type a message to add another message with the same design or <a href="%1">start from scratch</a>]]></personalized_product_atc_message>
+                    <step_1>
+                        <bar_title>Product</bar_title>
+                        <bar_description><![CDATA[Select beverage & package]]></bar_description>
+                        <title>Select your drink</title>
+                        <description></description>
+                        <attributes>.brand_swatch,.package_bev_type</attributes>
+                    </step_1>
+                    <step_2>
+                        <bar_title>Design</bar_title>
+                        <bar_description>Select pattern</bar_description>
+                        <title>Design</title>
+                        <description>Choose your pattern to make a completely unique product</description>
+                        <attributes>.pattern</attributes>
+                    </step_2>
+                    <step_3>
+                        <bar_title>Message</bar_title>
+                        <bar_description>Enter the name or message</bar_description>
+                        <title>Message</title>
+                        <description>Type your message or choose from our favorite suggestions below</description>
+                        <attributes></attributes>
+                    </step_3>
+                </personalized_product>
+            </coke_europe>
+        </coke_eu>
+        <coke_uk>
+            <coke_europe>
+                <moderation>
+                    <script_url>https://prizehandling.com/profanitydemo/j</script_url>
+                    <emails>
+                        <approved_message_email>
+                            <template_id>sales_email_order_message_approved_template</template_id>
+                            <from_email>opentobetterie@cocacola.eu</from_email>
+                            <from_name>The Coca-Cola Company</from_name>
+                        </approved_message_email>
+                        <rejected_message_email>
+                            <template_id>sales_email_order_message_denied_template</template_id>
+                            <from_email>opentobetterie@cocacola.eu</from_email>
+                            <from_name>The Coca-Cola Company</from_name>
+                        </rejected_message_email>
+                    </emails>
+                </moderation>
+                <personalized_product>
+                    <personalized_product_sku>personalized-product</personalized_product_sku>
+                    <personalized_product_atc_message><![CDATA[Type a message to add another message with the same design or <a href="%1">start from scratch</a>]]></personalized_product_atc_message>
+                    <step_1>
+                        <bar_title>Product</bar_title>
+                        <bar_description><![CDATA[Select beverage & package]]></bar_description>
+                        <title>Select your drink</title>
+                        <description></description>
+                        <attributes>.brand_swatch,.package_bev_type</attributes>
+                    </step_1>
+                    <step_2>
+                        <bar_title>Design</bar_title>
+                        <bar_description>Select pattern</bar_description>
+                        <title>Design</title>
+                        <description>Choose your pattern to make a completely unique product</description>
+                        <attributes>.pattern</attributes>
+                    </step_2>
+                    <step_3>
+                        <bar_title>Message</bar_title>
+                        <bar_description>Enter the name or message</bar_description>
+                        <title>Message</title>
+                        <description>Type your message or choose from our favorite suggestions below</description>
+                        <attributes></attributes>
+                    </step_3>
+                </personalized_product>
+                <cart>
+                    <cart_maximum_enabled>true</cart_maximum_enabled>
+                    <cart_maximum>32</cart_maximum>
+                </cart>
+            </coke_europe>
+        </coke_uk>
+    </websites>
+</config>

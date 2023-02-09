@@ -1,0 +1,64 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ * @var $block \CokeEurope\PersonalizedProduct\Block\Product\View\Options\Type\Text
+ */
+$option = $block->getOption();
+$id = $block->escapeHtmlAttr($option->getId());
+$type = $option->getType();
+$title = $option->getTitle();
+?>
+<!-- Custom Option (Text) -->
+<div class="<?= $block->getOptionClass(); ?>" data-step="3">
+    <!-- Label -->
+    <div class="custom-option-label">
+        <label for="options_<?= $id; ?>_text">
+            <span><?= $block->escapeHtml(__($title)); ?></span>
+        </label>
+    </div>
+    <!-- Input -->
+    <div id="custom_option_<?= $id; ?>" class="custom-option-input">
+        <?php if ($type === 'field'): ?>
+            <input <?= $block->getInputAttributes(); ?> />
+            <?php if($title === "Message" || $title === "Name"): ?>
+                <div class="moderated-input-status">
+                    <div class="status status--loading">
+                        <svg class="spinner" viewBox="0 0 50 50"><circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle></svg>
+                    </div>
+                    <div class="status status--pending">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-alert-triangle" viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4M12 17h.01"/></svg>
+                    </div>
+                    <div class="status status--denied">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 14.14 14.14"/></svg>
+                    </div>
+                    <div class="status status--approved">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+                    </div>
+                </div>
+            <?php endif; ?>
+        <?php endif; ?>
+        <?php if ($type === 'area'): ?>
+            <textarea <?= $block->getInputAttributes(); ?>>
+                <?= $block->escapeHtml($block->getDefaultValue()); ?>
+            </textarea>
+        <?php endif; ?>
+        <!-- Character Limit -->
+        <?php if ($characterLimit = $option->getMaxCharacters()): ?>
+            <div class="character-limit" data-option="<?= $id ?>">
+                <span class="count">0</span>
+                <span>/</span>
+                <span class="limit"><?= $characterLimit; ?></span>
+            </div>
+            <script type="text/x-magento-init">
+                {
+                    "#custom_option_<?= $id; ?>": {
+                        "CokeEurope_PersonalizedProduct/js/character-limit": {
+                            "limit":  "<?= (int) $characterLimit; ?>"
+                        }
+                    }
+                }
+            </script>
+        <?php endif; ?>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ */
+?>
+<button type="button" class="preview" id="name-message-preview">
+    <span><?= __('Preview') ?></span>
+</button>
+<script>
+    require([
+        "jquery",
+        "mage/mage"
+    ], function($){
+        let scrollHeight = $("#preview").offset().top;
+        let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+        if (isMobile) {
+            scrollHeight = $("#preview").offset().top - 10;
+        }
+        $('#name-message-preview').click(function(){
+            $("html, body").animate({ scrollTop: scrollHeight }, "slow");
+            return false;
+        });
+    });
+</script>

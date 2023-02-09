@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\AdminGws\Model\Role">
+        <plugin name="FortyFour_AdminGws::rolePlugin"
+                type="FortyFour\AdminGws\Plugin\RolePlugin" />
+    </type>
+    <type name="Magento\AdminGws\Model\Containers">
+        <plugin name="FortyFour_AdminGws::adminGwsContainersPlugin"
+                type="FortyFour\AdminGws\Plugin\Adminhtml\AdminGws\AdminGwsContainersPlugin" />
+    </type>
+    <type name="Magento\AdminGws\Model\Controllers">
+        <plugin name="FortyFour_AdminGws::adminGwsControllersPlugin"
+                type="FortyFour\AdminGws\Plugin\Adminhtml\AdminGws\AdminGwsControllersPlugin" />
+    </type>
+    <type name="Magento\Store\Model\StoreManagerInterface">
+        <plugin name="FortyFour_AdminGws::storeManagerInterfacePlugin"
+                type="FortyFour\AdminGws\Plugin\Adminhtml\AdminGws\StoreManagerInterfacePlugin" />
+    </type>
+</config>

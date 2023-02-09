@@ -1,0 +1,113 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<!--@subject {{trans "Your %store_name order has shipped" store_name=$store.frontend_name}} @-->
+<!--@vars {
+"var formattedBillingAddress|raw":"Billing Address",
+"var this.getUrl($store,'customer/account/',[_nosid:1])":"Customer Account URL",
+"var order_data.customer_name":"Customer Name",
+"var order.increment_id":"Order Id",
+"var payment_html|raw":"Payment Details",
+"var comment|escape|nl2br":"Shipment Comment",
+"var shipment.increment_id":"Shipment Id",
+"layout handle=\"sales_email_order_shipment_items\" shipment=$shipment order=$order":"Shipment Items Grid",
+"block class='Magento\\\\Framework\\\\View\\\\Element\\\\Template' area='frontend' template='Magento_Sales::email\/shipment\/track.phtml' shipment=$shipment order=$order":"Shipment Track Details",
+"var formattedShippingAddress|raw":"Shipping Address",
+"var order.shipping_description":"Shipping Description",
+"var store.frontend_name":"Store Frontend Name",
+"var store_phone":"Store Phone",
+"var store_email":"Store Email",
+"var store_hours":"Store Hours",
+"var order_data.is_not_virtual": "Order Type",
+"var shipment": "Shipment",
+"var order": "Order",
+"var order_id": "Order DB Id",
+"var shipment_id": "Shipment DB Id"
+} @-->
+{{template config_path="design/email/header_template"}}
+
+<table class="shipment-email">
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">{{trans "%name," name=$order_data.customer_name}}</p>
+            <p>{{trans "Thank you for your order from %store_name." store_name=$store.frontend_name}}</p>
+            <p>{{trans "The product you ordered has been shipped."}}</p>
+        </td>
+    </tr>
+    <tr class="email-summary">
+        <td>
+            <p>{{trans "Your Shipment #%shipment_id for Order #%order_id" shipment_id=$shipment.increment_id order_id=$order.increment_id}}</p>
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>
+            {{depend comment}}
+            <table class="message-info">
+                <tr>
+                    <td>
+                        {{var comment|escape|nl2br}}
+                    </td>
+                </tr>
+            </table>
+            {{/depend}}
+            {{layout handle="sales_email_order_shipment_track" shipment_id=$shipment_id order_id=$order_id}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p> {{trans 'If you have questions about your order, please use the <a href="%url">contact form</a>' url="$this.getUrl($store,'contact')" |raw}}{{depend store_phone}} {{trans 'or call us at <a href="tel:%store_phone">%store_phone</a>' store_phone=$store_phone |raw}}{{/depend}}.</p>
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>
+            <table class="order-details">
+                <tr>
+                    <td class="address-details">
+                        <h3>{{trans "Billing Info"}}</h3>
+                        <p>{{var formattedBillingAddress|raw}}</p>
+                    </td>
+                    {{depend order_data.is_not_virtual}}
+                    <td class="address-details">
+                        <h3>{{trans "Shipping Info"}}</h3>
+                        <p>{{var formattedShippingAddress|raw}}</p>
+                    </td>
+                    {{/depend}}
+                </tr>
+                <tr>
+                    <td class="method-info">
+                        <h3>{{trans "Payment Method"}}</h3>
+                        {{var payment_html|raw}}
+                    </td>
+                    {{depend order_data.is_not_virtual}}
+                    <td class="method-info">
+                        <h3>{{trans "Shipping Method"}}</h3>
+                        <p>{{var order.shipping_description}}</p>
+                    </td>
+                    {{/depend}}
+                </tr>
+            </table>
+            {{layout handle="sales_email_order_shipment_items" shipment_id=$shipment_id order_id=$order_id}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br>
+            <p> <b>■ご注文製品の出荷スケジュールと追跡番号の反映■ </b></p>
+                <p>配送会社へのご注文製品の引き渡しは、「当メール送信の翌日」となります。但し、翌日が日曜日の場合は翌週月曜日の引き渡しとなります。また、お荷物追跡サービスへの追跡番号の反映は上記出荷日の19時以降となります。</p>
+                <p><b>[ご留意点]</b> </p>
+                <p>※お届け日指定のご希望は、上記配送会社の「配達営業所」をご確認いただき、配送業者に直接お問い合わせ下さいますようお願いいたします。</p>
+                <p>※送付先の変更は、お荷物伝票番号の反映後、配送業者へ直接ご連絡のうえ、お問い合わせくださいますようお願いいたします。また、送付先の変更は転送料金が発生する場合がございます。併せて配送業者にご確認ください。なお、お客様のご都合によるキャンセルはお受けできません。予めご了承ください。</p>
+                <p>※製品を発送して2週間を経過しても製品をお受け取りいただけない場合、若しくは指定配送業者の保管期限を超過し製品が当社に返却された場合は、製品の性質上、利用者において当該製品に係る権利を放棄したものとみなして、「My Coke Store利用規約」に基づき当社にて製品を廃棄いたします。なお、返却された商品の再発送は致しません。予めご了承ください。</p>
+        </td>
+    </tr>
+</table>
+<style>
+    .hide-qty-left{
+        display: none !important;
+    }
+</style>
+
+{{template config_path="design/email/footer_template"}}

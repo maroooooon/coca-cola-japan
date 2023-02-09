@@ -1,0 +1,28 @@
+<?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+
+<div class="reward-points-confirmation-wrapper" style="display:none;">
+    <div id="reward-points-confirmation-container"
+         class="reward-points-confirmation-container"
+         data-bind="scope: 'reward_points_confirmation'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components" : {
+                    "reward_points_confirmation": {
+                        "component": "Coke_Sarp2/js/view/reward/points/confirmation"
+                    }
+                }
+            }
+        }
+    }
+</script>

@@ -1,0 +1,103 @@
+<!--@subject {{trans "Your %store_name order confirmation" store_name=$store.frontend_name}} @-->
+<!--@vars {
+"var formattedBillingAddress|raw":"Billing Address",
+"var order_data.email_customer_note|escape|nl2br":"Email Order Note",
+"var order.increment_id":"Order Id",
+"layout handle=\"sales_email_order_items\" order=$order area=\"frontend\"":"Order Items Grid",
+"var payment_html|raw":"Payment Details",
+"var formattedShippingAddress|raw":"Shipping Address",
+"var order.shipping_description":"Shipping Description",
+"var shipping_msg":"Shipping message",
+"var created_at_formatted":"Order Created At (datetime)",
+"var store.frontend_name":"Store Frontend Name",
+"var store_phone":"Store Phone",
+"var store_email":"Store Email",
+"var store_hours":"Store Hours",
+"var this.getUrl($store,'customer/account/',[_nosid:1])":"Customer Account URL",
+"var order_data.is_not_virtual":"Order Type",
+"var order":"Order",
+"var order_data.customer_name":"Customer Name",
+"var order_data.delivery_date":"Delivery Date"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greetings">{{trans "%customer_name," customer_name=$order_data.customer_name}}</p>
+            <p>{{trans "Thank you for your order from %store_name." store_name=$store.frontend_name}}</p>
+            <p>{{trans 'You can check the status of your order by <a href="%account_url">logging into your account</a>.' account_url=$this.getUrl($store,'customer/account/',[_nosid:1]) |raw}}</p>
+        </td>
+    </tr>
+     <tr>
+        <td>
+            <p>{{trans 'If you have questions about your order, please use the <a href="%url">contact form</a>' url="$this.getUrl($store,'contact')" |raw}}{{depend store_phone}} {{trans 'or call us at <a href="tel:%store_phone">%store_phone</a>' store_phone=$store_phone |raw}}{{/depend}}</p>
+            <p>{{trans "We will email you the tracking number when the product you ordered is shipped."}}</p>
+        </td>
+    </tr>
+    <tr class="email-summary">
+        <td>
+            <h1>{{trans 'Your Order <span class="no-link">#%increment_id</span>' increment_id=$order.increment_id |raw}}</h1>
+            <p>{{trans 'Placed on <span class="no-link">%created_at</span>' created_at=$created_at_formatted |raw}}</p>
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>
+            {{depend order_data.email_customer_note}}
+            <table class="message-info">
+                <tr>
+                    <td>
+                        {{var order_data.email_customer_note|escape|nl2br}}
+                    </td>
+                </tr>
+            </table>
+            {{/depend}}
+            <table class="order-details">
+                <tr>
+                    <td class="address-details">
+                        <h3>{{trans "Billing Info"}}</h3>
+                        <p>{{var formattedBillingAddress|raw}}</p>
+                    </td>
+                    {{depend order_data.is_not_virtual}}
+                    <td class="address-details">
+                        <h3>{{trans "Shipping Info"}}</h3>
+                        <p>{{var formattedShippingAddress|raw}}</p>
+                    </td>
+                    {{/depend}}
+                </tr>
+                <tr>
+                    <td class="method-info">
+                        <h3>{{trans "Payment Method"}}</h3>
+                        {{var payment_html|raw}}
+                    </td>
+                </tr>
+                {{depend order_data.delivery_date}}
+                <tr>
+                    <td class="method-info">
+                        <h3>{{trans "Delivery Date"}}</h3>
+                        <p>{{var order_data.delivery_date}}</p>
+                    </td>
+                </tr>
+                {{/depend}}
+            </table>
+            {{layout handle="sales_email_order_items" order=$order area="frontend"}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br>
+            <p><b>ご注文製品の出荷スケジュール及び出荷準備完了メールについて</b></p>
+            <p>マイラベルなどの受注生産品はご注文日の翌日以降7～14営業日以内、それ以外の商品はご注文日の翌日以降2～4営業日以内にご指定の送付先宛にご注文製品を出荷いたします。</p>
+            <p>あわせて、製品の出荷完了後に、配送会社と追跡番号を記載した出荷準備完了メールを配信いたします。</p>
+            <p>なお、お届け日にご希望がある場合は、出荷準備完了メールに記載の配送会社に直接お問い合わせください。</p>
+            <p>送付先の変更は転送料金が発生する場合がございます。併せて配送業者にご確認ください。</p>
+            <br>
+            <p><b>[ご留意点]</b></p>
+            <p>※ご注文のキャンセルについて</p>
+            <p>当メール配信後30分以上経過後のキャンセルは「My Coke Store利用規約」に基づき一切お受けできません。（製品到着後の返品・交換を含みます）</p>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

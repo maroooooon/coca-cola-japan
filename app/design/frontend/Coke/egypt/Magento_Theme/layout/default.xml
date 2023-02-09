@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+		<!-- Remove footer links-->
+		<referenceBlock name="privacy-policy-link" remove="true" />
+		<referenceBlock name="search-term-popular-link" remove="true" />
+		<referenceBlock name="catalog-search-advanced-link" remove="true" />
+		<referenceBlock name="coke-sitemap-link" remove="true" />
+		<referenceBlock name="sales-guest-form-link" remove="true" />
+        <referenceBlock name="form.subscribe" remove="true" />
+
+        <referenceBlock name="customer.form.register.newsletter" remove="true" />
+
+		<!-- Remove elements -->
+		<referenceBlock name="catalog.compare.sidebar" remove="true"/>
+		<referenceBlock name="view.addto.compare" remove="true" />
+		<referenceBlock name="catalog.compare.link" remove="true"/>
+		<referenceBlock name="category.product.addto.compare" remove="true" />
+		<referenceBlock name="related.product.addto.compare" remove="true" />
+		<referenceBlock name="upsell.product.addto.compare" remove="true" />
+		<referenceBlock name="crosssell.product.addto.compare" remove="true" />
+        <referenceContainer name="header.panel">
+            <block name="home.link" template="Magento_Theme::html/home-link.phtml" before="store_language" />
+        </referenceContainer>
+
+        <referenceBlock name="head.additional">
+            <block name="manifest_web_app" template="Magento_Theme::html/manifest.phtml"/>
+        </referenceBlock>
+
+        <move element="header.links" destination="header.panel" before="store_language" />
+
+        <referenceBlock name="store.settings">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="store.settings.language.heading"
+                   template="Magento_Theme::menu/language-heading.phtml"
+                   before="store.settings.language">
+            </block>
+        </referenceBlock>
+
+        <referenceContainer name="footer">
+            <block name="social.footer.link.container"
+                   template="Magento_Theme::html/footer/social-link-container.phtml"
+                   after="footer_links">
+                <block class="Magento\Cms\Block\Block" name="coke-egypt-footer-social-links">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">coke_egypt_footer_social_links</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
+	</body>
+</page>

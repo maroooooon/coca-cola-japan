@@ -1,0 +1,9 @@
+<?php /** @var \Magento\Framework\View\Element\Template $block */ ?>
+
+<?php if($promo = $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('header-promo')->toHtml()): ?>
+<section id="site-promo" class="section--xxs">
+    <div class="container">
+        <?php echo $promo; ?>
+    </div>
+</section>
+<?php endif; ?>

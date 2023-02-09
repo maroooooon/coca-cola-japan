@@ -1,0 +1,1 @@
+magepack generate --cms-url="https://delivery.coca-cola.eg/" --category-url="https://delivery.coca-cola.eg/beverages.html" --product-url="https://delivery.coca-cola.eg/schweppes-lemon-mint-250-ml-glass-bottle-12-pack.html"

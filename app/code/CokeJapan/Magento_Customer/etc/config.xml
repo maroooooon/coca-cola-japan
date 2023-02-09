@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <coke_japan>
+            <customer>
+                <enable_redirect>0</enable_redirect>
+            </customer>
+        </coke_japan>
+    </default>
+    <websites>
+        <jp_marche>
+            <coke_japan>
+                <customer>
+                    <enable_redirect>1</enable_redirect>
+                </customer>
+            </coke_japan>
+        </jp_marche>
+    </websites>
+</config>

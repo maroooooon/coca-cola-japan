@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="coke_newsletter_subscribe" resource="default" engine="innodb" comment="Coke newsletter interest">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="entity id" />
+        <column xsi:type="varchar" name="email" nullable="false" length="255" comment="email"/>
+        <column xsi:type="varchar" name="store" nullable="true" length="255" comment="Store"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="COKE_NEWSLETTER_SUBSCRIBE_UNIQUE">
+            <column name="email"/>
+        </constraint>
+    </table>
+</schema>

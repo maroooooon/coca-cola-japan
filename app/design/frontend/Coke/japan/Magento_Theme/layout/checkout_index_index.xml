@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="checkout" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Remove Minicart -->
+        <referenceBlock name="minicart" remove="true" />
+        <!-- Add Navigation -->
+        <referenceContainer name="header.container">
+            <block class="Magento\Framework\View\Element\Template" name="coke.japan.navigation" template="Coke_Japan::navigation.phtml" ifconfig="coke_japan/general/enabled">
+                <arguments>
+                    <argument name="japan" xsi:type="object">Coke\Japan\ViewModel\Japan\Data</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <!-- Add Footer -->
+        <referenceContainer name="page.wrapper">
+            <container name="checkout.footer" htmlTag="div" htmlClass="cj-footer" after="-">
+                <block class="Magento\Framework\View\Element\Template" name="coke.japan.footer.content" template="Magento_Theme::footer/content.phtml" after="-" />
+            </container>
+        </referenceContainer>
+        <!-- Modify Checkout Fields -->
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="steps" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="shipping-step" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="shippingAddress" xsi:type="array">
+                                                    <!-- Remove PopUp Form -->
+                                                    <item name="popUpForm" xsi:type="array">
+                                                        <item name="componentDisabled" xsi:type="boolean">true</item>
+                                                    </item>
+                                                    <!-- Use Custom Shipping Component -->
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="before-fields" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="elder_id" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Coke_Japan/js/select-elder</item>
+                                                                    <item name="displayArea" xsi:type="string">before-login-form</item>
+                                                                </item>
+                                                                <item name="order_details" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Coke_Japan/js/order-details</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                        <!-- Disable saved address list -->
+                                                        <item name="address-list" xsi:type="array">
+                                                            <item name="componentDisabled" xsi:type="boolean">true</item>
+                                                        </item>
+                                                        <item name="shipping-address-fieldset" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="company" xsi:type="array">
+                                                                    <item name="visible" xsi:type="boolean">false</item>
+                                                                </item>
+                                                                <item name="region_id" xsi:type="array">
+                                                                    <item name="componentDisabled" xsi:type="boolean">true</item>
+                                                                    <item name="visible" xsi:type="boolean">false</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                        <!-- Remove Coupon Code -->
+                                        <item name="billing-step" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="payment" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="beforeMethods" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="order_details" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Coke_Japan/js/order-details</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                        <item name="afterMethods" xsi:type="array">
+                                                            <item name="children" xsi:type="array">        
+                                                                <item name="discount" xsi:type="array">
+                                                                    <item name="config" xsi:type="array">
+                                                                        <item name="componentDisabled" xsi:type="boolean">true</item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                                <item name="sidebar" xsi:type="array">
+                                        <item name="sortOrder" xsi:type="string">50</item>
+                                        <item name="component" xsi:type="string">Magento_Checkout/js/view/sidebar</item>
+                                        <item name="displayArea" xsi:type="string">sidebar</item>
+                                        <item name="config" xsi:type="array">
+                                            <item name="template" xsi:type="string">Magento_Checkout/sidebar</item>
+                                            <item name="deps" xsi:type="array">
+                                                <item name="0" xsi:type="string">checkout.steps</item>
+                                            </item>
+                                        </item>
+                                        <item name="children" xsi:type="array">
+                                            <item name="summary" xsi:type="array">
+                                                <item name="component" xsi:type="string">Magento_Checkout/js/view/summary</item>
+                                                <item name="displayArea" xsi:type="string">summary</item>
+                                                <item name="config" xsi:type="array">
+                                                    <item name="template" xsi:type="string">Magento_Checkout/summary</item>
+                                                </item>
+                                                <item name="children" xsi:type="array">
+                                                    <item name="totals" xsi:type="array">
+                                                        <item name="children" xsi:type="array">
+                                                            <item name="shipping" xsi:type="array">
+                                                                <item name="componentDisabled" xsi:type="boolean">true</item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                    <item name="itemsAfter" xsi:type="array">
+                                                        <item name="component" xsi:type="string">uiComponent</item>
+                                                        <item name="children" xsi:type="array">
+                                                            <!-- merge your components here -->
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                            <item name="shipping-information" xsi:type="array">
+                                                <item name="componentDisabled" xsi:type="boolean">true</item>
+                                            </item>
+                                        </item>
+                                    </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,44 @@
+<h1>{{trans "Payment Transaction Failed"}}</h1>
+
+<ul>
+    <li>
+        <b>{{trans "Reason"}}</b><br />
+        {{var reason}}
+    </li>
+    <li>
+        <b>{{trans "Checkout Type"}}</b><br />
+        {{var checkoutType}}
+    </li>
+    <li>
+        <b>{{trans "Customer:"}}</b><br />
+        <a href="mailto:{{var customerEmail}}">{{var customer}}</a> &lt;{{var customerEmail}}&gt;
+    </li>
+    <li>
+        <b>{{trans "Items"}}</b><br />
+        {{var items|raw}}
+    </li>
+    <li>
+        <b>{{trans "Total:"}}</b><br />
+        {{var total}}
+    </li>
+    <li>
+        <b>{{trans "Billing Address:"}}</b><br />
+        {{var billingAddress.format('html')|raw}}
+    </li>
+    <li>
+        <b>{{trans "Shipping Address:"}}</b><br />
+        {{var shippingAddress.format('html')|raw}}
+    </li>
+    <li>
+        <b>{{trans "Shipping Method:"}}</b><br />
+        {{var shippingMethod}}
+    </li>
+    <li>
+        <b>{{trans "Payment Method:"}}</b><br />
+        {{var paymentMethod}}
+    </li>
+    <li>
+        <b>{{trans "Date & Time:"}}</b><br />
+        {{var dateAndTime}}
+    </li>
+</ul>

@@ -1,0 +1,17 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+?>
+<?php if($cmsBlock = $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('eu_how_it_works')->toHtml()): ?>
+    <section class="section section--how-it-works">
+        <div class="section-title">
+            <h2><?= __("Personalise your drink. Enjoy your experience."); ?></h2>
+        </div>
+        <div class="section-content">
+            <?= $cmsBlock; ?>
+        </div>
+    </section>
+<?php endif; ?>

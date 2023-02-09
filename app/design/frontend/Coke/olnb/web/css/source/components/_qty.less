@@ -1,0 +1,132 @@
+
+.qty-toggler {
+  text-align: center;
+
+  .control {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    @media (min-width: @bp-sm-min) {
+      justify-content: flex-start;
+    }
+
+    input,
+    button {
+      margin: 0;
+    }
+
+    button {
+      background: none;
+      border: 0;
+      box-shadow: none;
+      color: @color-brand-primary;
+      padding: 0 3rem;
+      font-size: 2.5rem;
+      width: 50px;
+
+      &[disabled] {
+        opacity: 1;
+      }
+
+      &:focus,
+      &:hover {
+        background: none;
+        border: 0;
+        box-shadow: none;
+        color: @color-brand-primary;
+      }
+
+      @media (min-width: @bp-sm-min) {
+        width: auto;
+        font-size: 2rem;
+        padding: 0 2rem;
+
+        &[data-type="minus"] {
+          padding-left: 0;
+        }
+
+        &[data-type="plus"] {
+          padding-right: 0;
+        }
+      }
+    }
+
+    .qty-wrap {
+      text-align: center;
+
+      label{
+        display: block;
+        color: @color-header;
+        font-size: @size-text-sm;
+      }
+
+      input {
+        width: 70px;
+        max-width: 100%;
+        appearance: none;
+        text-align: center;
+      }
+    }
+  }
+
+  // cart row variation
+  // -------------------
+  &.cart-row {
+    .control {
+      justify-content: flex-start;
+
+      @media (min-width: @bp-sm-min) {
+        justify-content: center;
+      }
+
+      button {
+        padding: 0 1.5rem;
+        width: 30px;
+        flex: 0 0 auto;
+
+        &[data-type="minus"] {
+          padding-left: 0;
+        }
+
+        &[data-type="plus"] {
+          padding-right: 0;
+        }
+      }
+
+      .qty-wrap {
+        input {
+          width: 60px;
+        }
+      }
+    }
+  }
+}
+
+.update-cart-qty-action {
+  opacity: 0;
+  visibility: hidden;
+  font-size: @size-text-sm;
+  text-align: center;
+  transition: @transition-default;
+  margin: 1rem 0 0;
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  button {
+    ._btn-link();
+    ._link-primary();
+  }
+
+  @media (max-width: @bp-xs-min) {
+    display: none;
+
+    &.show {
+      display: block;
+    }
+  }
+}
+

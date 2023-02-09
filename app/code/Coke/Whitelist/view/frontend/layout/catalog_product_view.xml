@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.options">
+            <block class="Coke\Whitelist\Block\Product\View\Options\Type\Whitelist" name="product.info.options.whitelist_text" as="whitelist_text" template="Coke_Whitelist::product/view/options/type/whitelist_text.phtml"/>
+            <block class="Coke\Whitelist\Block\Product\View\Options\Type\Whitelist" name="product.info.options.whitelist_dropdown" as="whitelist_dropdown" template="Coke_Whitelist::product/view/options/type/whitelist_dropdown.phtml"/>
+        </referenceBlock>
+    </body>
+</page>

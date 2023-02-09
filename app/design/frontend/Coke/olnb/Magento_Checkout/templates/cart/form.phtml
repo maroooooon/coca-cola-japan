@@ -1,0 +1,152 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+
+/**  @var $block \Magento\Checkout\Block\Cart\Grid */
+?>
+<?php $mergedCells = ($this->helper(Magento\Tax\Helper\Data::class)->displayCartBothPrices() ? 2 : 1); ?>
+<?= $block->getChildHtml('form_before') ?>
+<form action="<?= $block->escapeUrl($block->getUrl('checkout/cart/updatePost')) ?>"
+          method="post"
+          id="form-validate"
+          data-mage-init='{"Magento_Checkout/js/action/update-shopping-cart":
+              {"validationURL" : "<?= $block->escapeUrl($block->getUrl('checkout/cart/updateItemQty')) ?>",
+              "updateCartActionContainer": "#update_cart_action_container"}
+          }'
+          class="form form-cart">
+    <?= $block->getBlockHtml('formkey') ?>
+    <div class="cart table-wrapper<?= $mergedCells == 2 ? ' detailed' : '' ?>">
+        <?php if ($block->getPagerHtml()) :?>
+            <div class="cart-products-toolbar cart-products-toolbar-top toolbar"
+                 data-attribute="cart-products-toolbar-top"><?= $block->getPagerHtml() ?>
+            </div>
+        <?php endif ?>
+        <table id="shopping-cart-table"
+               class="cart items data table"
+               data-mage-init='{"shoppingCart":{"emptyCartButton": ".action.clear",
+               "updateCartActionContainer": "#update_cart_action_container"}}'>
+            <thead>
+                <tr>
+                    <th class="col img" scope="col"></th>
+                    <th class="col item" scope="col"></th>
+                    <th class="col price" scope="col"><span><?= $block->escapeHtml(__('Price')) ?></span></th>
+                    <th class="col qty" scope="col"><span><?= $block->escapeHtml(__('Qty')) ?></span></th>
+                    <th class="col subtotal" scope="col"><span><?= $block->escapeHtml(__('Subtotal')) ?></span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($block->getItems() as $_item): ?>
+                    <?= $block->getItemHtml($_item) ?>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+        <?php if ($block->getPagerHtml()) :?>
+            <div class="cart-products-toolbar cart-products-toolbar-bottom toolbar"
+                 data-attribute="cart-products-toolbar-bottom"><?= $block->getPagerHtml() ?>
+            </div>
+        <?php endif ?>
+    </div>
+    <div class="cart main actions">
+        <?php if ($block->getContinueShoppingUrl()) :?>
+            <a class="action continue"
+               href="<?= $block->escapeUrl($block->getContinueShoppingUrl()) ?>"
+               title="<?= $block->escapeHtmlAttr(__('Continue Shopping')) ?>">
+                <span><?= $block->escapeHtml(__('Continue Shopping')) ?></span>
+            </a>
+        <?php endif; ?>
+        <button type="button"
+                name="update_cart_action"
+                data-cart-empty=""
+                value="empty_cart"
+                title="<?= $block->escapeHtmlAttr(__('Clear Shopping Cart')) ?>"
+                class="action clear" id="empty_cart_button">
+            <span><?= $block->escapeHtml(__('Clear Shopping Cart')) ?></span>
+        </button>
+        <button type="submit"
+                name="update_cart_action"
+                data-cart-item-update=""
+                value="update_qty"
+                title="<?= $block->escapeHtmlAttr(__('Update Shopping Cart')) ?>"
+                class="action update">
+            <span><?= $block->escapeHtml(__('Update Shopping Cart')) ?></span>
+        </button>
+        <input type="hidden" value="" id="update_cart_action_container" data-cart-item-update=""/>
+    </div>
+</form>
+<?= $block->getChildHtml('checkout.cart.order.actions') ?>
+<?= $block->getChildHtml('shopping.cart.table.after') ?>
+
+<script>
+require([
+    'jquery',
+    'domReady!'
+], function ($) {
+
+    $('.qty-input').keydown(function (e) {
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+            (e.keyCode == 65 && e.ctrlKey === true) ||
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+            return;
+        }
+
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+
+    $('.btn-number').on('click', function(e) {
+        e.preventDefault();
+
+        var fieldName = $(this).data('field');
+        var input = $("input[name='" + fieldName + "']");
+        var type = $(this).data('type');
+        var currentVal = parseInt(input.val());
+        var minValue = !isNaN(input.attr('min')) ? parseInt(input.attr('min')) : 1;
+        var maxValue = !isNaN(input.attr('max')) ? parseInt(input.attr('max')) : 999;
+        var oldValue = input.data('old-value');
+        var updateField = $(".update-cart-qty-action[data-update='" + fieldName + "']");
+
+        if (isNaN(currentVal)) {
+            input.val(0);
+            return;
+        }
+
+        if (type == 'minus') {
+            if (currentVal > minValue) {
+                input.val(currentVal - 1).change();
+            }
+            if (parseInt(input.val()) == minValue) {
+                $(this).attr('disabled', true);
+            }
+        } else if (type == 'plus') {
+            if (currentVal < maxValue) {
+                input.val(currentVal + 1).change();
+            }
+            if (parseInt(input.val()) == maxValue) {
+                $(this).attr('disabled', true);
+            }
+        }
+
+        if (currentVal >= minValue) {
+            $(".btn-number[data-type='minus'][data-field='" + fieldName + "']").removeAttr('disabled')
+        }
+
+        if (currentVal <= maxValue) {
+            $(".btn-number[data-type='plus'][data-field='" + fieldName + "']").removeAttr('disabled')
+        }
+
+        var newVal = parseInt(input.val());
+
+        if (newVal != oldValue) {
+            updateField.addClass('show')
+        } else {
+            updateField.removeClass('show')
+        }
+    });
+
+});
+</script>

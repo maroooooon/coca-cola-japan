@@ -1,0 +1,79 @@
+
+.nav {
+  ul {
+    display: flex;
+    align-items: center;
+
+    > li {
+      > a {
+        display: block;
+        transition: @transition-default;
+        padding: 0 1.25rem;
+        color: @color-header;
+
+        svg {
+          width: 30px;
+          height: auto;
+          fill: @color-header;
+          transition: @transition-default;
+
+          &.cart {
+            path {
+              transition: @transition-default;
+              fill: none;
+              stroke: @color-header;
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        > a {
+          padding-right: 0;
+        }
+      }
+
+      &:hover,
+      &:focus {
+        > a {
+          color: @color-brand-primary;
+  
+          svg {
+            fill: @color-brand-primary;
+  
+            &.cart {
+              path {
+                fill: none;
+                stroke: @color-brand-primary;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.right {
+    ul {
+      > li:last-child {
+        > a {
+          @media (min-width: @bp-sm-min) {
+            padding-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &.left {
+    ul {
+      > li:first-child {
+        > a {
+          @media (min-width: @bp-sm-min) {
+            padding-left: 0;
+          }
+        }
+      }
+    }
+  }
+}

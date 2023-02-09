@@ -1,0 +1,51 @@
+<?php
+$category = $block->getCategory();
+$categoryName = $block->getCategoryName();
+$categories = $block->getFaqCategories();
+?>
+<div class="page-title-wrapper">
+    <h1 class="page-title"><span class="base" data-ui-id="page-title-wrapper"><?php echo $block->getFaqPageTitle(); ?></span></h1>
+</div>
+<div class="coke-faq-container-items">
+    <div class="coke-faq-content">
+        <h2><?php echo $categoryName; ?></h2>
+
+        <?php
+        if (count($categories) > 0) {
+        ?>
+        <ul class="coke-faq-list">
+            <?php
+                foreach ($category as $value) {
+                    if (count($value['items']) > 0) {
+                        foreach ($value['items'] as $item) {
+            ?>
+            <li>
+                <a href="<?php echo $block->getUrl('faq/item/show/').$item['url_key']; ?>">
+                    <?php echo $item['title'];?>
+                </a>
+            </li>
+            <?php
+                        }
+                    }
+                }
+            ?>
+        </ul>
+        <?php
+        }
+        ?>
+    </div>
+    <div class="block block-collapsible-nav">
+        <div class="title block-collapsible-nav-title" data-mage-init='{"toggleAdvanced": {"toggleContainers": "#faq-nav-content", "selectorsToggleClass": "active"}}'><?php echo __('Category Menu') ?></div>
+        <div class="block-collapsible-content content" id="faq-nav-content">
+            <ul class="items">
+                <?php if (count($categories) > 0) { ?>
+                    <?php foreach ($categories as $c) { ?>
+                        <li class="item <?php echo ($categoryName == $c['name']) ? 'current' : '' ?>"><a href="<?php echo $block->getUrl('faq/category/show/').$c['url_key']; ?>"><?php echo $c['name'];?></a></li>
+                    <?php } ?>
+                <?php } else { ?>
+                    <li class="item"><a href="#" onClick="return false;"><?php echo __('No categories found') ?></a></li>
+                <?php } ?>
+            </ul>
+        </div>
+    </div>
+</div>

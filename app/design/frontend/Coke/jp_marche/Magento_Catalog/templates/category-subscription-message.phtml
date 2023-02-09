@@ -1,0 +1,8 @@
+<div data-bind="scope: 'customer-account'">
+    <div class="category-subscription-message" data-bind="visible: !customer().fullname" style="display: none">
+        <p><?= __('会員登録して定期便を申込む')?></p>
+        <div class="actions">
+            <a class="action primary" href="<?= $block->getUrl('customer/account')?>"><?= __('会員登録にすすむ')?></a>
+        </div>
+    </div>
+</div>

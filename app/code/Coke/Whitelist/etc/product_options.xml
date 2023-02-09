@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Catalog:etc/product_options.xsd">
+    <option name="text" label="Text" renderer="Magento\Catalog\Block\Adminhtml\Product\Edit\Tab\Options\Type\Text">
+        <inputType name="whitelist_text" label="Whitelist Text"/>
+        <inputType name="whitelist_dropdown" label="Whitelist Dropdown"/>
+    </option>
+</config>

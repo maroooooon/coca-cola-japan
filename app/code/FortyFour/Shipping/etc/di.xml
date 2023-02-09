@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="FortyFour\Shipping\Api\ExpressStandard\DeliveryCommentManagementInterface"
+                type="FortyFour\Shipping\Model\ExpressStandard\DeliveryCommentManagement" />
+    <preference for="FortyFour\Shipping\Api\ExpressStandard\GuestDeliveryCommentManagementInterface"
+                type="FortyFour\Shipping\Model\ExpressStandard\GuestDeliveryCommentManagement" />
+
+    <virtualType name="Magento\Sales\Model\ResourceModel\Order\Grid">
+        <arguments>
+            <argument name="columns" xsi:type="array">
+                <item name="express_standard_delivery_comment" xsi:type="string">sales_order.express_standard_delivery_comment</item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

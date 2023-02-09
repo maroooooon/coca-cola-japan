@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <shipping_address_restriction>
+            <general>
+                <enabled>0</enabled>
+            </general>
+            <city_region>
+                <apply_to_region>1</apply_to_region>
+            </city_region>
+        </shipping_address_restriction>
+    </default>
+
+    <websites>
+        <olnb_turkey>
+            <shipping_address_restriction>
+                <city_region>
+                    <apply_to_region>0</apply_to_region>
+                </city_region>
+            </shipping_address_restriction>
+        </olnb_turkey>
+    </websites>
+</config>

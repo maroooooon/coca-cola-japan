@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="sales_order_item">
+        <column xsi:type="int" name="sarp2_profile_item_id" nullable="true" padding="10"
+                comment="Sarp2 Profile Item Id" />
+    </table>
+    <table name="aw_sarp2_profile">
+        <column xsi:type="smallint" name="is_email_sent_on_cancellation" unsigned="true" nullable="false" identity="false" default="0" comment="Is Email Sent on Cancellation"/>
+    </table>
+</schema>

@@ -1,0 +1,58 @@
+& when (@media-common = true) {
+    .paypal-review-discount .actions-toolbar .action.primary, .paypal-review-discount .actions-toolbar .action.cancel, .cart-discount .actions-toolbar .action.primary, .cart-discount .actions-toolbar .action.cancel{
+        border-radius: 0;
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+}
+
+// desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .abs-shopping-cart-items-desktop,
+    .block-cart-failed, .cart-container .form-cart,
+    .cart-container .cart-gift-item,
+    .cart-discount{
+        float: right;
+        padding-right: 0;
+        padding-left: 4%;
+    }
+
+    .cart-summary{
+        float: left;
+    }
+
+    .cart.table-wrapper {
+        .product-item-photo{
+            padding-right: 0;
+            padding-left: 20px;
+        }
+
+        .actions-toolbar {
+            > .action-edit{
+                right: auto;
+                left: 32px;
+            }
+            > .action-delete{
+                right: auto;
+                left: 0;
+            }
+        }
+
+    }
+
+    .cart-discount .block:nth-child(1){
+        float: right;
+    }
+
+    .gift-options-cart-item .gift-wrapping,
+    .cart-gift-item .gift-wrapping{
+        float: right;
+        padding-right: 0;
+        padding-left: 20px;
+    }
+}
+
+// mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+}

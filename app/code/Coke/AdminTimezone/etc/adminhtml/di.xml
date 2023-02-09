@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\User\Block\User\Edit\Tab\Main">
+        <plugin name="Coke_AdminTimezone::addUserField"
+                type="Coke\AdminTimezone\Plugin\User\AddUserEditField" />
+    </type>
+
+    <type name="Magento\Framework\App\Config">
+        <plugin name="Coke_AdminTimezone::overrideTimezone"
+                type="Coke\AdminTimezone\Plugin\App\Config\OverrideTimezone" />
+    </type>
+</config>

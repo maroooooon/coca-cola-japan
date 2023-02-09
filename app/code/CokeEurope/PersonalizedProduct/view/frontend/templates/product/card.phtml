@@ -1,0 +1,68 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ * @var $block \Magento\Framework\View\Element\Template
+ * @var $listBlock \Magento\Catalog\Block\Product\ListProduct
+ * @var $product \Magento\Catalog\Model\Product
+
+ */
+use Magento\Framework\App\Action\Action;
+
+$product = $this->getProduct();
+$listBlock = $this->getListBlock();
+$productSku = $escaper->escapeHtml($product->getSku());
+$productName = $escaper->escapeHtml($product->getName());
+$productHref = $escaper->escapeUrl($product->getProductUrl());
+$postParams = $listBlock->getAddToCartPostParams($product);
+$datalayer = $this->getDatalayer();
+?>
+<!-- Product Card -->
+<article class="product-card" 
+    <?php if($datalayer): ?>
+        data-datalayer='<?= $datalayer; ?>'
+    <?php endif; ?>> 
+    <!-- Product Image -->
+    <div class="product-image">
+        <a href="<?= $productHref; ?>" title="<?= $productName ?>">
+            <?php if($product->getCatalogImage()): ?>
+                <?= $listBlock->getImage($product, 'category_catalog_image')->toHtml(); ?>
+            <?php else: ?>
+                <?= $listBlock->getImage($product, 'category_page_grid')->toHtml(); ?>
+            <?php endif; ?>
+        </a>
+    </div>
+    <!-- Product Details -->
+    <div class="product-card-details">
+        <!-- Product Name -->
+        <div class="product-name">
+            <strong><?= $productName; ?></strong>
+        </div>
+        <!-- Product Price -->
+        <div class="product-price">
+            <?= /* @noEscape */ $listBlock->getProductPrice($product) ?>
+        </div>
+    </div>
+    <!-- Product Actions -->
+    <div class="product-card-actions">
+        <form data-role="tocart-form"
+                data-product-sku="<?= $productSku ?>"
+                action="<?= $escaper->escapeUrl($postParams['action']) ?>"
+                method="post">
+            <input type="hidden"
+                    name="product"
+                    value="<?= /* @noEscape */ $postParams['data']['product'] ?>">
+            <input type="hidden"
+                    name="<?= /* @noEscape */ Action::PARAM_NAME_URL_ENCODED ?>"
+                    value="<?=
+                    /* @noEscape */ $postParams['data'][Action::PARAM_NAME_URL_ENCODED]
+                    ?>">
+            <?= $listBlock->getBlockHtml('formkey') ?>
+            <a href="<?= $productHref; ?>" title="<?= __('Customise') ?>">
+                <button type="button" class="action customise primary">
+                    <span><?=  __('Customise'); ?></span>
+                </button>
+            </a>
+        </form>
+    </div>
+</article>

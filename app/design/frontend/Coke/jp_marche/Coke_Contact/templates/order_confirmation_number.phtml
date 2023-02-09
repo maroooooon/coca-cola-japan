@@ -1,0 +1,6 @@
+<div class="field order-confirmation-number">
+	<label class="label" for="order_confirmation_number"><span><?= $block->escapeHtml(__('Order Confirmation Number')) ?></span></label>
+	<div class="control">
+		<input name="order_confirmation_number" id="order-confirmation-number" title="<?= $block->escapeHtmlAttr(__('Order Confirmation Number')) ?>" value="<?= $block->escapeHtmlAttr($this->helper('Magento\Contact\Helper\Data')->getPostValue('order_confirmation_number')) ?>" class="input-text" type="text" tabindex="5"/>
+	</div>
+</div>

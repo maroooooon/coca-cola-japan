@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="navigation.sections">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="store.site.links"
+                   group="navigation-sections"
+                   ifconfig="share_site/general/enabled"
+                   template="Magento_Theme::html/container.phtml">
+                <arguments>
+                    <argument name="title" translate="true" xsi:type="string">Site</argument>
+                    <argument name="use_force" xsi:type="boolean">true</argument>
+                </arguments>
+                <block class="Magento\Framework\View\Element\Html\Link"  name="share.site.shortcut.link">
+                    <arguments>
+                        <argument name="label" xsi:type="string" translate="true">Create homescreen shortcut</argument>
+                        <argument name="path" xsi:type="string">homescreen-shortcut</argument>
+                    </arguments>
+                </block>
+                <block name="share.site.mobile.link"
+                       template="FortyFour_ShareSite::html/share-site.phtml"
+                       ifconfig="share_site/general/enabled" />
+            </block>
+        </referenceBlock>
+
+        <referenceContainer name="footer">
+            <block name="footer.share.site.links"
+                   template="FortyFour_ShareSite::html/container.phtml"
+                   ifconfig="share_site/general/enabled">
+                <arguments>
+                    <argument name="wrapper_element" xsi:type="string">ul</argument>
+                    <argument name="css_class" xsi:type="string">footer links mobile-only</argument>
+                </arguments>
+                <block class="Magento\Framework\View\Element\Html\Link\Current"  name="footer.share.site.shortcut.link">
+                    <arguments>
+                        <argument name="label" xsi:type="string" translate="true">Create homescreen shortcut</argument>
+                        <argument name="path" xsi:type="string">homescreen-shortcut</argument>
+                    </arguments>
+                </block>
+                <block name="footer.share.site.link"
+                       template="FortyFour_ShareSite::html/share-site.phtml"
+                       ifconfig="share_site/general/enabled">
+                    <arguments>
+                        <argument name="wrapper_element" xsi:type="string">li</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

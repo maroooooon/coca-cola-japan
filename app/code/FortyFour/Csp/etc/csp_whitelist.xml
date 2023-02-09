@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category FortyFour
+ * @copyright Copyright (c) 2020 FortyFour LLC
+ */
+-->
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="connect-src">
+            <values>
+                <value id="coke" type="host">*.coke.com</value>
+                <value id="newrelic-bam" type="host">bam.nr-data.net</value>
+                <value id="amazonaws" type="host">*.amazonaws.com</value>
+                <value id="marcheHashFeed" type="host">campwidget.com</value>
+                <value id="google_api" type="host">*.googleapis.com</value>
+                <value id="prizehandling" type="host">prizehandling.com</value>
+                <value id="promotionserv" type="host">*.promotionserv.com:*</value>
+                <value id="promotionservwss" type="host">wss://*.promotionserv.com:*</value>
+                <value id="cookielaw" type="host">*.cookielaw.org</value>
+                <value id="zdassets" type="host">*.zdassets.com</value>
+                <value id="zendesk" type="host">mycokestore.zendesk.com</value>
+                <value id="zopim" type="host">wss://*.zopim.com:*</value>
+                <value id="onetrust" type="host">*.onetrust.com</value>
+            </values>
+        </policy>
+        <policy id="script-src">
+            <values>
+                <value id="coke" type="host">*.coke.com</value>
+                <value id="newrelic" type="host">js-agent.newrelic.com</value>
+                <value id="newrelic-bam" type="host">bam.nr-data.net</value>
+                <value id="googletagmanager" type="host">*.googletagmanager.com</value>
+                <value id="google" type="host">*.google.com</value>
+                <value id="gstatic" type="host">*.gstatic.com</value>
+                <value id="marcheHashFeed" type="host">campwidget.com</value>
+                <value id="google_api" type="host">*.googleapis.com</value>
+                <value id="prizehandling" type="host">prizehandling.com</value>
+                <value id="promotionserv" type="host">*.promotionserv.com:*</value>
+                <value id="zdassets" type="host">*.zdassets.com</value>
+                <value id="cookielaw" type="host">*.cookielaw.org</value>
+            </values>
+        </policy>
+        <policy id="frame-src">
+            <values>
+                <value id="youtube" type="host">*.youtube.com</value>
+                <value id="google" type="host">*.google.com</value>
+                <value id="prizehandling" type="host">prizehandling.com</value>
+                <value id="promotionserv" type="host">*.promotionserv.com:*</value>
+            </values>
+        </policy>
+        <policy id="img-src">
+            <values>
+                <value id="googletagmanager" type="host">*.googletagmanager.com</value>
+                <value id="gstatic" type="host">*.gstatic.com</value>
+                <value id="prizehandling" type="host">prizehandling.com</value>
+                <value id="promotionserv" type="host">*.promotionserv.com:*</value>
+                <value id="cookielaw" type="host">*.cookielaw.org</value>
+            </values>
+        </policy>
+        <policy id="media-src">
+            <values>
+                <value id="zdassets" type="host">*.zdassets.com</value>
+            </values>
+        </policy>
+        <policy id="form-action">
+            <values>
+                <value id="payfort" type="host">*.payfort.com</value>
+                <value id="prizehandling" type="host">prizehandling.com</value>
+                <value id="promotionserv" type="host">*.promotionserv.com:*</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

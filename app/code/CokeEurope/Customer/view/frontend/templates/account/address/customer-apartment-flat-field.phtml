@@ -1,0 +1,32 @@
+<?php
+/**
+ * customer-apartment-flat-field.phtml
+ *
+ * @copyright Copyright © 2023 Bounteous. All rights reserved.
+ * @author    tanya.lamontagne@bounteous.com
+ */
+
+/** @var \Magento\Customer\Block\Address\Edit $block */
+/** @var \CokeEurope\Customer\ViewModel\Data $view_model */
+$view_model = $block->getData('view_model');
+/** @var \CokeEurope\Checkout\Helper\Config $helper */
+$helper = $this->helper('\CokeEurope\Checkout\Helper\Config');
+?>
+<?php if ($helper->isUkWebsite()) : ?>
+    <label for="street_flat" class="label not-required"><span></span></label>
+    <div class="control">
+        <div class="nested">
+            <div class="field street additionalabove">
+                <input type="text"
+                       name="street_flat"
+                       value=""
+                       title=""
+                       id="street[1]"
+                       class="input-text ?>"
+                       placeholder="<?= __('Flat / Unit / Apartment') ?>"
+                       data-bind="scope: 'shippingAddress.custom_attributes.apartment-flat-field'"
+                />
+            </div>
+        </div>
+    </div>
+<?php endif ?>

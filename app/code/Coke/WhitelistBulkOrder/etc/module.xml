@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category Bounteous
+ * @copyright Copyright (c) 2021 Bounteous LLC
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Coke_WhitelistBulkOrder" setup_version="1.0.0">
+        <sequence>
+            <module name="Magento_Checkout"/>
+            <module name="Coke_Whitelist"/>
+            <module name="CokeFrance_Catalog"/>
+        </sequence>
+    </module>
+</config>

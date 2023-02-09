@@ -1,0 +1,20 @@
+& when (@media-common = true) {
+    .checkout-index-index {
+        .braintree-paypal-fieldset {
+            ~ .actions-toolbar {
+                margin-left: 0 !important;
+            }
+        }
+
+        div[data-container="paypal-button"] {
+            width: 100%;
+
+            .paypal-button-context-iframe {
+                .zoid-outlet,
+                .zoid-component-frame {
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+}

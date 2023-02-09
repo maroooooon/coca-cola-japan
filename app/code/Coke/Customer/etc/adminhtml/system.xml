@@ -1,0 +1,32 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="coke_customer">
+            <group id="marketing" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Marketing</label>
+                <field id="marketing_campaign_cart_rule" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Marketing Campaign Cart Rule</label>
+                    <source_model>Coke\SalesRule\Model\Config\Source\CartRules</source_model>
+                </field>
+                <field id="utm_campaign_code" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>UTM Campaign Code</label>
+                </field>
+                <field id="coupon_code_length" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Coupon Code Length</label>
+                </field>
+                <field id="coupon_code_prefix" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Coupon Code Prefix</label>
+                </field>
+            </group>
+            <group id="coupon_error_section" translate="label" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Coupon Error Message</label>
+                <field id="show_coupon_error_for_guest" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="select">
+                    <label>Show Coupon Error Message For Guest</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="coupon_error_for_guest_message" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Coupon Error Message for Guest</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Catalog\Block\Product\View" name="pdp" template="Magento_Catalog::product/view.phtml" before="-">
+                <block class="Magento\Framework\View\Element\Template" name="kp.title" template="Magento_Catalog::product/view/kp-title.phtml" />
+                <block class="Magento\Framework\View\Element\Template" name="kp.details" template="Magento_Catalog::product/view/kp-details.phtml" />
+            </block>
+        </referenceContainer>
+        <referenceContainer name="page.wrapper">
+            <block class="Magento\Framework\View\Element\Template" name="pdp-back" template="Magento_Theme::html/back.phtml" before='main.content'>
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Back to Resolution</argument>
+                    <argument name="link" xsi:type="string">whats-your-resolution.html</argument>
+                    <argument name="sticky" xsi:type="boolean">false</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <referenceBlock name="product.info.addtocart.additional">
+            <arguments>
+                <argument name="view_model" xsi:type="object">Coke\OLNB\ViewModel\FixedProductTax</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceBlock name="product.info.addtocart">
+            <arguments>
+                <argument name="view_model" xsi:type="object">Coke\OLNB\ViewModel\FixedProductTax</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceContainer name="product.info.extrahint" remove="true" />
+        <referenceContainer name="product.info.details.wrapper" remove="true" />
+        <referenceContainer name="product.info.stock.sku" remove="true" />
+
+        <referenceBlock name="product.info.overview" remove="true" />
+        <referenceBlock name="page.main.title" remove="true" />
+        <referenceBlock name="product.info.details" remove="true" />
+        <referenceBlock name="content.aside" remove="true" />
+        <referenceBlock name="product.info.media" remove="true" />
+        <referenceBlock name="product.info.review" remove="true" />
+        <referenceBlock name="product.price.final" remove="true"/>
+
+        <move element="messages" destination="pdp" before="-" />
+        <move element="product.info.media.image" destination="pdp" before="-" />
+
+        <move element="product.info.main" destination="pdp" before="-" />
+        <!-- <move element="product.info.form.options" destination="pdp" />
+        <move element="product.info.addtocart" destination="pdp" /> -->
+
+
+    </body>
+</page>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Framework\View\Element\Template" name="coke_eu_datalayer_purchase" template="CokeEurope_DataLayer::datalayer_purchase.phtml" after="-" ifconfig="coke_europe/datalayer/enabled">
+                <arguments>
+                        <argument name="datalayer_config" xsi:type="object">CokeEurope\DataLayer\ViewModel\Data</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

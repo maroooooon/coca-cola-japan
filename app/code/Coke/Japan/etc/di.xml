@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Reward\Model\Reward"
+                type="Coke\Japan\Rewrite\Model\Reward"/>
+
+    <type name="Magento\Sales\Api\Data\OrderInterface">
+        <plugin name="Coke_Japan::orderInterfacePlugin"  type="Coke\Japan\Plugin\OrderInterfacePlugin"/>
+    </type>
+    <type name="Aheadworks\Sarp2\Api\Data\ProfileInterface">
+        <plugin name="Coke_Japan::sarp2ProfileInterfacePlugin"
+                type="Coke\Japan\Plugin\Sarp2ProfileInterfacePlugin"/>
+    </type>
+    <type name="Aheadworks\Sarp2\Model\Profile\Source\Status">
+        <plugin name="coke_japan_plugin_Status_Option_values"
+                type="Coke\Japan\Plugin\Sarp2ProfileSourcePlugin"/>
+    </type>
+</config>

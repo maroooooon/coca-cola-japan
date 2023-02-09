@@ -1,0 +1,374 @@
+//General Buttons
+& when (@media-common = true) {
+    button,
+    input[type="submit"],
+    a,
+    div{
+        &.action.primary{
+            .lib-button-primary(
+                @_button-font-size: 16px,
+                @_button-padding: 15px 25px,
+                @_button-background: @coke-brown,
+                @_button-border:1px solid @coke-brown,
+                @_button-font-weight: 700,
+                @_button-background-hover: @coke-dark,
+                @_button-background-active: @coke-dark,
+                @_button-color-hover: @color-white,
+                @_button-color-active: @color-white,
+                @_button-border-hover: 1px solid @coke-dark,
+                @_button-border-active: 1px solid @coke-dark
+            );
+
+            .lib-css(border-radius, @button__border-radius);
+            line-height: 1;
+            text-decoration: none;
+            text-align: center;
+            width: 100%;
+
+            &.disabled,
+            &[disabled] {
+                background: #C4C4C4;
+                border-color: #C4C4C4;
+            }
+
+            &.gradient {
+                .lib-color-gradient-background();
+
+                &:hover,
+                &:active {
+                    .lib-color-gradient-background-hover()
+                }
+            }
+
+            &.action-line{
+                background: #00b800;
+                border-color: #00b800;
+                max-width: 500px;
+                &:hover{
+                    background: #00b800;
+                }
+            }
+        }
+    }
+
+    button,
+    input[type="submit"],
+    a,
+    div{
+        &.action.secondary {
+            .lib-link-as-button();
+            .lib-button-secondary();
+            .lib-css(border-radius, @button__border-radius);
+            padding: 15px 25px;
+            font-size: 16px;
+            line-height: 1;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        &.pagebuilder-button-primary,
+        &.pagebuilder-button-secondary {
+            .lib-button-dark();
+        }
+
+        &.pagebuilder-button-primary{
+            width: 100%;
+        }
+
+        &.pagebuilder-button-link {
+            .lib-button-text-link();
+            color: @coke-dark !important;
+            &:hover{
+                color: @coke-black-gray-hover !important;
+            }
+        }
+    }
+
+    button,
+    input[type="submit"],
+    a,
+    div{
+        &.gray{
+            .lib-button-gray();
+            &.selected{
+                background: #fcf2ea;
+                border-color: #f05500;
+            }
+        }
+    }
+
+    button{
+        .lib-button(
+            @_button-padding: 10px 15px,
+            @_button-font-weight: 700
+        );
+    }
+}
+
+// Checkout flow buttons
+button,
+input[type="submit"],
+a {
+    &.action.primary {
+        &.tocart,
+        &.checkout,
+        &[data-role="opc-continue"],
+        &.login,
+        &.create{
+            .lib-button-dark();
+            //&:hover,
+            //&:active{
+            //    .lib-color-gradient-background-hover()
+            //}
+            &.disabled,
+            &[disabled] {
+                background: #C4C4C4;
+                border-color: #C4C4C4;
+            }
+        }
+
+        // ATC on PDPs
+        &.tocart{
+            &#product-addtocart-button{
+                .lib-button-dark-with-icon();
+                .lib-css(border-radius, 0);
+            }
+        }
+
+        .checkout-onepage-success &{
+            &.continue{
+                .lib-button-dark();
+                &:hover,
+                &:active{
+                    .lib-color-gradient-background-hover()
+                }
+            }
+        }
+    }
+}
+
+//Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .page-wrapper{
+        button,
+        input[type="submit"],
+        a,
+        div{
+            &.pagebuilder-button-link {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+//Mixins
+.lib-button-secondary() {
+    .lib-button(
+        @_button-color: @button-secondary_color,
+        @_button-background: @button-secondary_background,
+        @_button-border: 1px solid @button-secondary_border_color,
+        @_button-color-hover: @button-secondary_active_color,
+        @_button-background-hover: @button-secondary_active_background,
+        @_button-border-hover: 1px solid @button-secondary_active_border_color,
+        @_button-color-active: @button-secondary_active_color,
+        @_button-background-active: @button-secondary_active_background,
+        @_button-border-active: 1px solid @button-secondary_active_border_color
+    );
+}
+
+// Brown button
+.lib-button-primary-brown() {
+    .lib-button-primary(
+        @_button-font-size: 14px,
+        @_button-padding: 13px 25px,
+        @_button-background: @coke-brown,
+        @_button-border: 1px solid @coke-brown,
+        @_button-font-weight: 700,
+        @_button-background-hover: @coke-brown,
+        @_button-background-active: @coke-brown,
+        @_button-border-hover: 1px solid @coke-brown,
+        @_button-border-active: 1px solid @coke-brown,
+        @_button-color-hover: @color-white,
+        @_button-color-active: @color-white
+    );
+}
+
+//Gray button
+.lib-button-gray() {
+    .lib-button-primary(
+        @_button-font-size: 14px,
+        @_button-padding: 13px 25px,
+        @_button-background: #f2f2f2,
+        @_button-border: 1px solid #cccccc,
+        @_button-color: #000000,
+        @_button-font-weight: 700,
+        @_button-background-hover: #fcf2ea,
+        @_button-background-active: #fcf2ea,
+        @_button-border-hover: 1px solid #f05500,
+        @_button-border-active: 1px solid #f05500,
+        @_button-color-hover: #000000,
+        @_button-color-active: #000000
+    );
+    text-decoration: none;
+}
+
+.lib-button-dark() {
+    .lib-button-primary(
+        @_button-font-size: 14px,
+        @_button-padding: 13px 25px,
+        @_button-background: @coke-black-gray,
+        @_button-border: 1px solid @coke-black-gray,
+        @_button-color: @color-white,
+        @_button-font-weight: 700,
+        @_button-background-hover: @coke-black-gray-hover,
+        @_button-background-active: @coke-black-gray-hover,
+        @_button-border-hover: 1px solid @coke-black-gray-hover,
+        @_button-border-active: 1px solid @coke-black-gray-hover,
+        @_button-color-hover: @color-white,
+        @_button-color-active: @color-white
+    );
+    text-decoration: none;
+}
+
+.lib-button-dark-with-icon() {
+    .lib-button-primary(
+        @_button-font-size: 16px,
+        @_button-padding: 11px 25px,
+        @_button-background: @coke-black-gray,
+        @_button-border: 2px solid @coke-black-gray,
+        @_button-color: @color-white,
+        @_button-font-weight: 700,
+        @_button-background-hover: @coke-black-gray-hover,
+        @_button-background-active: @coke-black-gray-hover,
+        @_button-border-hover: 2px solid @coke-black-gray,
+        @_button-border-active: 2px solid @coke-black-gray,
+        @_button-color-hover: @color-white,
+        @_button-color-active: @color-white
+    );
+    span{
+        vertical-align: middle;
+    }
+    .lib-icon-font(
+        @icon-expand,
+        @_icon-font-size: 25px,
+        @_icon-font-position: after
+    );
+    &:after{
+        font-weight: 700;
+    }
+    text-decoration: none;
+}
+
+.lib-button-orange() {
+    .lib-button-primary(
+        @_button-font-size: 14px,
+        @_button-padding: 11px 25px,
+        @_button-background: @color-white,
+        @_button-border: 3px solid @coke-red-button,
+        @_button-color: @coke-red-button,
+        @_button-font-weight: 700,
+        @_button-background-hover: @coke-red-button,
+        @_button-background-active: @coke-red-button,
+        @_button-border-hover: 3px solid @coke-red-button,
+        @_button-border-active: 3px solid @coke-red-button,
+        @_button-color-hover: @color-white,
+        @_button-color-active:@color-white
+    );
+    text-decoration: none;
+}
+
+.lib-button-white() {
+    .lib-button-primary(
+        @_button-font-size: 14px,
+        @_button-padding: 13px 25px,
+        @_button-background: @color-white,
+        @_button-border: 1px solid @color-white,
+        @_button-color: @coke-dark,
+        @_button-font-weight: 700,
+        @_button-background-hover: @coke-red,
+        @_button-background-active: @coke-red,
+        @_button-border-hover: 1px solid @coke-red,
+        @_button-border-active: 1px solid @coke-red,
+        @_button-color-hover: @color-white,
+        @_button-color-active: @color-white
+    );
+    text-decoration: none;
+}
+
+.lib-button-text-link() {
+    .lib-button-as-link(
+        @_link-color: @coke-dark,
+        @_link-color-hover: @coke-black-gray-hover
+    );
+
+    &:after{
+        content: ">>";
+        padding-left: 10px;
+    }
+    text-decoration: none;
+    font-size: 18px;
+}
+
+// My Label buttons
+.lib-button-label-red() {
+    .lib-button-primary(
+        @_button-font-size: 14px,
+        @_button-padding: 13px 25px,
+        @_button-background: @coke-label-red,
+        @_button-border: 1px solid @coke-label-red,
+        @_button-font-weight: 700,
+        @_button-background-hover: @coke-label-red,
+        @_button-background-active: @coke-label-red,
+        @_button-border-hover: 1px solid @coke-label-red,
+        @_button-border-active: 1px solid @coke-label-red,
+        @_button-color-hover: @color-white,
+        @_button-color-active: @color-white
+    );
+}
+
+.lib-button-label-green() {
+    .lib-button-primary(
+        @_button-font-size: 14px,
+        @_button-padding: 13px 25px,
+        @_button-background: @coke-label-green,
+        @_button-border: 1px solid @coke-label-green,
+        @_button-font-weight: 700,
+        @_button-background-hover: @coke-label-green,
+        @_button-background-active: @coke-label-green,
+        @_button-border-hover: 1px solid @coke-label-green,
+        @_button-border-active: 1px solid @coke-label-green,
+        @_button-color-hover: @color-white,
+        @_button-color-active: @color-white
+    );
+}
+
+.lib-button-label-orange() {
+    .lib-button-primary(
+        @_button-font-size: 14px,
+        @_button-padding: 13px 25px,
+        @_button-background: @coke-label-orange,
+        @_button-border: 1px solid @coke-label-orange,
+        @_button-font-weight: 700,
+        @_button-background-hover: @coke-label-orange,
+        @_button-background-active: @coke-label-orange,
+        @_button-border-hover: 1px solid @coke-label-orange,
+        @_button-border-active: 1px solid @coke-label-orange,
+        @_button-color-hover: @color-white,
+        @_button-color-active: @color-white
+    );
+}
+
+// Gradient background. Used for all elements. Not just buttons
+.lib-color-gradient-background(){
+    background: rgb(255,0,0);
+    background: linear-gradient(90deg, rgba(255,0,0,1) -10%, rgba(246,150,18,1) 40%, rgba(246,150,18,1) 60%, rgba(0,178,185,1) 110%);
+    border:none;
+}
+
+// Gradient button hover state. separated to be able to target elements that need hover.
+.lib-color-gradient-background-hover(){
+    background: rgb(255,0,0);
+    background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(246,150,18,1) 20%, rgba(246,150,18,1) 80%, rgba(0,178,185,1) 100%);
+    border:none
+}

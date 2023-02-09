@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!--[Removals]-->
+            <referenceBlock name="content.top" remove="true" />
+            <referenceBlock name="category.image" remove="true" />
+            <referenceBlock name="sidebar.main" remove="true" />
+            <referenceBlock name="product_list_toolbar" remove="true" />
+            <referenceBlock name="category.product.addto.compare" remove="true" />
+        <!--[/Removals]-->        
+        <!--[Custom Product List]-->
+            <referenceBlock name="category.products.list" template="Magento_Catalog::product/bottle-list.phtml">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">Coke\France\ViewModel\Data</argument>
+                </arguments>
+            </referenceBlock>
+        <!--[/Custom Product List]-->
+        <!--[Custom Bottle Section]-->
+            <referenceContainer name="content">
+                <block class="Magento\Framework\View\Element\Template" name="custom.bottle" template="Magento_Catalog::product/custom-bottle.phtml" after="-" />
+            </referenceContainer>
+        <!--[/Custom Bottle Section]-->
+    </body>
+</page>

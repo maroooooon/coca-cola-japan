@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Block\Product\View">
+        <plugin name="Coke_OLNB::productViewPlugin"
+                type="Coke\OLNB\Plugin\ProductViewPlugin" />
+    </type>
+    <type name="Magento\Framework\Pricing\Render\PriceBox">
+        <plugin name="Coke_OLNB::priceBoxPlugin"
+                type="Coke\OLNB\Plugin\PriceBoxPlugin" />
+    </type>
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="Coke_OLNB::checkoutLayoutPlugin"
+                type="Coke\OLNB\Plugin\CheckoutLayoutPlugin" />
+    </type>
+</config>

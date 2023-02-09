@@ -1,0 +1,30 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block \Magento\Checkout\Block\Onepage\Link */
+
+$config = $block->getLayout()->createBlock(\Magento\Config\Block\System\Config\Form::class);
+$configValue = $config->getConfigValue('coke_bundledControls/bundled_controls/bundled_controls_sku');
+?>
+<?php if ($block->isPossibleOnepageCheckout()) :?>
+    <button type="button"
+            title="<?= $block->escapeHtmlAttr(__('Proceed to Checkout')) ?>"
+            data-mage-init='{
+                "Magento_Checkout/js/proceed-to-checkout":{
+                    "checkoutUrl":"<?= $block->escapeJs($block->escapeUrl($block->getCheckoutUrl())) ?>",
+                    "addToCartMessage":"<?= __('Cannot go to purchase page') ?>",
+                    "bundledControlMessage":"<?= __('Cannot go to the purchase page if the product is included in the package') ?>",
+                    "pleaseEmptyCart":"<?= __('Please empty your cart before ordering') ?>",
+                    "bundledControlsSku":"<?= $configValue ?>"
+                }
+            }'
+            class="action primary checkout<?= ($block->isDisabled()) ? ' disabled' : '' ?>"
+            <?php if ($block->isDisabled()) :?>
+                disabled="disabled"
+            <?php endif; ?>>
+        <span><?= $block->escapeHtml(__('Proceed to Checkout')) ?></span>
+    </button>
+<?php endif?>

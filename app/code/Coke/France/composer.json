@@ -1,0 +1,22 @@
+{
+    "name": "coke/module-france",
+    "description": "Custom functionality for Coke France theme",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Garrett Fritz",
+            "email": "garrett.fritz@bounteous.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Coke\\France\\": ""
+        }
+    }
+}

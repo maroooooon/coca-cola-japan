@@ -1,0 +1,48 @@
+
+.__link(@color: @color-link; @colorHover: @color-link-hover; @decoration: none; @decorationHover: none){
+  color: @color;
+  text-decoration: @decoration;
+  transition: @transition-default;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: @colorHover;
+    text-decoration: @decorationHover;
+  }
+}
+
+.__link-row(
+  @iconSpace: 3.75rem;
+  @padV: @section-pad-xxs;
+  @padH: @grid-gutter;
+  @hoverColor: @color-grey50;
+  @highlightColor: @color-grey100
+) {
+  padding: @padV @padH;
+  display: flex;
+  align-items: center;
+  ._link-black-to-primary();
+
+  .icon {
+    width: @iconSpace;
+
+    img,
+    svg {
+      height: auto;
+    }
+  }
+
+  .title {
+    font-weight: @font-weight-400;
+  }
+
+  &:hover,
+  &:focus {
+    background: @hoverColor;
+  }
+
+  &.highlighted {
+    background: @highlightColor;
+  }
+}

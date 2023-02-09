@@ -1,0 +1,35 @@
+& when (@media-common = true) {
+    select{
+        &:focus {
+            outline: none;
+            box-shadow: none !important;
+            border-color: @coke-green-dark;
+        }
+        padding: .6em 30px .5em .8em;
+        width: 100%;
+        max-width: 100%;
+        border: 1px solid @coke-green-dark;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: #fff;
+        background-image: url('@{baseDir}images/icons/arrow_drop_down.svg');
+        background-repeat: no-repeat;
+        background-position: right 10px top 50%;
+        background-size: 12px auto;
+        height: @form-element-input__height;
+        border-radius: 4px;
+        color: @coke-green-dark;
+    }
+}
+
+
+// desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+}
+
+// mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+}

@@ -1,0 +1,21 @@
+<?php
+ $title = $block->getPageHeading();
+ $resultCount = $block->getLayout()->getBlock('search.result')->getResultCount();
+
+ $searchResults = explode(':', $title, 2);
+?>
+
+<section class="search-results-hero">
+    <div class="wrapper">
+        <div class="search-title">
+            <h1>
+                <div class="search-query">
+                    <?= $searchResults[0]; ?>: <strong><?=$searchResults[1] ?></strong>
+                </div>
+                <div class="result-count">
+                    <?= __("%1 results", $resultCount); ?>
+                </div>
+            </h1>
+        </div>
+    </div>
+</section>

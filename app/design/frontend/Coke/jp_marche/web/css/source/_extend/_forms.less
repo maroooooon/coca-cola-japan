@@ -1,0 +1,71 @@
+@import "_inputs/_buttons.less";
+@import "_inputs/_inputs.less";
+@import "_inputs/_checkbox.less";
+
+//  Common
+& when (@media-common = true) {
+    table{
+        border-color: @color-gray-ddd;
+    }
+
+    h1,h2,h3{
+        font-weight: 700;
+        color: @coke-brown;
+    }
+}
+
+// Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    h1{
+        font-size: 30px;
+    }
+    h2{
+        font-size: 26px;
+    }
+
+    .fieldset {
+        > .field{
+            &:not(.choice) {
+                > .label{
+                    width: 100%;
+                    float: none;
+                    text-align: left;
+                    padding: 0;
+                    margin-bottom: 5px;
+                }
+                > .control{
+                    width: 100%;
+                    float: none;
+                }
+            }
+
+            &.choice:before{
+                display: none;
+            }
+        }
+        legend.legend,
+        .login-container & {
+            margin-left: 0;
+        }
+    }
+
+    .column{
+        &:not(.sidebar-main),
+        &:not(.sidebar-additional){
+            form{
+                .actions-toolbar{
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}
+
+
+
+// Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+}
+
+

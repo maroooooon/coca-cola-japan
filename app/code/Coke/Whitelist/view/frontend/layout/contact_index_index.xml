@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="form.additional.info">
+            <block class="Coke\Whitelist\Block\ContactForm" name="whitelist.request" template="Coke_Whitelist::contact_form_whitelist_request.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

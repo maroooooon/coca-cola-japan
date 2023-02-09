@@ -1,0 +1,68 @@
+.language-changer {
+    color: #000;
+
+    .cms-home & {
+        color: #fff;
+    }
+
+    .locale-selection {
+        color: #000;
+
+        .cms-home & {
+            color: #fff;
+        }
+
+        padding: 0 !important;
+        margin: 0 8px 0;
+
+        &.current-store {
+            position: relative;
+
+            &:after {
+                content: '';
+                width: 100%;
+                position: absolute;
+                left: 0;
+                bottom: -2px;
+                border-width: 0 0 1px;
+                border-style: solid;
+            }
+        }
+
+        &:hover {
+            color: #000 !important;
+
+            .cms-home & {
+                color: #fff !important;
+            }
+
+            transition: none !important;
+
+            &:after {
+                content: '';
+                width: 100%;
+                position: absolute;
+                left: 0;
+                bottom: -2px;
+                border-width: 0 0 1px;
+                border-style: solid;
+            }
+        }
+
+        &:active {
+            color: #000 !important;
+
+            .cms-home & {
+                color: #fff !important;
+            }
+        }
+
+        &:focus {
+            color: #000 !important;
+
+            .cms-home & {
+                color: #fff !important;
+            }
+        }
+    }
+}

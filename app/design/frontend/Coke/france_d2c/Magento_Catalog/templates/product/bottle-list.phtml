@@ -1,0 +1,41 @@
+<?php
+$viewModel = $block->getData('viewModel');
+$products = $block->getLoadedProductCollection();
+$primaryBottle = $viewModel->getPrimaryBottle();
+?>
+<?php if (!$products->count()) :?>
+    <div class="message info empty"><div><?= $block->escapeHtml(__('We can\'t find products matching the selection.')) ?></div></div>
+<?php else :?>
+
+    <div class="product-catalog">
+        <ol class="product-list">
+            <?php foreach ($products as $product) : 
+                $source = $product->getResource()->getAttribute('prefilled_phrase')->getSource();
+                $phrase = $source->getOptionText($product->getData('prefilled_phrase'));
+            ?>
+                <li class="product-list-item">
+                    <div class="product-image">
+                        <?= $block->getImage($product, 'category_page_grid')->toHtml() ?>
+                    </div>
+                    <div class="product-name">
+                        <strong><?= $block->escapeHtmlAttr($primaryBottle->getName()); ?></strong>
+                    </div>
+                    <div class="product-phrase">
+                        <strong><span>&#x00AB;</span><?= $block->escapeHtmlAttr($phrase); ?><span>&#x00BB;</span></strong>
+                    </div>
+                    <div class="product-cta">
+                        <a href="<?= $block->escapeUrl($product->getProductUrl()) ?>">
+                            <button type="button" title="<?= $block->escapeHtmlAttr(__('Buy')) ?>" class="atc">
+                                <?php if ($primaryBottle->isSaleable()) :?>
+                                    <span><?= $block->escapeHtml(__('Buy')) ?></span>
+                                <?php else: ?>
+                                    <span><?= $block->escapeHtml(__('Out of Stock')) ?></span>
+                                <?php endif; ?>
+                            </button>
+                        </a>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        </ol>
+    </div>
+<?php endif; ?>

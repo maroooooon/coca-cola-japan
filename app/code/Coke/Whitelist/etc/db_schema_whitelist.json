@@ -1,0 +1,52 @@
+{
+    "coke_whitelist_types": {
+        "column": {
+            "type_id": true,
+            "name": true,
+            "labels": true,
+            "label": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "coke_whitelist": {
+        "column": {
+            "entity_id": true,
+            "type_id": true,
+            "value": true,
+            "is_approved": true,
+            "store_id": true,
+            "created_at": true,
+            "updated_at": true,
+            "status": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "COKE_WHITELIST_TYPE_ID_COKE_WHITELIST_TYPES_TYPE_ID": true,
+            "COKE_WHITELIST_TYPE_ID_VALUE_STORE_ID": true
+        }
+    },
+    "catalog_product_option": {
+        "column": {
+            "whitelist_type_id": true,
+            "step_id": true,
+            "step_label": true,
+            "allow_non_whitelisted_values": true,
+            "require_non_whitelisted_value_approval": true
+        }
+    },
+    "coke_whitelist_order": {
+        "column": {
+            "entity_id": true,
+            "whitelist_id": true,
+            "order_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "COKE_WHITELIST_ORDER_WHITELIST_ID_COKE_WHITELIST_ENTITY_ID": true,
+            "COKE_WHITELIST_ORDER_ORDER_ID_SALES_ORDER_ENTITY_ID": true,
+            "COKE_WHITELIST_ORDER_WHITELIST_ID_ORDER_ID": true
+        }
+    }
+}

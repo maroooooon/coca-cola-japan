@@ -1,0 +1,49 @@
+& when (@media-common = true) {
+    .product-info-main{
+        .product-info-stock-sku{
+            text-align: left;
+            padding-left: 0;
+            padding-right: 10%;
+        }
+    }
+
+    .product-addto-links{
+        .action{
+            margin-right: 0;
+            margin-left: 5%;
+        }
+    }
+}
+
+// desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .product-info-main{
+        float: left;
+    }
+
+    .product.media{
+        float: right;
+    }
+
+
+    .product-social-links{
+        text-align: right;
+    }
+
+    .product.data.items{
+        > .item.title{
+            float: right;
+        }
+
+        > .item.content {
+            float: left;
+            margin-right: -100%;
+            margin-left: 0;
+        }
+    }
+}
+
+// mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+}

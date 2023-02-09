@@ -1,0 +1,35 @@
+@import '_extend/_variables.less';
+@import '_extend/_icons.less';
+@import '_extend/_tools.less';
+@import '_extend/_mixins.less';
+@import '_extend/_globals.less';
+@import '_extend/_grid.less';
+@import '_extend/_header.less';
+@import '_extend/_navigation.less';
+@import '_extend/_footer.less';
+@import '_extend/_forms.less';
+@import '_extend/_homepage.less';
+
+
+*{
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.product-item-info,
+.swatch-option {
+    box-sizing: content-box;
+}
+
+& when (@media-common = true) {
+
+}
+
+// desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+}
+
+// mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+}

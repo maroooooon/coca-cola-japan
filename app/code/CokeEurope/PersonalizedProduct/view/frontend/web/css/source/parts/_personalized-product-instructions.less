@@ -1,0 +1,115 @@
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+    .personalized-product-instructions {
+        margin: 20px 0;
+        // Instructions Top (Title & Price)
+        .instructions-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 100%;
+            // Step Title
+            .step-title {
+                strong {
+                    color: #000000;
+                    font-weight: 700;
+                    font-family: "TCCC-UnityHeadline", "Montserrat",
+                        "Helvetica Neue", Helvetica, Arial, sans-serif;
+                    line-height: 1.2;
+                }
+            }
+            // Step Price
+            .step-price {
+                .price-box {
+                    .price-container {
+                        font-family: "TCCC-UnityHeadline", "Montserrat",
+                            "Helvetica Neue", Helvetica, Arial, sans-serif;
+                        font-weight: 600;
+                        .price-label,
+                        .price {
+                            font-size: inherit;
+                            font-weight: inherit;
+                            font-family: inherit;
+                        }
+                    }
+                }
+            }
+        }
+        // Instructions Bottom (Description)
+        .instructions-bottom {
+            .step-description {
+                p {
+                    color: #000000;
+                    margin: 0;
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}
+
+//  Desktop
+//  _____________________________________________
+@media only screen and (min-width: @screen__m) {
+    .personalized-product-instructions {
+        // Instructions Top (Title & Price)
+        .instructions-top {
+            // Step Title
+            .step-title {
+                strong {
+                    font-size: 40px;
+                }
+            }
+            // Step Price
+            .step-price {
+                .price-box {
+                    .price-container {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+        // Instructions Bottom (Description)
+        .instructions-bottom {
+            .step-description {
+                p {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+@media only screen and (max-width: @screen__m) {
+    .personalized-product-instructions {
+        // Instructions Top (Title & Price)
+        .instructions-top {
+            // Step Title
+            .step-title {
+                strong {
+                    font-size: 24px;
+                }
+            }
+            // Step Price
+            .step-price {
+                .price-box {
+                    .price-container {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+        // Instructions Bottom (Description)
+        .instructions-bottom {
+            .step-description {
+                p {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

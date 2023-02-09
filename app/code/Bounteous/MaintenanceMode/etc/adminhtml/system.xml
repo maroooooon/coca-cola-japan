@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="bounteous" translate="label" sortOrder="400">
+            <label>Bounteous</label>
+        </tab>
+        <section id="bounteous_maintenance" sortOrder="9999" showInDefault="1" showInWebsite="1" showInStore="1"
+                 translate="label">
+            <label>Maintenance</label>
+            <tab>bounteous</tab>
+            <resource>Bounteous_MaintenanceMode::config_bounteous_maintenancemode</resource>
+            <group id="general" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="2" translate="label">
+                <label>General</label>
+                <field id="enabled" type="select" sortOrder="10" showInDefault="1" showInStore="1" translate="label">
+                    <label>Enabled</label>
+                    <comment>Redirect all frontend pages to desired CMS Page</comment>
+                    <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="cms_page" type="multiselect" sortOrder="20" showInDefault="1" showInStore="1"
+                       translate="label">
+                    <label>CMS Page</label>
+                    <source_model>\Bounteous\MaintenanceMode\Model\Config\Source\CmsPages</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

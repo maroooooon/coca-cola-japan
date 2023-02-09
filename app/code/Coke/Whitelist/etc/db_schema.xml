@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="coke_whitelist_types" resource="default" engine="innodb" comment="Coke Whitelist">
+        <column xsi:type="int"
+                name="type_id"
+                unsigned="true"
+                nullable="false"
+                identity="true"
+                comment="Type Id" />
+        <column xsi:type="varchar"
+                name="name"
+                nullable="false"
+                length="255"
+                comment="Type name" />
+        <column xsi:type="varchar"
+                name="label"
+                nullable="true"
+                length="255"
+                comment="Type Label" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="type_id"/>
+        </constraint>
+    </table>
+
+    <table name="coke_whitelist" resource="default" engine="innodb" comment="Coke Whitelist">
+        <column xsi:type="int"
+                name="entity_id"
+                unsigned="true"
+                nullable="false"
+                identity="true"
+                comment="Whitelist Id" />
+        <column xsi:type="int"
+                name="type_id"
+                unsigned="true"
+                nullable="false"
+                comment="Whitelist type ID" />
+        <column xsi:type="varchar"
+                name="value"
+                nullable="false"
+                length="255"
+                comment="Whitelist value" />
+        <column xsi:type="tinyint"
+                name="status"
+                unsigned="true"
+                nullable="false"
+                default="1"
+                comment="Status"
+                onCreate="migrateDataFrom(is_approved)" />
+        <column xsi:type="boolean"
+                name="store_id"
+                nullable="false"
+                default="true"
+                comment="Store ID" />
+        <column xsi:type="timestamp"
+                name="created_at"
+                on_update="false"
+                nullable="false"
+                default="CURRENT_TIMESTAMP"
+                comment="Creation Time" />
+        <column xsi:type="timestamp"
+                name="updated_at"
+                on_update="true"
+                nullable="false"
+                default="CURRENT_TIMESTAMP"
+                comment="Update Time" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="COKE_WHITELIST_TYPE_ID"
+                    table="coke_whitelist"
+                    column="type_id"
+                    referenceTable="coke_whitelist_types"
+                    referenceColumn="type_id"
+                    onDelete="CASCADE" />
+        <constraint xsi:type="unique" referenceId="COKE_WHITELIST_LINK_VALUE_STORE_ID">
+            <column name="type_id"/>
+            <column name="value"/>
+            <column name="store_id"/>
+        </constraint>
+    </table>
+    <table name="catalog_product_option">
+        <column xsi:type="int"
+                name="whitelist_type_id"
+                unsigned="true"
+                nullable="true"
+                comment="Whitelist type ID" />
+        <column xsi:type="int"
+                name="step_id"
+                unsigned="true"
+                nullable="true"
+                comment="Step ID" />
+        <column xsi:type="varchar"
+                name="step_label"
+                nullable="false"
+                length="255"
+                comment="Step Label" />
+        <column xsi:type="boolean"
+                name="allow_non_whitelisted_values"
+                nullable="true"
+                comment="Allow non whitelisted values" />
+        <column xsi:type="boolean"
+                name="require_non_whitelisted_value_approval"
+                nullable="true"
+                comment="Require non whitelisted value approval" />
+    </table>
+
+    <table name="coke_whitelist_order">
+        <column xsi:type="int"
+                name="entity_id"
+                unsigned="true"
+                nullable="false"
+                identity="true"
+                comment="Entity Id" />
+        <column xsi:type="int"
+                name="whitelist_id"
+                unsigned="true"
+                nullable="false"
+                comment="Whitelist ID" />
+        <column xsi:type="int"
+                name="order_id"
+                unsigned="true"
+                nullable="false"
+                padding="10"
+                comment="Order ID" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign" referenceId="COKE_WHITELIST_ORDER_WHITELIST_ID_COKE_WHITELIST_ENTITY_ID"
+                    table="coke_whitelist_order"
+                    column="whitelist_id"
+                    referenceTable="coke_whitelist"
+                    referenceColumn="entity_id"
+                    onDelete="CASCADE" />
+
+        <constraint xsi:type="foreign" referenceId="COKE_WHITELIST_ORDER_ORDER_ID_SALES_ORDER_ENTITY_ID"
+                    table="coke_whitelist_order"
+                    column="order_id"
+                    referenceTable="sales_order"
+                    referenceColumn="entity_id"
+                    onDelete="CASCADE" />
+        <constraint xsi:type="unique" referenceId="COKE_WHITELIST_ORDER_UNIQUE_WHITELIST_ID_ORDER_ID">
+            <column name="whitelist_id" />
+            <column name="order_id" />
+        </constraint>
+    </table>
+    <table name="quote">
+        <column xsi:type="smallint"
+                name="whitelist_status_pending"
+                unsigned="true"
+                nullable="true"
+                comment="Whitelist Status Pending Flag" />
+    </table>
+    <table name="sales_order">
+        <column xsi:type="smallint"
+                name="whitelist_status_pending"
+                unsigned="true"
+                nullable="true"
+                comment="Whitelist Status Pending Flag" />
+    </table>
+</schema>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <coke_cds>
+            <general>
+                <disable_newsletter_subscription>0</disable_newsletter_subscription>
+            </general>
+        </coke_cds>
+    </default>
+    <websites>
+        <egypt_website>
+            <coke_cds>
+                <general>
+                    <disable_newsletter_subscription>1</disable_newsletter_subscription>
+                </general>
+            </coke_cds>
+        </egypt_website>
+    </websites>
+</config>

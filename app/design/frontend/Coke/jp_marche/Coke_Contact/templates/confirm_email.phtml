@@ -1,0 +1,6 @@
+<div class="field confirm-email required">
+	<label class="label" for="confirm_email"><span><?= $block->escapeHtml(__('Confirm Email')) ?></span></label>
+	<div class="control">
+		<input name="confirm_email" id="confirm-email" title="<?= $block->escapeHtmlAttr(__('Confirm Email')) ?>" value="<?= $block->escapeHtmlAttr($this->helper('Magento\Contact\Helper\Data')->getPostValue('email') ?: $this->helper('Magento\Contact\Helper\Data')->getUserEmail()) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true, equalTo:'#email'}" tabindex="3"/>
+	</div>
+</div>

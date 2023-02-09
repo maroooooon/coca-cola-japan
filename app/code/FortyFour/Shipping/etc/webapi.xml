@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/carts/mine/express-standard-delivery-comment" method="PUT">
+        <service class="FortyFour\Shipping\Api\ExpressStandard\DeliveryCommentManagementInterface"
+                 method="saveDeliveryComment"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+
+    <route url="/V1/guest-carts/:cartId/express-standard-delivery-comment" method="PUT">
+        <service class="FortyFour\Shipping\Api\ExpressStandard\GuestDeliveryCommentManagementInterface"
+                 method="saveDeliveryComment"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+</routes>

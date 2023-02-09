@@ -1,0 +1,16 @@
+{
+  "enable_rejection_codes": {
+    "column": {
+      "id": true,
+      "code": true,
+      "short_description": true,
+      "long_description": true
+    },
+    "index": {
+      "ENABLE_REJECTION_CODES_ID": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  }
+}

@@ -1,0 +1,175 @@
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+    .personalized-product-steps {
+        display: flex;
+        align-items: stretch;
+        width: 100%;
+        max-width: 100%;
+        background: linear-gradient(
+            90deg,
+            #82e1ff 0%,
+            #78e6a0 19.27%,
+            #ffb400 39.58%,
+            #ff8700 58.85%,
+            #ff5a00 79.17%,
+            #f40000 100%
+        );
+
+        border: 1px solid #000000;
+        border-radius: 100px;
+        overflow: hidden;
+        .progress-step {
+            position: relative;
+            flex-grow: 1;
+            padding: 15px 20px;
+            background: #ffffff;
+            cursor:pointer;
+            .step-title,
+            .step-description {
+                display: block;
+                color: #000000;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 1.25;
+            }
+            .step-title {
+                margin-bottom: 5px;
+                text-transform: uppercase;
+                text-decoration: underline;
+            }
+            // Step 1
+            &.progress-step--1 {
+                padding-left: 50px;
+                &::after {
+                    position: absolute;
+                    top: 15px;
+                    right: 0;
+                    width: 1px;
+                    height: calc(100% - 30px);
+                    background: #a1a1a1;
+                    content: "";
+                }
+            }
+            // Step 2
+            &.progress-step--2 {
+                &::after {
+                    position: absolute;
+                    top: 15px;
+                    right: 0;
+                    width: 1px;
+                    height: calc(100% - 30px);
+                    background: #a1a1a1;
+                    content: "";
+                }
+            }
+            // Step 3
+            &.progress-step--3 {
+                padding-right: 50px;
+                &.active {
+                    border-right: none;
+                }
+            }
+
+            // Active Step
+            &.active {
+                background: transparent;
+                border-right: 1px solid #000000;
+                .step-title {
+                    text-decoration: none;
+                }
+                &::after {
+                    display: none;
+                }
+            }
+            // Completed Step
+            &.completed {
+                background: transparent;
+                &::after {
+                    background: #000000;
+                }
+            }
+        }
+    }
+}
+
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .personalized-product-steps {
+        .progress-step {
+            text-align: center;
+            min-width: 30%;
+            .step-title {
+                margin-bottom: 0;
+            }
+            &.progress-step--1 {
+                padding-left: 15px;
+                &::after {
+                    top: 10px;
+                    height: calc(100% - 40px);
+                }
+            }
+            &.progress-step--2 {
+                &::after {
+                    top: 10px;
+                    height: calc(100% - 40px);
+                }
+            }
+            &.progress-step--3 {
+                padding-right: 15px;
+            }
+        }
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .personalized-product-steps {
+        position: fixed;
+        top: 102px;
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        border: none;
+        border-radius: 0;
+        z-index: 1;
+        .progress-step {
+            text-align: center;
+            .step-title {
+                margin-bottom: 0;
+                text-decoration: none;
+            }
+            .step-description {
+                display: none;
+            }
+            // Step 1
+            &.progress-step--1 {
+                padding-left: 15px;
+                &::after {
+                    display: none;
+                }
+            }
+            // Step 2
+            &.progress-step--2 {
+                &::after {
+                    display: none;
+                }
+            }
+            // Step 3
+            &.progress-step--3 {
+                padding-right: 15px;
+            }
+            // Active Step {
+            &.active {
+                border-right: none;
+                background: #ffffff;
+                margin-bottom: 5px;
+            }
+            &.completed {
+                background: #ffffff;
+            }
+        }
+    }
+}

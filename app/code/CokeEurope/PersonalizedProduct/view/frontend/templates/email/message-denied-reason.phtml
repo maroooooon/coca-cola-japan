@@ -1,0 +1,23 @@
+<!--TODO: Placeholder phmtl for message denied reason. -->
+<!--
+added to email template order_rejected.html.
+{{layout handle="sales_email_order_message_denied" order=$order moderatedMessages=$order_data.moderatedMessages rejectionReason=$order_data.rejectionReason rejectionExplanation=$order_data.rejectionExplanation area="frontend"}}
+-->
+<table class="message-denied-reason">
+    <tr>
+        <td colspan="2">
+            <h3><?= __("The following message is denied")?></h3>
+            <p><?= __($block->getData('moderated_messages'))?></p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h3><?= __("Reason")?></h3>
+            <p><?= __($block->getData('rejection_reason')) ?></p>
+        </td>
+        <td>
+            <h3><?= __("Justification")?></h3>
+            <p><?= __($block->getData('rejection_explanation')) ?></p>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="coke_whitelist" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+            <label>Whitelist</label>
+            <tab>Coke</tab>
+            <resource>Coke_Whitelist::whitelist_manage</resource>
+            <group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+                <label>General</label>
+                <field id="enabled" showInDefault="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="is_restriction_enabled" showInDefault="1" showInWebsite="1" sortOrder="20" translate="label" type="select">
+                    <label>Is Restriction Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment>Is enabled Validation whitelist names during add to the cart</comment>
+                </field>
+                <field id="show_whitelist_item_status" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20" translate="label" type="select">
+                    <label>Show Whitelist Item Status in the Cart and Mini Cart</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment>Depends on your theme.</comment>
+                </field>
+                <field id="show_whitelist_review_disclaimer" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20" translate="label" type="select">
+                    <label>Show Whitelist Item Review Disclaimer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment>Depends on your theme.</comment>
+                </field>
+                <field id="pending_whitelist_item_order_status" showInDefault="1" showInWebsite="1" sortOrder="20" translate="label" type="select">
+                    <label>Pending Whitelist Item Order Status</label>
+                    <validate>required-entry</validate>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment>When an order is created with a whitelist item that is pending, what status should the order be assigned?</comment>
+                </field>
+                <field id="approved_whitelist_item_order_status" showInDefault="1" showInWebsite="1" sortOrder="30" translate="label" type="select">
+                    <label>Approved Whitelist Item Order Status</label>
+                    <validate>required-entry</validate>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment>When an order that contains a whitelist item is approved, what status should the order be assigned?</comment>
+                </field>
+                <field id="denied_whitelist_item_order_status" showInDefault="1" showInWebsite="1" sortOrder="35" translate="label" type="select">
+                    <label>Denied Whitelist Item Order Status</label>
+                    <validate>required-entry</validate>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment>When an order that contains a whitelist item is denied, what status should the order be assigned?</comment>
+                </field>
+                <field id="is_names_enabled" showInDefault="1" showInWebsite="1" sortOrder="40" translate="label" type="select">
+                    <label>Is Names enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment>Is need to show Names on frontend</comment>
+                </field>
+                <field id="image_threshold" showInDefault="1" showInWebsite="1" sortOrder="50" translate="label" type="text">
+                    <label>Image Threshold</label>
+                    <validate>required-entry validate-number validate-zero-or-greater</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment>Image Threshold for detecting white box on a can</comment>
+                </field>
+                <field id="update_to_from_on_image" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="60" translate="label" type="select">
+                    <label>Update the "To" and "From" Fields on the Can Image</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="illegal_characters" showInDefault="1" showInWebsite="1" sortOrder="70" translate="label" type="text">
+                    <label>Illegal Characters</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="denied_order" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label">
+                <label>Denied Order</label>
+                <field id="cancel_denied_order_enabled" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10" translate="label" type="select">
+                    <label>Cancel Denied Order</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="cancel_denied_order_cron_schedule" showInDefault="1" sortOrder="20" translate="label" type="select">
+                    <label>Cancel Denied Order</label>
+                    <validate>required-entry</validate>
+                    <source_model>Coke\Whitelist\Model\Source\CronSchedule</source_model>
+                    <comment>Cron schedule for the job to Cancel denied orders.</comment>
+                </field>
+            </group>
+        </section>
+
+        <section id="contact">
+            <group id="email">
+                <field id="cc_email" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>CC Emails</label>
+                    <comment>Comma-separated</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

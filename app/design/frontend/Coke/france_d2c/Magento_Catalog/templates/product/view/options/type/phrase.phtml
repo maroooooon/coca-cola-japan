@@ -1,0 +1,46 @@
+<?php
+$option = $block->getOption();
+$product = $block->getProduct();
+$optionId = $block->escapeHtmlAttr($option->getId());
+$selector = "options[$optionId]";
+$placeholder = __("Entrez un nom, un message ou une date importante");
+$defaultValue = $block->escapeHtmlAttr($block->getDefaultValue());
+$validate = [
+    'maxlength' => $option->getMaxCharacters(),
+    'validate-no-utf8mb4-characters' => true
+];
+if($option->getIsRequire()){
+    $validate['required'] = true;
+}
+?>
+<div id="phrase_<?= $optionId; ?>" class="phrase-input">
+    <input 
+        type="text"
+        class="phraseInput" 
+        name="<?= $selector; ?>"
+        data-selector="<?= $selector; ?>"
+        placeholder="<?= $placeholder; ?>"
+        value="<?= $defaultValue; ?>"
+        <?php if($option->getMaxCharacters()): // Set max length ?>
+            maxlength="<?= $option->getMaxCharacters(); ?>"
+        <?php endif; ?>
+        <?php if (!empty($validate)): // Set Validation ?>
+            data-validate="<?= $block->escapeHtmlAttr(json_encode($validate)) ?>"
+        <?php endif; ?>
+    />
+    <?php if ($option->getMaxCharacters()) :?>
+        <div class="phrase-character-count">
+            <span class="count">0</span>
+            <span class="divider">&#47;</span>
+            <span class="max"><?= $option->getMaxCharacters(); ?></span>
+        </div>
+    <?php endif; ?>
+</div>
+<div id="message_<?= $optionId; ?>" class="message"></div>
+<script type="text/x-magento-init">
+    {
+        "#phrase_<?= $optionId; ?>": {
+            "charCounter": {}
+        }
+    }
+</script>

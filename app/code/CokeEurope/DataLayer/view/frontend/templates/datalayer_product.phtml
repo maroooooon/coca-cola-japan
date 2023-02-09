@@ -1,0 +1,22 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ * @var $block \Magento\Catalog\Block\Product\View
+ * @var $config \CokeEurope\DataLayer\ViewModel\Data
+ */
+$config = $block->getDatalayerConfig();
+$GTM_ID = $config->getGtmId();
+$product = $block->getProduct();
+$options = $this->getRequest()->getParams();
+?>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "CokeEuropeDataLayerProduct": {
+                "productDetail": <?= /* @noEscape */ $config->getProductDetail($product, $options); ?>
+            }
+        }
+    }
+</script>
+

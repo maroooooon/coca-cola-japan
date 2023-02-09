@@ -1,0 +1,54 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Customer\Block\Account\Dashboard\Info $block */
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+<div class="block block-dashboard-info">
+    <div class="block-content">
+        <div class="box-content">
+            <p><?= $escaper->escapeUrl(__('Are you sure you want to delete your account? All order history and account data will not be accessible after this action.')) ?></p>
+        </div>
+        <div class="box-actions">
+            <a class="action withdraw" href="#">
+                <span>
+                    <?= $block->escapeHtml(__('Proceed with the withdrawal procedure')) ?>
+                </span>
+            </a>
+            <a class="action cancel" href="<?= $escaper->escapeUrl($block->getUrl('customer/account')) ?>">
+                <span>
+                    <?= $block->escapeHtml(__('Cancel')) ?>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="withdraw-modal" style="display: none">
+    <p><?= $escaper->escapeUrl(__('Are you sure you want to delete your account? All order history and account data will not be accessible after this action.')) ?></p>
+    <div class="actions">
+        <a class="action primary" href="<?= $escaper->escapeUrl($block->getUrl('softdelete/customer/account')) ?>">
+            <span>
+                <?= $block->escapeHtml(__('Confirm')) ?>
+            </span>
+        </a>
+    </div>
+</div>
+
+
+<script type="text/x-magento-init">
+  {
+     "*": {
+         "Coke_CustomerSoftDelete/js/withdraw": {
+            "confirmUrl": "<?= $escaper->escapeUrl($block->getUrl('softdelete/customer/account')) ?>"
+         }
+     }
+  }
+  </script>
+
+
+
+

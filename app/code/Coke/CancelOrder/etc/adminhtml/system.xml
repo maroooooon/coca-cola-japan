@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="cancel_order" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="999" translate="label">
+            <label>Cancel Order</label>
+            <tab>Coke</tab>
+            <resource>Coke_CancelOrder::cancel_order</resource>
+            <group id="general" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10" translate="label">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable the Cancel Order feature</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="age_limit" translate="label" sortOrder="20" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cancel Order Age Limit (in Minutes)</label>
+                    <comment>Ex: If this is set to 30, the order will be processed 30 minutes after it's placed. Once the order has been processed, it cannot be canceled.</comment>
+                    <validate>required-entry validate-number-range number-range-1-180</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="order_status" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+                    <comment>If the cancel order feature is enabled, new orders will be placed with this status.</comment>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="cron_schedule" translate="label" type="select" sortOrder="40" showInDefault="1">
+                    <label>Cron Schedule</label>
+                    <source_model>Coke\CancelOrder\Model\Config\Source\CronSchedule</source_model>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

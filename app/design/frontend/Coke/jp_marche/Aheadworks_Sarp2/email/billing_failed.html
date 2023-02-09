@@ -1,0 +1,25 @@
+<!--@subject {{trans "%store_name: Your regular flight could not be settled" store_name=$store.frontend_name}} @-->
+<!--@vars {
+"var extendLink":"Extend Subscription Link",
+"var secureLink":"Secure Link"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">{{trans "Dear %customerName ," customerName=$customerName}}</p>
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>
+            <p>{{trans "There was a problem with the payment method (credit card, etc.) selected by the customer for the regular flight, and the payment could not be made."}}</p>
+            <p>{{trans 'Sorry to trouble you, but please change the payment method after checking the regular flights on <a href="%secureLink">Regular flights on My Page</a>.' secureLink=$secureLink|raw}}</p>
+            <p>{{trans 'If this problem continues to occur, the scheduled flight you ordered may be canceled, so please take immediate action.'}}</p>
+            <p>{{trans 'If you have questions about your order, please use the <a href="%url">contact us form</a>' url="$this.getUrl($store,'contact')" |raw}}{{depend store_phone}} {{trans 'or call us at <a href="tel:%store_phone">%store_phone</a>' store_phone=$store_phone |raw}}{{/depend}}</p>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

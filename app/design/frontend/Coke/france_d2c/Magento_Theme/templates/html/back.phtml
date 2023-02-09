@@ -1,0 +1,13 @@
+<?php /** @var \Magento\Framework\View\Element\Template $block */ ?>
+<?php $link = $this->hasLink() ? '/' . $this->getLink() : ''; ?>
+<?php $label = $this->hasLabel() ? $this->getLabel() : ''; ?>
+<?php $isStickyClass = $this->getSticky() ? ' sticky' : ''; ?>
+
+<div class="container back-link<?= $isStickyClass ?>">
+    <div class="wrapper">
+        <a href=<?= $link ?>>
+            <i class="ion ion-ios-arrow-back"></i>
+            <span><?= __($label) ?></span>
+        </a>
+    </div>
+</div>

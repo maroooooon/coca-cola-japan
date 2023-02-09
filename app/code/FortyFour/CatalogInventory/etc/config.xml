@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <websites>
+        <topo_chico_gr_website>
+            <cataloginventory>
+                <options>
+                    <max_qty_entire_cart>4</max_qty_entire_cart>
+                </options>
+            </cataloginventory>
+        </topo_chico_gr_website>
+        <olnb_turkey>
+            <cataloginventory>
+                <options>
+                    <max_qty_entire_cart>1</max_qty_entire_cart>
+                </options>
+            </cataloginventory>
+        </olnb_turkey>
+    </websites>
+</config>

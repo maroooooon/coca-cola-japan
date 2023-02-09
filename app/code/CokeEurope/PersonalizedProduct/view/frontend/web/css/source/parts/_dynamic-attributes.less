@@ -1,0 +1,87 @@
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+    .page-layout-personalized-product {
+        .dynamic-attributes {
+            width: 100%;
+            max-width: 100%;
+
+            // Attribute
+            .dynamic-attribute {
+                .attribute-title {
+                    position: relative;
+                    width: 100%;
+                    max-width: 100%;
+                    padding: 10px 0;
+                    border-bottom: 1px solid #000000;
+                    cursor: pointer;
+                    strong {
+                        color: #000000;
+                        font-family: "TCCC-UnityHeadline", "Montserrat",
+                            "Helvetica Neue", Helvetica, Arial, sans-serif;
+                    }
+                    &::after {
+                        position: absolute;
+                        top: 50%;
+                        right: 0;
+                        width: 40px;
+                        min-width: 40px;
+                        height: 40px;
+                        background-image: url("../CokeEurope_PersonalizedProduct/images/plus.svg");
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        transform: translateY(-50%);
+                        content: "";
+                    }
+                }
+                .attribute-content {
+                    display: none;
+                    padding: 10px 0;
+                }
+
+                // Active Attribute
+                &.active {
+                    .attribute-title {
+                        &::after {
+                            background-image: url("../CokeEurope_PersonalizedProduct/images/minus.svg");
+                        }
+                    }
+                    .attribute-content {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//  Desktop
+//  _____________________________________________
+@media only screen and (min-width: @screen__m) {
+    .page-layout-personalized-product {
+        // Attribute
+        .dynamic-attribute {
+            .attribute-title {
+                strong {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+@media only screen and (max-width: @screen__m) {
+    .page-layout-personalized-product {
+        // Attribute
+        .dynamic-attribute {
+            .attribute-title {
+                strong {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}

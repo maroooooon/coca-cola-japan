@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <voucher>
+            <settings>
+                <enabled>0</enabled>
+            </settings>
+            <voucher_email>
+                <enabled>0</enabled>
+                <template>voucher_voucher_email_template</template>
+                <identity>sales</identity>
+                <copy_method>bcc</copy_method>
+            </voucher_email>
+        </voucher>
+    </default>
+    <websites>
+        <egypt_website>
+            <voucher>
+                <voucher_email>
+                    <enabled>1</enabled>
+                </voucher_email>
+            </voucher>
+        </egypt_website>
+    </websites>
+</config>

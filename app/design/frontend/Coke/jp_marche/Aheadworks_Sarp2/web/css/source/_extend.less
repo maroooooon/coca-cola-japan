@@ -1,0 +1,28 @@
+//  Common
+& when (@media-common = true) {
+    .account {
+        &.aw_sarp2-profile-index {
+            .aw-sarp2-customer-subscriptions {
+                .col {
+                    &.status {
+                        @media (min-width: 640px) {
+                            min-width: 100px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .aw_sarp2-profile_edit-item {
+        .modal-inner-wrap {
+            .modal-footer {
+                padding-top: 0;
+
+                button {
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}

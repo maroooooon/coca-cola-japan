@@ -1,0 +1,440 @@
+Dashboard,マイページ
+Branch,支部
+Whoops, our bad...,ページが見つかりません
+The page you requested was not found, and we have a fine guess why.,お探しのページが見つかりません。　下記の理由でアクセスができないかもしれません。
+If you typed the URL directly, please make sure the spelling is correct.,アドレス（URL)のタイプミスかもしれません。正しく入力されているか、確認してください。
+If you clicked on a link to get here, the link is outdated.,リンク（サイトの内外問わず）をクリックした場合、リンク切れかもしれません。
+What can you do?,お手数ですが下記いずれかの方法にて、お求めのページをお探しください。
+Go back to the previous page.,前のページ に戻ってください。
+Follow these links to get you back on track!, 下記のリンク先に直接クリックしてください。
+Store Home, ホームページ
+Frequently Asked Questions,よくある質問
+Contact Us,お問い合わせ
+Contract,契約する
+Edit,編集
+View / Edit,表示/編集g
+Helper Information,ヘルパー情報
+Change Password,パスワードを変更
+Quick Links,ショートカット
+Helper,ヘルパー
+Email Address,メールアドレス
+Password,パスワード
+Forgot Your Password?,パスワードを忘れた方はこちら
+Forgot Your Password,パスワードを忘れた方はこちら
+Total,合計
+Order Information,お客様情報
+Login,ログイン
+Processing,処理中
+Suspected Fraud,不正行為の疑い
+Pending Payment,未決済
+Payment Review,支払いの調査中
+Pending,処理開始
+On Hold,保留
+Open,オープン
+Complete,完了
+Closed,クローズド
+Canceled,キャンセル
+processing,処理中
+suspected fraud,不正行為の疑い
+pending payment,未決済
+payment review,支払いの調査中
+pending,処理開始
+on hold,保留
+open,オープン
+complete,完了
+closed,クローズド
+canceled,キャンセル
+"Welcome","ようこそ",module,Magento_Theme
+"Proceed to Checkout","購入手続きをする",module,Magento_Checkout
+"View and Edit Cart","ショッピングカートを見る",module,Magento_Checkout
+"Customer Login","ログイン"
+"Other Bundles","その他のバンドル"
+"Shop By","絞り込み",module,Magento_LayeredNavigation
+"Items %1-%2 of %3","%3 商品",module,Magento_Catalog
+"%1 Item","%1 注文",module,Magento_Catalog
+"%1 Items","%1 商品",module,Magento_Catalog
+"Sort By","順番",module,Magento_Catalog
+"Qty","数量"
+"Quantity","数量"
+"Search entire store here...","キーワード検索",module,Magento_Search
+"Sorry, we cannot accept your registration. We have not saved any of your personal information. Please see our Terms and Conditions for any questions.", "申し訳ございませんがご入力頂いた内容では会員登録いただけません。ご入力いただいた個人情報は保存しておりません。ご登録条件については会員規約をご覧ください。"
+"Recommended Products","おすすめ商品",module,Magento_Catalog
+"More Choices:","カート内の商品をご購入された方は、こんな商品も買っています",module,Magento_Catalog
+"Next","次へ"
+"Estimated Total","合計"
+"edit","変更"
+"Success","完了"
+"My Account", "マイページ"
+"Address Book","お届け先住所",module,Magento_Customer
+"Stored Payment Methods","保存済クレジットカード",module,Magento_Vault
+"Reward Points","ポイント利用履歴",module,Magento_Reward
+"My Subscriptions","定期購入"
+"My Saved Cards","保存済クレジットカード"
+"Withdraw","退会"
+"Sign Out","ログアウト"
+"Newsletter Subscriptions","メールマガジン購読"
+"Newsletters","メールマガジン購読",module,Magento_Customer
+"You are subscribed to our newsletter.","メールマガジンを購読中",module,Magento_Customer
+"You aren't subscribed to our newsletter.","メールマガジンを購読していません",module,Magento_Customer
+"If you wish to cancel your membership, please click the button below.","退会をご希望の方は下記のボタンを押してください。"
+"Proceed with the withdrawal procedure","退会手続きを進める"
+"Account Withdrawal","退会"
+"The Names you entered is not available.","The name you entered is not available."
+"Profile ID","定期便番号"
+"Email","メールアドレス"
+"Registered Customers","アカウントをお持ちの方",module,Magento_Customer
+"New Customers","新規会員登録",module,Magento_Customer
+"If you have an account, sign in with your email address.","既にアカウントをお持ちの方はこちらよりログインしてください。",module,Magento_Customer
+"Creating an account has many benefits: check out faster, keep more than one address, track orders and more.","アカウントを作成していただきますと、登録住所や発送先住所の変更やご注文履歴の確認などが可能になります。",module,Magento_Customer
+"You can earn points that can be used at My Coke Store.","My Coke Storeで利用可能なポイントを獲得できます。"
+"You will be able to purchase a subscription.","定期購入が可能になります。"
+"We will send you information on special campaigns by e-mail.","お得なキャンペーン情報をメールでお送りします。"
+"You can store your credit card securely, which will make your second and subsequent orders smoother.","クレジットカード情報を安全に保管できるようになり、次回以降のご注文がスムースになります。"
+"Create New Customer Account","新規アカウント作成"
+"Subtotal","小計 (税込み)"
+"Cart Subtotal","小計 (税込み)"
+"Subtotal:","小計 (税込み):"
+"I agree to receive email Communication, offers, and promotions from The Coca-Cola Company and its brands.","My Coke Storeのメールマガジン購読に同意します。"
+"By creating an account, I agree to the delivery.coca-cola.eg website terms & conditions, terms of Use and acknowledge acceptance of the Privacy Policy.","当ウェブサイトの利用規約、会員規約、プライバシーポリシーにも同意した上で本アカウントを作成します。"
+"Are you sure you want to delete your account? All order history and account data will not be accessible after this action.","本当に退会しますか？退会すると、これまでの注文履歴や保有ポイントなどすべての会員情報が削除されます。"
+"Add New Address","住所を追加"
+"Confirm Email","メールアドレスを再入力してください（確認）"
+"Nature of Inquiry","ご質問の種類"
+"Order Confirmation Number","ご注文についてご質問の場合、注文番号を入力してください"
+"Choose:","以下から選択してください"
+"Order Inquiry","ご注文について"
+"Bulk Orders","大量のご注文について"
+"Account Access Issues","アカウント情報について"
+"Nutrition & Ingredient Inquiry","栄養と成分について"
+"Status of National Promotion","各種プロモーションについて"
+"Suggestions","ご意見・ご要望"
+"Others","その他"
+"Sort By","並べ替え"
+"Set Ascending Direction","降順"
+"Set Descending Direction","昇順"
+"<%- count %> products","<%- count %> 商品"
+"Phrase","メッセージ"
+"Name","お名前"
+"Sorry! That's not a valid option.","ご入力頂いた文字は現在利用できません。カスタマーサービスへお問い合わせください。"
+"Your Customer Account Has Been Deleted.","お客様の会員情報は削除されました。"
+"Subscription Profile #%1","定期便番号 #%1"
+"All Subscriptions","定期便一覧"
+"Cancel Subscription","この定期便をキャンセル"
+"Are you sure you want to cancel this subscription?","本当に定期便をキャンセルしてもいいですか？"
+"Product(s)","製品"
+"Subscription", "定期便"
+"Subscription Plan","期間"
+"Subscription Created On","ご注文日"
+"Regular Payments","お支払い"
+"Regular Payments / %1","お支払い / %1"
+"Every %1 %2","%1%2"
+"Starting","開始"
+"Subscription Ends","定期便の終了"
+"Cancel Anytime","マイページよりいつでもキャンセル可"
+"Next Payment Date","次回注文日"
+"Payment Details","お支払方法"
+"Subscription details","定期便"
+"First payment","最初の支払い"
+"starting","スタート"
+"SemiMonth","週間毎にご注文"
+"Profile", "注文番号"
+"Status", "ステータス"
+"Products", "製品名"
+"Subscription Plan", "定期便注文頻度"
+"Trial Plan Due Date", "トライアル期限"
+"Last Payment Date", "直近の注文日"
+"Next Payment Amount", "次回注文金額"
+"Action", "アクション"
+"Week","週間毎"
+"Months","カ月"
+"Please ensure this information is correct.","年齢の入力には特段のご注意をお願いします。"
+"Current Address","現在の配送先"
+"Please Select New Address","別の配送先を選択"
+"+ New Address","配送先を追加"
+"Change Subscription","期間の変更"
+"Save Subscription","保存する"
+"Zip/Postal Code","郵便番号（半角数字）"
+"Shipping Methods","配送料金"
+"Sorry, no quotes are available for this order at this time","申し訳ございません。配送可能地域外が指定されているため送料を表示できません。北海道内の配送先を指定いただくと、送料を確認し、支払いプロセスを進めることができます。"
+"Change Payment Details","お支払方法の変更"
+"Pay by Card (Stripe)","カードで支払う"
+"Sorry, it is not possible to delete this card because order #%1 which was placed using this card is still being processed.","このカードはご注文番号#%1でお支払いに使用されておりますので削除できません。"
+"Some of the subscriptions do not have a payment information and will be canceled. Review payment data <a href=""%1"">here</a>.","定期便のご注文のうちお支払い情報が不足しているものはキャンセルさせていただきます。ご注文については<a href=""%1"">here</a>をご覧ください。"
+"This card is used for paying for one or more subscriptions. If you continue, these subscriptions will stop.","このクレジットカードは定期便の購入に使用されています。このカードの保管を削除すると定期便がキャンセルされます。"
+"One-off purchase (No subscription)","通常の注文",module,Aheadworks_Sarp2
+"Items:","製品"
+"You have no other address entries in your address book.","住所一覧に他の住所のエントリーがありません。標準請求先と標準配送先を別々に保存されたい場合は、こちらから住所を追加ください。"
+"Renew","再注文"
+"The subscription was successfully cancelled.","定期便は正常にキャンセルされました"
+"Are you sure you want to renew this subscription?","本当にこの定期便を再注文しますか？"
+"Items","製品"
+"%name,","%name さま"
+"Welcome to %store_name","%store_name: ご登録ありがとうございます",module,Magento_Customer
+"Welcome to %store_name.","%store_name へご登録いただきましてありがとうございます。",module,Magento_Customer
+"To sign in to our site, use these credentials during checkout or on the <a href=""%customer_url"">My Account</a> page:","サイトにログインする時は以下のログイン情報をご利用ください。また、チェックアウト時にログインすることも出来ます。ログイン情報は<a href=""%customer_url"">マイページ</a>にて変更することができます。",module,Magento_Customer
+"When you sign in to your account, you will be able to:","アカウントにログインすると:",module,Magento_Customer
+"Proceed through checkout faster","チェックアウトが簡単になります",module,Magento_Customer
+"Check the status of orders","注文のステータスを確認できます",module,Magento_Customer
+"View past orders","過去の注文を表示することができます",module,Magento_Customer
+"Store alternative addresses (for shipping to multiple family members and friends)","別の配送先を登録することができます",module,Magento_Customer
+"Reward Points Balance Updated at %store_name","%store_name: ポイント残高のお知らせ",module,Magento_Reward
+"You have %points_balance points that may be used in our store:","で使用できるポイントが %points_balance ポイントがあります。",module,Magento_Reward
+"<a href=""%unsubscription_url"">Unsubscribe</a> from these notifications.","ポイントに関する<a href="%unsubscription_url">通知を解除</a>する",module,Magento_Reward
+"Invoice for your %store_name order","%store_name: ご注文状況の更新",module,Magento_Sales
+"Thank you for your order from %store_name.","%store_nameへご注文ありがとうございます。",module,Magento_Sales
+"You can check the status of your order by <a href=""%account_url"">logging into your account</a>.","アカウントへ<a href=""%account_url"">ログイン</a>するとあなたの注文のステータスを確認できます。",module,Magento_Sales
+"If you have questions about your order, please use the <a href=""%url"">contact form</a>","ご注文に関してご質問がある場合は、<a href=""%url"">お問合せフォーム</a>をご利用ください。",module,Magento_Sales
+"Your %store_name order confirmation","%store_name: ご注文状況の更新",module,Magento_Sales
+"Your %store_name order has shipped","%store_name: ご注文の商品が出荷されました"
+"%customer_name,","%customer_name さま"
+"%store_name: Subscription #%incrementProfileId created","My Coke Store: 定期便注文の確認 - 注文番号: #%incrementProfileId"
+"Dear %customerName","%customerName さま"
+"Dear %customerName,","%customerName さま"
+"Hello, %customerName,","%customerName さま"
+"You have successfully subscribed to:","My Coke Storeへ定期便のご注文いただきましてありがとうございます。"
+"Your subscription ID is #%incrementProfileId.","定期便ご注文番号: #%incrementProfileId"
+"You can access your subscription by following this <a href=""%secureLink"">link</a>.","お客様の定期便について確認するときは<a href=""%secureLink"">こちら</a>をご覧ください。"
+"If you need any assistance, please feel free to contact us <a href=""%url"">here</a>","ご注文についてご質問がありましたら<a href=""%url"">こちら</a>からお問い合わせください。"
+"Subscription payment failed","My Coke Store: 定期便の決済ができませんでした"
+"We were unable to renew your subscription because of a problem with your current payment method.","お客様の支払い方法に問題があり定期便の決済ができませんでした。"
+"Subscription billing successful","My Coke Store: 定期便の決済が完了しました"
+"We have processed your subscription payment successfully.","今回の定期便の決済が完了しました。"
+"Subscription product(s):","定期便の製品:"
+"Total payment amount: %totalPaid","合計: %totalPaid"
+"The next payment date: %nextPaymentDate","次回のお支払い予定: %nextPaymentDate"
+"The invoice for this payment will be sent in a separate email.","請求メールを別途お送りします。"
+"Newsletter subscription success","My Coke Store: ニュースレター購読手続き完了",module,Magento_Newsletter
+"You have been successfully subscribed to our newsletter.","ニュースレターの購読手続きが完了しました。"
+"Your %store_name password has been changed","%store_name: パスワード変更のリクエスト"
+"We have received a request to change the following information associated with your account at %store_name: password.","お客様のアカウントに関連付けられているリクエストを受け取りました。",module,Magento_Customer
+"We have received a request to change the following information associated with your account at %store_name: email, password.","お客様のアカウントに関連付けられているリクエストを受け取りました。",module,Magento_Customer
+"If you have not authorized this action, please contact us immediately using the <a href=""%url"">contact form</a>","このろクエストについて覚えがない場合は、<a href=""%url"">お問合せフォーム</a>でご連絡ください。."
+"Your subscription profiles are","定期便の詳細については以下をご覧ください"
+"Your subscription profile is","定期便の詳細については以下をご覧ください"
+"Enter your card details:","カード番号を入力してください"
+"Your card details are protected using PCI DSS v3.2 security standards.","あなたのカード情報はデータセキュリティ基準PCI DSS v3.2によって保護されています"
+"Thank you for your interest in our store, but we are unable to accept your submission at this time.","My Coke Storeにお問い合わせいただきありがとうございます。しかし、今回はこのお問い合わせをお受けすることができませんでした。"
+"Order Summary","カートの状況"
+"Save card for future purchases","カード情報を保存"
+"%1 store reward points available (%2)","%1ポイントが利用可能です (%2)"
+"Shipping Method:","配送料金:"
+"Continuation Status","ステータス"
+"Ongoing","継続中"
+"out of","点中"
+"Item in Cart","個を表示"
+"Items in Cart","個を表示"
+"There was recently a request to change the password for your account.","あなたのアカウントのパスワード再設定のリクエストが送信されました。",module,Magento_Customer
+"If you requested this change, set a new password here:","新しいパスワードは下記のボタンをクリックすると設定できます:",module,Magento_Customer
+"Set a New Password","新規パスワードの設定",module,Magento_Customer
+"If you did not make this request, you can ignore this email and your password will remain the same.","もしこのリクエストについてお心当たりがない場合は、このメールを無視してください。パスワードは変更されません。",module,Magento_Customer
+"If you do not remember this request, please contact us immediately using the <a href=""%url"">contact form</a>","このリクエストについて覚えがない場合は、<a href=""%url"">お問合せフォーム</a>でご連絡ください。."
+"%inviter_name invites you to store_name.","%inviter_name さまがあなたを%store_nameへご招待しています。"
+"Please accept this invitation to join %store_name.","さまがあなたを%store_nameへご招待しています。"
+"%store_name offers limited time sales of products only to members.","ただいま時間限定セールをメンバーの方へのみ行っております。"
+"Please use the link below to create an account on %store_name.","%store_nameへアカウントを作成する時は以下のリンクをご利用ください。"
+"message:","メッセージ："
+"Week","週間毎"
+"Weeks","週間毎"
+"Reset your %store_name password","%store_name: パスワード変更リクエスト",module,Magento_Customer
+"%inviter_name invites you to join %store_name","%inviter_name さまがあなたを%store_nameへご招待しています。"
+"Subscriptions","定期便"
+"The subscription was successfully renewed.","定期便が再注文されました。"
+"No exact results found for: <b>'%1'</b>. The displayed items are the closest matches.","「<b>'%1'</b>」に該当する情報は見つかりませんでした。 それに近い項目を表示しております。"
+"Not Specified","答えない"
+"Terms and Conditions","利用規約"
+"Terms & Conditions","利用規約"
+"Please select your favorite type of brand in 1.","１にて、お好きな種類のブランドを選択してください"
+"Please select the label in 2.","２にて、ラベルを選択してください"
+"Weekly","1週間毎"
+"%1 is the only product matching your '%2' search.","「%2」に該当する情報は「%1」のみとなります。"
+"We have received a request associated with your account.","お客様のアカウントに関連付けられているリクエストを受け取りました。"
+"Change your Email Address","メールアドレスを変更する"
+"Your %store_name email has been changed","%store_name: メールアドレス変更のリクエスト",module,Magento_Customer
+"Shipping Info","お届け先住所"
+"Use a new card","新しいカードを使う"
+"exp","有効期限"
+"%store_name: There is a problem with your scheduled flight","%store_name: お客様の定期便に問題があります"
+"There was a problem with subscription profile #%incrementProfileId","以下のお客様の定期便に問題があります。#%incrementProfileId"
+"Sorry to trouble you, but please check <a href=""%secureLink"">Regular flights on My Page</a>.","お手数ですが<a href=""%secureLink"">マイページの定期便</a>をご確認ください。"
+"%store_name: Scheduled flight has been cancelled","%store_name: 定期便がキャンセルされました"
+"A Reminder About Upcoming Billing","My Coke Store: 次回のご請求についてお知らせします"
+"Thank you for being our subscriber.","My Coke Storeのご利用ありがとうございます。"
+"The next billing date for the products listed below is %nextPaymentDate","次回のご請求についてお知らせします。"
+"Total amount (including shipping) will be %totalScheduled","合計金額（配送料込み）は以下のとおりです。%totalScheduled"
+"My Coke Store: We have received an inquiry","My Coke Store: お問い合わせがありました"
+"your Subscription #%profileId has been successfully cancelled.","以下のお客様の定期便がキャンセルされました。 #%profileId"
+"Please confirm your %store_name account","%store_name: ログイン前にメールをご確認ください",module,Magento_Customer
+"You must confirm your %customer_email email before you can sign in (link is only valid once):","ログイン前にメールを確認してください。 (リンクは一度きり有効です):",module,Magento_Customer
+"Thank you for confirming your %store_name account.","%store_nameへご登録いただきましてありがとうございます。",module,Magento_Customer
+"To sign in to our site and set a password, click on the <a href=""%create_password_url"">link</a>:","ログインしてパスワードを設定するには、 <a href=""%create_password_url"">リンク</a>をクリックしてください:",module,Magento_Customer
+"Change the Password","パスワードを変更する"
+"Password reset request %store_name","%store_name: パスワード再設定のリクエスト"
+"Show less","表示を減らす"
+"Extend your subscription #%profileId" profileId=$incrementProfileId","My Coke Store: 定期便の延長はいかがですか"
+"we hope you enjoyed a subscription on our site.","My Coke Storeの定期便のご利用ありがとうございました。"
+"Click the link below to extend it.","定期便の延長をご希望の場合は以下でお申し込みください。"
+"<a href=""%extendLink"">Extend subscription</a>","<a href=""%extendLink"">定期便を延長する</a>"
+"Store Credit update","My Coke Store: ポイント残高のお知らせ",module,Magento_CustomerBalance
+"We have updated your <a href=""%store_url"">%store_name</a> account and you have credit that you can use for future purchases.","<a href=""%store_url"">%store_name</a>で使用できるポイントについてお知らせします",module,Magento_CustomerBalance
+"Your Store Credit balance is now %balance.","現在のポイント数: %balance 。",module,Magento_CustomerBalance
+"You can <a href=""%url"">Cancel Notification</a> regarding points.","ポイントに関する <a href=""%url"">通知を解除</a> する"
+"Sorry, we cannot accept registration under %1. We have not saved any of your personal information.","申し訳ありませんがお客様のご登録は受け付けることができません。また、お客様の個人情報は一切保存しておりません。"
+"Sorry, we cannot accept your registration. We have not saved any of your personal information.","申し訳ありませんがお客様のご登録は受け付けることができません。また、お客様の個人情報は一切保存しておりません。"
+"Please see our %1 for any questions.","ご不明な点は%1をご覧ください。"
+"Reward Points Expiry Warning at %store_name","%store_name: ポイント残高のお知らせ",module,Magento_Reward
+"You have a total of %points_balance points that may be used in our store:","で使用できるポイントが %points_balance ポイントがあります。"
+"There are %remaining_days day(s) remaining to use %points_expiring of your reward points.","これらのポイントは次の日数後に期限切れになります。"
+"After %remaining_days day(s) these points will expire.","残り日数: %remaining_days"
+"Newsletter subscription confirmation","My Coke Store: ニュースレター購読手続き",module,Magento_Newsletter
+"To begin receiving the newsletter, you must first confirm your subscription by clicking on the following link:","ニュースレターを受け取るには、 以下のリンクをクリックして購読の確認を行ってください。",module,Magento_Newsletter
+"Newsletter unsubscription success","My Coke Store: ニュースレター購読解除",module,Magento_Newsletter
+"You have been unsubscribed from the newsletter.","ニュースレターの購読が解除されました。",module,Magento_Newsletter
+"The product you ordered has been shipped.","ご注文製品の出荷準備が完了いたしました。"
+"Your shipping confirmation is below. Thank you again for your business.","追跡番号をお知らせします。"
+"Your Shipment #%shipment_id for Order #%order_id","注文番号 #%order_idの追跡番号をお知らせします。",module,Magento_Sales
+"Update to your %store_name credit memo","%store_name: ご注文状況の更新"
+"Your order status has been updated.","あなたのご注文状況が更新されました。"
+"Order number: #%increment_id","注文番号: #%increment_id"
+"Update to your %store_name order","%store_name: ご注文状況の更新"
+"Update to your %store_name invoice","%store_name: ご注文状況の更新"
+"Once your package ships we will send you a tracking number.","ご注文の製品が出荷されますと追跡番号をお知らせします。",module,Magento_Sales
+"General Subscription","メールマガジン",module,Magento_Customer
+"Newsletter Subscription","メールマガジン購読",module,Magento_Newsletter
+"You are subscribed to ""General Subscription"".","メールマガジンを購読しています",module,Magento_Customer
+"If you have questions about your order, you can email us at <a href="mailto:%store_email">%store_email</a>.","アカウントへログインするとあなたの注文の状況を確認できます。 ご注文に関してご質問がある場合は、<a href="mailto:%store_email">お問合せフォーム</a>をご利用ください。"
+"Your Credit Memo #%creditmemo_id for Order #%order_id","ご注文番号#%order_idのクレジットメモです: #%creditmemo_id"
+"Thank you for your order from %store_name. We will inform you of the tracking number when the order is shipped.git ","%store_nameへご注文ありがとうございます。 ご注文の製品が出荷されますと追跡番号をお知らせします。"
+"Please enter a valid postcode (NNN-NNNN).","郵便番号はハイフンを含んだ形式で入力ください（例：123-4567)"
+"Passwords must contain a symbol.","パスワードは記号を含んでいる必要があります"
+"You have created no subscriptions.","定期便の購入はありません"
+"Add a new saved card","新しいクレジットカードを保存する"
+"You do not have any saved cards yet.","保存済みのクレジットカードはありません"
+"You must first add a full billing address before you can add saved cards.","クレジットカードを保存するためには、請求先住所を保存する必要があります"
+"Login is required to use the entered coupon code. Please log in and try again.","入力されたクーポンコードの利用にはログインが必須です。ログインの上、再度お試しください。"
+"Cancel Order","キャンセル",module,Coke_CancelOrder
+"Cancel Order #%1","キャンセル番号 #%1",module,Coke_CancelOrder
+"Are you sure you want to cancel your order? This action cannot be undone.","こちらの注文をキャンセルしてもよろしいでしょうか？キャンセル後に元に戻すことはできません。",module,Coke_CancelOrder
+"Canceling this order will not cancel your subscription.","この注文がキャンセルされたとしても、関連する定期便がキャンセルされることはありません。",module,Coke_CancelOrder
+"Sorry, we are unable to cancel the order.","申し訳ございません、こちらの注文をキャンセルすることができません。",module,Coke_CancelOrder
+"The password you have entered is the same as your previous password","入力されたパスワードは、以前のパスワードと同じです。"
+"Cards","カード"
+"Saved Cards","保存済クレジットカード"
+"Are you sure you want to apply reward points to your order? Subsequent orders will not have reward points applied and will be charged for the full amount.","こちらの注文にポイントを利用してよろしいでしょうか？定期便によって今後自動作成される注文にはポイントは適用されません。"
+"Apply Reward Points","ポイント利用について"
+"* Required","* 必須項目"
+"If you do not agree, you may not be able to receive the campaign coupons.","※同意頂けない場合、キャンペーンのクーポン等が受け取れない可能性があります。"
+"Summary","カートの状況",module,Magento_AsynchronousOperations
+"%1 Item","%1 商品",module,Magento_Theme
+"Check out now and earn %1 for this order.","この商品を注文すると%1 獲得できます。",module,Magento_Reward
+"Street Address","丁目･番地･号",module,Magento_Shipping
+"Street Address Line 2","建物名･部屋番号 / 会社名（会社への配送の場合）",module,Magento_Shipping
+"Street Address: Line %1","建物名･部屋番号 / 会社名（会社への配送の場合）",module,Magento_CustomerCustomAttributes
+"Street 1","例：1-2-3"
+"Street 2","例：○○マンション○○号室"
+"Skip this Subscription","この定期便をスキップ",module,Coke_Sarp2
+"Next Payment Date: %1","次回支払日: %1",module,Coke_Sarp2
+"Skip Subscription Payment Date","この定期便をスキップする",module,Coke_Sarp2
+"Are you sure you want to skip this Subscription Payment Date? This action cannot be undone.","本当のこの定期便（次回のみ）をスキップしますか。",module,Coke_Sarp2
+"Your next Subscription Payment Date will be: %1","本定期便の次回支払日: %1",module,Coke_Sarp2
+"Invoice Address","ご請求先変更"
+"Invoice Address","ご請求先"
+"Change Invoice Address","ご請求先変更"
+"Current Invoice Address","現在のご請求先"
+"Customer Invoice Address","別の請求先を選択"
+"+ New Invoice Address","請求先を追加"
+"Apply Discount Code","クーポンコード入力",module,Magento_Checkout
+"Enter discount code","クーポンコード",module,Magento_Checkout
+"Apply Discount","適用",module,Magento_Checkout
+"Discount (%1)","クーポン (%1)",module,Magento_Sales
+"Billing Address has been successfully changed.","請求先住所の更新が完了しました。"
+"Shipping Address has been successfully changed.","配送先住所の更新が完了しました。"
+"Please Select New Billing Address","新しい請求先住所を選択して下さい。"
+"%1 starting %2","%1"
+"Update Subscription","更新"
+"How would you like to apply the changes?","どの注文に対して、この数量変更を適応しますか？"
+"For the next order only","次回のみ"
+"Permanently","次回以降ずっと"
+"The subscription has been updated successfully.","定期便の更新が完了しました。"
+"Weeks","週"
+"Weekly","週"
+"Skip this Subscription","定期便をスキップ",module,Coke_Sarp2
+"Next Payment Date: %1","次回注文日: %1",module,Coke_Sarp2
+"Skip Subscription Payment Date","定期便をスキップ",module,Coke_Sarp2
+"Are you sure you want to skip this Subscription Payment Date? This action cannot be undone.","本当に、スキップしますか？",module,Coke_Sarp2
+"Your next Subscription Payment Date will be: %1","スキップ後の次回注文日: %1",module,Coke_Sarp2
+"Skip","スキップ",module,Coke_Sarp2
+"Next Payment Date has been successfully changed.","次回注文日の更新が完了しました。",module,Coke_Sarp2
+"You can check the status of your order by logging in to your account.","アカウントへログインするとあなたの注文のステータスを確認できます。"
+"We will email you the tracking number when the product you ordered is shipped.","ご注文の製品が出荷されますと追跡番号をメールにてお知らせします。"
+"Important","【重要】",module,Coke_WhitelistEmail
+"Thank you for your request to customize a product on %store_name.","Myラベルのご注文をいただきありがとうございます。",module,Coke_WhitelistEmail
+"Unfortunately, we cannot accept your order with the desired labels.","残念ながらご希望のテキストではご注文をお受けすることができませんでした。",module,Coke_WhitelistEmail
+"If you have questions, please use the <a href=""%url"">contact form</a>","ご注文に関してご質問がある場合は、<a href=""%url"">お問い合わせフォーム</a>をご利用ください。",module,Coke_WhitelistEmail
+"Delivery fee is free when your order is more than 3500 yen","1回のご注文で3,500円（税込み）以上のご注文の場合は配送料無料。"
+"Estimated Delivery Date","発送予定日"
+"Your regular flight could not be settled","お客様の定期便が決済できませんでした"
+"There was a problem with the payment method (credit card, etc.) selected by the customer for the regular flight, and the payment could not be made.","お客様が定期便に選択されましたお支払方法（クレジットカードその他）に問題があり、決済ができませんでした。"
+"Sorry to trouble you, but please change the payment method after checking the regular flights on <a href=""%secureLink"">Regular flights on My Page</a>.","お手数ですが<a href=""%secureLink"">マイページ</a>の定期便をご確認のうえお支払方法を変更してください。"
+"If this problem continues to occur, the scheduled flight you ordered may be canceled, so please take immediate action.","この問題が続けて発生した場合には、ご注文いただいた定期便がキャンセルとなる場合がございますので、早急にご対応いただけますようお願いいたします。"
+"%store_name: Your regular flight could not be settled","%store_name: お客様の定期便が決済できませんでした"
+"Dear %customerName ,","%customerName さま、"
+"If you have questions about your order, please use the <a href=""%url"">contact us form</a>","ご注文に関してご質問がある場合は、<a href=""%url"">お問い合わせフォーム</a>をご利用ください。",module,Magento_Sales
+"%store_name: Your subscription order has been cancelled","%store_name: お客様の定期便がキャンセルされました"
+"Your payment method (CC etc.) for this subscription order has as issue of processing transaction and your order has been cancelled.","お客様が定期便に選択されましたお支払方法（クレジットカードその他）に問題があり、決済ができなかったためご注文をキャンセルさせていただきました。"
+"Please place another order at My Coke Store.","よろしれば改めてMy Coke Storeにてご注文いただければと思います。"
+"If you have question, please feel free to ask at our <a href=""%url"">contact form</a>","本件に関してご質問がある場合は、<a href=""%url"">お問い合わせフォーム</a>をご利用ください。"
+"%store_name: Your order from store %store_name has been rejected","%store_name: Myラベルのご注文キャンセルについて",module,Coke_WhitelistEmail
+"We apologize for the inconvenience, but we will cancel your order My Label.","大変申し訳ございませんが、ご注文のMyラベルはキャンセルとさせていただきます。",module,Coke_WhitelistEmail
+"If there is a product ordered at the same time as My Label, it will also be subject to cancellation.","Myラベルと同時にご注文した製品がある場合、同じくキャンセル対象となります。",module,Coke_WhitelistEmail
+"Thank you for using %store_name.","この度は、%store_nameをご利用いただき、誠にありがとうございました。",module,Coke_WhitelistEmail
+"We look forward to seeing you again.","またのご利用をお待ちしております。",module,Coke_WhitelistEmail
+"%store_name: [Important Notice] The My Label of your order contains text that needs to be reviewed","%store_name:【重要なおしらせ】ご注文のMyラベルには、審査が必要なテキストが含まれています",module,Coke_WhitelistEmail
+"Thank you for your order from %store_name.","%store_nameへのご注文ありがとうございます。",module,Coke_WhitelistEmail
+"Your order contains text that needs to be reviewed","ご注文のMyラベルには、審査が必要なテキストが含まれています",module,Coke_WhitelistEmail
+"The text entered in your order will need to be reviewed, so no payment will be made until it is approved. If the text is not approved, the order will be cancelled.","Myラベルに入力頂いたテキストは審査が必要となるため、運営事務局により承認されるまで、決済は発生しません。テキストが承認されなかった場合、本注文はキンセルとなります。",module,Coke_WhitelistEmail
+"In case of cancellation, all products included in this order will be subject to cancellation.","キャンセルの場合、Myラベル製品だけでなく本注文に含まれるすべての製品がキャンセル対象となります。",module,Coke_WhitelistEmail
+"The review is usually completed in about 2 business days after the order is confirmed. We will notify you by email as soon as the examination is completed.","審査は通常注文確定後 2 営業日程度で完了します。審査完了次第メールにてお知らせいたします。",module,Coke_WhitelistEmail
+"%store_name: My label order acceptance completed","%store_name: Myラベルご注文受付完了"
+"We will inform you that your order has been accepted as we have completed the examination of your desired input text.","ご希望の入力テキストについて審査完了いたしましたので、ご注文受付完了のご連絡をさせていただきます。"
+"Your order from store %store_name has been rejected","%store_name: Myラベルのご注文キャンセルについて",module,Coke_WhitelistEmail
+"The %1 you entered was rejected.","ご入力の文字は使用することができません"
+"Please do not enter more than %1 alphabet characters.","入力可能な半角英数字は最大%1文字です"
+"Please do not enter more than %1 Japanese characters.","入力可能な日本語は最大%1文字です"
+"In Review","要審査"
+"Your order contains text that needs to be reviewed.","ご注文のMyラベルには、審査が必要なテキストが含まれています"
+"The text you enter on a product will need to be reviewed. If the text is not approved, the order will be cancelled. In the case of cancellation, all products included in this order will be subject to cancellation.","Myラベルに入力頂いたテキストは審査が必要となるため、ご注文確定後に承認されるまで、決済は発生しません。テキストが承認されなかった場合、本注文はキャンセルとなります。キャンセルの場合、Myラベル製品だけでなく本注文に含まれるすべての製品がキャンセル対象となります。"
+"We will notify you by email as soon as the review is completed.","審査は通常注文確定後2営業日程度で完了します。審査完了次第メールにてお知らせいたします。"
+"Under Review","審査中"
+"Order Denied","審査中"
+"Thank you for your order from %store_name. Your order contains text that needs to be reviewed.","%store_nameへのご注文ありがとうございます。ご注文のMyラベルには、審査が必要なテキストが含まれています。"
+"The text entered in your order need to be reviewed, so no payment will be made until it is approved. If the text is not approved, the order will be cancelled. In case of cancellation, all products included in this order will be subject to cancellation.","Myラベルに入力頂いたテキストは審査が必要となるため、運営事務局により承認されるまで、決済は発生しません。テキストが承認されなかった場合、本注文はキャンセルとなります。キャンセルの場合、Myラベル製品だけでなく本注文に含まれるすべての製品がキャンセル対象となります。"
+"The review is usually completed in about 2 business days after the order is confirmed. We will notify you by email as soon as the review is completed.","審査は通常注文確定後2営業日程度で完了します。審査完了次第メールにてお知らせいたします。"
+"Add Another Line +","1行追加する"
+"Remove Line","１行削除する"
+"Thank you for your purchase!","ありがとうございます",module,Magento_Checkout
+"The symbol you entered is not allowed","ご入力された記号は使用できません"
+"Delivery Cycle","お届けサイクル"
+"Shipping Guideline","発送目安"
+"Ships within 2~3 days","2~3日以内に発送（休業日を除く）"
+"Time of payment","支払時期"
+"Regular payment schedule","ご注文時に1回目、2回目以降より発送時"
+"One Week","1週"
+"One Time","に1回"
+"The order cannot proceed","カートへ入れることができません。"
+"Cannot be included in the package","ご選択の商品はカートに入っている商品と同梱することができない為、カートへ進むことができません。"
+"Please empty cart","カートを「空」にしてから再度ご選択ください。"
+"Cannot go to purchase page","注文を進めることが出来ません。"
+"Cannot go to the purchase page if the product is included in the package","ご選択の商品は同時に注文を進めることが出来ません。"
+"Please empty your cart before ordering","お手数ですが、カートを「空」にしてから個別にご注文ください。"
+"Go to cart","カートにすすむ"
+"Added","追加されました。"
+"New Account Registration","新規アカウント登録はこちら"
+"Buy as a guest","ゲストとして購入する"
+"Account Creation and Ordering","アカウント作成とご注文"
+"New Member Registration and Ordering","新規会員登録とご注文"
+"Sign In","サインイン"
+"delivery text","お支払い方法とご注文の確認"
+"My billing and shipping address are the same","請求先住所"
+
+"This coupon is for registered members only","本クーポンは会員登録者限定のため<span class=""coupon-area-color"" id=""scroll-login-section"">ログイン</span>いただくか<a href=""/customer/account/create/"" class=""coupon-area-color"">新規会員登録</a>をお願いします。"
+"You must login to use the coupon code you entered. Please login and try again.","入力されたクーポンコードの利用にはログインが必須です。ログインの上、再度お試しください。"

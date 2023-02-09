@@ -1,0 +1,71 @@
+<!--@subject {{trans "【50%OFFクーポン】%store_name モニターキャンペーン<2月21日（月）まで>" store_name=$store_data.name |raw}} @-->
+<!--@vars {
+"var store_data.name": "Store Name",
+"var order.increment_id": "Order Increment Id",
+"var order.customer_email": "Customer Email",
+"var customer_name": "Customer Name",
+"var delivery_date": "Delivery Date"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-information">
+        <td>
+            <p>
+                ■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■■□■□■□■□■<br />
+<br />
+                【50%OFFクーポン】My Coke Store モニターキャンペーン<2月21日（月）まで><br />
+<br />
+                ■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■■□■□■□■□■<br />
+<br />
+                こんにちは。My Coke Storeです。<br />
+                モニターキャンペーンのエントリーありがとうございます。<br />
+<br />
+                サイトオープンを記念して、簡単なアンケートにお答えいただける皆様に<br />
+                50％OFFクーポンをお届けします。<br />
+                アンケートはクーポンご利用後に送付されます。<br />
+<br />
+                ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝<br />
+<br />
+                クーポンコード：{{var couponCode}}<br />
+<br />
+                ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝<br />
+<br />
+                クーポン利用期間：2022年2月21日（月）まで<br />
+                対象アイテム：全商品<br />
+<br />
+                ■クーポンの使い方<br />
+                お買い物の際に「お支払方法とご注文の確認」画面のディスカウントコード適用欄に、<br />
+                上記のクーポンコードをコピー＆ペーストしていただくか、ご入力ください。<br />
+<br />
+                ※必ずお読みください※<br />
+                ・上限割引額は2,000円となります。<br />
+                ・このクーポンはメールを受け取ったご本人様に限り1回のみ利用可能です。<br />
+                ・クーポンのご利用には、会員登録及びログインが必須となります。<br />
+                ・次の事項はお受けできませんので、予めご了承ください。<br />
+                1. クーポン期限後のクーポン適用、入力忘れによるクーポン適用のお申し出<br />
+                2. お客様都合による返品時のクーポン再発行<br />
+                3. 他クーポンとの併用<br />
+<br />
+                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br />
+<br />
+                みなさまが私たちにとって、初めてのお客様となります。<br />
+                楽しい、使いやすいストアを目指すため<br />
+                購入後の みなさまのご意見を心よりお待ちしております！<br />
+<br />
+                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br />
+<br />
+                My Coke Store：<a href="https://mycokestore.cocacola.co.jp/">https://mycokestore.cocacola.co.jp/</a><br />
+                お客様サポートセンター：<a href="https://mycokestore.zendesk.com/hc/ja/requests/new">https://mycokestore.zendesk.com/hc/ja/requests/new</a><br />
+<br />
+                ・お問合せをいただく際には、「サービス満足に関するアンケート」についてとお知らせいただきますようお願いいたします。<br />
+<br />
+                ・このメールはモニターキャンペーンに応募いただいている方にお送りしています。<br />
+            </p>
+        </td>
+    </tr>
+</table>
+
+
+{{template config_path="design/email/footer_template"}}

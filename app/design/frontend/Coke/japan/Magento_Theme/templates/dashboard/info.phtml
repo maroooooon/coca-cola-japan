@@ -1,0 +1,32 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Customer\Block\Account\Dashboard\Info $block */
+$viewModel = $block->getData('japan');
+?>
+
+<div class="block block-dashboard-info">
+    <div class="block-title"><strong><?= /* noEscape */ __('Helper Information'); ?></strong></div>
+    <div class="block-content">
+        <div class="box box-information">
+            <div class="box-content">
+                <div class="info">
+                    <p><strong><?= /* noEscape */  __('Name'); ?>:</strong> <?= $block->escapeHtml($block->getName()) ?></p>
+                    <p><strong><?= /* noEscape */ __('Company'); ?>:</strong> <?= $block->escapeHtml($viewModel->getHelperCompany()) ?></p>
+                    <p><strong><?= /* noEscape */ __('Branch'); ?>:</strong> <?= $block->escapeHtml($viewModel->getHelperBranch()) ?></p>
+                </div>
+            </div>
+            <div class="box-actions">
+                <a class="action edit" href="<?= $block->escapeUrl($block->getUrl('customer/account/edit')) ?>">
+                    <span><?= /* noEscape */  __('Edit'); ?></span>
+                </a>
+                <a href="<?= $block->escapeUrl($block->getChangePasswordUrl()) ?>" class="action change-password">
+                    <?= /* noEscape */ __('Change Password'); ?>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Coke\PostcodeRestrictions\Api\PostcodeRepositoryInterface"
+                type="Coke\PostcodeRestrictions\Model\PostcodeRepository" />
+    <preference for="Coke\PostcodeRestrictions\Api\Data\PostcodeInterface"
+                type="Coke\PostcodeRestrictions\Model\Postcode" />
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="coke_postcode_restrictions_postcode_listing_data_source" xsi:type="string">CokePostcodeRestrictionsPostcodeCollection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="CokePostcodeRestrictionsPostcodeCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">coke_postcode_restrictions_postcodes</argument>
+            <argument name="resourceModel" xsi:type="string">Coke\PostcodeRestrictions\Model\ResourceModel\Postcode</argument>
+        </arguments>
+    </virtualType>
+</config>

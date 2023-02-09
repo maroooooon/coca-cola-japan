@@ -1,0 +1,19 @@
+
+<!-- ko if: isAvailable() -->
+<tr class="totals rewardpoints">
+    <th class="mark" scope="row">
+        <button data-role="opc-remove-reward" class="action action-remove" data-bind="click: removeRewardPoints">
+            <span><!-- ko i18n: 'Remove'--><!-- /ko --></span>
+        </button>
+    </th>
+    <td class="amount">
+        <span data-bind="text: getValue(), attr: {'data-th': 'ポイント'}" class="price"></span>
+    </td>
+</tr>
+<tr class="usedrewardpoints">
+    <th class="mark" scope="row"></th>
+    <td class="amount">
+        <!-- ko text: getRewardPoints() + ' ' + 'ポイント'--><!-- /ko -->
+    </td>
+</tr>
+<!-- /ko -->

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="checkout">
+            <group id="input_mask" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Shipping Form Input Masks</label>
+                <field id="postcode" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Postcode Input Mask</label>
+                    <source_model>FortyFour\InputMask\Model\Source\PostcodeMaskValidation</source_model>
+                </field>
+                <field id="telephone" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Telephone Input Mask</label>
+                    <source_model>FortyFour\InputMask\Model\Source\TelephoneMaskValidation</source_model>
+                </field>
+            </group>
+            <group id="max_length" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Max Length for Fields</label>
+                <field id="street_lines" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Max Length for Street</label>
+                    <validate>validate-number validate-greater-than-zero</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

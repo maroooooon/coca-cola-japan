@@ -1,0 +1,31 @@
+<div class="custom-bundle-step1">
+    <div class="step-header"><span>1</span><?= __('容量とバンドルの本数を選ぶ') ?></div>
+
+    <div class="buttons-list">
+        <div class="actions-block actions-packsize">
+            <div class="label">容量</div>
+            <div class="container container-bottle-size">
+                <div class="bottle-size bottle-size-1 action gray" data-bottle-size="1"><?= __('%1以下', '600ML') ?></div>
+                <div class="bottle-size bottle-size-2 action gray" data-bottle-size="2"><?= __('%1以上', '1L') ?></div>
+            </div>
+        </div>
+        <div class="actions-block actions-bottlesize">
+            <div class="label"><?= __('バンドルの本数') ?></div>
+            <div class="container container-pack-size">
+                <div class="pack-size pack-size-1 action gray" data-pack-size="6"><?= __('%1本', 6) ?></div>
+                <div class="pack-size pack-size-12 action gray" data-pack-size="12"><?= __('%1本', 12) ?></div>
+                <div class="pack-size pack-size-24 action gray" data-pack-size="24"><?= __('%1本', 24) ?></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+  {
+     "*": {
+         "Coke_Bundle/js/custom-bundle": {
+            "optionConfig": <?= /* @noEscape */ $block->getJsonConfig() ?>
+         }
+     }
+  }
+  </script>

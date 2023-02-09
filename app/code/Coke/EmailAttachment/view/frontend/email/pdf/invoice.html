@@ -1,0 +1,420 @@
+<!--@subject {{trans "Invoice"}} @-->
+<!--@vars {
+"var store.getFrontendName()":"Store Name",
+"var store.getBaseUrl()":"Store URL"
+} @-->
+<style>
+    * {
+        font-size:1em !important
+    }
+    table, tr, td, tbody, thead {
+        border-spacing: 0px;
+        border-collapse: collapse;
+    }
+    .clearfix {
+        width: 97%;
+        margin: 0 auto;
+        float: left;
+        clear: both;
+    }
+    .uppercase {
+        text-transform: uppercase;
+    }
+    .item-info.gray, .gray {
+        background-color: #d6d6d6;
+        font-weight: 900;
+    }
+    .body > div {
+        margin-bottom: 15px;
+    }
+    .one-third {
+        float:left;
+        width: 30%;
+        position: relative;
+    }
+    table {width:100%;}
+
+    .order-addresses > div {
+        position: relative;
+        float: left;
+    }
+    .item-options {display:none !important}
+    .subtotal > th {
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        text-align: left;
+        vertical-align: middle;
+        padding: 1em !important;
+        background-color: #d6d6d6;
+        text-transform: uppercase;
+        font-weight: 400;
+    }
+
+    .subtotal > td {
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        vertical-align: middle;
+        padding: 1em !important;
+        background-color: #FFFFFF;
+        border: 1px solid #d6d6d6;
+        text-align: right;
+    }
+
+    .shipping > th {
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        text-align: left;
+        vertical-align: middle;
+        padding: 4px;
+        background-color: #d6d6d6;
+        text-transform: uppercase;
+        font-weight: 400
+    }
+
+    .shipping > td {
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        vertical-align: bottom;
+        padding: 4px;
+        background-color: #FFFFFF;
+        border: 1px solid #d6d6d6;
+        text-align: right;
+        padding-top: 0;
+    }
+
+    .grand_total > th {
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        text-align: left;
+        vertical-align: middle;
+        padding: 4px;
+        background-color: #d6d6d6;
+        text-transform: uppercase;
+        font-weight: 400
+    }
+
+    .grand_total > th {
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        text-align: left;
+        vertical-align: middle;
+        padding: 4px;
+        background-color: #d6d6d6;
+        text-transform: uppercase;
+        font-weight: 400
+    }
+
+    .totals.tax.details.details-1.plane > th {
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        text-align: left;
+        vertical-align: middle;
+        padding: 4px;
+        background-color: #d6d6d6;
+        text-transform: uppercase;
+        font-weight: 400
+    }
+
+    .totals.tax.details.details-1.plane > td {
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        vertical-align: bottom;
+        padding: 4px;
+        background-color: #FFFFFF;
+        border: 1px solid #d6d6d6;
+        text-align: right;
+        padding-top: 0;
+    }
+
+    .totals.tax.details.details-1.plane > th {
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        text-align: left;
+        vertical-align: middle;
+        padding: 4px;
+        background-color: #d6d6d6;
+        text-transform: uppercase;
+        font-weight: 400
+    }
+
+    .totals.tax.details.details-1.plane > td {
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        vertical-align: bottom;
+        padding: 4px;
+        background-color: #FFFFFF;
+        border: 1px solid #d6d6d6;
+        text-align: right;
+        padding-top: 0;
+    }
+
+    .totals-tax-summary.plane > th {
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        text-align: left;
+        vertical-align: middle;
+        padding: 1em !important;
+        background-color: #d6d6d6;
+        text-transform: uppercase;
+        font-weight: 400
+    }
+
+    .totals-tax-summary.plane > td {
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        vertical-align: bottom;
+        padding: 1em !important;
+        background-color: #FFFFFF;
+        border: 1px solid #d6d6d6;
+        text-align: right;
+        padding-top: 0;
+    }
+
+    .grand_total_incl > th {
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        text-align: left;
+        vertical-align: middle;
+        padding: 1em !important;
+        background-color: #d6d6d6;
+        text-transform: uppercase;
+        font-weight: 400
+    }
+
+    .grand_total_incl > td {
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        vertical-align: bottom;
+        padding: 1em !important;
+        background-color: #FFFFFF;
+        text-align: right;
+        padding-top: 0;
+        border: 1px solid #d6d6d6
+    }
+
+    #company {
+        float: left;
+        text-align: left;
+        margin-bottom: 15px;
+        width: 99%
+    }
+
+    .body {
+        position: fixed;
+        width: 100%;
+        height: 29.7cm;
+        margin: 0 auto;
+        color: #555555;
+        background: #FFFFFF;
+        font-family: Arial;
+        font-size: 1em !important;
+    }
+
+    .order-addresses {
+        float: left;
+    }
+
+    .item-info {
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        text-align: center;
+        vertical-align: bottom;
+        padding: 5px;
+        font-weight: 400;
+    }
+
+    .item-info.has-extra {
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        vertical-align: top;
+        padding: 4px;
+        border: 1px solid #d1d1d1;
+        font-size: 1em !important
+    }
+
+    .address-items {
+        width: 100%;
+        border-spacing: 0px;
+        border-collapse: collapse;
+        border: 1px solid #d1d1d1;
+    }
+
+    .address-items.empty {
+        border: 1px solid #d1d1d1;
+    }
+    .address-items.empty .item-info.has-extra {
+        padding: 1em !important;
+        border: none;
+    }
+    .order-meta {
+    }
+
+    .meta-items {
+        margin-bottom: 10px !important;
+        border: 1px solid #d6d6d6;
+        -webkit-font-smoothing: antialiased;
+        font-family: "Gotham Book", "Helvetica Neue", Verdana, Arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        border-spacing: 0;
+        max-width: 100%;
+    }
+
+    .item-qty {
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        text-align: center;
+        vertical-align: bottom;
+        padding: 5px;
+    }
+
+    .item-price {
+        background-color: #d6d6d6;
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        text-align: center;
+        vertical-align: bottom;
+        padding: 5px;
+    }
+
+    .order-items {float: left;}
+
+    .totals {width: 100%;float: left}
+
+    .email-items {
+        margin-bottom: 50px;
+        border: 1px solid #d6d6d6;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .email-items > tbody > tr > td.item-sku,
+    .email-items > tbody > tr > td.item-name {text-align: left}
+    .product-name {
+        margin-top: 0;
+        margin-bottom: 5px;
+        font-weight: 700;
+    }
+
+    .order-totals {}
+    .subtotal {}
+    .shipping {}
+    .grand_total {}
+    .totals.tax.details.details-1.plane {}
+    .totals-tax-summary.plane {display:none;}
+    .detailed {}
+    .grand_total_incl {}
+</style>
+
+<div class="body">
+    <div>
+        <div id="company" style="margin-bottom: 15px;"><img src="{{media url="email/logo/tessi-logo.png"}}" alt="" width="20%" /></div>
+    </div>
+    <div class="order-addresses clearfix" style="margin-top: 15px;">
+        <div class="one-third">
+            <table style="border-color: #d6d6d6; border-width: 1px; border-style: solid;" cellspacing="2" cellpadding="4" align="left">
+                <thead>
+                <tr><th class="item-info gray uppercase" style="border-color: #d6d6d6;" colspan="2" align="center"><span style="font-size: x-small;">Facture</span></th></tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td style="border-color: #d6d6d6; border-style: solid; border-width: 1px;" align="left"><span style="font-size: x-small;">N&deg; de commande</span></td>
+                    <td style="border-color: #d6d6d6; border-style: solid; border-width: 1px;" align="right"><span style="font-size: x-small;">{{trans "%order_id" order_id=$order.increment_id}}</span></td>
+                </tr>
+                <tr>
+                    <td style="border-color: #d6d6d6; border-style: solid; border-width: 1px;" align="left"><span style="font-size: x-small;">Date de commande:</span></td>
+                    <td style="border-color: #d6d6d6; border-style: solid; border-width: 1px;" align="right"><span style="font-size: x-small;">{{var formattedOrderCreatedAt|raw}}</span></td>
+                </tr>
+                <tr>
+                    <td style="border-color: #d6d6d6; border-style: solid; border-width: 1px;" align="left"><span style="font-size: x-small;">Date de r&egrave;glement:</span></td>
+                    <td style="border-color: #d6d6d6; border-style: solid; border-width: 1px;" align="right"><span style="font-size: x-small;">{{var formattedInvoiceCreatedAt|raw}}</span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="one-third" style="margin-left: 29px;">
+            <table style="border-color: #d6d6d6; border-width: 1px; border-style: solid;" cellpadding="4" align="left">
+                <thead>
+                <tr><th class="item-info gray uppercase" colspan="2" scope="row"><span style="font-size: x-small;">Adresse De Livraison</span></th></tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="item-info has-extra" colspan="2" align="left"><span style="font-size: x-small;">{{var formattedShippingAddress|raw}}</span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="one-third" style="margin-left: 30px;">
+            <table style="border-color: #d6d6d6; border-width: 1px; border-style: solid;" cellpadding="4" align="left">
+                <thead>
+                <tr><th class="item-info gray uppercase" colspan="2" scope="row"><span style="font-size: x-small;">Adresse De Facturation</span></th></tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="item-info has-extra" colspan="2" align="left"><span style="font-size: x-small;">{{var formattedBillingAddress|raw}}</span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="order-meta clearfix"></div>
+    <div class="order-meta clearfix">
+        <table class="meta-items" style="margin-top: 10px;">
+            <thead>
+            <tr><th class="item-info" style="width: 25%; background-color: #d6d6d6;"><span style="font-size: x-small;">Facture N&deg;:</span></th><th class="item-info" style="width: 25%;"><span style="font-size: x-small;"> {{trans "%custom_invoice_number" custom_invoice_number=$order.getCustomInvoiceNumber()}}</span></th><th class="item-info" style="width: 25%; background-color: #d6d6d6;"><span style="font-size: x-small;">Date &eacute;mission:</span></th><th class="item-info" style="width: 25%;"><span style="font-size: x-small;">{{var formattedInvoiceCreatedAt|raw}}</span></th></tr>
+            </thead>
+        </table>
+    </div>
+    <div class="order-meta clearfix"><span style="font-size: small;"> <strong>Votre commande</strong> </span></div>
+    <div class="order-meta clearfix" style="font-size: xx-small !important;">
+        <span style="font-size: xx-small;">
+            {{layout handle="sales_email_order_invoice_items" order=$order invoice=$invoice order_id=$order_id shipping_sku="C000003" area="frontend"}}
+        </span>
+        <br />
+        <span style="font-size: small;"> <br /> </span>
+    </div>
+    <div class="order-meta clearfix"></div>
+    <div class="order-meta clearfix">
+        <table style="border-color: #d6d6d6; border-width: 0px; border-style: solid;" border="0" cellpadding="2">
+            <tbody>
+                <tr>
+                    <td style="width: 50%;">
+                        <table style="border-color: #d6d6d6; border-width: 1px; border-style: solid;" border="1" cellspacing="4" cellpadding="35">
+                            <thead>
+                            <tr>
+                                <td style="padding: 3px; background-color: #d6d6d6;" colspan="2">
+                                    <div><span style="font-size: x-small;">Moyens de palemente</span></div>
+                                </td>
+                                <td style="padding: 3px; background-color: #d6d6d6;">
+                                    <div><span style="font-size: x-small; width: 35%;">Montant TTC</span></div>
+                                </td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="padding: 3px;"><span style="font-size: x-small;">Bon Cadeau N</span></td>
+                                <td style="padding: 3px;"><span style="font-size: x-small;"><strong>{{trans "%coupon" coupon=$order.getCouponCode()}}</strong></span></td>
+                                <td style="padding: 3px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 3px;" colspan="2"><span style="font-size: x-small;">Paiement par carte bancaire</span></td>
+                                <td style="padding: 3px; width: 35%;"><strong><span style="font-size: x-small;">&nbsp;{{var paymentAmountInvoiced|raw}}</span></strong></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 3px;" colspan="2"><span style="font-size: x-small;">Num&eacute;ro de transaction bancaire:</span></td>
+                                <td style="padding: 3px; width: 35%;"><strong><span style="font-size: x-small;">&nbsp;{{trans "%trans_id" trans_id=$invoice.transaction_id}}</span></strong></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td style="width: 50%; padding-left: 10px;"><span style="font-size: x-small;">Lorsque la loi le permet, dans la mesure du n&eacute;cessaire et en fonction des accords de partage de donn&eacute;s en vigueur, nous pourrons &eacute;galement accorder un acc&egrave;s &agrave; vos donn&eacute;es personnelles &agrave; nos partenaires ou aux embouteilleurs de The Coca-Cola Company,&nbsp;</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <table>
+        <tbody>
+            <tr>
+                <td class="footer" style="padding: 20px;"><span style="font-size: 10px;"> <i>Facture établie par The Coca-Cola Company au nom et pour le compte de TESSI TMS. Les retards de r&egrave;glements sont soumis &agrave; l'application de p&eacute;nalit&eacute;s &eacute;gales &agrave; trois fois le taux d'int&eacute;r&ecirc;ts l&eacute;gale, une indemnit&eacute; forfaitaire de 40 euros pour frais de recouvrement est due en sus des indemnit&eacute;s de retard articles L 441-3. Aucun escompte n'est accord&eacute;.</i> </span></td>
+            </tr>
+            <tr>
+                <td class="footer" style="padding-top: 5px; padding-left: 20px; padding-right: 20px; padding-bottom: 5px;" align="right" valign="bottom"><img src="https://www.cocacolastore.fr/media/logo/stores/2/Coca_Cola_Store_logo_horizontal.png" width="100" border="0" /></td>
+            </tr>
+            <tr>
+                <td class="footer" style="padding-top: 5px; padding-left: 20px; padding-right: 20px; padding-bottom: 5px;" align="left" valign="top" width="75%">
+                    <p class="closing"><span style="font-size: small;"> <b>Tessi TMS</b> </span> <br /> <span style="font-size: x-small;">Si&egrave;ge social:</span> <br /> <span style="font-size: x-small;"> 15 bis avenue du Centre - 78280 Guyancourt </span> <br /> <br /> <span style="font-size: x-small;"> T&el. +33 (0)1 30 13 92 00 - Fax. +33 (0)1 30 13 91 99 - www.tessi.eu</span> <br />
+                        <span style="font-size: x-small;">SAS au capital de 1 097 632,92 euros - 649 801 826 RCS NANTERRE - N° de TVA intracommunautaire : FR 79 649 801 826 - APE : 7311 Z</span>
+                        <span style="font-size: x-small;"> www.tessicustomermarketing.fr</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td class="footer" style="padding: 20px;" align="center">
+                    <p style="font-size: 9px;">SAS au capital de 1 097 632,92 euros - 649 801 826 RCS VERSAILLES - N&deg; de TVA intracommunautaire : FR 79 649 801 826 - APE : 7311 Z</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

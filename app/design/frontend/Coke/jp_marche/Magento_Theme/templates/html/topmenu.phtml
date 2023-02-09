@@ -1,0 +1,39 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * Top menu for store
+ *
+ * @var $block \Magento\Theme\Block\Html\Topmenu
+ */
+/** @var \Magento\Framework\Escaper $escaper */
+
+$columnsLimit = $block->getColumnsLimit() ?: 0;
+$_menuHtml = $block->getHtml('level-top', 'submenu', $columnsLimit);
+?>
+
+<div class="account-links-section-toggle-container mobile-nav-customer"  data-bind="scope: 'customer-account'">
+    <!-- ko if: customer().fullname  -->
+    <div class="controls">
+        <a href="<?= $block->getUrl('customer/account')?>">
+            <span class="logged-in">
+                <span data-bind="text: new String('<?= $escaper->escapeHtml(__('Welcome')) ?>')"></span>
+                <span data-bind="text: new String('<?= $escaper->escapeHtml(__('%1 樣', '%1')) ?>').replace('%1', customer().fullname)"></span>
+            </span>
+        </a>
+    </div>
+    <!-- /ko -->
+    <div class="mobile-nav-label">
+        <p><?= __('メニュー一覧')?></p>
+    </div>
+</div>
+
+<nav class="navigation" data-action="navigation">
+    <ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+        <?= /* @noEscape */ $_menuHtml?>
+        <?= $block->getChildHtml() ?>
+    </ul>
+</nav>

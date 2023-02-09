@@ -1,0 +1,144 @@
+
+#site-footer {
+  .__section-pad(
+    @top: @section-pad-xs;
+    @bottom: @section-pad-xs;
+    @smTop: @section-pad-sm;
+    @smBottom: @section-pad-sm;
+  );
+  background: @color-black;
+  color: #fff;
+
+  li,
+  p {
+    line-height: 1.6;
+    color: #fff;
+  }
+
+  .logo {
+    .__logo(#fff);
+  }
+
+  a {
+    ._link-white()
+  }
+
+  .footer-top-row {
+    @media (min-width: @bp-xs-min) {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    > * {
+      @media (min-width: @bp-md-min) {
+        &:last-child {
+          min-width: 250px;
+        }
+      }
+    }
+  }
+
+  .footer-end-row {
+    margin-top: 2rem;
+    text-align: left;
+
+    @media (min-width: @bp-xs-min) {
+      border-top: 1px solid rgba(255, 255, 255, 0.5);
+      padding: 2rem 0 0;
+    }
+
+    @media (min-width: @bp-sm-min) {
+      margin-top: 3rem;
+    }
+  }
+
+  .footer-logo-row {
+    margin-bottom: 2rem;
+
+    @media (min-width: @bp-xs-min) {
+      margin-bottom: 0;
+      display: flex;
+    }
+
+    > * {
+      @media (min-width: @bp-xs-min) {
+        margin-right: 2rem;
+
+        @media (min-width: @bp-sm-min) {
+          margin-right: 4rem;
+        }
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+
+      &:first-child {
+        margin-bottom: 1rem;
+
+        @media (min-width: @bp-xs-min) {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .footer-links {
+    margin-bottom: 2rem;
+
+    @media (min-width: @bp-sm-min) {
+      margin-bottom: 3rem;
+    }
+
+    a {
+      font-size: @size-text-default;
+    }
+  }
+}
+
+.copyright {
+  .__type-p();
+  .__type-weight-retina();
+  margin: 0;
+  text-transform: uppercase;
+  font-size: @size-text-xxs;
+  letter-spacing: @letter-spacing-sm;
+  text-align: left;
+  line-height: 1.6;
+  color: #fff;
+
+  @media (min-width: @bp-sm-min) {
+    font-size: @size-text-xs;
+  }
+
+  a {
+    ._link-white();
+  }
+}
+
+#site-footer .footer-service {
+  margin-bottom: 1rem;
+
+  @media (min-width: @bp-sm-min) {
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    text-transform: uppercase;
+    font-size: @size-text-xs;
+    margin: 0;
+
+    &.company-name {
+      font-size: 2.8rem;
+      line-height: unset;
+      margin: 0;
+      padding: 0;
+      font-weight: 100;
+      letter-spacing: 2px;
+    }
+  }
+
+  img {
+    max-width: 140px;
+  }
+}

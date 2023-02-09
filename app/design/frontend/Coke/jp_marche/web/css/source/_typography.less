@@ -1,0 +1,74 @@
+.lib-font-face-ext(
+    @family-name,
+    @font-path,
+    @font-ext,
+    @font-format: false,
+    @font-weight: normal,
+    @font-style: normal,
+    @font-display: auto
+) when not (@font-format = false) {
+    @font-face {
+        font-family: @family-name;
+        src: url('@{font-path}.@{font-ext}') format(@font-format);
+        font-weight: @font-weight;
+        font-style: @font-style;
+        font-display: @font-display;
+    }
+}
+
+.lib-font-face-ext(
+    @family-name: 'youregular',
+    @font-path: '@{baseDir}fonts/you-webfont',
+    @font-ext: 'woff',
+    @font-format: 'opentype',
+    @font-weight: normal,
+    @font-display: swap
+);
+
+.lib-font-face-ext(
+    @family-name: 'hiragino_kaku_gothic',
+    @font-path: '@{baseDir}fonts/Hiragino-Kaku-Gothic-Std-W8',
+    @font-ext: 'woff',
+    @font-format: 'opentype',
+    @font-weight: 900,
+    @font-display: swap
+);
+
+
+//Noto Sans JP
+.lib-font-face(
+    @family-name: 'Noto Sans JP',
+    @font-path: '@{baseDir}fonts/noto_sans_jp/noto-sans-jp-100',
+    @font-weight: 100,
+    @font-display: swap
+);
+.lib-font-face(
+    @family-name: 'Noto Sans JP',
+    @font-path: '@{baseDir}fonts/noto_sans_jp/noto-sans-jp-300',
+    @font-weight: 300,
+    @font-display: swap
+);
+.lib-font-face(
+    @family-name: 'Noto Sans JP',
+    @font-path: '@{baseDir}fonts/noto_sans_jp/noto-sans-jp-regular',
+    @font-weight: 400,
+    @font-display: swap
+);
+.lib-font-face(
+    @family-name: 'Noto Sans JP',
+    @font-path: '@{baseDir}fonts/noto_sans_jp/noto-sans-jp-500',
+    @font-weight: 500,
+    @font-display: swap
+);
+.lib-font-face(
+    @family-name: 'Noto Sans JP',
+    @font-path: '@{baseDir}fonts/noto_sans_jp/noto-sans-jp-700',
+    @font-weight: 700,
+    @font-display: swap
+);
+.lib-font-face(
+    @family-name: 'Noto Sans JP',
+    @font-path: '@{baseDir}fonts/noto_sans_jp/noto-sans-jp-900',
+    @font-weight: 900,
+    @font-display: swap
+);

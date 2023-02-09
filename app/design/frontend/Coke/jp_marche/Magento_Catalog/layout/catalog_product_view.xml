@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Move elements -->
+        <move element="page.main.title" destination="product.info.main" before="-" />
+        <move element="product.info.description" destination="product.info.main" after="-" />
+        <move element="catalog.product.related" destination="product.info.main" after="product.info.description" />
+        <move element="product.tags" destination="product.info.main" before="product.info.description" />
+        <move element="product.info.stock.sku" destination="content" after="-" />
+        <move element="product.pack.size" destination="product.info.main" before="page.main.title" />
+
+        <!-- Unused elements -->
+        <referenceBlock name="reviews.tab" remove="true" />
+        <referenceBlock name="product.review.form" remove="true" />
+        <referenceBlock name="product.info.review" remove="true" />
+        <referenceBlock name="view.addto.compare" remove="true" />
+        <referenceBlock name="related.product.addto.compare" remove="true" />
+        <referenceBlock name="upsell.product.addto.compare" remove="true" />
+        <referenceBlock name="product.attributes" remove="true" />
+
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template" name="product.clear" template="Magento_Catalog::clear.phtml" after="product.media"/>
+
+            <container name="product.info.nutrition.ingredients" htmlTag="div" htmlClass="product-additional-information" after="product.clear">
+                <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.nutrition" template="Magento_Catalog::product/view/attribute.phtml" before="-">
+                    <arguments>
+                        <argument name="at_call" xsi:type="string">getNutritional</argument>
+                        <argument name="at_code" xsi:type="string">nutritional</argument>
+                        <argument name="css_class" xsi:type="string">nutrition</argument>
+                        <argument name="at_label" xsi:type="string">栄養成分</argument>
+                        <argument name="add_attribute" xsi:type="string">itemprop="nutrition"</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.ingredients" template="Magento_Catalog::product/view/attribute.phtml" after="product.info.nutrition">
+                    <arguments>
+                        <argument name="at_call" xsi:type="string">getIngredients</argument>
+                        <argument name="at_code" xsi:type="string">ingredients</argument>
+                        <argument name="css_class" xsi:type="string">ingredients</argument>
+                        <argument name="at_label" xsi:type="string">none</argument>
+                        <argument name="add_attribute" xsi:type="string">itemprop="ingredients"</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+
+        <block class="Magento\Catalog\Block\Product\View\Attributes" name="product.tags" template="Magento_Catalog::product/view/attributes-tags.phtml" group="detailed_info" />
+
+        <referenceContainer name="product.info.main">
+            <block class="Magento\Catalog\Block\Product\View\Attributes" name="product.pack.size" template="Magento_Catalog::product/view/pack-size.phtml" before="-"/>
+        </referenceContainer>
+
+        <referenceBlock name="aw_sarp2.product.subscription-options.radiobutton" template="Magento_Catalog::product/subscription_options/renderers/radiobutton.phtml" />
+
+        <referenceContainer name="tooltip.before">
+            <block class="Magento\Framework\View\Element\Template" name="subscription.note" template="Magento_Catalog::subscription-options-note.phtml"/>
+        </referenceContainer>
+
+        <referenceBlock name="product.info.upsell">
+            <arguments>
+                <argument name="title" xsi:type="string" translate="true">Recommended Products</argument>
+                <argument name="english_title" xsi:type="string">RECOMMEND</argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

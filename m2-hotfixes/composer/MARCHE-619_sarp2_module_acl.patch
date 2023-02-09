@@ -1,0 +1,38 @@
+diff --git a/vendor/aheadworks/module-sarp2/Controller/Adminhtml/Subscription/MassActivate.php b/vendor/aheadworks/module-sarp2/Controller/Adminhtml/Subscription/MassActivate.php
+--- a/vendor/aheadworks/module-sarp2/Controller/Adminhtml/Subscription/MassActivate.php
++++ b/vendor/aheadworks/module-sarp2/Controller/Adminhtml/Subscription/MassActivate.php	(date 1645740532502)
+@@ -19,7 +19,7 @@
+     /**
+      * {@inheritdoc}
+      */
+-    const ADMIN_RESOURCE = 'Aheadworks_Sarp2::subscriptions';
++    const ADMIN_RESOURCE = 'Aheadworks_Sarp2::cancel_subscription';
+
+     /**
+      * @var Filter
+
+diff --git a/vendor/aheadworks/module-sarp2/Controller/Adminhtml/Subscription/MassCancel.php b/vendor/aheadworks/module-sarp2/Controller/Adminhtml/Subscription/MassCancel.php
+--- a/vendor/aheadworks/module-sarp2/Controller/Adminhtml/Subscription/MassCancel.php
++++ b/vendor/aheadworks/module-sarp2/Controller/Adminhtml/Subscription/MassCancel.php	(date 1645740527903)
+@@ -20,7 +20,7 @@
+     /**
+      * {@inheritdoc}
+      */
+-    const ADMIN_RESOURCE = 'Aheadworks_Sarp2::subscriptions';
++    const ADMIN_RESOURCE = 'Aheadworks_Sarp2::cancel_subscription';
+
+     /**
+      * @var Filter
+
+diff --git a/vendor/aheadworks/module-sarp2/Controller/Adminhtml/Subscription/MassSuspend.php b/vendor/aheadworks/module-sarp2/Controller/Adminhtml/Subscription/MassSuspend.php
+--- a/vendor/aheadworks/module-sarp2/Controller/Adminhtml/Subscription/MassSuspend.php
++++ b/vendor/aheadworks/module-sarp2/Controller/Adminhtml/Subscription/MassSuspend.php	(date 1645740522480)
+@@ -19,7 +19,7 @@
+     /**
+      * {@inheritdoc}
+      */
+-    const ADMIN_RESOURCE = 'Aheadworks_Sarp2::subscriptions';
++    const ADMIN_RESOURCE = 'Aheadworks_Sarp2::cancel_subscription';
+
+     /**
+      * @var Filter

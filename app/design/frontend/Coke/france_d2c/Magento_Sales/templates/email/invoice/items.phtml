@@ -1,0 +1,95 @@
+<?php
+// @codingStandardsIgnoreFile
+/** @var \Magento\Sales\Model\Order\Invoice $invoice */
+/** @var \Magento\Sales\Model\Order $order */
+?>
+<?php $invoice = $block->getInvoice() ?>
+<?php $order   = $block->getOrder() ?>
+<?php if ($order && $invoice): ?>
+    <table style="border-color: #d6d6d6; border-width: 1px; border-style: solid;" cellspacing="2" cellpadding="5" align="left">
+        <thead>
+        <tr>
+            <th class="print-item-sku gray" style="border-color: #d6d6d6;" align="center">
+                    <span style="font-size: x-small;">
+                        <?= /* @escapeNotVerified */ __('Réf.'); ?>
+                    </span>
+            </th>
+            <th class="print-item-name gray" style="border-color: #d6d6d6;" align="center">
+                    <span style="font-size: x-small;">
+                        <?= /* @escapeNotVerified */ __('Libellé'); ?>
+                    </span>
+            </th>
+            <th class="print-item-quantity gray" style="border-color: #d6d6d6;" align="center">
+                    <span style="font-size: x-small;">
+                        <?= /* @escapeNotVerified */ __('Qté.'); ?>
+                    </span>
+            </th>
+            <th class="print-item-price gray" style="border-color: #d6d6d6;" align="center">
+                    <span style="font-size: x-small;">
+                        <?= /* @escapeNotVerified */ __('PUTTC'); ?>
+                    </span>
+            </th>
+            <th class="print-item-price gray" style="border-color: #d6d6d6;" align="center">
+                    <span style="font-size: x-small;">
+                        <?= /* @escapeNotVerified */  __('PVTTC'); ?>
+                    </span>
+            </th>
+            <th class="print-item-tax gray" style="border-color: #d6d6d6;" align="center">
+                    <span style="font-size: x-small;">
+                        <?= /* @escapeNotVerified */  __('TVA'); ?>
+                    </span>
+            </th>
+        </tr>
+        </thead>
+        <?php foreach ($invoice->getAllItems() as $item): ?>
+            <?php
+            if ($item->getOrderItem()->getParentItem()) {
+                continue;
+            }
+            ?>
+            <tbody>
+            <?= $block->getItemHtml($item) ?>
+            </tbody>
+        <?php endforeach; ?>
+        <?php if ($order->getShippingAmount() > 0) : ?>
+            <tbody>
+            <tr>
+                <td style="border-color: #d6d6d6; border-style: solid; border-width: 1px;" align="left">
+        <span style="font-size: x-small;">
+             <?= /* @escapeNotVerified */  $block->escapeHtml($block->getShippingSku() ?: '' ) ?>
+        </span>
+                </td>
+                <td style="border-color: #d6d6d6; border-style: solid; border-width: 1px;" align="left">
+        <span style="font-size: x-small;">
+             <?= /* @escapeNotVerified */   __('Frais de port') ?>
+        </span>
+                </td>
+                <td style="border-color: #d6d6d6; border-style: solid; border-width: 1px;" align="center">
+        <span style="font-size: x-small;">
+            <?= /* @escapeNotVerified */  1 * 1 ?>
+        </span>
+                </td>
+                <td style="border-color: #d6d6d6; border-style: solid; border-width: 1px;" align="right">
+        <span style="font-size: x-small;">
+            <?= /* @escapeNotVerified */  str_replace('€', '', $order->formatPrice($order->getShippingInclTax()))?>€
+        </span>
+                </td>r
+                <td style="border-color: #d6d6d6; border-style: solid; border-width: 1px;" align="right">
+        <span style="font-size: x-small;">
+            <?= /* @escapeNotVerified */  str_replace('€', '', $order->formatPrice($order->getShippingInclTax()))?>€
+        </span>
+                </td>
+                <td style="border-color: #d6d6d6; border-style: solid; border-width: 1px;" align="right">
+        <span style="font-size: x-small;">
+            <?= /* @escapeNotVerified */  sprintf('%s%%', 20 + 0); ?>
+        </span>
+                </td>
+            </tr>
+
+            </tbody>
+        <?php endif ?>
+    </table>
+    <table style="width: 45%; margin-top: 15px; border-color: #d6d6d6; border-style: solid; border-width: 1px" cellspacing="4" cellpadding="8" align="right">
+        <tfoot class="order-totals"><?= $block->getChildHtml('invoice_totals') ?></tfoot>
+    </table>
+<?php endif; ?>

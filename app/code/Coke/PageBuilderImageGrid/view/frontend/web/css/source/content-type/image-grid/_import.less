@@ -1,0 +1,123 @@
+//
+//  Image Grid Frontend Styles
+//  _____________________________________________
+
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+	.image-grid {
+		width: 100%;
+		max-width: 100%;
+		// Grid Title
+		.image-grid-title {
+			width: 100%;
+			max-width: 100%;
+			line-height: 1.2;
+			margin-bottom: 20px;
+			font-family: 'TCCC-UnityHeadline', Helvetica, sans-serif;
+			&[data-title] {
+				display: block;
+			}
+			&[data-title=''] {
+				display: none;
+			}
+		}
+		// Slick Arrows
+		.slick-arrow {
+			background: none;
+			width: 30px;
+			height: 30px;
+			// Prev Arrow
+			&.slick-prev {
+				&::before {
+					content: url('@{baseDir}Coke_PageBuilderImageGrid/css/images/prev.svg');
+				}
+			}
+			// Next Arrow
+			&.slick-next {
+				&::before {
+					content: url('@{baseDir}Coke_PageBuilderImageGrid/css/images/next.svg');
+				}
+			}
+		}
+	}
+}
+
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+	.image-grid {
+		// Grid Title
+		.image-grid-title {
+			font-size: 40px;
+		}
+		// Grid Items
+		.image-grid-items {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			column-gap: 20px;
+			row-gap: 10px;
+		}
+		// Hide initialized slick from desktop
+		&.slick-initialized {
+			opacity: 0;
+		}
+	}
+}
+
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+	.image-grid {
+		// Grid Title
+		.image-grid-title {
+			font-size: 24px;
+		}
+		// Prevent FOUC when carousel is enabled
+		&[data-carousel='true'] {
+			.image-grid-items {
+				display: block;
+				grid-template-columns: unset;
+				column-gap: unset;
+				row-gap: unset;
+				opacity: 0;
+				max-height: 0px;
+				overflow: hidden;
+				// Carousel Initialized
+				&.slick-initialized {
+					opacity: 1;
+					max-height: unset;
+					overflow: unset;
+				}
+			}
+		}
+		// Carousel styles
+		.slick-list {
+			.slick-slide {
+				margin: 0 10px;
+			}
+		}
+
+		// Convert back to grid when carousel is disabled
+		&[data-carousel='false'] {
+			.image-grid-items {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				column-gap: 20px;
+				row-gap: 10px;
+			}
+		}
+	}
+}
+// 768px bug fix
+@media only screen and (min-width: @screen__m) and (max-width: @screen__m) {
+	.image-grid {
+		opacity: 1;
+		max-height: unset;
+		overflow: unset;
+		// pagebuilder fix
+		.pagebuilder-mobile-hidden {
+			display: none;
+		}
+	}
+}

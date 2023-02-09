@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="checkout_submit_all_after">
+        <observer name="Coke_Whitelist::CheckoutSubmitAllAfter"
+                  instance="Coke\Whitelist\Observer\CheckoutSubmitAllAfter" />
+    </event>
+    <event name="stripe_payments_webhook_charge_succeeded_card">
+        <observer name="Coke_Whitelist::StripePaymentsWebhookChargeSucceededCard"
+                  instance="Coke\Whitelist\Observer\StripePaymentsWebhookChargeSucceededCard" />
+    </event>
+    <event name="sales_model_service_quote_submit_before">
+        <observer name="Coke_Whitelist::SalesModelServiceQuoteSubmitBefore"
+                  instance="Coke\Whitelist\Observer\SalesModelServiceQuoteSubmitBefore"/>
+    </event>
+    <event name="sales_quote_remove_item">
+        <observer name="Coke_Whitelist::SalesQuoteRemoveItem"
+                  instance="Coke\Whitelist\Observer\SalesQuoteRemoveItem"/>
+    </event>
+</config>

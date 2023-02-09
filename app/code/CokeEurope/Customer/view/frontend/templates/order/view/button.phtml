@@ -1,0 +1,17 @@
+<?php
+/** 
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \CokeEurope\Customer\ViewModel\Data $viewModel
+ */
+$viewModel = $block->getViewModel();
+$button = $viewModel->getButtonConfig();
+?>
+
+<?php if($button['enabled']): ?>
+    <div class="order-view-button-container">
+        <a class="action order-view-button" href="<?= $button['target'] ?>"
+            style="color: <?= $button['color']; ?>; background: <?= $button['background']; ?>;">
+            <span><?= $escaper->escapeHtml(__($button['title'])) ?></span>
+        </a>
+    </div>
+<?php endif; ?>

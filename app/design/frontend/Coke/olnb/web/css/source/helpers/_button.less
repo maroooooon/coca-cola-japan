@@ -1,0 +1,32 @@
+
+._btn-min-width-2 { min-width: 2rem }
+._btn-min-width-25 { min-width: 25rem }
+._btn-min-width-30 { min-width: 30rem }
+
+._btn-size-xs {
+  .__btn-size(@font-size: @size-text-xs; @height: @height-xs)
+}
+
+._btn-size-sm {
+  .__btn-size(@font-size: @size-text-sm; @height: @height-sm)
+}
+
+._btn-size-lg {
+  .__btn-size(@font-size: @size-text-lg; @height: @height-lg)
+}
+
+._btn-size-xlg {
+  .__btn-size(@font-size: @size-text-lg; @height: @height-lg);
+
+  @media (min-width: @bp-md-min) {
+    .__btn-size(@font-size: @size-text-xlg; @height: @height-xlg; @pad: 4rem)
+  }
+}
+
+._btn-link {
+  .__btn-base();
+  width: auto;
+  background: none;
+  border: 0;
+  box-shadow: none !important;
+}

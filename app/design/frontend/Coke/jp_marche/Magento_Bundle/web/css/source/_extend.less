@@ -1,0 +1,60 @@
+//  Common
+& when (@media-common = true) {
+    .page-product-bundle:not(.page-custom-bundle){
+        .product-info-main{
+            .product-info-price{
+                .price-box{
+                    display: none;
+                }
+            }
+
+            .price-configured_price{
+                line-height: 1;
+                .price-wrapper{
+                    .price{
+                        font-size: 24px;
+                    }
+                }
+            }
+
+            .bundle-actions,
+            .fieldset-bundle-options,
+            p.required{
+                display: none;
+            }
+
+            .bundle-options-wrapper{
+                margin-top: 30px;
+            }
+
+            .block-bundle-summary{
+                margin-top: 30px;
+                > .title,
+                .product-image-container,
+                .product.name,
+                .available.stock{
+                    display: none;
+                }
+
+                .bundle-summary{
+                    .label{
+                        border-bottom: 2px solid #9f9f9f;
+                        padding-bottom: 10px;
+                        margin-bottom: 10px;
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+}
+
+// Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<section id="coke_europe" sortOrder="999" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+			<tab>Coke</tab>
+			<group id="address_autocomplete" sortOrder="1" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+				<label>Google Address Autocomplete</label>
+				<field id="enabled" type="select" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Enabled</label>
+					<comment>Enable google address autocomplete on address fields</comment>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="validate_address_enabled" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+					<label>Validate Address</label>
+					<comment>Select yes to enable address verification and display suggestions using the Google Geocode API</comment>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+						<field id="coke_europe/address_autocomplete/enabled">1</field>
+					</depends>
+				</field>
+				<field id="validate_postcode_enabled" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+					<label>Validate Postcode</label>
+					<comment>Select yes to enable postcode validation on account and checkout address forms.</comment>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+						<field id="coke_europe/address_autocomplete/enabled">1</field>
+					</depends>
+				</field>
+				<field id="api_key" type="text" sortOrder="30" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Google API Key</label>
+					<comment>Please enter your Google API key</comment>
+					<depends>
+						<field id="coke_europe/address_autocomplete/enabled">1</field>
+					</depends>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

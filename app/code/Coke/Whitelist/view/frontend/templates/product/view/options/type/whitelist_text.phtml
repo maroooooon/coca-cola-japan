@@ -1,0 +1,71 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php /* @var $block \Magento\Catalog\Block\Product\View\Options\Type\Text */ ?>
+<?php
+$_option = $block->getOption();
+$class = ($_option->getIsRequire()) ? ' required' : '';
+?>
+
+<div class="field <?= /* @noEscape */ $class ?>">
+    <label class="label" for="options_<?= $block->escapeHtmlAttr($_option->getId()) ?>_text">
+        <span><?= $block->escapeHtml(__($_option->getData('step_label') ?: $_option->getTitle())) ?></span>
+        <?= /* @noEscape */ $block->getFormattedPrice() ?>
+    </label>
+
+    <div class="control ui-front">
+        <?php $_textValidate = null;
+        if ($_option->getIsRequire()) {
+            $_textValidate['required'] = true;
+        }
+        if ($_option->getMaxCharacters()) {
+            $_textValidate['maxlength'] = $_option->getMaxCharacters();
+        }
+        $_textValidate['validate-no-utf8mb4-characters'] = true;
+        ?>
+        <div class="message"></div>
+        <span class="field-wrapper<?php if ($block->getOption()->getData('decorated_is_last') && $block->getOption()->getData('decorated_is_last') == true): ?> last-phrase<?php endif; ?>">
+            <input type="text"
+                   id="options_<?= $block->escapeHtmlAttr($_option->getId()) ?>_text"
+                   class="input-text product-custom-option whitelist_text whitelist-input<?php if ($_option->getIsRequire()): ?> required<?php endif; ?>"
+                <?php if (!empty($_textValidate)) {?>
+                    data-validate="<?= $block->escapeHtml(json_encode($_textValidate)) ?>"
+                <?php } ?>
+                   name="options[<?= $block->escapeHtmlAttr($_option->getId()) ?>]"
+                   data-selector="options[<?= $block->escapeHtmlAttr($_option->getId()) ?>]"
+                   data-type="<?= $_option->getWhitelistTypeId(); ?>"
+                   value="<?= $block->escapeHtml($block->getDefaultValue()) ?>"/>
+            <?php if ($block->getOption()->getData('decorated_is_last') && $block->getOption()->getData('decorated_is_last') == true): ?>
+                <button type="button" class="preview">
+                    <span><?= __('Preview') ?></span>
+                </button>
+            <?php endif; ?>
+        </span>
+        <?php if ($_option->getMaxCharacters()) :?>
+            <p class="note note_<?= $block->escapeHtmlAttr($_option->getId()) ?>">
+                <?= $block->escapeHtml(__('Maximum %1 characters', $_option->getMaxCharacters())) ?>
+                <span class="character-counter no-display"></span>
+            </p>
+        <?php endif; ?>
+    </div>
+    <script type="text/x-magento-init">
+        {
+            "[data-selector='options[<?= $block->escapeJs($_option->getId()) ?>]']": {
+                <?php if ($_option->getMaxCharacters()) :?>
+                    "Magento_Catalog/js/product/remaining-characters": {
+                        "maxLength":  "<?= (int)$_option->getMaxCharacters() ?>",
+                        "noteSelector": ".note_<?= $block->escapeJs($_option->getId()) ?>",
+                        "counterSelector": ".note_<?= $block->escapeJs($_option->getId()) ?> .character-counter"
+                    },
+                <?php endif; ?>
+                "autosuggest": {
+                    "input_id": "options_<?= $block->escapeHtmlAttr($_option->getId()) ?>_text",
+                    "type_id": "<?= $_option->getData('whitelist_type_id') ?>"
+                }
+            }
+        }
+    </script>
+</div>

@@ -1,0 +1,37 @@
+& when (@media-common = true) {
+    .fieldset > .field > .label, .fieldset > .fields > .field > .label {
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="url"],
+    input[type="tel"],
+    input[type="search"],
+    input[type="number"],
+    input[type="datetime"],
+    input[type="email"] {
+        background: #fff;
+        border-color: @coke-green-dark;
+        border-width: 1px;
+        border-radius: 4px;
+        color: @coke-green-dark;
+
+        &:read-only {
+            opacity: 0.5;
+            color: rgb(84, 84, 84);
+        }
+    }
+}
+
+
+// desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+}
+
+// mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+}

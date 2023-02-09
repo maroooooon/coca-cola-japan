@@ -1,0 +1,287 @@
+//  Common
+& when (@media-common = true) {
+    .cms-page-view,
+    .cms-index-index{
+        .page-main-full-width{
+            [data-appearance="contained"] {
+                > [data-element="inner"]{
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
+            }
+        }
+
+        .product-items{
+            .slick-slide{
+                .product-item{
+                    padding: 0 10px;
+                }
+            }
+        }
+    }
+
+    .cms-page-view,
+    .cms-no-route,
+    .cms-noroute-index,
+    .checkout-cart-index,
+    .checkout-index-index,
+    .contact-index-index{
+        &:not(.cms-index-index){
+            .page-header{
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    .limited-width-container{
+        max-width: 1440px;
+        margin: auto;
+    }
+
+    .looking-for-custom-title{
+    }
+
+    .something-custom-banner{
+        position: relative;
+        .text-block{
+            max-width: 460px;
+
+            [data-content-type="buttons"]{
+                margin-top: 30px;
+            }
+        }
+        .something-custom-image{
+
+        }
+    }
+
+    .slick-arrow{
+        background: none;
+        &.slick-next,
+        &.slick-prev{
+            width: 30px;
+            height: 30px;
+            &:active,
+            &:focus,
+            &:not(.primary){
+                background: none;
+            }
+            &:before{
+                background-size:100% auto;
+                padding: 0;
+            }
+        }
+
+        &.slick-next{
+            .lib-icon-image(
+                @_icon-image: '@{baseDir}images/icons/icon-black-arrow-right.svg',
+                @_icon-image-width: 26px,
+                @_icon-image-height: 26px
+            );
+
+        }
+        &.slick-prev{
+            .lib-icon-image(
+                @_icon-image: '@{baseDir}images/icons/icon-black-arrow-left.svg',
+                @_icon-image-width: 26px,
+                @_icon-image-height: 26px
+            );
+        }
+    }
+
+    .cms-account-create-block{
+        margin-bottom: 50px;
+        .flex{
+            align-items: center;
+        }
+        .text-block,
+        .actions{
+            padding: 10px 0;
+        }
+    }
+
+    [class*="cms-enable"]{
+        table{
+            max-width: 100%;
+            margin-bottom: 20px;
+            td{
+                border: 1px solid @coke-light-gray;
+            }
+        }
+    }
+}
+
+// Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .cms-page-view,
+    .cms-index-index{
+        .sort-order-0{
+            order:0;
+        }
+        .sort-order-1{
+            order:1;
+        }
+        .sort-order-2{
+            order:2;
+        }
+        .sort-order-3{
+            order:3;
+        }
+        .sort-order-4{
+            order:4;
+        }
+        .sort-order-5{
+            order:5;
+        }
+    }
+
+    .looking-for-custom-title{
+        h2{
+            max-width: 690px;
+        }
+    }
+
+    .something-custom-banner{
+        .text-block{
+            position: absolute;
+            bottom: 0;
+            margin: 60px 8%;
+            p{
+                font-size: 18px;
+            }
+        }
+        .something-custom-image{
+        }
+    }
+
+    .slick-arrow{
+        &.slick-next,
+        &.slick-prev {
+            width: 46px;
+            height: 46px;
+            &:before {
+                width: 46px;
+                height: 46px;
+            }
+        }
+    }
+
+    .cms-account-create-block{
+        p{
+            font-size: 18px;
+        }
+    }
+}
+
+// Desktop XL
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl){
+    .looking-for-custom-title{
+        h2{
+            font-size: 64px;
+        }
+    }
+    .something-custom-banner{
+        .text-block{
+            max-width: 360px;
+        }
+        .something-custom-image{
+            margin-top: -100px;
+            margin-right: -110px;
+        }
+    }
+}
+
+// Tablet
+@media screen and (min-width: @screen__m) and (max-width: @screen__l) {
+    .something-custom-banner{
+        .text-block{
+            margin: 10px 8%;
+            p{
+                font-size: 14px;
+            }
+        }
+        .something-custom-image{
+            margin: 0;
+        }
+    }
+}
+
+
+// Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .cms-page-view,
+    .cms-index-index{
+        .sort-order-mobile-0{
+            order:0;
+        }
+        .sort-order-mobile-1{
+            order:1;
+        }
+        .sort-order-mobile-2{
+            order:2;
+        }
+        .sort-order-mobile-3{
+            order:3;
+        }
+        .sort-order-mobile-4{
+            order:4;
+        }
+        .sort-order-mobile-5{
+            order:5;
+        }
+
+        .flex-column-mobile-2{
+            .pagebuilder-column-group{
+                .pagebuilder-column{
+                    flex-basis: 50%;
+                }
+            }
+        }
+        .flex-column-mobile-3{
+            .pagebuilder-column-group{
+                .pagebuilder-column{
+                    flex-basis: 33.33%;
+                }
+            }
+        }
+        .flex-column-mobile-4{
+            .pagebuilder-column-group{
+                .pagebuilder-column{
+                    flex-basis: 25%;
+                }
+            }
+        }
+
+        .empty-column{
+            display: none !important;
+        }
+    }
+
+    .something-custom-banner{
+        .something-custom-image{
+            display: none;
+        }
+    }
+
+    [class*="cms-enable"]{
+        table{
+            border-collapse: collapse;
+            overflow-x: auto;
+            display: block;
+            width: fit-content;
+            td{
+                width: auto !important;
+            }
+        }
+    }
+}
+
+// Bug fix for pagebuilder image where desktop and mobile image version are both shown at 768
+@media only screen and (min-width: @screen__m ) and (max-width: @screen__m) {
+    .pagebuilder-mobile-hidden {
+        display: none !important;
+    }
+}
+
+
+

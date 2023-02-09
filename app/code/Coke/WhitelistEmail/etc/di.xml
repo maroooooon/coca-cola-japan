@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Coke\WhitelistEmail\Model\Email\Sender\OrderDeniedSender">
+        <arguments>
+            <argument name="identityContainer"
+                      xsi:type="object">Coke\WhitelistEmail\Model\Email\Container\OrderDeniedIdentity</argument>
+        </arguments>
+    </type>
+    <type name="Coke\WhitelistEmail\Model\Email\Sender\OrderApprovedSender">
+        <arguments>
+            <argument name="identityContainer"
+                      xsi:type="object">Coke\WhitelistEmail\Model\Email\Container\OrderApprovedIdentity</argument>
+        </arguments>
+    </type>
+    <type name="Coke\WhitelistEmail\Model\Email\Sender\OrderUnderReviewSender">
+        <arguments>
+            <argument name="identityContainer"
+                      xsi:type="object">Coke\WhitelistEmail\Model\Email\Container\OrderUnderReviewIdentity</argument>
+        </arguments>
+    </type>
+</config>

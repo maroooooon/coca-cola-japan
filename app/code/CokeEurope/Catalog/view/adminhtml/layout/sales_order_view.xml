@@ -1,0 +1,30 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="order_items">
+            <arguments>
+                <argument name="columns" xsi:type="array">
+                    <item name="additional-information" xsi:type="string" translate="true">Additional Information</item>
+                </argument>
+            </arguments>
+            <referenceBlock name="default_order_items_renderer">
+                <arguments>
+                    <argument name="columns" xsi:type="array">
+                        <item name="additional-information" xsi:type="string" translate="true">col-additional-information</item>
+                    </argument>
+                </arguments>
+            </referenceBlock>
+
+            <block class="Magento\Sales\Block\Adminhtml\Items\Column\DefaultColumn"
+                   name="column_additional-information_configurable"
+                   template="CokeEurope_Catalog::order/view/additional_information_column.phtml" group="column"
+                   ifconfig="coke_europe/personalized_product/enabled">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">
+                        CokeEurope\Catalog\ViewModel\AdditionalInformationViewModel
+                    </argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

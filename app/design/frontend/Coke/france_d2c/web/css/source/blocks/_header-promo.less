@@ -1,0 +1,32 @@
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+    #site-promo {
+        p {
+            margin: 0;
+            font-family: @font-family-regular;
+        }
+    }
+}
+//  Desktop
+//  _____________________________________________
+@media only screen and (min-width: @screen__m) {
+}
+//  Mobile
+//  _____________________________________________
+@media only screen and (max-width: @screen__m) {
+    #site-promo {
+        p {
+            span {
+                display: block;
+                margin-bottom: 1rem;
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+            br {
+                display: none;
+            }
+        }
+    }
+}

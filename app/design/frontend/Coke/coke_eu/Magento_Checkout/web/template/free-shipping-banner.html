@@ -1,0 +1,21 @@
+<div class="fsb" if="isEnabled()">
+    <div class="fsb-bar">
+        <!-- ko if: amount() > 0 -->
+        <span class="partial"></span>
+        <!-- /ko -->
+        <!-- ko if: amount() <= 0 -->
+        <span class="full"></span>
+        <!-- /ko -->
+    </div>
+
+    <!-- ko if: amount() > 0 -->
+    <!-- ko i18n: 'Spend' --><!-- /ko -->
+    <span data-bind="text: amountAsPrice()"></span>
+    <!-- ko i18n: 'more and enjoy free shipping' --><!-- /ko -->
+    <!-- /ko -->
+
+    <!-- ko if: amount() <= 0 -->
+    <span><!-- ko i18n: 'Congratulations! Your order qualifies for free shipping' --><!-- /ko --></span>
+    <!-- /ko -->
+</div>
+

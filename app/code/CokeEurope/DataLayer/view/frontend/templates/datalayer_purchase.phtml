@@ -1,0 +1,19 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ * @var $block \Magento\Framework\View\Element\Template
+ * @var $config \CokeEurope\DataLayer\ViewModel\Data
+ */
+$config = $block->getDatalayerConfig();
+$GTM_ID = $config->getGtmId();
+?>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "CokeEuropeDataLayerPurchase": {
+                "purchaseEvent": <?= $config->getPurchaseEvent(); ?>
+            }
+        }
+    }
+</script>

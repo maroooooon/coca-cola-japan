@@ -1,0 +1,25 @@
+
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ * @var $block \Magento\Framework\View\Element\Template
+ * @var $viewModel \Coke\ContactModal\ViewModel\ContactModal
+ */
+$viewModel = $block->getViewModel(); 
+$message = $viewModel->getMessage();
+?>
+
+<div id="contact_modal" class="contact-modal">
+    <div class="modal-content">
+       <?= __($message); ?>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+  {
+    "#contact_modal": {
+      "CokeEurope_ContactModal/js/contact-modal": {}
+    }
+  }
+</script>

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.stock.sku" remove="true" />
+        <referenceBlock name="product.info.addto" remove="true" />
+        <referenceBlock name="product.info.details" remove="true" />
+        <referenceBlock name="product.info.overview" remove="true" />
+        <move element="page.main.title" destination="product.details" before="-" />
+        <move element="product.info.price" destination="product.details" after="page.main.title" />
+        <referenceContainer name="product.info.main">
+            <block class="Magento\Catalog\Block\Product\View\Description" name="product.details" template="Magento_Catalog::product/view/details.phtml" before="-" />
+            <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.disclaimer" template="Magento_Catalog::product/view/disclaimer.phtml" after="-" />
+        </referenceContainer>
+        <referenceBlock name="product.info.options">
+            <referenceBlock name="product.info.options.text" template="Magento_Catalog::product/view/options/type/phrase.phtml" />
+            <arguments>
+                <argument name="viewModel" xsi:type="object">Coke\France\ViewModel\Data</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceContainer name="main.container">
+            <block class="Magento\Cms\Block\Block" name="product.categories" after="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">category-grid</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Framework\View\Element\Template" name="pdp.scripts" template="Magento_Catalog::product/scripts.phtml" after="-" />
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,23 @@
+.order-links {
+  border-bottom: 1px solid @color-border;
+  display: flex;
+  margin-bottom: @grid-gutter;
+
+  li {
+    white-space: nowrap;
+
+    a,
+    strong {
+      display: inline-block;
+      padding: 0 0 @table-pad;
+      box-shadow: 0 2px 0 0 transparent;
+    }
+
+    &.current {
+      a,
+      strong {
+        box-shadow: 0 2px 0 0 @color-header;
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+<?php /* @var $block \Magento\Bundle\Block\Catalog\Product\View\Type\Bundle\Option\Checkbox */ ?>
+<?php $_option = $block->getOption() ?>
+<?php $_selections = $_option->getSelections() ?>
+<?php $_imageHelper = \Magento\Framework\App\ObjectManager::getInstance()->get('Magento\Catalog\Helper\Image'); ?>
+<?php $selectionQty = 2; ?>
+
+<div class="field option <?= ($_option->getRequired()) ? ' required': '' ?>">
+    <div class="control">
+        <div class="nested options-list">
+            <?php foreach($_selections as $_selection): ?>
+                <?php $image = $_imageHelper->init($_selection, 'image', ['type' => 'image'])->keepAspectRatio(true)->resize('230', '230')->getUrl(); ?>
+                <div class="field choice" data-option-choice="bundle-option-<?= /* @escapeNotVerified */ $_option->getId() ?>-<?= /* @escapeNotVerified */ $_selection->getSelectionId() ?>">
+                    <input class="bundle-option-<?= /* @escapeNotVerified */ $_option->getId() ?> checkbox product bundle option change-container-classname"
+                           id="bundle-option-<?= /* @escapeNotVerified */ $_option->getId() ?>-<?= /* @escapeNotVerified */ $_selection->getSelectionId() ?>"
+                           type="checkbox"
+                           <?php if ($_option->getRequired()) /* @escapeNotVerified */ echo 'data-validate="{\'validate-one-required-by-name\':\'input[name^=&quot;bundle_option[' . $_option->getId() . ']&quot;]:checked\'}"'?>
+                           name="bundle_option[<?= /* @escapeNotVerified */ $_option->getId() ?>][<?= /* @escapeNotVerified */ $_selection->getId() ?>]"
+                           data-selector="bundle_option[<?= /* @escapeNotVerified */ $_option->getId() ?>][<?= /* @escapeNotVerified */ $_selection->getId() ?>]"
+                           <?php if ($block->isSelected($_selection)) echo ' checked="checked"' ?>
+                           <?php if (!$_selection->isSaleable()) echo ' disabled="disabled"' ?>
+                           value="<?= /* @escapeNotVerified */ $_selection->getSelectionId() ?>"/>
+                    <div class="label">
+                        <div class="bundle-option-image"><img src="<?php echo $image; ?>" /></div>
+                        <div class="title"><?= $_selection->getName()?></div>
+                        <div class="price"><?= $block->renderPriceString($_selection);?></div>
+                    </div>
+                    <div class="nested">
+                        <div class="field qty qty-holder">
+                            <label class="label" for="bundle-option-<?= /* @escapeNotVerified */ $_option->getId() ?>-qty-input">
+                                <span><?= /* @escapeNotVerified */ __('Quantity') ?></span>
+                            </label>
+                            <div class="control qty-wrap">
+                                <button type="button" class="qty-decrement" data-trigger="decrement">-</button>
+                                <input
+                                    id="bundle-option-<?= /* @escapeNotVerified */ $_option->getId() ?>-<?= /* @escapeNotVerified */ $_selection->getSelectionId() ?>-qty-input"
+                                    class="input-text qty qty-disabled"
+                                    type="number"
+                                    name="bundle_option_qty[<?= /* @escapeNotVerified */ $_option->getId() ?>][<?= /* @escapeNotVerified */ $_selection->getId() ?>]"
+                                    data-selector="bundle_option_qty[<?= /* @escapeNotVerified */ $_option->getId() ?>]"
+                                    value="<?= /* @noEscape */ $selectionQty ?>"
+                                    readonly
+                                    data-type="checkbox-qty"
+                                    min="<?= /* @noEscape */ $selectionQty ?>"
+                                />
+                                <button type="button" class="qty-increment" data-trigger="increment">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>

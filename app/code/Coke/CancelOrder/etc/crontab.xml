@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="coke_cancel_order_process_pending_orders"
+             instance="Coke\CancelOrder\Cron\ProcessPendingOrders"
+             method="execute">
+            <config_path>cancel_order/general/cron_schedule</config_path>
+        </job>
+    </group>
+</config>

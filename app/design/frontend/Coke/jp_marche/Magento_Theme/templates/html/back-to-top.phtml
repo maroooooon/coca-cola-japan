@@ -1,0 +1,18 @@
+<div id="back_to_top"></div>
+<script>
+    require([
+        'jquery'
+    ], function($){
+        jQuery(window).scroll(function() {
+            if (jQuery(this).scrollTop() > 300) {
+                jQuery('#back_to_top').fadeIn();
+            } else {
+                jQuery('#back_to_top').fadeOut();
+            }
+        });
+        jQuery("#back_to_top").click(function() {
+            jQuery("html, body").animate({ scrollTop: 0 }, "slow");
+            return false;
+        });
+    });
+</script>

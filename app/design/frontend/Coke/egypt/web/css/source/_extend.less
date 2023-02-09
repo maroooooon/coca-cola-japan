@@ -1,0 +1,85 @@
+@import "_extend/_variables.less";
+@import "_extend/_helpers.less";
+@import "_extend/_grid.less";
+@import "_extend/_forms.less";
+@import "_extend/_address-forms.less";
+@import "_extend/_modules/_carousel.less";
+@import "_extend-child.less";
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.panel {
+    &.header {
+        .home-icon {
+            display: inline-block;
+            float: right;
+            margin-left: 20px;
+            top: 2px;
+            position: relative;
+        }
+        .authorization-link {
+            margin: 0 !important;
+        }
+        .switcher {
+            float: right;
+            margin-left: 20px;
+
+            .switcher-trigger strong {
+                vertical-align: bottom;
+            }
+        }
+    }
+}
+
+.page-footer {
+    .widget {
+        &.block {
+            margin-top: 0;
+            float: left;
+        }
+    }
+}
+
+.customer-account-create {
+    .form-create-account {
+        .password-strength-disclaimer {
+            top: 0;
+        }
+    }
+}
+
+// desktop
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__m) {
+    .page-wrapper {
+        .widget.block.block-static-block {
+            max-width: 100%;
+            padding: 0;
+        }
+        .top-container {
+            max-width: 100%;
+            padding: 0;
+        }
+    }
+    .panel {
+        &.header {
+            .home-icon {
+                float: right;
+                margin-left: 30px !important;
+                padding-top: 1px;
+                top: 0 !important;
+            }
+            .switcher {
+                float: none;
+                margin: 0;
+            }
+        }
+    }
+}

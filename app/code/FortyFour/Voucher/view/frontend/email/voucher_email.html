@@ -1,0 +1,23 @@
+<!--@subject {{trans "Your Vouchers from %store_name" store_name=$store.frontend_name}} @-->
+<!--@vars {
+"var order_data.customer_name":"Customer Name",
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">{{trans "Hello, %customer_name," customer_name=$order_data.customer_name}}</p>
+            <p>{{trans 'Thank you for purchasing %voucher_product.' voucher_product=$voucher_product}}</p>
+            <p>{{trans 'Your vouchers for %voucher_product are below:' voucher_product=$voucher_product}}</p>
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>
+            {{layout handle="vouchers_voucher_list" vouchers=$vouchers area="frontend"}}
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

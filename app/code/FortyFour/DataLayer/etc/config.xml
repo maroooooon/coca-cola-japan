@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <google>
+            <brand_datalayer>
+                <enabled>0</enabled>
+            </brand_datalayer>
+        </google>
+    </default>
+    <websites>
+        <egypt_website>
+            <google>
+                <brand_datalayer>
+                    <enabled>1</enabled>
+                </brand_datalayer>
+            </google>
+        </egypt_website>
+        <jp_marche>
+            <google>
+                <brand_datalayer>
+                    <enabled>1</enabled>
+                </brand_datalayer>
+            </google>
+        </jp_marche>
+    </websites>
+</config>

@@ -1,0 +1,48 @@
+
+.account-nav {
+  .title {
+    display: none;
+  }
+}
+
+ul.nav {
+  li {
+    line-height: 1;
+
+    a,
+    strong {
+      line-height: 2.5;
+      display: block;
+      transition: @transition-default;
+      color: @color-header;
+      box-shadow: 1px 0 0px transparent, inset -1px 0 0 transparent;
+      white-space: nowrap;
+    }
+
+    strong {
+      box-shadow: 1px 0 0px @color-header, inset -1px 0 0 @color-header;
+    }
+
+    a {
+      ._link-black-to-primary();
+      font-weight: @font-weight-400;
+
+      &:hover {
+        box-shadow: 1px 0 0px @color-brand-primary, inset -1px 0 0 @color-brand-primary;
+      }
+    }
+
+    &.current {
+      a,
+      strong {
+        display: block;
+        font-weight: @font-weight-500;
+        box-shadow: 1px 0 0px @color-header, inset -1px 0 0 @color-header;
+      }
+
+      a strong {
+        box-shadow: 1px 0 0px transparent, inset -1px 0 0 transparent;
+      }
+    }
+  }
+}

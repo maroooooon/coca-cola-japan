@@ -1,0 +1,49 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<!--@subject {{trans "Update to your %store_name order" store_name=$store.frontend_name}} @-->
+<!--@vars {
+"var order_data.customer_name":"Guest Customer Name",
+"var comment|escape|nl2br":"Order Comment",
+"var order.increment_id":"Order Id",
+"var order_data.frontend_status_label":"Order Status",
+"var store.frontend_name":"Store Frontend Name",
+"var store_email":"Store Email",
+"var store_phone":"Store Phone",
+"var store_hours":"Store Hours"
+} @-->
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">{{trans "%name," name=$order_data.customer_name}}</p>
+            <p>{{trans "Your order status has been updated."}}</p>
+            <p>{{trans"Order number: #%increment_id" increment_id=$order.increment_id |raw}}</p>
+        </td>
+    </tr>
+    {{depend comment}}
+    <tr class="email-information">
+        <td>
+            <table class="message-info">
+                <tr>
+                    <td>
+                        {{var comment|escape|nl2br}}
+                    </td>
+                </tr>
+            </table>
+            <p></p>
+        </td>
+    </tr>
+    {{/depend}}
+    <tr class="email-intro">
+        <td>
+            <p>{{trans 'If you have questions about your order, please use the <a href="%url">contact form</a>' url="$this.getUrl($store,'contact')" |raw}}</p>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

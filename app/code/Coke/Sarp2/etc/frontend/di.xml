@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Shipping\Model\Carrier\AbstractCarrier">
+        <plugin name="Coke_Sarp2::abstractCarrierPlugin"
+                type="Coke\Sarp2\Plugin\AbstractCarrierPlugin"/>
+    </type>
+    <type name="Coke\Sarp2\Plugin\AbstractCarrierPlugin">
+        <arguments>
+            <argument name="checkoutSession" xsi:type="object">Magento\Checkout\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+</config>

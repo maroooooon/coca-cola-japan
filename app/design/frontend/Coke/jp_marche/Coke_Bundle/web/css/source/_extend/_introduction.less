@@ -1,0 +1,278 @@
+//  Common
+& when (@media-common = true) {
+    .page-custom-bundle{
+        .nav-sections{
+            margin-bottom: 0;
+        }
+        .hero{
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+            position: relative;
+            margin-bottom: 50px;
+            img{
+                object-fit: cover;
+                height:100%;
+                width:100%;
+                position: absolute;
+            }
+            .wrapper{
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: baseline;
+                max-width: 1280px;
+                width: 100%;
+                padding: 0 10px;
+                position: relative;
+                z-index: 1;
+                p{
+                    margin: 0;
+                }
+                .hero-block-1{
+                    text-align: center;
+                }
+                .hero-block-2{
+                    text-align: right;
+                }
+            }
+            .white-block,
+            .brown-block{
+                display: inline-block;
+                line-height: 1;
+
+            }
+            .white-block{
+                background: @color-white;
+                color: @coke-brown;
+                padding: 10px;
+                font-size: 25px;
+                text-align: left;
+            }
+            .brown-block{
+                background: @coke-brown;
+                color: @color-white;
+                padding: 10px;
+                font-size: 13px;
+                margin-left: 10px;
+                text-align: left;
+            }
+        }
+
+        .custom-bundle-how-to-steps{
+            justify-content: center;
+        }
+
+        .custom-bundle-details-container,
+        .custom-bundle-how-to{
+            margin-bottom: 50px;
+        }
+
+        .custom-bundle-details-container{
+            .custom-bundle-details{
+                max-width: 400px;
+                margin: auto;
+                p:not(:last-child){
+                    margin-bottom: 30px;
+                }
+            }
+        }
+
+        .custom-bundle-how-to{
+            justify-content: center;
+            .step-block,
+            .divider{
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .step-block{
+                display: flex;
+                position: relative;
+                p{
+                    font-size: 15px;
+                    font-weight: 700;
+                    margin-bottom: 0;
+                    &.label{
+                        color: @color-white;
+                        font-size: 12px;
+                        line-height: 1;
+                        text-transform: uppercase;
+                        span{
+                            display: block;
+                            font-size: 27px;
+                            font-family: @font-family-name__hiragino;
+                        }
+                    }
+                }
+            }
+
+            .divider{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &:after{
+                    content: '';
+                    background: url('@{baseDir}Coke_Bundle/images/icon-down-arrow.png') no-repeat ~'0 0 / 100% auto';
+                    width: 25px;
+                    height: 25px;
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+// Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .page-custom-bundle{
+        .hero{
+            min-height: 480px;
+            .wrapper{
+                .hero-block-2{
+                    text-align: left;
+                }
+            }
+            img{
+                object-fit: contain;
+            }
+            .white-block{
+                font-size: 50px;
+                padding: 10px 20px;
+            }
+            .brown-block{
+                font-size: 26px;
+                padding: 15px 20px;
+            }
+        }
+
+        .custom-bundle-how-to-steps{
+            justify-content: space-between;
+        }
+        .custom-bundle-details-container,
+        .custom-bundle-how-to{
+            text-align: center;
+            margin-bottom: 75px;
+        }
+
+        .custom-bundle-how-to{
+            .step-block,
+            .divider{
+                margin-bottom: 0;
+            }
+            .step-block{
+                width: 22%;
+                max-width: 260px;
+                border-radius: 50%;
+                overflow: hidden;
+                min-height: 260px;
+                display: flex;
+                flex-wrap: wrap;
+                flex-flow: column;
+                p{
+                    font-size: 22px;
+                    flex-basis: 100%;
+                    margin: 0;
+                    &.label{
+                        font-size: 20px;
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                        span{
+                            font-size: 50px;
+                        }
+                    }
+                    &.text{
+                        padding: 10px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        min-height: 90px;
+                    }
+                    &.icon{
+
+                    }
+                }
+            }
+            .divider{
+                width: 4%;
+                &:after{
+                    background: url('@{baseDir}Coke_Bundle/images/icon-right-arrow.png') no-repeat ~'0 0 / 100% auto';
+                    width: 28px;
+                    height: 30px;
+                }
+            }
+        }
+    }
+}
+
+// Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .page-custom-bundle{
+        .custom-bundle-how-to{
+            .step-block{
+                padding: 10px 13px 10px 65px;
+                align-items: center;
+                min-height: 70px;
+                //border: 2px solid @coke-red-button;
+                background: transparent;
+
+                &:before{
+                    content: "";
+                    position: absolute;
+                    background: @color-white;
+                    width:  ~'calc(100% - 6px)';
+                    height: ~'calc(100% - 6px)';
+                    display: block;
+                    left: 3px;
+                    top:3px;
+                    z-index: -1;
+                }
+                &:after{
+                    content: "";
+                    position: absolute;
+                    background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(251,220,45,1) 70%);
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    left: 0;
+                    top:0;
+                    z-index: -2;
+                }
+
+
+                p{
+                    &.label{
+                        position: absolute;
+                        top:-33px;
+                        left: -10px;
+                        width: 67px;
+                        height: 65px;
+                        text-align: center;
+                        display: flex;
+                        justify-content: center;
+                        align-content: center;
+                        flex-wrap: wrap;
+                        border-radius: 50%;
+                        span{
+                            flex-basis: 100%;
+                        }
+                    }
+                    &.text{
+                        font-size: 16px;
+                    }
+                    &.icon{
+                        margin-left: auto;
+                        max-width: 80px;
+                        height: 30px;
+                        img{
+                            object-fit: contain;
+                            height:100%;
+                            width:100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

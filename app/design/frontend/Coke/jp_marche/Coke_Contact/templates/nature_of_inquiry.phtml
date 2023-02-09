@@ -1,0 +1,14 @@
+<div class="field nature-of-inquiry required">
+	<label class="label" for="nature_of_inquiry"><span><?= $block->escapeHtml(__('Nature of Inquiry')) ?></span></label>
+	<div class="control">
+		<select name="nature_of_inquiry" class="required-entry" tabindex="4">
+            <?php $options = $this->helper('Coke\Contact\Helper\Data')->getOptionsNaturesOfInquiry(); ?>
+			<?php foreach($options as $k => $v): ?>
+				<?php if (is_int($k)) $k = $v; ?>
+				<?php $selected = false; ?>
+				<?php if ($this->helper('Magento\Contact\Helper\Data')->getPostValue('nature_of_inquiry') === $v) $selected = ' selected'; ?>
+				<option value="<?= $v ?>"<?= $selected ?>><?= $block->escapeHtml(__($k)) ?></option>
+			<?php endforeach; ?>
+		</select>
+	</div>
+</div>

@@ -1,0 +1,237 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/* @var $block \Magento\Catalog\Block\Product\View\Options */
+/* @var $vmWhiteListOptions \Coke\Whitelist\ViewModel\WhiteListOptions */
+$vmWhiteListOptions = $block->getVmWhiteListOptions();
+?>
+
+<?php $_options = $block->decorateArray($block->getOptions()) ?>
+<?php $_productId = $block->getProduct()->getId() ?>
+<?php if (count($_options)) :?>
+    <script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "priceOptions": {
+                "optionConfig": <?= /* @noEscape */ $block->getJsonConfig() ?>,
+                "controlContainer": ".field",
+                "priceHolderSelector": "[data-product-id='<?= $block->escapeHtml($_productId) ?>'][data-role=priceBox]"
+            }
+        }
+    }
+</script>
+    <?php
+    $stepHtmls = [];
+    $validationData = [];
+    $validationDataLink = [];
+    foreach ($_options as $_option) {
+        $stepId = $_option->getStepId() ?: 5;
+
+        $html = null;
+        if($stepId == 1) {
+            $renderer = $block->getChildBlock('whitelist_dropdown');
+            $renderer->setProduct($block->getProduct())->setOption($_option);
+            $html = $this->getChildHtml('whitelist_dropdown', false);
+
+            $stepHtmls[$stepId]['label'] = $vmWhiteListOptions->getTypeLabels($_option->getWhitelistTypeId());
+        } elseif ($stepId == 2){
+            if (!$vmWhiteListOptions->isNamesEnabled()) {
+                continue;
+            }
+            if ($_option->getMaxCharacters() == 0) {
+                $_option->setMaxCharacters(18);
+            }
+            $html = $block->getOptionHtml($_option);
+            $optionValues = $vmWhiteListOptions->getOptionValues($_option->getWhitelistTypeId());
+
+            $validationLinkKey = null;
+            foreach ($validationData as $i => $data) {
+                if ($data == $optionValues) {
+                    $validationLinkKey = $i;
+                }
+            }
+
+            if ($validationLinkKey === null) {
+                $validationData[] = $optionValues;
+                $validationLinkKey = count($validationData) - 1;
+            }
+
+            $validationDataLink['options_' . $_option->getId() . '_text'] = $validationLinkKey;
+            $stepHtmls[$stepId]['label'][0] = (string)__('Make it personal (optional)');
+        } else {
+            $html = $block->getOptionHtml($_option);
+            $stepHtmls[$stepId]['label'] =  $_option->getStepLabel();
+        }
+
+        $stepHtmls[$stepId]['html'][] = $html;
+
+    } ?>
+
+    <input type="hidden" id="whitelist-error" value="<?= __('Please select an approved name from the lists provided.'); ?>" />
+
+    <?php foreach ($stepHtmls as $stepId => $stepHtml) :?>
+        <div class="field field-step-<?= $stepId; ?>">
+            <?php if(isset($stepHtml['label'][0]) && !empty($stepHtml['label'][0])) :?>
+                <label class="label">
+                    <span><?= $block->escapeHtml($stepHtml['label'][0]) ?></span>
+                </label>
+            <?php endif;?>
+
+            <div class="step-control step-<?= $stepId; ?>">
+                <?= implode('', $stepHtml['html']);?>
+            </div>
+
+            <div class="step-footer">
+                <?php if(isset($stepHtml['label'][1]) && !empty($stepHtml['label'][1])) :?>
+                    <label class="label">
+                        <span><?= $block->escapeHtml($stepHtml['label'][1]) ?></span>
+                    </label>
+                <?php endif;?>
+                <?php if($stepId == 2) :?>
+                    <a class="step step-2" href="<?= $block->getUrl('contact',['_query'=> ['request' => 'name', 'sku' => $block->getProduct()->getSku()]]) ?>"><?= __('Request a name') ?></a>
+                <?php endif;?>
+            </div>
+        </div>
+    <?php endforeach;?>
+
+    <script type="text/javascript">
+        require(['jquery', 'mage/translate', 'jquery-ui-modules/autocomplete'],function($){
+            <?php if (!empty($validationDataLink)): ?>
+            var sources = <?= json_encode($validationData); ?>;
+            var validationLinks = <?= json_encode($validationDataLink); ?>;
+            var keys = Object.keys(validationLinks);
+            var defaultError = $("#whitelist-error").val();
+
+            for (var i = 0; i < keys.length; i++) {
+                var selector = keys[i];
+                var sourceId = validationLinks[selector];
+
+                $('#' + selector).autocomplete({
+                    source: sources[sourceId],
+                    position: {
+                        my: 'left top+1'
+                    },
+                    delay: 100,
+                    minLength: 2
+                });
+            }
+            <?php endif;?>
+
+            var updateImageTimeout = null, timeout = 500;
+
+            function clearUpdateTimeout() {
+                clearTimeout(updateImageTimeout);
+                updateImageTimeout = null;
+            }
+
+            function toggleWhitelistError($after, show, message) {
+                var $whitelistError = $after.parent().find('.whitelist-error');
+                show = typeof show === 'undefined' ? true : show;
+
+                if (!$whitelistError.length) {
+                    $after.after(
+                        '<div class="whitelist-error mage-error" style="display: none;">' +
+                        (message || defaultError) +
+                        '</div>'
+                    );
+                }
+
+                if (show) {
+                    $whitelistError.show();
+                } else {
+                    $whitelistError.hide();
+                }
+            }
+
+            function updateImage() {
+                $.ajax({
+                    url: 'white_list/ajax/image',
+                    data: {
+                        'sku': "<?=$block->getProduct()->getSku()?>",
+                        'pledge': $('.field-step-1 select').val(),
+                        'name_from': $('.field-step-2 input[type="text"]').eq(0).val(),
+                        'name_to': $('.field-step-2 input[type="text"]').eq(1).val(),
+                    },
+                    dataType: 'json',
+                    showLoader: true,
+                    success: function (result) {
+                        // $previewChanges.text($.mage.__('Preview Changes')).removeAttr('disabled');
+
+                        var $image = $('.pdp-media img:not(.new-image)'),
+                            $newImage = $image.parent().find('.new-image');
+
+                        if (!$image.hasClass('original-img')) {
+                            $image.addClass('original-img');
+                        }
+
+                        if (!$newImage.length) {
+                            $image.after(($newImage = $image
+                                .clone()
+                                .removeClass('original-img')
+                                .addClass('new-image')
+                                .hide()));
+                        }
+
+                        if (result.image) {
+                            $image.hide();
+                            $newImage.attr('src', result.image).show();
+                        } else {
+                            $newImage.hide();
+                            $image.show();
+                        }
+                    }
+                });
+
+                clearUpdateTimeout();
+            }
+
+            function triggerUpdate(ele) {
+                var $ele = $(ele.target),
+                    $atc = $("#product-addtocart-button");
+
+                toggleWhitelistError($ele, false);
+
+                var id = $ele.attr('id'),
+                    text = ele.target.value,
+                    sourceId = validationLinks[id],
+                    hasError = false;
+
+                if (text.length > 0 && typeof sourceId !== 'undefined') {
+                    var values = sources[sourceId];
+
+                    if (values.length > 0) {
+                        if (values.indexOf(text) === -1) {
+                            toggleWhitelistError($ele, true);
+                            hasError = true;
+                        }
+                    }
+                }
+
+                // clearUpdateTimeout();
+                // updateImageTimeout = setTimeout(updateImage, timeout);
+                // $previewChanges.text($.mage.__('Loading...')).attr('disabled', 1);
+
+                if (!hasError) {
+                    $atc.removeProp('disabled');
+                    updateImage();
+                } else {
+                    $atc.prop('disabled', true);
+                }
+            }
+
+            function stopNonAsciiInput(e) {
+                e.target.value = e.target.value.replace(/[^\p{L}\p{N}\p{P}\p{Z}]/gu, '');
+            }
+
+            // $previewChanges.on('click', triggerUpdate);
+
+            $('.field-step-1 select').on('change', triggerUpdate);
+            $('.field-step-2 input[type="text"]').on('blur', triggerUpdate);
+            $('.field-step-2 input[type="text"]').on('keyup paste input', stopNonAsciiInput);
+        });
+    </script>
+
+<?php endif; ?>

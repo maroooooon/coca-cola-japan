@@ -1,0 +1,20 @@
+<select class="select"
+        name="city"
+        data-bind="visible: !isBillingAddress(),
+        attr: { title: title },
+        optgroup: allowedCities,
+        optionsCaption: '-- Please Select --',
+        optionsValue: 'value',
+        optionsText: 'label',
+        event: { change: afterSelectCity }"
+/>
+
+<input type="text"
+       name="city"
+       id="city_input"
+       class="input-text required-entry",
+       data-bind="visible: isBillingAddress(),
+       attr: { title: title },
+       valueUpdate: 'keyup',
+       value: selectedCity"
+       />

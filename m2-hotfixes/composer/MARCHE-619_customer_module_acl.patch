@@ -1,0 +1,77 @@
+diff --git a/vendor/magento/module-customer/etc/acl.xml b/vendor/magento/module-customer/etc/acl.xml
+--- a/vendor/magento/module-customer/etc/acl.xml
++++ b/vendor/magento/module-customer/etc/acl.xml	(date 1645726789754)
+@@ -12,6 +12,7 @@
+                 <resource id="Magento_Customer::customer" title="Customers" translate="title" sortOrder="40">
+                     <resource id="Magento_Customer::manage" title="All Customers" translate="title" sortOrder="10">
+                         <resource id="Magento_Customer::actions" title="Actions" translate="title" sortOrder="10">
++                            <resource id="Magento_Customer::create" title="Create" translate="title" sortOrder="5" />
+                             <resource id="Magento_Customer::delete" title="Delete" translate="title" sortOrder="10" />
+                             <resource id="Magento_Customer::reset_password" title="Reset password" translate="title" sortOrder="20" />
+                             <resource id="Magento_Customer::invalidate_tokens" title="Invalidate tokens" translate="title" sortOrder="30" />
+
+diff --git a/vendor/magento/module-customer/Controller/Adminhtml/Index/NewAction.php b/vendor/magento/module-customer/Controller/Adminhtml/Index/NewAction.php
+--- a/vendor/magento/module-customer/Controller/Adminhtml/Index/NewAction.php
++++ b/vendor/magento/module-customer/Controller/Adminhtml/Index/NewAction.php	(date 1645726434172)
+@@ -9,6 +9,13 @@
+
+ class NewAction extends \Magento\Customer\Controller\Adminhtml\Index implements HttpGetActionInterface
+ {
++    /**
++     * Authorization level of a basic admin session
++     *
++     * @see _isAllowed()
++     */
++    const ADMIN_RESOURCE = 'Magento_Customer::create';
++
+     /**
+      * Create new customer action
+      *
+
+diff --git a/vendor/magento/module-customer/Controller/Adminhtml/Index/AbstractMassAction.php b/vendor/magento/module-customer/Controller/Adminhtml/Index/AbstractMassAction.php
+--- a/vendor/magento/module-customer/Controller/Adminhtml/Index/AbstractMassAction.php
++++ b/vendor/magento/module-customer/Controller/Adminhtml/Index/AbstractMassAction.php	(date 1645738579034)
+@@ -23,7 +23,7 @@
+      *
+      * @see _isAllowed()
+      */
+-    const ADMIN_RESOURCE = 'Magento_Customer::manage';
++    const ADMIN_RESOURCE = 'Magento_Customer::create';
+
+     /**
+      * @var string
+
+diff --git a/vendor/magento/module-customer/Controller/Adminhtml/Index/Edit.php b/vendor/magento/module-customer/Controller/Adminhtml/Index/Edit.php
+--- a/vendor/magento/module-customer/Controller/Adminhtml/Index/Edit.php
++++ b/vendor/magento/module-customer/Controller/Adminhtml/Index/Edit.php	(date 1645739259567)
+@@ -11,6 +11,8 @@
+
+ class Edit extends \Magento\Customer\Controller\Adminhtml\Index implements HttpGetActionInterface
+ {
++    const ADMIN_RESOURCE = 'Magento_Customer::create';
++
+     /**
+      * Customer edit action
+      *
+
+diff --git a/vendor/magento/module-customer/view/adminhtml/ui_component/customer_listing.xml b/vendor/magento/module-customer/view/adminhtml/ui_component/customer_listing.xml
+--- a/vendor/magento/module-customer/view/adminhtml/ui_component/customer_listing.xml
++++ b/vendor/magento/module-customer/view/adminhtml/ui_component/customer_listing.xml	(date 1645739450739)
+@@ -82,16 +82,6 @@
+                     <actions class="Magento\Customer\Ui\Component\MassAction\Group\Options"/>
+                 </settings>
+             </action>
+-            <action name="edit">
+-                <settings>
+-                    <callback>
+-                        <target>editSelected</target>
+-                        <provider>customer_listing.customer_listing.customer_columns_editor</provider>
+-                    </callback>
+-                    <type>edit</type>
+-                    <label translate="true">Edit</label>
+-                </settings>
+-            </action>
+         </massaction>
+         <paging name="listing_paging"/>
+     </listingToolbar>
+

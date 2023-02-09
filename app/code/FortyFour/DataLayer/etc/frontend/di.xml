@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Block\Product\ListProduct">
+        <plugin name="FortyFour_DataLayer::listProductPlugin"
+                type="FortyFour\DataLayer\Plugin\Block\ListProductPlugin" />
+    </type>
+
+    <type name="Magento\Catalog\Block\Product\View">
+        <plugin name="FortyFour_DataLayer::productViewPlugin"
+                type="FortyFour\DataLayer\Plugin\Block\ProductViewPlugin" />
+    </type>
+    <type name="Magento\CatalogWidget\Block\Product\ProductsList">
+        <plugin name="FortyFour_DataLayer::listProductWidgetPlugin"
+                type="FortyFour\DataLayer\Plugin\Block\ListProductWidgetPlugin" />
+    </type>
+</config>

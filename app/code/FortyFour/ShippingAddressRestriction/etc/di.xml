@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="FortyFour\ShippingAddressRestriction\Api\RegionServiceInterface"
+                type="FortyFour\ShippingAddressRestriction\Model\RegionService" />
+    <preference for="FortyFour\ShippingAddressRestriction\Api\Data\RegionServiceResponseInterface"
+                type="FortyFour\ShippingAddressRestriction\Model\RegionServiceResponse" />
+    <preference for="FortyFour\ShippingAddressRestriction\Api\CityServiceInterface"
+                type="FortyFour\ShippingAddressRestriction\Model\CityService" />
+    <preference for="FortyFour\ShippingAddressRestriction\Api\Data\CityServiceResponseInterface"
+                type="FortyFour\ShippingAddressRestriction\Model\CityServiceResponse" />
+</config>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="aw_sarp2_subscription_cancel_email_notification"
+             instance="Coke\Sarp2\Cron\EmailNotifyOnOrderCancel"
+             method="execute">
+            <config_path>aw_sarp2/cancel_email_cron_setting/cron_schedule</config_path>
+        </job>
+    </group>
+</config>

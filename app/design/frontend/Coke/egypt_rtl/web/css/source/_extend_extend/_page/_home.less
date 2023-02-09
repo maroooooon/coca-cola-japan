@@ -1,0 +1,21 @@
+& when (@media-common = true) {
+
+    .cms-index-index {
+        .desktop-slider {
+            display: none;
+        }
+    }
+}
+
+// desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .cms-index-index {
+        .desktop-slider {
+            display: block;
+        }
+
+        .mobile-slider {
+            display: none;
+        }
+    }
+}

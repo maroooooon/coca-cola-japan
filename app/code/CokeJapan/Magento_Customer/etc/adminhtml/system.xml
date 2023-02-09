@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="coke_japan" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="400" translate="label">
+            <label>Japan</label>
+            <tab>Coke</tab>
+            <resource>Magento_Backend::admin</resource>
+            <group id="customer" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+                <label>Enable Login Redirect</label>
+                <field id="enable_redirect" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1" translate="label comment" type="select">
+                    <label>Enable Customer Redirect</label>
+                    <comment>Select yes to enable login redirect.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

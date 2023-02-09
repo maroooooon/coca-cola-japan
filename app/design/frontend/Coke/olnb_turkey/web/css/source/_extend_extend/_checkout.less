@@ -1,0 +1,36 @@
+.checkout-index-index {
+    .opc {
+        .checkout-shipping-method {
+            .step-title,
+            #checkout-shipping-method-load,
+            #onepage-checkout-shipping-method-additional-load {
+                display: none;
+            }
+        }
+
+        div[name="shippingAddress.custom_attributes.data_consent_field"] {
+            > .label {
+                display: none;
+            }
+
+            @media (min-width: 768px) {
+                grid-column-start: 1;
+                grid-column-end: span 2;
+            }
+        }
+
+        .payment-method-title {
+            #free {
+                + .label {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.checkout-onepage-success {
+    .action.print {
+        display: none;
+    }
+}

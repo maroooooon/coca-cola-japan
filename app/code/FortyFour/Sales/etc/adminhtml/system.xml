@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="sales" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="maximum_order" translate="label" sortOrder="51" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Maximum Order Amount</label>
+                <field id="active" translate="label" sortOrder="5" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="amount" translate="label comment" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Maximum Amount</label>
+                    <validate>validate-number validate-greater-than-zero</validate>
+                    <comment>Subtotal after discount</comment>
+                </field>
+                <field id="error_message" translate="label" sortOrder="20" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Error Message</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

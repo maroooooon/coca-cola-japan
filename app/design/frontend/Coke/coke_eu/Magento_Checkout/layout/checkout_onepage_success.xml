@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Order Confirmed</title>
+    </head>
+    <body>
+        <referenceBlock name="checkout.registration" remove="true"/>
+
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">Order Confirmed</argument>
+            </action>
+        </referenceBlock>
+
+        <referenceContainer name="order.success.additional.info">
+            <block class="Magento\Framework\View\Element\Template" name="checkout.success.additional" template="Magento_Checkout::success-additional.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">CokeEurope\Checkout\ViewModel\Success\Additional</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

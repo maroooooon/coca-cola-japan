@@ -1,0 +1,25 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+$viewModel = $block->getViewModel();
+?>
+
+<div data-bind="scope: 'addressSuggestions'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "addressSuggestions": {
+                        "component": "Enable_AddressLookup/js/view/address-suggestions"
+                    }
+                }
+            }
+        }
+    }
+</script>

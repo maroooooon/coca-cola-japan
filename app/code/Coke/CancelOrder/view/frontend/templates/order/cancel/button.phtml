@@ -1,0 +1,19 @@
+<?php
+/**
+ * @var \Magento\Sales\Block\Order\View $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+
+<?php if (($_order = $block->getOrder()) && $_order->canCancel()): ?>
+    <a href="#"
+       class="action show-cancel-order-modal"
+       data-mage-init='{
+            "Coke_CancelOrder/js/order/cancel/modal": {
+                "modalSelector": "#cancel-order-modal-content",
+                "closeModalSelector": "#cancel-order-modal-content .close-modal"
+            }
+        }'>
+        <span><?= $escaper->escapeHtml(__('Cancel Order')) ?></span>
+    </a>
+<?php endif; ?>

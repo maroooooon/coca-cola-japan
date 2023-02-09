@@ -1,0 +1,51 @@
+<!-- End Content -->
+</td>
+</tr>
+<tr>
+    <td class="footer">
+        <table>
+            <tr>
+                <td>
+                    {{depend url_about_us}}
+                    <p>
+                        {{trans '<a href=%url_about_us>About Us</a>' url_about_us=$url_about_us |raw}}
+                    </p>
+                    {{/depend}}
+                    {{depend url_customer_service}}
+                    <p>
+                        {{trans '<a href=url_customer_service>Customer Service</a>' url_customer_service=$url_customer_service |raw}}
+                    </p>
+                    {{/depend}}
+                </td>
+                <td>
+                    {{depend store_phone}}
+                    <p class="phone">
+                        {{trans '<a href="tel:%store_phone">%store_phone</a>' store_phone=$store_phone |raw}}
+                    </p>
+                    {{/depend}}
+                    {{depend store_hours}}
+                    <p class="hours">
+                        {{trans 'Hours of Operation:<br /><span class="no-link">%store_hours</span>.' store_hours=$store_hours |raw}}
+                    </p>
+                    {{/depend}}
+                </td>
+                <td>
+                    <p class="address">
+                        {{var store.formatted_address|raw}}
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <p class="copyright"><small style="font-size: 10px;">Το παρόν e-mail δεν αποτελεί επιβεβαίωση για την αποδοχή της παραγγελίας σας ούτε επιβεβαίωση αποστολής αυτής. Πρόκειται για απλή απόδειξη παραλαβής εκ μέρους μας της πρότασής σας για τη σύναψη της μεταξύ μας σύμβασης αγοραπωλησίας. Προτού δεσμευτούμε με την μεταξύ μας σύμβαση αγοραπωλησίας, αποδεχόμενοι την πρότασή σας, επιφυλασσόμαστε για την επιβεβαίωση της διαθεσιμότητας και της ορθής αναγραφής της τιμής των προϊόντων στο ηλεκτρονικό κατάστημα. Κατόπιν επιβεβαίωσης των ανωτέρω, θα σας σταλεί ένα νέο e-mail, επιβεβαιωτικό της αποστολής της παραγγελίας σας, το οποίο και θα αποτελεί την αποδοχή εκ μέρους μας της πρότασής σας για τη σύναψη της μεταξύ μας σύμβασης ως αναφέρεται στο άρθρο 3.2. των Όρων αγοράς μέσω του E-shop www.topochico.gr. Σε περίπτωση που διαπιστωθεί οποιοδήποτε πρόβλημα με την παραγγελία σας θα επικοινωνήσουμε μαζί σας στα στοιχεία επικοινωνίας σας.</small></p>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<!-- End wrapper table -->
+</body>

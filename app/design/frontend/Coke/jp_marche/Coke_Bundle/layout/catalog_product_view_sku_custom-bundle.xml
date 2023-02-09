@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="catalog_product_view_sku_custom-bundle.xml"/>
+    <body>
+        <attribute name="class" value="page-custom-bundle"/>
+        <attribute name="class" value="page-with-filter"/>
+
+        <referenceContainer name="product.info.media" remove="true" />
+        <referenceContainer name="product.info.details.wrapper" remove="true" />
+        <referenceContainer name="product.info.description.wrapper" remove="true" />
+        <referenceContainer name="product.attributes.pagebuilder.wrapper" remove="true" />
+        <referenceBlock name="bundle.back.button" remove="true" />
+        <referenceBlock name="product.info.addto.bundle" remove="true" />
+        <referenceBlock name="page.main.title" remove="true" />
+        <referenceBlock name="product.reviews.wrapper" remove="true" />
+        <referenceBlock name="product.attributes.exclude.pagebuilder" remove="true" />
+        <referenceBlock name="catalog.product.related" remove="true" />
+        <referenceContainer name="product.info.stock.sku" remove="true" />
+
+        <move element="product.price.render.bundle.customization" destination="bundle.summary" before="-"/>
+
+        <referenceBlock name="product.info.bundle.options">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Coke_Bundle::catalog/product/view/type/bundle/options.phtml</argument>
+            </action>
+            <arguments>
+                <argument name="title" xsi:type="string">商品の本数を選ぶ</argument>
+                <argument name="step" xsi:type="string">3</argument>
+                <argument name="subtitle" xsi:type="string">選択した商品</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceBlock name="product.info.bundle.options.checkbox">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Coke_Bundle::catalog/product/view/type/bundle/option/checkbox.phtml</argument>
+            </action>
+            <arguments>
+                <argument name="viewModel" xsi:type="object">Coke\Bundle\ViewModel\Data</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceBlock name="product.info.bundle.options.select">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Coke_Bundle::catalog/product/view/type/bundle/option/select.phtml</argument>
+            </action>
+        </referenceBlock>
+
+        <referenceBlock name="bundle.summary">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Coke_Bundle::catalog/product/view/summary.phtml</argument>
+            </action>
+        </referenceBlock>
+
+        <referenceBlock name="product.info.form.options">
+            <referenceBlock name="aw_sarp2.product.subscription-options">
+                <action method="setTemplate">
+                    <argument name="template" xsi:type="string">Coke_Bundle::product/subscription_options.phtml</argument>
+                </action>
+            </referenceBlock>
+        </referenceBlock>
+
+        <referenceContainer name="content">
+            <block class="Coke\Bundle\Block\Catalog\Product\View\Type\Bundle" name="custom.bundle.step1" template="Coke_Bundle::custom-bundle-step-1.phtml" before="product.info.bundle.options.step2.products"/>
+            <block class="Coke\Bundle\Block\Catalog\Product\View\Type\Bundle" name="product.info.bundle.options.step2.products" as="type_bundle_options" template="Coke_Bundle::catalog/product/view/type/bundle/options.phtml" before="-">
+                <arguments>
+                    <argument name="title" xsi:type="string">商品を3種類まで選ぶ</argument>
+                    <argument name="step" xsi:type="string">2</argument>
+                </arguments>
+                <block class="Magento\Bundle\Block\Catalog\Product\View\Type\Bundle\Option\Checkbox" name="product.info.bundle.options.product.list.top" as="checkbox">
+                    <arguments>
+                        <argument name="tier_price_renderer" xsi:type="object">\Magento\Bundle\Block\DataProviders\OptionPriceRenderer</argument>
+                        <argument name="template" xsi:type="string">Coke_Bundle::catalog/product/view/type/bundle/option/product-list.phtml</argument>
+                        <argument name="viewModel" xsi:type="object">Coke\Bundle\ViewModel\Data</argument>
+                    </arguments>
+                    <block class="Coke\Bundle\Block\Navigation\CustomBundle" name="layered.nav" as="layered.nav" before="-" template="Coke_Bundle::layer/view.phtml">
+                        <block class="Magento\LayeredNavigation\Block\Navigation\FilterRenderer" name="catalog.navigation.renderer" as="renderer" template="Coke_Bundle::layer/filter.phtml">
+                            <arguments>
+                                <argument name="product_layer_view_model" xsi:type="object">Magento\LayeredNavigation\ViewModel\Layer\Filter</argument>
+                            </arguments>
+                        </block>
+                    </block>
+                </block>
+                <block class="Magento\Bundle\Block\Catalog\Product\View\Type\Bundle\Option\Select" name="product.info.bundle.options.select.top" as="select">
+                    <arguments>
+                        <argument name="template" xsi:type="string">Coke_Bundle::catalog/product/view/type/bundle/option/norender.phtml</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
+
+        <referenceContainer name="bundle.product.options.wrapper">
+            <block class="Magento\Framework\View\Element\Template" name="custom.bundle.product.count" template="Coke_Bundle::custom-bundle-product-count.phtml" after="-"/>
+        </referenceContainer>
+
+        <referenceContainer name="page.wrapper">
+            <block class="Magento\Framework\View\Element\Template" name="custom.bundle.hero" template="Coke_Bundle::custom-bundle-hero.phtml" after="page.top"/>
+        </referenceContainer>
+
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template" name="custom.bundle.details" template="Coke_Bundle::custom-bundle-details.phtml" before="-"/>
+        </referenceContainer>
+
+        <referenceBlock name="product.info.upsell">
+            <arguments>
+                <argument name="title" xsi:type="string" translate="true">Other Bundles</argument>
+                <argument name="english_title" xsi:type="string">BUNDLE SET</argument>
+            </arguments>
+        </referenceBlock>
+
+        <!--  Move back in place-->
+        <move element="product.info" destination="bundle.options.container" before="-"/>
+
+        <referenceBlock name="aw_sarp2.product.subscription-options.radiobutton" template="Aheadworks_Sarp2::product/subscription_options/renderers/radiobutton.phtml" />
+    </body>
+</page>

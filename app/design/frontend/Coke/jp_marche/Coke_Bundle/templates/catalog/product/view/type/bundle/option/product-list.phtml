@@ -1,0 +1,65 @@
+<?php
+/**
+ * @var $block \Magento\Bundle\Block\Catalog\Product\View\Type\Bundle\Option\Checkbox
+ * @var $_selection \Magento\Catalog\Model\Product
+ * @var $escaper \Magento\Framework\Escaper
+ */
+?>
+<?php $_option = $block->getOption() ?>
+<?php $_selections = $_option->getSelections() ?>
+<?php $_imageHelper = \Magento\Framework\App\ObjectManager::getInstance()->get('Magento\Catalog\Helper\Image'); ?>
+<?php $_viewModel = $block->getData('viewModel'); ?>
+<?php $layeredNavBlock = $block->getChildblock('layered.nav'); ?>
+
+<div class="bundle-step custom-bundle-step2">
+    <?php if ($layeredNavBlock): ?>
+        <div class="layered-nav-mobile-container">
+            <div class="col-6 filter-toggle mobile-only">
+                <?= __('Shop By') ?>
+            </div>
+            <div class="col-6 block-actions filter-actions mobile-only">
+                <span class="action clear filter-clear"><?= /** @noEscape */ __('Clear All') ?></span>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <?php if ($layeredNavBlock): ?>
+        <div class="col-12 col-md-3 layered-nav-container">
+            <?= $layeredNavBlock->toHtml(); ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if ($layeredNavBlock): ?>
+        <div class="col-12 col-md-9 control-container">
+    <?php else: ?>
+        <div class="control-container">
+    <?php endif; ?>
+        <div class="control">
+            <div class="nested options-list">
+                <?php foreach($_selections as $_selection): ?>
+                    <?php $attributesCss = sprintf(
+                        '%s %s %s',
+                        $_selection->getData('brand'),
+                        $_selection->getData('container'),
+                        str_replace(',',' ', $_selection->getData('product_category'))
+                    ) ?>
+                    <?php if($_selection->isSaleable()):?>
+                        <?php $image = $_imageHelper->init($_selection, 'image', ['type' => 'image'])->keepAspectRatio(true)->resize('230', '230')->getUrl(); ?>
+                        <div class="field choice product-selection <?= $escaper->escapeHtml($attributesCss) ?>"
+                             data-option-selection-id="bundle-option-<?= /* @escapeNotVerified */ $_option->getId() ?>-<?= /* @escapeNotVerified */ $_selection->getSelectionId() ?>"
+                            <?php if ($block->isSelected($_selection)) echo ' data-checked="checked"' ?>
+                             data-bottle-size="<?= $_viewModel->getContainerSize($_selection->getId()) ?>"
+                             data-bottle-size-group="<?= $_viewModel->getBottleSizeGroup($_selection->getId()) ?>">
+                            <div class="bundle-option-image"><img src="<?php echo $image; ?>" /></div>
+                            <div class="title"><?= $_selection->getName()?></div>
+                            <div class="price"><?= $block->renderPriceString($_selection);?></div>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <div class="step-reset">
+            <div class="action gray reset-selection"><span><?= __('選択をクリア') ?></span></div>
+        </div>
+    </div>
+</div>

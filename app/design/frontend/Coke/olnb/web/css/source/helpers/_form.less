@@ -1,0 +1,71 @@
+
+._form-label-hide() {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+._form-input() {
+  font-size: @font-size-base;
+  background-color: #fff;
+  color: @color-header;
+  padding: @form-v-pad @form-h-pad;
+  text-align: left;
+  border: 1px solid @color-border;
+  border-radius: @form-border-radius;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: @transition-default;
+  font-weight: @font-weight-400;
+}
+
+._form-fieldset-hide() {
+  border: 0;
+  padding: 0;
+
+  legend {
+    display: none;
+  }
+}
+
+._form-address-grid-layout(@cols: 2; @gap: 2rem;) {
+  display: grid;
+  gap: @gap;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  grid-auto-flow: row dense;
+
+  @media (min-width: @bp-xs-min) {
+    grid-template-columns: repeat(@cols, minmax(0, 1fr));
+  }
+
+  > .field + .field {
+    margin-top: 0;
+  }
+
+  .field {
+    // full width row
+    &[name='shippingAddress.company'],
+    &[name='shippingAddress.company'],
+    &[name='shippingAddress.city'],
+    &.street {
+      @media (min-width: @bp-xs-min) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
+    }
+
+    // full width row, 50% col
+    &[name='shippingAddress.company'],
+    &[name='shippingAddress.city'] {
+      > * {
+        @media (min-width: @bp-xs-min) {
+          width: calc(50% - (@gap / 2));
+        }
+      }
+    }
+  }
+}

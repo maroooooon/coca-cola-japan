@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Aheadworks\Sarp2\Model\Profile\Address\ToOrder">
+        <plugin name="Coke_Sarp2::profileAddressToOrderPlugin"
+                type="Coke\Sarp2\Plugin\ProfileAddressToOrderPlugin"/>
+    </type>
+    <type name="Aheadworks\Sarp2\Model\Profile\Item\ToOrderItem">
+        <plugin name="Coke_Sarp2::profileItemToOrderItemPlugin"
+                type="Coke\Sarp2\Plugin\ProfileItemToOrderItemPlugin"/>
+    </type>
+
+    <preference for="Aheadworks\Sarp2\Model\Plan\Source\PriceRounding" type="Coke\Sarp2\Model\Source\AdditionalPriceRounding" />
+    <preference for="Aheadworks\Sarp2\Model\Product\Subscription\Price\Calculation\Rounder" type="Coke\Sarp2\Model\Source\Rounder" />
+    <preference for="Coke\Sarp2\Api\ProfileManagementInterface" type="Coke\Sarp2\Model\ProfileManagement" />
+
+    <type name="Coke\Sarp2\Helper\ForceLogin">
+        <arguments>
+            <argument name="checkoutSession" xsi:type="object">Magento\Checkout\Model\Session\Proxy</argument>
+            <argument name="customerSession" xsi:type="object">Magento\Customer\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+
+    <type name="Aheadworks\Sarp2\Model\Quote\Address\TotalsCollectorList">
+        <arguments>
+            <argument name="totalCodes" xsi:type="array">
+                <item name="subtotal" xsi:type="string">subtotal</item>
+                <item name="discount" xsi:type="string">discount</item>
+                <item name="shipping" xsi:type="string">shipping</item>
+                <item name="grand_total" xsi:type="string">grand_total</item>
+                <item name="tax" xsi:type="string">tax</item>
+                <item name="tax_subtotal" xsi:type="string">tax_subtotal</item>
+                <item name="tax_shipping" xsi:type="string">tax_shipping</item>
+                <item name="weee" xsi:type="string">weee</item>
+                <item name="weee_tax" xsi:type="string">weee_tax</item>
+                <item name="aw_reward_points" xsi:type="string">aw_reward_points</item>
+                <item name="reward" xsi:type="string">reward</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="Coke_Sarp2::updatePayments"
+                      xsi:type="object">Coke\Sarp2\Console\UpdatePayments</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Coke\Whitelist\Cron\CancelDeniedOrders">
+        <plugin name="Coke_Sarp2::whitelistCancelDeniedOrdersPlugin"
+                type="Coke\Sarp2\Plugin\WhitelistCancelDeniedOrdersPlugin"/>
+    </type>
+
+</config>

@@ -1,0 +1,78 @@
+@minicart__border-color: @coke-gray2;
+@minicart-qty__height: 24px;
+
+& when (@media-common = true) {
+    .minicart-wrapper {
+        .action.showcart {
+            .counter.qty{
+                background-color: @color-black;
+            }
+        }
+    }
+
+    .block-minicart {
+        .block-content {
+            .minicart-items{
+                .product-item-name{
+                    font-weight: 600;
+                    a{
+                        color: @color-black;
+                    }
+                }
+
+                .product.options{
+                    font-size: 13px;
+                }
+            }
+
+            .action{
+                &.edit{
+                    display: none;
+                }
+                &.checkout{
+                    .lib-icon-image(
+                        @_icon-image: '@{baseDir}images/icons/icon-basic-locked-white.svg',
+                        @_icon-image-width: 22px,
+                        @_icon-image-height: 24px
+                    );
+                    &:before{
+                        background-size: 100% auto;
+                        max-width: 100%;
+                        margin-right: 5px;
+                    }
+                }
+                &.viewcart{
+                }
+            }
+
+            .badge{
+                margin:0 10px 10px 0;
+                &.badge-pending{
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+}
+
+// desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .minicart-wrapper {
+        .action.showcart {
+            .counter.qty{
+            }
+        }
+    }
+
+    .minicart-wrapper .block-minicart{
+        right: -24px;
+        top: 115%;
+    }
+}
+
+// mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .minicart-wrapper .block-minicart{
+        right: -24px;
+    }
+}

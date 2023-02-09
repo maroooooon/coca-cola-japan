@@ -1,0 +1,11 @@
+<?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ */
+
+$wrapperElement = $block->getWrapperElement() ? $block->getWrapperElement() : 'div';
+?>
+
+<<?= $wrapperElement ?> class="<?= $block->getCssClass() ?>">
+    <?= $block->getChildHtml(); ?>
+</<?= $wrapperElement ?>>

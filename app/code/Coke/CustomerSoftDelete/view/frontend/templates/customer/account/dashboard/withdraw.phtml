@@ -1,0 +1,26 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Customer\Block\Account\Dashboard\Info $block */
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+<div class="block block-dashboard-info">
+    <div class="block-title"><strong><?= $escaper->escapeHtml(__('Account Withdrawal')) ?></strong></div>
+    <div class="block-content">
+        <div class="box box-withdrawal">
+            <div class="box-content">
+                <p><?= $escaper->escapeUrl(__('If you wish to cancel your membership, please click the button below.')) ?></p>
+            </div>
+            <div class="box-actions">
+                <a class="action" href="<?= $escaper->escapeUrl($block->getUrl('softdelete/customer/confirmation')) ?>">
+                <span>
+                    <?= $block->escapeHtml(__('Proceed with the withdrawal procedure')) ?>
+                </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

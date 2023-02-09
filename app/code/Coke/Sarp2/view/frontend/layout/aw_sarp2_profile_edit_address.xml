@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <referenceBlock name="aw_sarp2.customer.subscriptions.edit.address">
+                <arguments>
+                    <argument name="billing_address_view_model"
+                              xsi:type="object">Coke\Sarp2\ViewModel\BillingAddress</argument>
+                </arguments>
+                <action method="setTemplate">
+                    <argument name="template" xsi:type="string">Coke_Sarp2::customer/subscriptions/edit/address.phtml</argument>
+                </action>
+            </referenceBlock>
+        </referenceContainer>
+    </body>
+</page>

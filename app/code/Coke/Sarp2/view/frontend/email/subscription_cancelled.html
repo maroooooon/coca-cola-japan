@@ -1,0 +1,24 @@
+<!--@subject {{trans "%store_name: Your subscription order has been cancelled" store_name=$store.frontend_name}} @-->
+<!--@vars {
+"var extendLink":"Extend Subscription Link",
+"var secureLink":"Secure Link"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">{{trans "Dear %customerName," customerName=$customerName}}</p>
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>
+            <p>{{trans "Your payment method (CC etc.) for this subscription order has as issue of processing transaction and your order has been cancelled."}}</p>
+            <p>{{trans "Please place another order at My Coke Store."}}</p>
+            {{trans 'If you have question, please feel free to ask at our <a href="%url">contact form</a>' url="$this.getUrl($store,'contact')" |raw}}{{depend store_phone}} {{trans 'or call us at <a href="tel:%store_phone">%store_phone</a>' store_phone=$store_phone |raw}}{{/depend}}
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

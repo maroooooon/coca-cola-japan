@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ @copyright Copyright © 2022 Bounteous. All rights reserved.
+  ~ @author tanya.lamontagne
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="checkout_validations" xsi:type="object">CokeEurope\Validations\Model\CheckoutConfigProvider</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
+

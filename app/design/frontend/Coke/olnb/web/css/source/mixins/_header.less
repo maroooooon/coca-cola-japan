@@ -1,0 +1,41 @@
+
+.__header-elements-color(@color: #fff; @inverted: @color-brand-primary){
+  .logo {
+    .__logo(@color)
+  }
+
+  .drawer {
+    > a {
+      svg {
+        path {
+          fill: @color;
+        }
+      }
+    }
+  }
+
+  .mini-cart,
+  .account,
+  .drawer {
+    > a {
+      svg {
+        path {
+          stroke: @color;
+        }
+      }
+
+      &:hover,
+      &:focus {
+        opacity: 0.75;
+      }
+    }
+  }
+
+  .mini-cart .icon-wrap .qty {
+    background: @color;
+
+    .counter-number {
+      color: @inverted
+    }
+  }
+}

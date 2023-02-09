@@ -1,0 +1,61 @@
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+    // Everything
+    * {
+        box-sizing: border-box;
+    }
+
+    // General Wrapper
+    .wrapper {
+        box-sizing: border-box;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: @layout__max-width;
+        padding-left: @layout-indent__width;
+        padding-right: @layout-indent__width;
+        width: auto;
+    }
+    body {
+        background-color: @color-lightblue;
+    }
+    .page-title-wrapper {
+        margin: 2rem 0;
+        .page-title {
+            margin: 0;
+            font-size: 3rem;
+            line-height: 3rem;
+            font-weight: bold;
+            color: @color-blue;
+        }
+    }
+    .page-wrapper > .breadcrumbs {
+        margin: 1rem auto;
+    }
+
+    /* Messages */
+    .japan {
+        .page.messages {
+            .message {
+                margin: 2rem 0;
+                border-radius: @border-radius;
+                box-shadow: @box-shadow-1;
+            }
+        }
+    }
+}
+
+//  Desktop
+//  _____________________________________________
+@media only screen and (min-width: @screen__m) {
+}
+
+//  Mobile
+//  _____________________________________________
+@media only screen and (max-width: @screen__m) {
+    .page-title-wrapper {
+        text-align: center;
+        .page-title {
+        }
+    }
+}

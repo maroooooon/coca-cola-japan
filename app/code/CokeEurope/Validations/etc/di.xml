@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ @copyright Copyright © 2022 Bounteous. All rights reserved.
+  ~ @author tanya.lamontagne
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="CokeEurope_Validations::checkoutLayoutPlugin"
+                type="CokeEurope\Validations\Plugin\CheckoutLayoutPlugin" />
+    </type>
+
+    <type name="Magento\Customer\Model\Address">
+        <plugin name="CokeEurope_Validations::setCurrentStoreIdPlugin" type="CokeEurope\Validations\Plugin\Customer\Model\Address\SetCurrentStoreId" />
+    </type>
+
+    <type name="Magento\Customer\Model\Customer">
+        <plugin name="CokeEurope_Validations::filterCheckoutAddresses" type="CokeEurope\Validations\Plugin\Customer\Model\Customer\FilterAddressCollection" />
+    </type>
+</config>

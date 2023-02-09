@@ -1,0 +1,24 @@
+{{template config_path="design/email/header_template"}}
+
+<p class="greeting">Bonjour {{trans "%name," name=$customer.name}}</p>
+<p>Merci beaucoup d’avoir créé un compte sur Coca-Cola Store.
+</p>
+<p>Vous pouvez à tout moment passer une commande de bouteilles personnalisées et ainsi partager un Coca-Cola avec ceux que vous aimez.</p>
+<p>
+    Pour vous connecter, utilisez les identifiants renseignés lors de votre inscription.
+
+    customer_url=$this.getUrl($store,'customer/account/',[_nosid:1])|raw}}
+</p>
+<ul>
+    <li><strong>{{trans "Email:"}}</strong> {{var customer.email}}</li>
+    <li><strong>{{trans "Password:"}}</strong> <em>{{trans "Password you set when creating account"}}</em></li>
+</ul>
+
+<p>{{trans "When you sign in to your account, you will be able to:"}}</p>
+<ul>
+    <li>{{trans "Proceed through checkout faster"}}</li>
+    <li>{{trans "Check the status of orders"}}</li>
+    <li>{{trans "View past orders"}}</li>
+</ul>
+
+{{template config_path="design/email/footer_template"}}

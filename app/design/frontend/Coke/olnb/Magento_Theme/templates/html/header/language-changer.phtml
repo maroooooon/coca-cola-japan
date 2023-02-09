@@ -1,0 +1,20 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \Coke\OLNB\ViewModel\LanguageChanger $viewModel */
+$viewModel = $block->getViewModel();
+
+$currentStoreId = $viewModel->getCurrentStoreId();
+$stores = $viewModel->getLocales();
+$locales = array_map(function (\Magento\Store\Model\Store $store, $locale) use ($viewModel, $currentStoreId) {
+    return sprintf(
+        '<a href="%s" class="locale-selection %s">%s</a>',
+        $viewModel->getTargetStoreRedirectUrl($store),
+        $store->getId() === $currentStoreId ? 'current-store' : '',
+        $locale
+    );
+}, $stores, array_keys($stores));
+?>
+
+<div class="language-changer _hide-xxs _hide-xs _hide-sm">
+    <?= implode(' | ', $locales); ?>
+</div>

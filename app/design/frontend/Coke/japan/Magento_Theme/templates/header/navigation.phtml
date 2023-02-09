@@ -1,0 +1,58 @@
+<?php
+/**
+ * @var Magento\Framework\View\Element\Template $block
+ * @var Coke\Japan\ViewModel\Japan\Data $japan
+ */
+$japan = $block->getData('japan');
+?>
+
+<?php if($japan->isLoggedIn()): ?>
+    <div id="header-navigation" class="header-nav-container">
+        <div class="wrapper">
+            <div class="header-nav">
+                <div id="header-nav-toggle" class="nav-title">
+                    <strong><?= /* @noEscape */ __('Menu'); ?></strong>
+                </div>
+                <div class="nav-content">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="<?= /* @noEscape */  $block->getUrl('customer/account/index'); ?>" title="<?= /* @noEscape */ __('Dashboard'); ?>">
+                                    <span><?= /* @noEscape */ __('Dashboard'); ?></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?= /* @noEscape */  $block->getUrl('products'); ?>" title="<?= /* @noEscape */ __('Products'); ?>">
+                                    <span><?= /* @noEscape */ __('Products'); ?></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?= /* @noEscape */  $block->getUrl('company/elder/listing'); ?>" title="<?= /* @noEscape */ __('Elder Listing'); ?>">
+                                    <span><?= /* @noEscape */ __('Elder Listing'); ?></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?= /* @noEscape */  $block->getUrl('company/order/history'); ?>" title="<?= /* @noEscape */ __('Elder Listing'); ?>">
+                                    <span><?= /* @noEscape */ __('Order History'); ?></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?= /* @noEscape */  $block->getUrl('customer/account/logout'); ?>" title="<?= /* @noEscape */ __('Sign Out'); ?>">
+                                    <span><?= /* @noEscape */ __('Sign Out'); ?></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+
+<script type="text/x-magento-init">
+    {
+        "#header-navigation": {
+            "CokeJapanNavigation": {}
+        }
+    }
+</script>

@@ -1,0 +1,57 @@
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+
+    .enable-address-suggestions {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        border: 2px dashed @red;
+        background: @light;
+        *{
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        // Box Title
+        .address-suggestions-title {
+            width: 100%;
+            padding: 10px;
+            border-bottom: 1px solid @border;
+            strong {
+                color: @red;
+                font-size: 18px;
+            }
+            p {
+                margin: 0;
+            }
+        }
+        // Results
+        .address-suggestions-results {
+            width: 100%;
+            button {
+                display: block;
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+                padding: 10px;
+                line-height: 1.25;
+                text-align: left;
+                border: none;
+                border-bottom: 1px solid @border;
+                border-radius: 0;
+                box-shadow: none;
+                color: @black;
+                background: @light;
+                font-size: 14px;
+                transition: all 0.33s ease;
+                cursor: pointer;
+                &:hover {
+                    background-color: @light2;
+                }
+                &:last-of-type {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+}

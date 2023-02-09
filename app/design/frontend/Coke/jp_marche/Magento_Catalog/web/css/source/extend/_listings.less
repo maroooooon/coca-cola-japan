@@ -1,0 +1,186 @@
+//  Common
+& when (@media-common = true) {
+    .page-products {
+        #maincontent {
+            margin-top: 24px;
+        }
+    }
+
+    .sidebar-main {
+        > .page-title-wrapper {
+            margin-top: 8px;
+        }
+
+        #page-title-heading {
+            font-size: 28px;
+            font-weight: 500;
+        }
+    }
+
+    .products-grid{
+        .product-item {
+            position: relative;
+            border:1px solid transparent;
+            padding: 10px;
+
+            .product-item-info{
+                width: auto;
+            }
+
+            .product-image-container{
+                display: block;
+                margin: 0 auto 10px;
+            }
+
+            .product-item-details{
+                text-align: center;
+            }
+
+            .product-item-name {
+                margin-bottom: 0;
+                min-height: 45px;
+                font-size: 16px;
+
+                .product-item-link {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    background: #fff;
+
+                    &:hover {
+                        -webkit-line-clamp: initial;
+                        text-overflow: unset;
+                    }
+                }
+            }
+
+            .price-box {
+                .price {
+                    font-size: 1.6rem;
+                    font-weight: 700;
+                }
+
+                .price-label {
+                    display: none;
+                }
+
+                .old-price, .price-label {
+                    .price {
+                        font-size: .8em;
+                    }
+                }
+                .price-from{
+                    .price{
+                        &:after{
+                            content: "~";
+                        }
+                    }
+                }
+                .price-to{
+                    display: none;
+                }
+            }
+
+            .product-item-actions {
+                text-align: center;
+                .actions-primary{
+                    display: block;
+                    text-align: center;
+                }
+                .action.tocart {
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    width: auto;
+                }
+                .actions-secondary {
+                    display: none;
+                }
+            }
+
+            &:hover{
+                border-color: @coke-brown;
+            }
+        }
+    }
+
+    .category-subscription-message{
+        text-align: center;
+        margin-bottom: 30px;
+        p{
+            font-size: 20px;
+            font-weight: 700;
+            color: @coke-brown;
+        }
+        .action{
+            max-width: 280px;
+        }
+    }
+    //hide search bor
+    [data-bind="scope: 'brandFilter'"]  .filter-search, [data-bind="scope: 'tagsFilter'"]  .filter-search{
+        display: none;
+    }
+
+    .add-to-cart-modal-popup{
+        .custom-modal-popup-h2{
+            margin-bottom: initial;
+            color: red;
+        }
+
+        .custom-modal-popup-p{
+            color: #000;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1.42857143;
+            font-size: 1.6rem;
+            margin-top: 20px;
+        }
+    }
+}
+
+// Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .page-products{
+        .sidebar-main{
+            padding-right: 0;
+        }
+    }
+
+
+    .item.product-item {
+        .page-products .products-grid & {
+            padding: 10px 12px 8px;
+        }
+    }
+
+    .category-subscription-message{
+        text-align: center;
+        p{
+            font-size: 30px;
+        }
+    }
+
+}
+
+// Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .item.product-item {
+        .page-products .products-grid & {
+            padding: 10px 12px 8px;
+            margin-bottom: 30px;
+        }
+    }
+
+    .products-grid .product-item .product-item-actions .action.tocart {
+        padding: 10px;
+        font-size: 1em;
+    }
+
+    .add-to-cart-modal-popup{
+        .custom-modal-popup-h2{
+            font-size: 1.5em;
+        }
+    }
+}
+

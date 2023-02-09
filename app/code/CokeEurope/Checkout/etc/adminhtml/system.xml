@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<section id="coke_europe" sortOrder="999" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+			<tab>Coke</tab>
+			<group id="general" sortOrder="1" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+				<label>General</label>
+                <field id="force_default_country_code_checkout" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Force Country Code in Checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+		</section>
+	</system>
+</config>

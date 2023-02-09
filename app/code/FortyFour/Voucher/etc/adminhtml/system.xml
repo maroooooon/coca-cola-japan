@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="voucher" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="501">
+            <label>Vouchers</label>
+            <tab>sales</tab>
+            <resource>FortyFour_Voucher::voucher</resource>
+            <group id="settings" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Voucher Settings</label>
+                <field id="enabled" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="voucher_sku_qty_list" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>SKU and Voucher Qty Association</label>
+                    <frontend_model>FortyFour\Voucher\Block\Adminhtml\Form\Field\VoucherSkuQuantityList</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment>If this SKU and Voucher Quantity pair is found in the order, it will send the associated number of vouchers to the customer.</comment>
+                </field>
+                <field id="cart_price_rule" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Cart Price Rule</label>
+                    <comment>Cart price rule to pull the vouchers from. These are the vouchers sent to the customer.</comment>
+                    <source_model>FortyFour\Voucher\Model\Source\SalesRuleId</source_model>
+                </field>
+            </group>
+            <group id="voucher_email" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Send Voucher Email Settings</label>
+                <field id="enabled" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="identity" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Send Vouchers Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="template" translate="label comment" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Send Vouchers Template</label>
+                    <comment>Email template chosen based on theme fallback when "Default" option is selected.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="copy_to" translate="label comment" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Send Vouchers Email Copy To</label>
+                    <comment>Comma-separated.</comment>
+                    <validate>validate-emails</validate>
+                </field>
+                <field id="copy_method" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Send Send Vouchers Email Copy Method</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Method</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

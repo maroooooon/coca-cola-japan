@@ -1,0 +1,91 @@
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+    .address-suggestions {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        overflow: hidden;
+
+        .address-suggestions-box {
+            width: 100%;
+            max-width: 100%;
+            padding: 10px 20px;
+            border: 2px dashed #f40000;
+            border-radius: 10px;
+            background-color: rgba(243, 156, 18, 0.1);
+            .suggestions-box-title {
+                width: 100%;
+                max-width: 100%;
+                margin-bottom: 10px;
+                strong {
+                    color: #f40000;
+                }
+                p {
+                    margin: 0;
+                }
+            }
+            .suggestions-box-content {
+                width: 100%;
+                max-width: 100%;
+                button {
+                    display: block;
+                    width: 100%;
+                    padding: 0;
+                    margin-bottom: 10px;
+                    color: #000;
+                    border: none;
+                    background: none;
+                    box-shadow: none;
+                    text-align: left;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .address-suggestions {
+        .address-suggestions-box {
+            .suggestions-box-title {
+                strong {
+                    font-size: 20px;
+                }
+                p {
+                    font-size: 16px;
+                }
+            }
+            .suggestions-box-content {
+                button {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .address-suggestions {
+        .address-suggestions-box {
+            .suggestions-box-title {
+                strong {
+                    font-size: 18px;
+                }
+                p {
+                    font-size: 14px;
+                }
+            }
+            .suggestions-box-content {
+                button {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

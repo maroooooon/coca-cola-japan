@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category FortyFour
+ * @copyright Copyright (c) 2020 FortyFour LLC
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="coke_email_attachment" translate="label" sortOrder="101" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Email Attachment</label>
+            <tab>Coke</tab>
+            <resource>Magento_Backend::content</resource>
+            <group id="invoice" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1" translate="label">
+                <label>Invoice Attachment</label>
+                <field id="enabled" showInDefault="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

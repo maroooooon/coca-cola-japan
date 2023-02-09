@@ -1,0 +1,14 @@
+form {
+    .field {
+        &._required,
+        &.required {
+            > .label {
+                &::after {
+                    content: '*';
+                    color: @color-red;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,204 @@
+<?php
+/** @var \Magento\Catalog\Block\Product\ListProduct $block */
+/** @var \Magento\Catalog\Model\ResourceModel\Product\Collection $_productCollection */
+$_productCollection = $block->getLoadedProductCollection();
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$productsCount = count($_productCollection);
+
+/** @var \Coke\OLNB\Block\Catalog\ProductList $vmOlnb */
+$vmOlnb = $this->getVmOlnb();
+$marketFlavors = null;
+?>
+<div class="product-selector-wrapper">
+    <?php if (!$_productCollection->count()): ?>
+        <div class="message info empty">
+            <div><?php /* @escapeNotVerified */ echo __('We can\'t find products matching the selection.') ?></div>
+        </div>
+    <?php else: ?>
+        <h2 class="header-select header-select-can">
+            <span><?= $block->escapeHtml(__('Select Your Can')) ?></span>
+            <i class="ion ion-ios-arrow-down"></i>
+        </h2>
+
+        <?php
+        $flavors = [];
+        // is katy perry product
+        $kpSkus = array(
+            'GB-EN-STD330-KP-CZ',
+            'GE-GE-SLK330-KP-CZ',
+            'NL-NL-STD330-KP-CZ',
+            'BE-DU-STD330-KP-CZ',
+            'BE-FR-STD330-KP-CZ',
+            'NW-NW-SLM250-KP-CZ',
+            'IE-EN-SLK330-KP-CZ'
+        );
+
+        foreach ($_productCollection as $_product) {
+            $children = $vmOlnb->getConfigurableChildren($_product);
+            $childFlavors = $vmOlnb->getMarketFlavors($_product);
+
+            if (count($childFlavors) > 0 && count($childFlavors) > count($marketFlavors ?? [])) {
+                $marketFlavors = $childFlavors;
+            }
+
+            foreach ($children as $child) {
+                $isKp = in_array($child->getSku(), $kpSkus);
+                if ($isKp) {
+                    continue;
+                }
+                $child->setData(
+                    'flavor_image',
+                    '<div class="olnb-img-option" data-flavor-id="' . $child->getData('flavor') . '" data-url="' . $child->getUrlModel()->getUrl($child, []) . '">' .
+                    $block->getImage($child, 'category_page_grid')->toHtml() .
+                    '</div>'
+
+                );
+
+                $flavors[$child->getData('flavor')] = $flavors[$child->getData('flavor')]  ?? [];
+                $flavors[$child->getData('flavor')][] = ['parent' => $_product, 'child' => $child];
+            }
+        }
+        ?>
+
+        <?php foreach ($flavors as $id => $pairs): ?>
+            <div class="choice-slider slider-flavor-<?= $id; ?>" style="display: none">
+            <?php foreach ($pairs as $pair): ?>
+                <?php
+                $isKp = in_array($pair['parent']->getSku(), $kpSkus);
+                ?>
+                <div class="item" data-url="<?= $block->escapeUrl($pair['parent']->getProductUrl()) ?>">
+                    <div class="img-wrap">
+                        <?= $pair['child']->getFlavorImage(); ?>
+                        <?php if($isKp): ?>
+                            <div class="overlays">
+                                <img class="limited-edition-badge" src="<?php echo $block->getViewFileUrl('images/limited-edition.svg') ?>" alt="Limited Edition" />
+                                <img
+                                    class="katy-perry-logo"
+                                    srcset="<?php echo $block->getViewFileUrl('images/katy-perry-resolution@2x.png') ?> 2x,
+                                        <?php echo $block->getViewFileUrl('images/katy-perry-resolution.png') ?> 1x"
+                                    src="<?php echo $block->getViewFileUrl('images/katy-perry-resolution.png') ?>"
+                                    alt="Katy Perry"
+                                />
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+            </div>
+        <?php endforeach; ?>
+
+        <h2 class="header-select header-select-flavour"><?php /* @escapeNotVerified */ echo __('Select Your Flavour') ?></h2>
+        <div id="choiceNav" class="choice-nav">
+            <?php foreach ($marketFlavors as $flavorId => $marketFlavor): ?>
+                <div class="flav-item" data-flavor-id="<?= $flavorId; ?>">
+                    <div class="img-wrap">
+                        <img src="<?= $vmOlnb->getMarketFlavorImageUrl($marketFlavor); ?>" alt="<?= $marketFlavor; ?>" />
+                    </div>
+                    <div class="name">
+                        <?= $marketFlavor; ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+    <script>
+        require([
+            'jquery',
+            'slick',
+            'domReady!'
+        ], function ($) {
+            const flavors = <?= json_encode($marketFlavors ?: []); ?>;
+            const flavIds = Object.keys(flavors);
+            const flavDiv = $('#choiceNav');
+            const productButton = $('#buttonUrl');
+            const slickSettings = {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                centerMode: true,
+                dots: true,
+                focusOnSelect: true,
+                nextArrow: '<button type="button" class="next"><i class="ion ion ion-ios-arrow-forward"></i></button>',
+                prevArrow: '<button type="button" class="prev"><i class="ion ion-ios-arrow-back"></i></button>',
+                responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        focusOnSelect: false
+                    }
+                }]
+            }
+
+            let activeFlavId = flavIds[0];
+
+            function doSlickInit() {
+                $('.flav-item[data-flavor-id=' +  activeFlavId + ']').addClass('selected')
+                $(".choice-slider.slider-flavor-" + activeFlavId).show().slick(slickSettings);
+                $('.choice-slider').on('afterChange', function(slick, currentSlide){
+                    setActiveSlideLink(currentSlide.$slider);
+                });
+            }
+
+            function doSlickFilter(flavId) {
+                $(".choice-slider.slider-flavor-" + activeFlavId).hide().slick('unslick');
+                activeFlavId = flavId
+                $(".choice-slider.slider-flavor-" + flavId).show().slick(slickSettings);
+            }
+
+            function getActiveSlideUrl($sliderElement) {
+                const url = $sliderElement.find('.slick-slide.slick-current.slick-active')
+                    .find('.item .olnb-img-option:visible')
+                    .data('url');
+                return url
+            }
+
+            function setActiveSlideLink(sliderElement) {
+                productButton.attr('href', getActiveSlideUrl(sliderElement));
+            }
+
+            // toggle flav
+            $('.flav-item').on('click', function(){
+                let self = $(this),
+                    $slider = $('.choice-slider.slider-flavor-' + self.data('flavor-id')),
+                    activeFlavId = self.data('flavor-id');
+
+                doSlickFilter(self.data('flavor-id'));
+                flavDiv.find('.flav-item').removeClass('selected');
+                productButton.removeClass('disabled');
+                $(this).addClass('selected');
+                setActiveSlideLink($slider);
+            });
+
+            doSlickInit();
+            setActiveSlideLink($('.choice-slider:not(:hidden)'));
+
+            // fix infinte slide transition bug
+            $('.choice-slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+                const elL = $('.choice-slider').find('*[data-slick-index="0"]').prev()
+                const elR = $('.choice-slider').find('*[data-slick-index="<?= ($productsCount - 1) ?>"]').next()
+
+                if (currentSlide == <?= ($productsCount - 1) ?> && nextSlide == 0) {
+                    elL.removeClass('force-active')
+                    elR.addClass('force-active')
+                } else if (currentSlide == 0 && nextSlide == <?= ($productsCount - 1) ?>) {
+                    elR.removeClass('force-active')
+                    elL.addClass('force-active')
+                } else {
+                    elL.removeClass('force-active')
+                    elR.removeClass('force-active')
+                }
+            });
+        });
+    </script>
+</div>
+
+<?php if ($_productCollection->count()): ?>
+    <footer id="choiceFooter" class="choice-footer">
+        <p class="header-select"><?= $block->escapeHtml(__('Now... It’s time to fill it in!')) ?></p>
+        <div class="actions">
+            <a id="buttonUrl" href="#" class="action secondary disabled">
+                <span><?= $block->escapeHtml(__('Let\'s do it!')) ?></span>
+                <i class="ion ion-ios-arrow-round-forward"></i>
+            </a>
+        </div>
+    </footer>
+<?php endif; ?>

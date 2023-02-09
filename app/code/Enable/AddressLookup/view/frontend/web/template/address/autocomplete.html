@@ -1,0 +1,32 @@
+<div class="field">
+    <label class="label">
+        <span data-bind="i18n: 'Address Lookup'"></span>
+    </label>
+    <div class="control">
+        <div class="enable-address-autocomplete">
+            <div class="autocomplete-input">
+                <input
+                    class="admin__control-text"
+                    type="text"
+                    name="address_autocomplete"
+                    data-bind="event: {input: handleInput, focus:handleFocus},
+					attr: {
+						placeholder: $t('Start typing an address (optional)')
+					}"
+                />
+                <div
+                    class="autocomplete-loader"
+                    data-bind="visible: isLoading"
+                ></div>
+            </div>
+            <div class="autocomplete-results" data-bind="visible: isVisible">
+                <!-- ko foreach: { data: autocompleteItems(), as: 'suggested' } -->
+                <button
+                    type="button"
+                    data-bind="text: suggested.address, click: $parent.useAutocomplete.bind($parent)"
+                ></button>
+                <!-- /ko -->
+            </div>
+        </div>
+    </div>
+</div>

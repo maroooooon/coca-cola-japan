@@ -1,0 +1,136 @@
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+    .japan.account.sales-order-view {
+        .page-title-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            .page-title {
+                display: block;
+            }
+            .order-date {
+                width: 100%;
+                margin: 1rem 0;
+            }
+            .order-status {
+                color: @color-black;
+                font-weight: 600;
+            }
+            .actions-toolbar {
+                width: 100%;
+                margin-bottom: 0;
+                .actions {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                    max-width: 100%;
+                    .action {
+                        display: block;
+                        padding: 0.5rem 1.5rem;
+                        color: @color-white;
+                        background: @color-blue;
+                        border-radius: @border-radius;
+                        box-shadow: @box-shadow-1;
+                        text-decoration: none;
+                        width: 15rem;
+                        text-align: center;
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+            &:before {
+                content: unset;
+                display: none;
+            }
+        }
+        .order-details-items {
+            background: @color-white;
+            border-bottom-left-radius: @border-radius;
+            border-bottom-right-radius: @border-radius;
+            box-shadow: @box-shadow-1;
+            .table tfoot {
+                background: @color-white;
+                td {
+                    background: @color-white;
+                }
+            }
+        }
+        .order-links {
+            .nav.item {
+                strong {
+                    border-top-left-radius: @border-radius;
+                    border-top-right-radius: @border-radius;
+                    border-bottom: 1px solid @border-color;
+                    font-weight: 600;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+        .order-details-items .order-title > strong {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+    }
+}
+
+//  Desktop
+//  _____________________________________________
+@media only screen and (min-width: @screen__m) {
+    .japan.account.sales-order-view {
+        .page-title-wrapper {
+            .actions-toolbar {
+                width: 100%;
+                margin-bottom: 0;
+            }
+        }
+        .actions-toolbar {
+            .action.order {
+                margin-right: 0;
+            }
+        }
+        .order-details-items {
+            border-top-right-radius: @border-radius;
+        }
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+@media only screen and (max-width: @screen__m) {
+    .japan.account.sales-order-view {
+        .page-title-wrapper {
+            .page-title {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            .order-status {
+                display: block;
+                width: auto;
+                margin: 1rem auto;
+            }
+            .actions-toolbar {
+                width: 100%;
+                margin-bottom: 0;
+            }
+        }
+        .order-title {
+            display: none;
+        }
+        .actions-toolbar {
+            .action.order {
+                margin-right: 0;
+            }
+        }
+        .items.order-links {
+            text-align: center;
+        }
+        .order-details-items .order-title {
+            text-align: center;
+        }
+    }
+}

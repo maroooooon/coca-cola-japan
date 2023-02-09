@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Pricing\Render\Amount">
+        <plugin sortOrder="1" name="cokePricesWithoutDecimalsAmount"
+                type="Coke\PricesWithoutDecimals\Plugin\Pricing\Render\AmountPlugin"/>
+    </type>
+    <type name="Magento\Directory\Model\PriceCurrency">
+        <plugin sortOrder="1" name="cokePricesWithoutDecimalsPriceCurrency"
+                type="Coke\PricesWithoutDecimals\Plugin\Model\PriceCurrencyPlugin"/>
+    </type>
+    <type name="Magento\Directory\Model\Currency">
+        <plugin sortOrder="1" name="cokePricesWithoutDecimalsCurrency"
+                type="Coke\PricesWithoutDecimals\Plugin\Model\CurrencyPlugin"/>
+    </type>
+</config>

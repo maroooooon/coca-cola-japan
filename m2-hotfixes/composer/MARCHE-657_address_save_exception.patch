@@ -1,0 +1,13 @@
+diff --git a/vendor/magento/module-customer/Controller/Address/FormPost.php b/vendor/magento/module-customer/Controller/Address/FormPost.php
+--- a/vendor/magento/module-customer/Controller/Address/FormPost.php
++++ b/vendor/magento/module-customer/Controller/Address/FormPost.php	(date 1647895870464)
+@@ -234,7 +234,8 @@
+                 $this->messageManager->addErrorMessage($error->getMessage());
+             }
+         } catch (\Exception $e) {
+-            $redirectUrl = $this->_buildUrl('*/*/index');
++            $redirectUrl = $this->_buildUrl('*/*/new');
++            $this->_getSession()->setAddressFormData($this->getRequest()->getPostValue());
+             $this->messageManager->addExceptionMessage($e, __('We can\'t save the address.'));
+         }
+

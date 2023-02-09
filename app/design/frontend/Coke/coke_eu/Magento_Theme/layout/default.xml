@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright © 2016 Magento. All rights reserved.
+* See COPYING.txt for license details.
+*/
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Remove -->
+        <referenceBlock name="report.bugs" remove="true"/>
+        <referenceBlock name="elasticsuite_footer" remove="true" />
+        <referenceContainer name="header.panel.wrapper" remove="false" />
+        <referenceBlock name="footer_links" remove="true" />
+        <referenceBlock name="form.subscribe" remove="true" />
+        <referenceBlock name="currency" remove="true" />
+        <referenceBlock name="store_switcher" remove="true" />
+        <referenceBlock name="store.settings.currency" remove="true" />
+
+        <move element="navigation.sections" destination="header-wrapper" after="-" />
+        <move element="logo" destination="logo.wrapper" />
+        <move element="minicart" destination="header.right.wrapper" before="-" />
+        <move element="top.search" destination="header.right.wrapper" after="minicart" />
+        <move element="store_language" destination="footer.block.container" after="store_switcher" />
+        <move element="copyright" destination="footer.block.container" after="-" />
+        
+        <!-- Add calendar block so that datepicker widgets use store locale -->
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Html\Calendar" name="html_calendar" as="html_calendar" template="Magento_Theme::js/calendar.phtml"/>
+        </referenceContainer>
+
+        <referenceContainer name="header.container">
+            <container name="global.top.banner.wrapper" htmlTag="div" htmlClass="global-top-banner" before="-">
+                <block class="Magento\Cms\Block\Block" name="global.top.banner">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">eu_global_banner</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/logo.svg</argument>
+                <argument name="logo_width" xsi:type="number">152</argument>
+                <argument name="logo_height" xsi:type="number">50</argument>
+                <argument name="logo_alt" xsi:type="string">Coca-Cola Europe</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceContainer name="header-wrapper">
+            <container name="logo.wrapper" htmlTag="div" htmlClass="logo-wrapper header-item" />
+            <container name="header.right.wrapper" htmlTag="div" htmlClass="header-right-wrapper header-item" />
+        </referenceContainer>
+
+        <referenceContainer name="header.right.wrapper">
+            <block name="header.account"
+                   class="Magento\Customer\Block\Account\AuthorizationLink"
+                   template="Magento_Theme::html/account-header.phtml"
+                   before="top.search">
+            </block>
+            <block name="coke.currency.switcher" class="Magento\Directory\Block\Currency"
+                   template="CokeEurope_Currency::currency.phtml" after="-">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">CokeEurope\Currency\ViewModel\CurrencyViewModel</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <referenceBlock name="catalog.topnav">
+            <block class="Magento\Cms\Block\Block" name="nav.additional">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">eu_nav_additional</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <referenceContainer name="page.bottom.container">
+            <block class="Magento\Cms\Block\Block" name="footer.block.top">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">eu_footer_top</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="footer-container" />
+        <referenceContainer name="footer">
+            <block class="Magento\Framework\View\Element\Template" name="footer.block.container" template="Magento_Theme::html/footer.phtml">
+                <block class="Magento\Cms\Block\Block" name="footer.social">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">eu_footer_social</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Cms\Block\Block" name="footer.links">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">eu_footer_links</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Store\Block\Switcher" name="eu_store_switcher" as="store_switcher" template="Magento_Store::switch/stores.phtml" ifconfig="coke_europe/general/show_store_switcher" after="-" />
+            </block>
+        </referenceContainer>
+
+        <referenceBlock name="store.menu">
+            <block class="CokeEurope\MegaMenu\Block\Html\Topmenu"
+                   name="catalog.topnav"
+                   template="Magento_Theme::html/topmenu.phtml"
+                   before="-">
+                <block class="Magento\Cms\Block\Block" name="nav.additional">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">eu_nav_additional</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceBlock>
+        <referenceContainer name="page.wrapper">
+            <block class="Magento\Framework\View\Element\Template" name="overlay.menu.open" template ="Magento_Theme::html/overlay.phtml" after="-"/>
+        </referenceContainer>
+
+        <referenceBlock name="top.search">
+            <block class="Magento\Framework\View\Element\Template" name="top.search.suggested" template ="Magento_Theme::html/search-suggested.phtml" after="-">
+                <block class="Magento\Cms\Block\Block" name="top.search.suggested.block">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">eu_search_suggested</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

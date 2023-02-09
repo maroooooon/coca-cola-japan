@@ -1,0 +1,10 @@
+<?php
+use CokeEurope\Catalog\ViewModel\AdditionalInformationViewModel;
+use Magento\Sales\Block\Adminhtml\Items\Column\DefaultColumn;
+
+/** @var DefaultColumn $block */
+/** @var AdditionalInformationViewModel $viewModel */
+
+$viewModel = $block->getViewModel();
+?>
+<?= /* @escapeNotVerified */__('Moderation Status: %1', $viewModel->getModerationStatusText()); ?>

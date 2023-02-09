@@ -1,0 +1,120 @@
+& when (@media-common = true) {
+    .cms-homescreen-shortcut{
+        [data-element="main"]{
+            > [data-element="inner"] {
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+        }
+
+        #add-shortcut-to-iphone,
+        #add-shortcut-to-android,
+        #add-shortcut-to-desktop-chrome{
+            border-bottom: 1px solid #333;
+            padding: 15px 0;
+        }
+
+        .section-container{
+            [data-role="title"] {
+                padding-right: 25px;
+                position: relative;
+                width: 100%;
+                cursor: pointer;
+
+                .lib-icon-font(
+                    @icon-down,
+                    @_icon-font-position: after,
+                    @_icon-font-size: 16px
+                );
+
+                &:after{
+                    position: absolute;
+                    right: 0;
+                    top:50%;
+                    transform: translate(0, -50%);
+                }
+            }
+
+            &.active{
+                [data-role="title"] {
+                    .lib-icon-font(
+                        @icon-up,
+                        @_icon-font-position: after,
+                        @_icon-font-size: 16px
+                    );
+                }
+            }
+
+            [data-role="content"] {
+                list-style: none;
+                margin-top: 30px;
+                padding: 0;
+                li{
+                    text-align: center;
+                    .image{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-bottom: 15px;
+                        min-height: 75px;
+                    }
+                    p{}
+                }
+
+                &.flex{
+                    li{
+                        flex: 1 0 100%;
+                    }
+                }
+            }
+        }
+
+        &.rtl{
+            .section-container{
+                [data-role="title"] {
+                    padding-right: 0;
+                    padding-left: 25px;
+                    &:after{
+                        left: 0;
+                        right: auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .cms-homescreen-shortcut{
+        .section-container{
+            [data-role="content"] {
+                &.flex{
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+                    li{
+                        flex: 0 0 24%;
+                        padding: 0 10px;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+// mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .cms-homescreen-shortcut{
+        .section-container{
+            [data-role="content"] {
+                &.flex{
+                    li{
+                        padding: 0 0 30px;
+                    }
+                }
+            }
+
+        }
+    }
+}

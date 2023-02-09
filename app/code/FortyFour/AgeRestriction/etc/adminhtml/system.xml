@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="age_restriction" sortOrder="9991" translate="label">
+            <label>Age Restriction</label>
+        </tab>
+        <section id="age_restriction" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+            <label>General</label>
+            <tab>age_restriction</tab>
+            <resource>FortyFour_AgeRestriction::age_restriction</resource>
+            <group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+                <label>General</label>
+                <field id="enabled" showInDefault="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="min_age" showInDefault="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Minimum Age for Entry</label>
+                    <validate>required-entry validate-number validate-zero-or-greater</validate>
+                    <source_model>FortyFour\AgeRestriction\Model\Source\RangeOneToOneHundred</source_model>
+                </field>
+                <field id="redirect_url_text" showInDefault="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+                    <label>Redirect URL Text</label>
+                    <validate>required-entry</validate>
+                    <comment>This will show in the redirect button. For example: 'Visit {{redirect url text}}'</comment>
+                </field>
+                <field id="redirect_url" showInDefault="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+                    <label>Redirect URL</label>
+                    <validate>required-entry</validate>
+                    <comment>Enter a full URL such as: https://www.google.com/</comment>
+                </field>
+            </group>
+            <group id="cookie" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label">
+                <label>Cookie Settings</label>
+                <field id="lifetime" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+                    <label>Cookie Lifetime</label>
+                    <comment>Cookie lifetime in seconds. 86400 is one day.</comment>
+                    <validate>required-entry validate-number validate-zero-or-greater</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,107 @@
+<?php
+/*
+ *  * @copyright Copyright © $year$ Bounteous. All rights reserved.
+ *  * @author    $email$
+ */
+/** @var $block \Magento\Checkout\Block\Onepage\Success */
+/** @var $viewModel CokeEurope\Checkout\ViewModel\OrderSuccessProducts */
+use CokeEurope\Catalog\Api\Data\ModerationStatusInterface;
+$viewModel = $block->getViewModel();
+$order = $viewModel->getOrder($block->getOrderId());
+$products = $viewModel->getOrderProducts();
+$priceHelper = $this->helper('Magento\Framework\Pricing\Helper\Data');
+?>
+<div class="order-summary cart table-wrapper">
+    <!--   Product Summary     -->
+    <table class="cart items data table">
+        <?php /** @var \Magento\Catalog\Model\Product $product */
+        //foreach ($products as $quantityOrdered => $product) { ?>
+        <?php $items = $order->getItems(); ?>
+        <?php foreach ($items as $product): ?>
+            <?php if ($product->getParentItem()) continue; ?>
+            <tbody class="cart item">
+            <tr class="item-info">
+                <td data-th="<?= $block->escapeHtml(__('Item')) ?>" class="col item">
+                            <span class="product-item-photo">
+                                <?php $imageUrl = $this->helper('Magento\Catalog\Helper\Image')
+                                    ->init($product, 'cart_page_product_thumbnail')
+                                    ->constrainOnly(true)
+                                    ->keepAspectRatio(true)
+                                    ->keepTransparency(true)
+                                    ->keepFrame(false)
+                                    ->resize(135, 135)->getUrl();?>
+                                <span class="product-image-container">
+                                    <span class="product-image-wrapper">
+                                        <img class="product-image-photo" src="<?= $imageUrl ?>" alt="<?= $product->getName() ?>" />
+                                    </span>
+                                </span>
+                            </span>
+                    <div class="product-item-details">
+                        <strong class="product-item-name"><?= $product->getName($product) ?></strong>
+                        <?php if ($_options = $product->getProductOptions()) :?>
+                            <?php if (array_key_exists('attributes_info', $_options)) : ?>
+                                <dl class="item-options">
+                                    <?php foreach ($_options['attributes_info'] as $_option) :?>
+                                        <dt><?= $_option['label'] ?></dt>
+                                        <dd>
+                                            <?= $_option['value']?>
+                                        </dd>
+                                    <?php endforeach; ?>
+                                </dl>
+                            <?php endif;?>
+                        <?php endif;?>
+                    </div>
+                </td>
+                <td>
+	                <?php if ((int) $product->getModerationStatus() === ModerationStatusInterface::MODERATION_STATUS_PENDING): ?>
+                        <div class="badge badge-pending"><span><?=_('Pending Approval')?></span></div>
+	                <?php endif;?>
+                </td>
+                <td class="col price" data-th="<?= $block->escapeHtml(__('Price')) ?>">
+                    <span class="price-wrap"><?= $priceHelper->currency($product->getPrice(), true, true) ?><?= '/' . __('unit') ?></span>
+                </td>
+                <td class="col qty" data-th="<?= $block->escapeHtml(__('Qty')) ?>">
+                    <p><?= __('Qty') . ': ' ?><?= number_format($product->getQtyOrdered(),0) ?></p>
+                </td>
+                <td class="col subtotal" data-th="<?= $block->escapeHtml(__('Subtotal')) ?>">
+                    <span class="price-wrap"><?= $priceHelper->currency($product->getRowTotal(), true, true) ?></span>
+
+                </td>
+            </tr>
+            </tbody>
+        <?php endforeach; ?>
+    </table>
+    <!--   Under Product Summary     -->
+    <div class="order-totals-summary">
+        <table>
+            <tr class="totals subtotal">
+                <th class="mark"><?= __('Subtotal') ?></th>
+                <td class="amount"><?= $priceHelper->currency($order->getData('subtotal')) ?></td>
+            </tr>
+            <?php if ($order->getSugarTaxTotal() > 0) : ?>
+                <tr class="totals sugartaxes">
+                    <th class="mark"><?= __('Sugar Tax') ?></th>
+                    <td class="amount"><?= $priceHelper->currency($order->getSugarTaxTotal()) ?></td>
+                </tr>
+            <?php endif; ?>
+            <tr class="totals taxes">
+                <th class="mark"><?= __('Taxes') ?></th>
+                <td class="amount"><?= $priceHelper->currency($order->getData('tax_amount')) ?></td>
+            </tr>
+            <tr class="totals shipping">
+                <th class="mark"><?= __('Shipping') ?></th>
+                <td class="amount"><?= $priceHelper->currency($order->getData('shipping_amount')) ?></td>
+            </tr>
+            <?php if ($viewModel->getBottleDeposit()) :?>
+                <tr class="totals deposit">
+                    <th class="mark"><?= __('Bottle Deposit') ?></th>
+                    <td class="amount"><?= $priceHelper->currency($viewModel->getBottleDeposit()) ?></td>
+                </tr>
+            <?php endif; ?>
+            <tr class="totals total">
+                <th class="mark"><?= __('Total') ?></th>
+                <td class="amount"><?= $priceHelper->currency($order->getData('grand_total')) ?></td>
+            </tr>
+        </table>
+    </div>
+</div>

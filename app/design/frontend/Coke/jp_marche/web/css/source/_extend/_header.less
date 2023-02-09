@@ -1,0 +1,213 @@
+& when (@media-common = true) {
+    .global-top-banner{
+        background: @coke-red;
+        text-align: center;
+        font-weight: 700;
+        color: @color-white;
+        padding: 8px 15px;
+        p{
+            margin: 0;
+            font-size: 14px;
+        }
+    }
+
+    .page-header{
+        background: @color-white;
+    }
+
+    .sticky{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 102;
+        background: @color-white;
+    }
+
+    .header.content{
+        color: @coke-brown;
+        a{
+            color: @coke-brown;
+        }
+    }
+
+    .minicart-wrapper {
+        .minicart-items-wrapper {
+            height: 100% !important;
+            max-height: 40vh !important;
+
+            @media (min-width: 410px) {
+                max-height: 45vh !important;
+            }
+        }
+
+        .action{
+            &.showcart,
+            &.showcart.active{
+                .lib-icon-image(
+                    @_icon-image: '@{baseDir}images/icons/cart-icon.png',
+                    @_icon-image-width: 23px,
+                    @_icon-image-height: 25px
+                );
+                &:before{
+                    background-size: 100% auto;
+                    vertical-align: top;
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+
+    .header-account-wrapper{
+        float: right;
+        position: relative;
+        display: inline-block;
+
+        a{
+            text-decoration: none;
+        }
+        .account-icon{
+            .lib-icon-image(
+                @_icon-image: '@{baseDir}images/icons/user-icon.png',
+                @_icon-image-width: 22px,
+                @_icon-image-height: 24px
+            );
+            &:before{
+                background-size: 100% auto;
+            }
+        }
+        .logged-in{
+            display: none;
+            font-size: 12px;
+            > span {
+                display: block;
+                &:nth-child(2){
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    .logo{
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    .block-search{
+        input{
+            border-radius: 50px;
+            border-width: 2px;
+            height: 34px;
+            border-color: @coke-brown;
+        }
+        .action.search{
+            opacity: 1 !important;
+            &:before{
+                color: @coke-brown;
+            }
+        }
+        .action.advanced {
+            display: none;
+        }
+    }
+}
+
+// desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .global-top-banner{
+        padding: 15px;
+        p{
+            font-size: 16px;
+        }
+    }
+    .header.content{
+        padding-top: 15px;
+    }
+
+    .logo{
+        margin: 10px 0 0;
+    }
+
+    .header-account-wrapper{
+        margin-left: 20px;
+        margin-bottom: 10px;
+        .account-icon{
+            line-height: 33px;
+        }
+        .logged-in{
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+
+    .block-search .control{
+        padding-bottom: 15px;
+    }
+    .block-search .action.search:before{
+        color: @coke-brown;
+    }
+
+    .minicart-wrapper {
+        .minicart-items-wrapper {
+            height: 100% !important;
+            max-height: 57vh !important;
+        }
+    }
+}
+
+// xl desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
+    .logo{
+        margin: 14px 0 0;
+    }
+}
+
+// mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .logo {
+        margin: 17px 0 20px;
+        max-width: 61%;
+        width: 200px;
+    }
+    .header-account-wrapper {
+        margin: 15px 5px 0;
+    }
+
+    .header.content{
+        padding-right: 45px;
+    }
+
+    .nav-toggle{
+        left: auto;
+        right: 10px;
+        top:17px;
+        &:before{
+            color:@coke-brown;
+        }
+    }
+
+    .minicart-wrapper,
+    .block-search{
+        margin-top: 10px;
+    }
+
+    .block-search .control{
+        margin-right: -45px;
+    }
+
+    .block-search .label{
+        margin-top: 4px;
+        margin-right: 3px;
+        .lib-icon-image(
+            @_icon-image: '@{baseDir}images/icons/search-icon.png',
+            @_icon-image-width: 25px,
+            @_icon-image-height: 25px
+        );
+        &:before{
+            color: @coke-brown;
+            background-size: 100% auto;
+        }
+    }
+}

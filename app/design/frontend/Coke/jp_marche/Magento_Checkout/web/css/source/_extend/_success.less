@@ -1,0 +1,33 @@
+//  Common
+& when (@media-common = true) {
+    button,
+    input[type="submit"],
+    a {
+        &.action.primary {
+            .checkout-onepage-success #registration &{
+                width: auto;
+            }
+        }
+    }
+}
+
+// Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .checkout-onepage-success{
+        .page-header{
+            margin-bottom: 50px;
+        }
+        .opc-progress-bar-item._complete{
+            cursor: default;
+        }
+    }
+}
+
+// Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .checkout-onepage-success{
+        .nav-toggle{
+            display: none;
+        }
+    }
+}

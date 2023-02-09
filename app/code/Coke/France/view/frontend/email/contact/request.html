@@ -1,0 +1,30 @@
+<!--@subject {{trans "%nature - %lastname, %firstname" nature=$nature lastname=$last firstname=$name}} @-->
+<!--@vars {
+} @-->
+
+<table>
+    <tr>
+        <td>Prénom</td>
+        <td>{{var name|raw}}</td>
+    </tr>
+    <tr>
+        <td>Nom</td>
+        <td>{{var last|raw}}</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>{{var email|raw}}</td>
+    </tr>
+    <tr>
+        <td>Objet de votre demande</td>
+        <td>{{var nature|raw}}</td>
+    </tr>
+    <tr>
+        <td>Numéro de votre commande</td>
+        <td>{{var orderId|raw}}</td>
+    </tr>
+    <tr>
+        <td>Message</td>
+        <td>{{var comment|raw}}</td>
+    </tr>
+</table>

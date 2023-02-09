@@ -1,0 +1,35 @@
+<?php /** @var \Magento\Framework\View\Element\Template $block */ ?>
+
+<div id="site-drawer">
+    <div class="overlay" data-close="drawer"></div>
+    <div class="drawer">
+        <header>
+            <div class="logo-row">
+                <?php echo $block->getChildHtml('logo-drawer'); ?>
+                <div class="close" data-close="drawer">
+                    <i class="ion ion-ios-close"></i>
+                </div>
+            </div>
+            <p><?= $block->escapeHtml(__('Become a Coca-Cola member and be the first to share special moments with the ones you love!')) ?></p>
+        </header>
+        <?php echo $block->getChildHtml('drawer-account-links'); ?>
+        <?php echo $block->getChildHtml('drawer-language-changer'); ?>
+    </div>
+
+    <script>
+    require([
+        'jquery',
+        'domReady!'
+    ], function ($) {
+        $('*[data-open="drawer"]').on('click', function(e) {
+            e.preventDefault();
+            $('body').addClass('_drawer-open');
+        });
+
+        $('*[data-close="drawer"]').on('click', function(e) {
+            e.preventDefault();
+            $('body').removeClass('_drawer-open');
+        });
+    });
+    </script>
+</div>

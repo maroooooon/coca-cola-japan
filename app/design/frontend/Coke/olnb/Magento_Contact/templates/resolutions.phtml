@@ -1,0 +1,26 @@
+<?php
+/**
+ * @var \Magento\Contact\Block\ContactForm $block
+ * @var \Coke\OLNB\ViewModel\Resolutions $viewModel
+ */
+
+$viewModel = $block->getViewModel();
+$resolutions = $viewModel->getResolutions();
+$selected = $viewModel->getSelectedResolution();
+$isResolutionEnabled = $viewModel->isResolutionsFormEnabled();
+?>
+
+<?php if ($isResolutionEnabled && count($resolutions)): ?>
+    <div class="field required resolution">
+        <label class="label" for="resolution">
+            <span><?= $block->escapeHtml(__('Resolution')) ?></span>
+        </label>
+        <div class="control">
+            <select name="resolution" id="resolution">
+                <?php foreach ($resolutions as $sku => $resolution): ?>
+                    <option value="<?= $block->escapeHtml($resolution) ?>"<?= ($sku === $selected ? ' selected' : ''); ?>><?= $block->escapeHtml($resolution) ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+    </div>
+<?php endif; ?>

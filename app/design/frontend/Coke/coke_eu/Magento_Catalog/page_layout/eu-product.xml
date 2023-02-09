@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
+    <update handle="1column" />
+
+    <!-- Remove Breadcrumbs -->
+    <referenceContainer name="page.top">
+        <referenceBlock name="breadcrumbs" remove="true" />
+    </referenceContainer>
+    <referenceContainer name="content">
+        <!-- Remove unneccessary blocks-->
+        <referenceBlock name="product.info.details" remove="true" />
+        <referenceBlock name="product.info.sku" remove="true" />
+        <referenceBlock name="product.info.simple" remove="true" />
+
+        <!-- Add custom containers for product layout -->
+        <container name="product.layout" htmlTag="div" htmlClass="product-layout" before="-">
+            <container name="product.image" htmlTag="div" htmlClass="product-column product-column--product-image" before="-" />
+            <container name="product.details" htmlTag="div" htmlClass="product-column product-column--product-details" after="product.image" />
+        </container>
+        <referenceBlock name="product.info.main">
+            <container name="product.top" htmlTag="div" htmlClass="product-top" before="-" />
+            <block class="Magento\Catalog\Block\Product\View\Attributes" name="product.dynamic.attributes" template="Magento_Catalog::dynamic-attributes.phtml"  />
+        </referenceBlock>
+        <!-- Custom Add to Wishlist -->
+        <referenceBlock name="product.info.addto">
+            <referenceBlock name="view.addto.wishlist">
+                <action method="setTemplate">
+                    <argument name="template" xsi:type="string">Magento_Catalog::add-to-wishlist.phtml</argument>
+                </action>
+            </referenceBlock>
+        </referenceBlock>
+    </referenceContainer>
+    <move element="product.info.media" destination="product.image" before="-" />
+    <move element="product.info.main" destination="product.details" before="-" />
+    <move element="page.main.title" destination="product.top" before="-" />
+    <move element="product.info" destination="product.top" after="-" />
+    <move element="product.info.price" destination="product.top" after="page.main.title" />
+    <move element="product.info.overview" destination="product.top" after="product.info.price" />
+    <move element="product.info.stock.sku" destination="product.top" after="-" />
+    <move element="product.info.addto" destination="product.image" after="-" />
+</layout>

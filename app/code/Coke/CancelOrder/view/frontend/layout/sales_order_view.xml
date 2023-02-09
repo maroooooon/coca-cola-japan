@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="sales.order.info.buttons">
+            <block class="Magento\Sales\Block\Order\View"
+                   name="coke.order.cancel.button"
+                   template="Coke_CancelOrder::order/cancel/button.phtml"
+                   ifconfig="cancel_order/general/enabled">
+            </block>
+        </referenceBlock>
+
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Sales\Block\Order\View"
+                   name="coke.order.cancel.modal"
+                   template="Coke_CancelOrder::order/cancel/modal.phtml"
+                   ifconfig="cancel_order/general/enabled">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Coke\CancelOrder\ViewModel\CancelOrder</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

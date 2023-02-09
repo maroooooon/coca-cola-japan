@@ -1,0 +1,46 @@
+<?php
+/**
+ * @var \FortyFour\AgeRestriction\Block\Html\AgeRestriction $block
+ */
+
+$isMinimumAgeNotMet = $block->getData('is_minimum_age_not_met')
+    ? $block->getData('is_minimum_age_not_met')
+    : $block->isMinimumAgeNotMet();
+?>
+
+<?php if (!$block->getAgeRestrictionCookie() || $isMinimumAgeNotMet): ?>
+    <div id="age-restriction-verify-age"
+         class="age-restriction-verify-age is-not-valid"
+         data-bind="scope: 'age_restriction_verify_age'">
+        <div id="age-restriction-verify-age-popup" class="age-restriction-verify-age-popup">
+            <img class="store-logo"
+                 src="<?= $block->escapeUrl($block->getLogoSrc()) ?>"
+                 alt="<?= $block->escapeHtml($block->getLogoAlt()) ?>" />
+            <!-- ko if: useCalendar -->
+            <div data-bind="template: 'FortyFour_AgeRestriction/verify-age'"></div>
+            <!-- /ko -->
+
+            <!-- ko if: !useCalendar -->
+            <div data-bind="template: 'FortyFour_AgeRestriction/verify-age-no-calendar'"></div>
+            <!-- /ko -->
+        </div>
+    </div>
+
+    <script type="text/x-magento-init">
+    {
+        "#age-restriction-verify-age": {
+            "Magento_Ui/js/core/app": {
+               "components": {
+                   "age_restriction_verify_age": {
+                       "component": "FortyFour_AgeRestriction/js/view/verify-age",
+                       "is_min_age_not_met": "<?= $block->isMinimumAgeNotMet() ?>",
+                       "redirectUrlText": "<?= $block->escapeUrl($block->getRedirectUrlText()) ?>",
+                       "redirectUrl": "<?= $block->escapeUrl($block->getRedirectUrl()) ?>",
+                       "successfulRedirectUrl": "<?= $block->escapeUrl($block->getSuccessRedirect()) ?>"
+                   }
+               }
+            }
+        }
+    }
+    </script>
+<?php endif; ?>

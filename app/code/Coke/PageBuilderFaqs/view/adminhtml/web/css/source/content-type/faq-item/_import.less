@@ -1,0 +1,81 @@
+//
+//  FAQ item styles
+//  _____________________________________________
+
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+    .pagebuilder-content-type.faq-item {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 10px;
+        .faq-item-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 100%;
+            cursor: pointer;
+            strong {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 10px;
+                flex-grow: 1;
+            }
+            border-bottom: 1px solid #000000;
+            &::after {
+                display: block;
+                content: url("@{baseDir}Coke_PageBuilderFaqs/css/images/content-type/faq-list/appearance/plus.svg");
+                width: 30px;
+                min-width: 30px;
+                height: 30px;
+                min-height: 30px;
+            }
+        }
+        .faq-item-answer {
+            display: none;
+            width: 100%;
+            max-width: 100%;
+        }
+        // Active Item
+        &.active {
+            .faq-item-question {
+                &::after {
+                    content: url("@{baseDir}Coke_PageBuilderFaqs/css/images/content-type/faq-list/appearance/minus.svg");
+                }
+            }
+            .faq-item-answer {
+                padding: 10px 5px;
+                display: block;
+                p {
+                    &:last-of-type {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//  Desktop
+//  _____________________________________________
+@media only screen and (min-width: @screen__m) {
+    .pagebuilder-content-type.faq-item {
+        .faq-item-question {
+            strong {
+                font-size: 24px;
+            }
+        }
+        .faq-item-answer {
+            p {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+@media only screen and (max-width: @screen__m) {
+}

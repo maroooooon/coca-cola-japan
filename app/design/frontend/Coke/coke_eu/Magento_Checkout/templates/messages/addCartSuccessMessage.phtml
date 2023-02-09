@@ -1,0 +1,27 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Framework\View\Element\Template $block */
+?>
+
+<div class="message-content">
+    <?php if($block->getData('cart_url')): ?>
+        <?= $block->escapeHtml(__(
+            'You added %1 to your <a href="%2">shopping cart</a>.',
+            $block->getData('product_name'),
+            $block->getData('cart_url')
+        ), ['a']); ?>
+    <?php endif; ?>
+    <?php if($block->getData('reset_url')): 
+        $helper = $this->helper('CokeEurope\PersonalizedProduct\Helper\Config');
+        $message = $helper->getAtcMessage();
+    ?>
+        <?= $block->escapeHtml(__(
+            $message,
+            $block->getData('reset_url')
+        ), ['a']); ?>
+    <?php endif;?>
+</div>

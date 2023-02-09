@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="enable_api" translate="label" sortOrder="20">
+            <label>Enable</label>
+        </tab>
+        <section id="enable" sortOrder="999" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+            <tab>enable_api</tab>
+            <label>Address Validation</label>
+            <resource>Enable_AddressLookup::config</resource>
+            <group id="address" sortOrder="1" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+                <group id="general" sortOrder="1" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+                    <label>General</label>
+                    <field id="is_enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                        <label>Enabled</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="api_key" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+                        <label>Api Key</label>
+                        <comment>Enter your Enable Address Look Up API Key</comment>
+                    </field>
+                    <field id="identifier" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+                        <label>Identifier Code</label>
+                        <comment>Enter the Identifier Code</comment>
+                    </field>
+                    <field id="country_code" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+                        <label>Country Code</label>
+                        <comment>Enter the Country Code</comment>
+                    </field>
+                    <field id="maximum_results" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+                        <label>Autocomplete Maximum Results</label>
+                        <comment>Enter the maximum number of results to show</comment>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

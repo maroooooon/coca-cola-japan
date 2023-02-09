@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="enable_rejection_codes" resource="default" engine="innodb" comment="EnableRejectionCodes">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Id Column"/>
+        <column xsi:type="int" name="code" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Code Column"/>
+        <column xsi:type="varchar" name="short_description" nullable="false" length="255"
+                comment="Short Description Column"/>
+        <column xsi:type="varchar" name="long_description" nullable="false" length="255"
+                comment="Long Description Column"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <index referenceId="ENABLE_REJECTION_CODES_ID" indexType="btree">
+            <column name="id"/>
+        </index>
+    </table>
+</schema>

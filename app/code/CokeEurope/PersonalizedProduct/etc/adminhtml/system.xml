@@ -1,0 +1,153 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="coke_europe" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="999" translate="label">
+            <label>Europe</label>
+            <tab>Coke</tab>
+            <resource>CokeEurope_PersonalizedProduct::coke_europe_config</resource>
+            <group id="cart" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1" translate="label">
+                <label>Cart</label>
+                <field id="cart_maximum_enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cart Maximum Enabled</label>
+                    <comment>Select Yes to enable cart maximum amount functionality for this store view.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="cart_maximum" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cart Maximum Amount</label>
+                    <comment>Enter the maximum amount of products per cart.</comment>
+                </field>
+            </group>
+            <group id="personalized_product" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1" translate="label">
+                <label>Personalized Product</label>
+                <field id="enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1" translate="label comment" type="select">
+                    <label>Enable</label>
+                    <comment>Select Yes to enable personalized product functionality for this store view.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="personalized_product_sku" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Personalized Product Sku</label>
+                    <comment>Enter the sku for the configurable product.</comment>
+                </field>
+                <field id="personalized_product_atc_message" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add to Cart Message</label>
+                    <comment>Enter the message that will display when a personalized product is added to cart.</comment>
+                </field>
+                <group id="step_1" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1" translate="label">
+                    <label>Step 1</label>
+                    <field id="bar_title" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Progress Bar Title</label>
+                        <comment>Enter the title that appears in the step progress bar.</comment>
+                    </field>
+                    <field id="bar_description" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Progress Bar Description</label>
+                        <comment>Enter the description that appears below the title in the step progress bar.</comment>
+                    </field>
+                    <field id="title" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Title</label>
+                        <comment>Enter the title that appears before the step one options.</comment>
+                    </field>
+                    <field id="description" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Description</label>
+                        <comment>Enter the description that appears before the step one options.</comment>
+                    </field>
+                    <field id="attributes" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Attributes</label>
+                        <comment>Enter the attribute codes associated with this step (comma separated)</comment>
+                    </field>
+                </group>
+                <group id="step_2" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="2" translate="label">
+                    <label>Step 2</label>
+                    <field id="bar_title" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Progress Bar Title</label>
+                        <comment>Enter the title that appears in the step progress bar.</comment>
+                    </field>
+                    <field id="bar_description" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Progress Bar Description</label>
+                        <comment>Enter the description that appears below the title in the step progress bar.</comment>
+                    </field>
+                    <field id="title" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Title</label>
+                        <comment>Enter the title that appears before the step one options.</comment>
+                    </field>
+                    <field id="description" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Description</label>
+                        <comment>Enter the description that appears before the step one options.</comment>
+                    </field>
+                    <field id="attributes" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Attributes</label>
+                        <comment>Enter the attribute codes associated with this step (comma separated)</comment>
+                    </field>
+                </group>
+                <group id="step_3" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="3" translate="label">
+                    <label>Step 3</label>
+                    <field id="bar_title" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Progress Bar Title</label>
+                        <comment>Enter the title that appears in the step progress bar.</comment>
+                    </field>
+                    <field id="bar_description" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Progress Bar Description</label>
+                        <comment>Enter the description that appears below the title in the step progress bar.</comment>
+                    </field>
+                    <field id="title" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Title</label>
+                        <comment>Enter the title that appears before the step one options.</comment>
+                    </field>
+                    <field id="description" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Description</label>
+                        <comment>Enter the description that appears before the step one options.</comment>
+                    </field>
+                    <field id="attributes" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Attributes</label>
+                        <comment>Enter the attribute codes associated with this step (comma separated)</comment>
+                    </field>
+                </group>
+            </group>
+            <group id="moderation" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="2" translate="label">
+                <label>Moderation (Profanity Filter)</label>
+                <field id="enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1" translate="label comment" type="select">
+                    <label>Enabled</label>
+                    <comment>Select Yes to the enable profanity filter.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="script_url" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Script Url</label>
+                    <comment>Enter the url for Enable's moderation script</comment>
+                </field>
+                <group id="emails" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1" translate="label">
+                    <label>Emails</label>
+                    <group id="approved_message_email" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1" translate="label">
+                        <label>Approved Message Email</label>
+                        <field id="template_id" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>Email Template ID</label>
+                            <comment>Enter the template id for the approved message template</comment>
+                        </field>
+                        <field id="from_email" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>From Email Address</label>
+                            <comment>Enter the email address to appear in the from email field</comment>
+                        </field>
+                        <field id="from_name" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>From Name</label>
+                            <comment>Enter the name to appear in the from email field</comment>
+                        </field>
+                    </group>
+                    <group id="rejected_message_email" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1" translate="label">
+                        <label>Rejected Message Email</label>
+                        <field id="template_id" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>Email Template ID</label>
+                            <comment>Enter the template id for the rejected message template</comment>
+                        </field>
+                        <field id="from_email" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>From Email Address</label>
+                            <comment>Enter the email address to appear in the from email field</comment>
+                        </field>
+                        <field id="from_name" translate="label" type="text" sortOrder="1" showInDefault="1"
+                               showInWebsite="1" showInStore="1">
+                            <label>From Name</label>
+                            <comment>Enter the name to appear in the from email field</comment>
+                        </field>
+                    </group>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

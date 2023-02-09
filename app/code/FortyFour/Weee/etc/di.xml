@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Weee\Model\Total\Quote\WeeeTax">
+        <plugin name="FortyFour_Weee::weeeTaxPlugin" type="FortyFour\Weee\Plugin\WeeeTaxPlugin" />
+    </type>
+    <type name="Magento\Checkout\Block\Cart\Totals">
+        <plugin name="FortyFour_Weee::cartTotalsPlugin" type="FortyFour\Weee\Plugin\CartTotalsPlugin" />
+    </type>
+</config>

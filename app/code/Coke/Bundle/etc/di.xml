@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Bundle\Model\Product\Type" type="Coke\Bundle\Model\Product\Type" />
+    <type name="Magento\Bundle\Helper\Catalog\Product\Configuration">
+        <plugin sortOrder="1" name="cokeBundleConfiguration"
+                type="Coke\Bundle\Plugin\Helper\Catalog\Product\ConfigurationPlugin"/>
+    </type>
+    <type name="Magento\Bundle\Model\Product\LinksList">
+        <plugin sortOrder="1" name="cokeBundleLinksList" type="Coke\Bundle\Plugin\Model\Product\LinksListPlugin"/>
+    </type>
+    <preference for="Magento\Bundle\Block\Sales\Order\Items\Renderer" type="Coke\Bundle\Block\Sales\Order\Items\Renderer" />
+
+    <!-- custom bundle layered nav -->
+    <type name="Coke\Bundle\Block\Navigation\CustomBundle">
+        <arguments>
+            <argument name="filterList" xsi:type="object">customBundleFilterList</argument>
+        </arguments>
+    </type>
+    <virtualType name="customBundleFilterList" type="Magento\Catalog\Model\Layer\FilterList">
+        <arguments>
+            <argument name="filterableAttributes"
+                      xsi:type="object">Coke\Bundle\Model\Layer\CustomBundle\FilterableAttributeList</argument>
+        </arguments>
+    </virtualType>
+    <type name="Coke\Bundle\Model\Layer\CustomBundle\Resolver">
+        <arguments>
+            <argument name="layersPool" xsi:type="array">
+                <item name="custom_bundle" xsi:type="string">Coke\Bundle\Model\Layer\CustomBundle</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Coke\Bundle\Model\Layer\CustomBundle">
+        <arguments>
+            <argument name="context" xsi:type="object">Magento\Catalog\Model\Layer\Category\Context</argument>
+        </arguments>
+    </type>
+    <!-- /custom bundle layered nav -->
+</config>

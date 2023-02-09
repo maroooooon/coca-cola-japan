@@ -1,0 +1,57 @@
+<!--@subject {{trans "Your message is denied"}} @-->
+<!--@vars {
+"var formattedBillingAddress|raw":"Billing Address",
+"var order_data.email_customer_note|escape|nl2br":"Email Order Note",
+"var order.increment_id":"Order Id",
+"layout handle=\"sales_email_order_items\" order=$order area=\"frontend\"":"Order Items Grid",
+"var payment_html|raw":"Payment Details",
+"var formattedShippingAddress|raw":"Shipping Address",
+"var order.shipping_description":"Shipping Description",
+"var shipping_msg":"Shipping message",
+"var created_at_formatted":"Order Created At (datetime)",
+"var store.frontend_name":"Store Frontend Name",
+"var store_phone":"Store Phone",
+"var store_email":"Store Email",
+"var store_hours":"Store Hours",
+"var this.getUrl($store,'customer/account/',[_nosid:1])":"Customer Account URL",
+"var order_data.is_not_virtual":"Order Type",
+"var order":"Order",
+"var order_data.customer_name":"Customer Name",
+"var order_data.delivery_date":"Delivery Date"
+"var order_data.moderatedMessages":"Moderated Messages"
+"var order_data.rejectionReason":"Rejection Reason"
+"var order_data.rejectionExplanation":"Rejection Explanation"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <h1 class="title-center">{{trans "Message denied"}}</h1>
+            <p class="greeting">{{trans "%customer_name," customer_name=$order_data.customer_name}}</p>
+            <p>
+                {{trans "You recently placed an order with a message that had to be reviewed. Unfortunately, after reviewing your message we needed to decline it. We review all messages not previously approved to ensure they align with our community guidelines and are in the spirit of sharing. Unfortunately, we cannot feedback on the detail of why your bespoke request has been rejected."}}
+            </p>
+
+            <p>
+                <p>{{trans 'Order reference <span class="no-link">#%increment_id</span>' increment_id=$order.increment_id |raw}}</p>
+            </p>
+
+            {{layout handle="sales_email_order_message_denied" order=$order moderatedMessages=$order_data.moderatedMessages rejectionReason=$order_data.rejectionReason rejectionExplanation=$order_data.rejectionExplanation area="frontend"}}
+
+            <p>
+                {{trans "We will automatically refund your money. It should be in the account of your chosen payment method within 2-3 business days."}}
+            </p>
+            <p>{{trans "We are sorry your order did not go as planned but we hope to see and you are welcome to request an alternative bespoke pledge and/or name."}}</p>
+        </td>
+    </tr>
+
+    <tr class="email-information">
+        <td>
+            {{layout handle="sales_email_order_items" order=$order area="frontend"}}
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

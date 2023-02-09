@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="sidebar.additional" remove="true" />
+        <referenceBlock name="amazon.pay.password.reset" remove="true" />
+        <move element="page.main.title" destination="account.page.top" before="-" />
+        <referenceContainer name="content.top">
+            <container name="account.page.top" label="Top of Account Page" htmlTag="div" htmlClass="account-page-top" />
+        </referenceContainer>
+    </body>
+</page>

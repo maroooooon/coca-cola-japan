@@ -1,0 +1,16 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+?>
+<div id="personalized_product_options" class="personalized-product-options">
+    <?= $block->getChildHtml('', true) ?>
+    <?php if($cmsBlock = $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('personalized_product_pending_approval')->toHtml()): ?>
+        <div id="pending_approval" class="pending-approval">
+            <?= $cmsBlock; ?>
+        </div>
+    <?php endif; ?>
+    <input type="hidden" name="pending_approval" value="2" />
+</div>

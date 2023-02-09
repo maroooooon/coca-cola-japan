@@ -1,0 +1,23 @@
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .personalized-product-list {
+        .product-items {
+            font-size: unset;
+        }
+        .product-card {
+            margin-left: 0;
+            margin-right: auto;
+        }
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .personalized-product-list {
+        .product-card {
+            margin: 0 auto;
+        }
+    }
+}

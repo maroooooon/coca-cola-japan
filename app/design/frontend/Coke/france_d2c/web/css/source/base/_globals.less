@@ -1,0 +1,41 @@
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+    body {
+        font-family: @font-family-regular;
+        font-size: 1.6rem;
+        // Page Wrapper Force Full Height
+        .page-wrapper {
+            display: flex;
+            flex-direction: column;
+            main {
+                flex-grow: 1;
+            }
+        }
+
+        // Site Container
+        .container {
+            width: 1280px;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+    }
+    
+
+}
+//  Desktop
+//  _____________________________________________
+@media only screen and (min-width: @screen__m) {
+}
+//  Mobile
+//  _____________________________________________
+@media only screen and (max-width: @screen__m) {
+}
+
+// Fix pagebuilder on mobile
+@media only screen and (min-width: @screen__m ) and (max-width: @screen__m) {
+    .pagebuilder-mobile-hidden {
+        display: none;
+    }
+}

@@ -1,0 +1,51 @@
+//  Common
+& when (@media-common = true) {
+    .cms-faqs{
+        .page-title-wrapper{
+            max-width: @layout__max-width;
+            padding: 0 15px;
+            margin: auto;
+        }
+        h1{
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+        h2{
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 0;
+        }
+    }
+
+    ul.faq-nav{
+        list-style: none;
+        margin: 0;
+        padding: 15px;
+        font-size: 16px;
+        background: @coke-light-gray;
+        li{
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+        a{
+            color: @coke-primary;
+            &.active{
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+// Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .cms-faqs{
+        h1{
+            font-size: 40px;
+        }
+    }
+}
+
+// Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+}

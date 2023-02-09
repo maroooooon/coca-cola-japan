@@ -1,0 +1,20 @@
+{
+  "name": "Coca-Cola Delivery",
+  "short_name": "Coca-Cola Delivery",
+  "start_url": "https://delivery.coca-cola.eg/",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "Coca-Cola Delivery",
+  "icons": [
+      {
+        "src": "../images/manifest/coke_icon_96.png",
+        "sizes": "96x96",
+        "type": "image/png"
+      },
+      {
+        "src": "../images/manifest/coke_icon_144.png",
+        "sizes": "144x144",
+        "type": "image/png"
+      }
+  ]
+}

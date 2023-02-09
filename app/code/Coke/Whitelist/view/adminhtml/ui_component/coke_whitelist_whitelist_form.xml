@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">coke_whitelist_whitelist_form.coke_whitelist_whitelist_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Whitelist Item Information</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">coke_whitelist_whitelist_form</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="save_and_continue" class="Coke\Whitelist\Block\Adminhtml\Whitelist\Edit\SaveAndContinueButton"/>
+            <button name="save" class="Coke\Whitelist\Block\Adminhtml\Whitelist\Edit\SaveButton"/>
+            <button name="delete" class="Coke\Whitelist\Block\Adminhtml\Whitelist\Edit\DeleteButton"/>
+            <button name="back" class="Coke\Whitelist\Block\Adminhtml\Whitelist\Edit\BackButton"/>
+        </buttons>
+        <deps>
+            <dep>coke_whitelist_whitelist_form.coke_whitelist_whitelist_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="coke_whitelist_whitelist_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="coke_whitelist/manage/save"/>
+        </settings>
+        <dataProvider class="Coke\Whitelist\Model\WhitelistDataProvider" name="coke_whitelist_whitelist_form_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="whitelist_item_details">
+        <settings>
+            <label translate="true">Whitelist Item Details</label>
+            <collapsible>false</collapsible>
+        </settings>
+        <field name="type_id" formElement="select">
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Whitelist Type</label>
+                <dataScope>type_id</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Coke\Whitelist\Model\Source\WhitelistType"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="value" formElement="textarea">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">coke_whitelist_item</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <dataScope>value</dataScope>
+                <visible>true</visible>
+                <label translate="true">Value</label>
+                <notice translate="true">The whitelisted value.</notice>
+            </settings>
+        </field>
+        <field name="status" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">coke_whitelist_item</item>
+                    <item name="default" xsi:type="number">1</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">false</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Status</label>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Coke\Whitelist\Model\Source\Status"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="store_id" formElement="select">
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Available In</label>
+                <dataScope>store_id</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Magento\Store\Model\System\Store"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+    </fieldset>
+</form>

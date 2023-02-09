@@ -1,0 +1,30 @@
+<?php
+/**
+ * @var \Magento\Catalog\Block\Product\View $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+$product = $block->getProduct();
+?>
+
+<div id="add-additional-line-wrap" class="add-additional-line-wrap">
+    <a href="javascript:void(0)"
+       id="add-additional-line"
+       class="add-additional-line">
+        <span class="add"><?= $escaper->escapeHtml(__('Add Another Line +')) ?></span>
+        <span class="remove"><?= $escaper->escapeHtml(__('Remove Line')) ?></span>
+    </a>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#add-additional-line": {
+            "Coke_Whitelist/js/add-additional-line": {
+                "addAdditionalLineSelector": "#add-additional-line",
+                "targetFieldSelector": ".phrase.line-1",
+                "targetInputSelector": ".phrase.line-1 .input-text",
+                "label_pos_offset": "<?= $product->getData('label_pos_offset'); ?>",
+                "label_max_width": "<?= $product->getData('label_max_width'); ?>"
+            }
+        }
+    }
+</script>

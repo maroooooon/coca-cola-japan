@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright © 2016 Magento. All rights reserved.
+* See COPYING.txt for license details.
+*/
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Remove -->
+        <referenceBlock name="report.bugs" remove="true"/>
+        <referenceBlock name="header.panel" remove="true"/>
+        <referenceBlock name="footer-container" remove="true"/>
+        <referenceBlock name="header-wrapper" remove="true" />
+        <referenceBlock name="top.links" remove="true" />
+        <referenceBlock name="skip_to_content.target" remove="true" />
+        <referenceBlock name="catalog.compare.sidebar" remove="true" />
+        <referenceBlock name="advanced-search-link" remove="true" />
+        <referenceBlock name="authentication-popup" remove="false" />
+
+        <!-- Move -->
+        <move element="top.search" destination="site-header" after="-" />
+        <move element="minicart" destination="site-header" after="-" />
+
+        <referenceContainer name="page.wrapper">
+            <!-- Promo bar -->
+            <block class="Magento\Framework\View\Element\Template" name="site-promo" template="Magento_Theme::html/promo.phtml" before="site-header" />
+            <!-- Header -->
+            <block class="Magento\Framework\View\Element\Template" name="site-header" template="Magento_Theme::html/header.phtml" before="-">
+                <block class="Magento\Framework\View\Element\Template" name="site-navigation" template="Magento_Theme::html/header/navigation.phtml" before="-">
+                    <arguments>
+                        <argument name="viewModel" xsi:type="object">Coke\France\ViewModel\Data</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Framework\View\Element\Template" name="site-navigation-dropdown" template="Magento_Theme::html/header/dropdown.phtml" after="-">
+                    <arguments>
+                        <argument name="viewModel" xsi:type="object">Coke\France\ViewModel\Data</argument>
+                    </arguments>
+			    </block>
+            </block>
+            <block class="Magento\Framework\View\Element\Template" name="mobile-search" template="Magento_Theme::html/header/mobile-search.phtml" after="site-header" />
+            <!-- Search -->
+            <referenceBlock name="top.search" template="Magento_Theme::html/header/search.phtml" />
+
+            <!-- Footer -->
+            <block class="Magento\Framework\View\Element\Template" name="site-footer" template="Magento_Theme::html/footer.phtml" after="main">
+                <block class="Magento\Cms\Block\Block" name="left">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer-links-left</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Cms\Block\Block" name="right">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer-links-right</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Cms\Block\Block" name="bottom">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer-bottom</argument>
+                    </arguments>
+                </block>
+                <container name="footer-extra" label="Footer Extra" />
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,32 @@
+.back-link {
+  display: none;
+
+  @media (min-width: @bp-md-min) {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 75px;
+  }
+
+  &.sticky {
+    @media (min-width: @bp-md-min) {
+      position: sticky;
+    }
+  }
+
+  .wrapper {
+    font-size: @size-text-sm;
+
+    a {
+      position: absolute;
+      top: @section-pad-xs;
+      left: @grid-gutter;
+      ._link-black();
+
+      i {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}

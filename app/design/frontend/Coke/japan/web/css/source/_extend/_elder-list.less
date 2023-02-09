@@ -1,0 +1,214 @@
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+    .customer-elders-index {
+        // Main Column
+        .column.main {
+            height: 100%;
+            padding-bottom: 0;
+            margin-bottom: 2rem;
+        }
+        // Table Actions
+        .table-actions {
+            display: flex;
+            align-items: center;
+            // Clear Filter
+            .clear-filter {
+                button {
+                    background: @color-red;
+                    border: @color-red;
+                    span {
+                        white-space: nowrap;
+                    }
+                }
+            }
+            // Search
+            .elder-search {
+                position: relative;
+                display: flex;
+                input {
+                    padding-right: 4rem;
+                }
+                button {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    width: 4rem;
+                    height: 4rem;
+                    padding: 0;
+                    border-radius: 0;
+                    background: none;
+                    border: none;
+                    box-shadow: none;
+                    svg {
+                        width: 2rem;
+                        height: 2rem;
+                    }
+                }
+            }
+        }
+        #elder-listing {
+            position: relative;
+            width: 100%;
+            height: auto;
+            background: @color-white;
+            border-radius: @border-radius;
+            box-shadow: @box-shadow-1;
+
+            // Loader
+            .elder-loader {
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 30rem;
+                background: @color-white;
+                border-radius: @border-radius;
+                .spinner {
+                    width: 5rem;
+                    height: 5rem;
+                    border: solid 0.5rem transparent;
+                    border-top-color: @color-blue;
+                    border-left-color: @color-blue;
+                    border-radius: 50%;
+                    animation: spin 400ms linear infinite;
+                }
+            }
+
+            // Table
+            .elder-table {
+                border-radius: @border-radius;
+                height: 100%;
+                .tabulator-col-content {
+                    padding: 1.5rem 1rem;
+                }
+                .tabulator-cell {
+                    display: flex;
+                    align-items: center;
+                    padding: 0 1rem;
+                    line-height: auto;
+                    height: 5rem;
+                    // Button
+                    a {
+                        display: block;
+                        color: @color-white;
+                        background: @color-blue;
+                        border-radius: @border-radius;
+                        padding: 0.5rem 1rem;
+                        line-height: 1;
+                        text-decoration: none;
+                        transition: all 0.33s ease;
+                        box-shadow: @box-shadow-1;
+                        &:hover {
+                            background: darken(@color-blue, 5%);
+                        }
+                    }
+                }
+                .tabulator-row.tabulator-selectable:hover {
+                    background: @border-color;
+                }
+                // Footer
+                .tabulator-footer {
+                    padding: 1rem;
+                    border-top: none;
+                    //Pagination
+                    .tabulator-paginator {
+                        button {
+                            color: @color-dark;
+                            background: @color-grey;
+                            border-color: @color-grey;
+                            box-shadow: none;
+                            &.active {
+                                background: @color-blue;
+                                border-color: @color-blue;
+                                color: @color-white;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // No Elders Found
+            .no-results {
+                text-align: center;
+                p {
+                    font-size: 1.5rem;
+                }
+                button {
+                    color: @color-white;
+                    background: @color-blue;
+                    border-color: @color-blue;
+                    box-shadow: none;
+                }
+            }
+        }
+        // Table
+    }
+}
+
+//  Desktop
+//  _____________________________________________
+@media only screen and (min-width: @screen__m) {
+    .customer-elders-index {
+        // Clear Filter
+        .clear-filter {
+            margin: 0 20px;
+            button {
+                background: @color-red;
+                border: @color-red;
+                span {
+                    white-space: nowrap;
+                }
+            }
+        }
+        // Search
+        .elder-search {
+            input {
+                width: 20rem;
+            }
+        }
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+@media only screen and (max-width: @screen__m) {
+    .customer-elders-index {
+        .table-actions {
+            width: 100%;
+            margin-bottom: 2rem;
+            .clear-filter {
+                margin-right: 1rem;
+            }
+            .elder-search {
+                flex-grow: 1;
+                input {
+                    width: 100%;
+                }
+            }
+        }
+        #elder-listing {
+            .elder-table {
+                // Footer
+                .tabulator-footer {
+                    border-top: none;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <coke_europe>
+            <general>
+                <sugar_tax_enabled>0</sugar_tax_enabled>
+            </general>
+        </coke_europe>
+    </default>
+    <websites>
+        <coke_uk>
+            <coke_europe>
+                <general>
+                    <sugar_tax_enabled>1</sugar_tax_enabled>
+                </general>
+            </coke_europe>
+            <sales>
+                <totals_sort>
+                    <sugar_tax>36</sugar_tax>
+                </totals_sort>
+            </sales>
+        </coke_uk>
+    </websites>
+</config>

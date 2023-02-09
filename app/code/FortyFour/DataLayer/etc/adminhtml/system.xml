@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="google">
+            <group id="brand_datalayer" translate="label" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Brand Data Layer</label>
+                <field id="enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="0" translate="label comment" type="select">
+                    <label>Enabled</label>
+                    <comment>This enables data layer tracking on the PDP and PLP.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

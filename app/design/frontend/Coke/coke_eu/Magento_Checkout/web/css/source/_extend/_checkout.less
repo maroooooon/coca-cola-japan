@@ -1,0 +1,92 @@
+//  Common
+& when (@media-common = true) {
+    .checkout-index-index{
+        .header.content {
+            .header-right-wrapper{
+                display: none;
+            }
+        }
+
+        .step-title{
+            font-size: 16px;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            margin-top: 0;
+            border-color: lighten(@color-black, 50%);
+            border-bottom-width: 2px;
+        }
+
+        .opc-progress-bar{
+            margin-bottom: 40px;
+        }
+
+        .opc-progress-bar-item {
+            > span{
+                font-size: 16px;
+            }
+        }
+
+        .opc-block-summary{
+            background: @color-black;
+            color: @color-white;
+
+            .title {
+                font-size: 16px;
+                letter-spacing: .8px;
+                text-transform: uppercase;
+                color: @color-white;
+
+                strong {
+                    font-size: 16px;
+                }
+            }
+
+            .items-in-cart {
+                > .title{
+                    strong{
+                        font-size: 16px;
+                    }
+                    &:after{
+                        top:14px
+                    }
+                }
+            }
+
+        }
+
+        .shipping-information-title{
+            font-size: 16px;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+
+        .form-shipping-address{
+            .field{
+                .button{
+                    margin-top: 15px;
+                }
+            }
+        }
+
+        .opc{
+            a{
+                color: @color-black;
+            }
+        }
+    }
+}
+
+// Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .checkout-index-index{
+        .header.content {
+            display: block;
+        }
+    }
+}
+
+
+// Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+}

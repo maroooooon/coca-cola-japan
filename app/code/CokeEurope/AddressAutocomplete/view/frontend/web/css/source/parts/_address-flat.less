@@ -1,0 +1,44 @@
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+    .fieldset > .field.required > .label.not-required:after,
+    .fieldset > .fields > .field.required > .label.not-required:after,
+    .fieldset > .field._required > .label.not-required:after,
+    .fieldset > .fields > .field._required > .label.not-required:after {
+        content: "";
+    }
+    .fieldset > .field .additionalabove,
+    .fieldset > .fields > .field .additionalabove {
+        margin-bottom: 10px;
+    }
+}
+
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .fieldset > .field.required > .label.not-required:after,
+    .fieldset > .fields > .field.required > .label.not-required:after,
+    .fieldset > .field._required > .label.not-required:after,
+    .fieldset > .fields > .field._required > .label.not-required:after {
+        content: "";
+    }
+    .fieldset > .field .additionalabove,
+    .fieldset > .fields > .field .additionalabove {
+        margin-bottom: 10px;
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .fieldset > .field.required > .label.not-required:after,
+    .fieldset > .fields > .field.required > .label.not-required:after,
+    .fieldset > .field._required > .label.not-required:after,
+    .fieldset > .fields > .field._required > .label.not-required:after {
+        content: "";
+    }
+    .fieldset > .field .additionalabove,
+    .fieldset > .fields > .field .additionalabove {
+        margin-bottom: 10px;
+    }
+}

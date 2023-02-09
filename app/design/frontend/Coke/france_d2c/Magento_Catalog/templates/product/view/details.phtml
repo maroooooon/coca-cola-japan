@@ -1,0 +1,15 @@
+<?php $product = $block->getProduct(); ?>
+<div class="product-details">
+    <div class="details-top">
+        <?= $this->getChildHtml('page.main.title'); ?>
+        <?= $this->getChildHtml('product.info.price'); ?>
+    </div>
+    <?php if($product->getSubtitle()): ?>
+    <div class="subtitle">
+        <span><?= __($product->getSubtitle()); ?></span>
+    </div>
+    <?php endif; ?>
+    <div class="details-bottom">
+        <?= $product->getShortDescription(); ?>
+    </div>
+</div>

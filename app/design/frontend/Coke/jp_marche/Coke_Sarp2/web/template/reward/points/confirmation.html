@@ -1,0 +1,17 @@
+<div class="reward-points-confirmation-content">
+    <h3 class="heading" data-bind="i18n: 'Apply Reward Points'"></h3>
+    <p data-bind="i18n: 'Are you sure you want to apply reward points to your order? Subsequent orders will not have reward points applied and will be charged for the full amount.'"></p>
+    <div class="actions">
+        <div class="primary">
+            <a href="#" class="action primary apply-points" data-bind="click: useRewardPoints">
+                <span data-bind="i18n: 'Yes'"></span>
+            </a>
+        </div>
+        <div class="secondary">
+            <a href="#"
+               class="action secondary close-modal" data-bind="click: closeModal">
+                <span data-bind="i18n: 'No'"></span>
+            </a>
+        </div>
+    </div>
+</div>

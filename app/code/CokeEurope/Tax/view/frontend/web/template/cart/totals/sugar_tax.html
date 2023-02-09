@@ -1,0 +1,11 @@
+<!-- ko if: isSugarTaxEnabled() -->
+<tr class="totals sugartax excl">
+    <th class="mark" scope="row" data-bind="text: title"></th>
+    <td class="amount">
+        <span class="price" data-bind ="text: getSugarTaxAmount(), attr:{'data-label': title}"></span>
+        <!-- ko foreach: elems() -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!-- /ko -->
+    </td>
+</tr>
+<!-- /ko -->

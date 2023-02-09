@@ -1,0 +1,26 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ * @var $block \Magento\Framework\View\Element\Template
+ * @var $config \CokeEurope\DataLayer\ViewModel\Data
+ */
+$config = $block->getDatalayerConfig();
+$GTM_ID = $config->getGtmId();
+?>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "CokeEuropeDataLayer": {
+                "checkoutProducts": <?= $config->getCheckoutProducts(); ?>,
+                "currencyCode": "<?= $config->getCurrencyCode(); ?>"
+            }
+        }
+    }
+</script>
+
+<!-- Google Tag Manager (noscript) (garrett) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?= $GTM_ID; ?>"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->

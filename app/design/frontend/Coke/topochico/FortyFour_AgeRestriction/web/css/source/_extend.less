@@ -1,0 +1,54 @@
+& when (@media-common = true) {
+    #age-restriction-verify-age{
+        .no-calendar{
+            .actions{
+                display: flex;
+                .action{
+                    &.primary{
+                        background: @color-white;
+                        color: @coke-green-dark;
+                    }
+                    &.focused {
+                        background: @coke-yellow;
+                        border-color: @coke-yellow;
+                        color: @coke-green-dark;
+                        &:hover{
+                            background: @color-white;
+                            color: @coke-green-dark;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    #age-restriction-verify-age{
+        .no-calendar{
+            .actions{
+                flex-wrap: nowrap;
+                .action{
+                    margin: 0 10px;
+                    flex: 1 0 50%;
+                }
+            }
+        }
+    }
+}
+
+// mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    #age-restriction-verify-age{
+        .no-calendar{
+            .actions{
+                flex-wrap: wrap;
+                .action{
+                    margin: 0 0 20px;
+                    flex: 1 0 100%;
+                }
+            }
+        }
+    }
+}

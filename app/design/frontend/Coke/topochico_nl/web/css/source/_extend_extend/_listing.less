@@ -1,0 +1,68 @@
+.category-topo-chico {
+    .page-header,
+    .page-footer,
+    .global-top-banner {
+        background: @coke-yellow;
+    }
+
+    .page-header {
+        .navigation .level0 > .level-top {
+            color: @coke-green-dark;
+        }
+    }
+
+    .global-top-banner {
+        color: @coke-green-dark;
+    }
+
+    .page-footer {
+        a,
+        .footer-service {
+            color: @coke-green-dark;
+        }
+
+        .footer-links-container {
+            border-bottom: 1px solid @coke-green-dark;
+        }
+
+        .footer-links-container,
+        .footer-service-links,
+        .footer-cards {
+            li{
+                &:not(:last-child){
+                    &:after{
+                        background: @coke-green-dark;
+                    }
+                }
+            }
+        }
+
+        .footer-social ul:before {
+            color: @coke-green-dark;
+            border-left: 1px solid @coke-green-dark;
+        }
+    }
+
+    .product-item-details {
+        text-align: center;
+    }
+
+    .product-item-inner  {
+        .action.tocart {
+            background: @coke-green-dark;
+            border-radius: unset;
+            border: none;
+            padding: 12px 15px;
+
+            span {
+                font-size: 12px;
+                text-transform: uppercase;
+            }
+        }
+
+        .action.towishlist::before {
+            font-size: 45px;
+            color: @coke-green-dark;
+        }
+    }
+}

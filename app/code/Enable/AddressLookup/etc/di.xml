@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Enable\AddressLookup\Api\LookupInterface" type="Enable\AddressLookup\Model\Lookup"/>
+    <preference for="Enable\AddressLookup\Api\AutocompleteInterface" type="Enable\AddressLookup\Model\Autocomplete"/>
+</config>

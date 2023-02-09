@@ -1,0 +1,30 @@
+<?php
+/**
+ * @var Magento\Framework\View\Element\Template $block
+ */
+?>
+
+<div class="block block-quick-links">
+    <div class="block-title">
+        <strong><?= /* @noEscape */ __('Quick Links'); ?></strong>
+    </div>
+    <nav>
+        <ul>
+            <li>
+                <a href="/company/order/history" title='<?= __('Order History'); ?>'>
+                    <button><?= /* @noEscape */ __('Order History'); ?></button>
+                </a>
+            </li>
+            <li>
+                <a href="/company/elder/listing" title='<?= __('Elder Listing'); ?>'>
+                    <button><?= /* @noEscape */ __('Elder Listing'); ?></button>
+                </a>
+            </li>
+            <li>
+                <a href="/company/elder/create" title='<?= __('Add New Elder'); ?>'>
+                    <button><?= /* @noEscape */ __('Add New Elder'); ?></button>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

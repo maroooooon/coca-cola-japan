@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright © 2016 Magento. All rights reserved.
+* See COPYING.txt for license details.
+*/
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Remove -->
+        <referenceBlock name="report.bugs" remove="true"/>
+        <referenceBlock name="header.panel" remove="true"/>
+        <referenceBlock name="footer-container" remove="true"/>
+        <referenceBlock name="header-wrapper" remove="true" />
+        <referenceBlock name="top.links" remove="true" />
+        <referenceBlock name="skip_to_content.target" remove="true" />
+        <referenceBlock name="page.top" remove="true" />
+        <referenceBlock name="catalog.compare.sidebar" remove="true" />
+        <referenceBlock name="authentication-popup" remove="false" />
+
+        <referenceContainer name="root">
+            <!-- Drawer -->
+            <block class="Magento\Framework\View\Element\Template" name="site-drawer" template="Magento_Theme::html/drawer.phtml" before="page.wrapper">
+                <block class="Magento\Theme\Block\Html\Header\Logo" name="logo-drawer" template="Magento_Theme::html/logo.phtml" />
+                <block class="Magento\Theme\Block\Html\Header" name="drawer-account-links" template="Magento_Theme::html/drawer/account-links.phtml" />
+                <block class="Magento\Framework\View\Element\Template" name="drawer-language-changer" template="Magento_Theme::html/drawer/language-changer.phtml">
+                    <arguments>
+                        <argument name="view_model" xsi:type="object">Coke\OLNB\ViewModel\LanguageChanger</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
+
+        <referenceContainer name="page.wrapper">
+            <!-- Promo bar -->
+            <block class="Magento\Framework\View\Element\Template" name="site-promo" template="Magento_Theme::html/promo.phtml" before="site-header" />
+            <!-- Header -->
+            <block class="Magento\Framework\View\Element\Template" name="site-header" template="Magento_Theme::html/header.phtml" before="-">
+                <block class="Magento\Theme\Block\Html\Header\Logo" name="logo-header" template="Magento_Theme::html/logo.phtml" />
+                <block class="Magento\Framework\View\Element\Template" name="language-changer" template="Magento_Theme::html/header/language-changer.phtml">
+                    <arguments>
+                        <argument name="view_model" xsi:type="object">Coke\OLNB\ViewModel\LanguageChanger</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Framework\View\Element\Template" name="account-icon" template="Magento_Theme::html/header/account-icon.phtml" />
+                <block class="Magento\Framework\View\Element\Template" name="drawer-icon" template="Magento_Theme::html/header/drawer-icon.phtml" />
+            </block>
+
+            <!-- Footer -->
+            <block class="Magento\Framework\View\Element\Template" name="site-footer" template="Magento_Theme::html/footer.phtml" after="main">
+                <block class="Magento\Theme\Block\Html\Header\Logo" name="logo-footer" template="Magento_Theme::html/logo.phtml" />
+                <!--<block class="Magento\Framework\View\Element\Template" name="links-left" template="Magento_Theme::html/footer/links-left.phtml" />-->
+                <block class="Magento\Cms\Block\Block" name="links-left">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer-links-left</argument>
+                    </arguments>
+                </block>
+                <!--<block class="Magento\Framework\View\Element\Template" name="links-right" template="Magento_Theme::html/footer/links-right.phtml" />-->
+                <block class="Magento\Cms\Block\Block" name="links-right">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer-links-right</argument>
+                    </arguments>
+                </block>
+                <!--<block class="Magento\Framework\View\Element\Template" name="service" template="Magento_Theme::html/footer/service.phtml" />-->
+                <block class="Magento\Cms\Block\Block" name="service">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer-service</argument>
+                    </arguments>
+                </block>
+                <!--<block class="Magento\Framework\View\Element\Template" name="social-icons" template="Magento_Theme::html/footer/social-icons.phtml" />-->
+                <block class="Magento\Cms\Block\Block" name="social-icons">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer-social-icons</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Theme\Block\Html\Footer" name="copyright" template="html/footer/copyright.phtml"/>
+                <container name="footer-extra" label="Footer Extra" />
+            </block>
+        </referenceContainer>
+
+        <referenceContainer name="footer-extra">
+            <block class="Coke\OLNB\Block\StoreSwitcher"
+                   name="store_switcher"
+                   as="store_switcher"
+                   template="Magento_Store::switch/stores.phtml"
+                   ifconfig="olnb/frontend/show_store_switcher" />
+        </referenceContainer>
+
+        <move element="minicart" destination="site-header" after="-" />
+        <!-- <move element="breadcrumbs" destination="main.container" before="-" /> -->
+    </body>
+</page>

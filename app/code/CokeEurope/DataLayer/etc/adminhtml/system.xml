@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<section id="coke_europe" sortOrder="999" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+			<tab>Coke</tab>
+			<group id="datalayer" sortOrder="1" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+				<label>GTM DataLayer</label>
+				<field id="enabled" type="select" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Enabled</label>
+					<comment>Select yes to enable GTM DataLayer tracking for this store view.</comment>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="gtm_id" type="text" sortOrder="30" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>GTM ID</label>
+					<comment>Please enter your GTM ID</comment>
+					<depends>
+						<field id="coke_europe/datalayer/enabled">1</field>
+					</depends>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

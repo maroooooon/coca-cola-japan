@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="coke_catalog" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="400" translate="label">
+            <label>Catalog</label>
+            <tab>Coke</tab>
+            <resource>Magento_Backend::admin</resource>
+            <group id="pricing" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+                <label>Pricing</label>
+                <field id="show_decimals" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Show Price Decimals</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If this is disabled, price decimal places are hidden on the frontend of the site.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

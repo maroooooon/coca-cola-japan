@@ -1,0 +1,23 @@
+<!--@subject {{trans "%store_name: There is a problem with your scheduled flight" store_name=$store.frontend_name}} @-->
+<!--@vars {
+"var customer.name":"Customer Name"
+"var secureLink":"Secure Link"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">{{trans "%name," name=$customer.name}}</p>
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>
+            <p>{{trans "There was a problem with subscription profile #%incrementProfileId" incrementProfileId=$incrementProfileId}}</p>
+            <p>{{trans 'Sorry to trouble you, but please check <a href="%secureLink">Regular flights on My Page</a>.' secureLink=$secureLink|raw}}</p>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

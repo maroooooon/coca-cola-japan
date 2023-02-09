@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="shipping_address_restriction" sortOrder="9991" translate="label">
+            <label>Shipping Address Restriction</label>
+        </tab>
+        <section id="shipping_address_restriction" translate="label" type="text" sortOrder="350" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Settings</label>
+            <tab>shipping_address_restriction</tab>
+            <resource>FortyFour_ShippingAddressRestriction::shipping_address_restriction</resource>
+            <group id="general" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                <label>General</label>
+                <field id="enabled" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10" translate="label" type="select">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="city_region" sortOrder="20" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>City/Region</label>
+                <field id="apply_to_region" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="1" translate="label" type="select">
+                    <label>Update the region field(s)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Set this to no if you only want to update the city field.</comment>
+                </field>
+                <field id="allowed_city_region_list" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Allowed Cities and Regions</label>
+                    <frontend_model>FortyFour\ShippingAddressRestriction\Block\Adminhtml\Form\Field\CityRegionList</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment>Enter each Region/Province on a new line.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

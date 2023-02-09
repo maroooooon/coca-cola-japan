@@ -1,0 +1,36 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ * @var $viewModel \Coke\PersonalizedProduct\ViewModel\Product\Personalization
+ */
+$viewModel = $block->getViewModel();
+$steps = $viewModel->getStepsConfig();
+?>
+
+<div class="personalized-product-steps">
+    <div class="progress-step progress-step--1 active" data-step="1">
+        <strong class="step-title">
+            <?= __($steps[1]['bar_title']); ?>
+        </strong>
+        <span class="step-description">
+            <?= __($steps[1]['bar_description']); ?>
+        </span>
+    </div>
+    <div class="progress-step progress-step--2" data-step="2">
+        <strong class="step-title">
+            <?= __($steps[2]['bar_title']); ?>
+        </strong>
+        <span class="step-description">
+            <?= __($steps[2]['bar_description']); ?>
+        </span>
+    </div>
+    <div class="progress-step progress-step--3" data-step="3">
+        <strong class="step-title">
+            <?= __($steps[3]['bar_title']); ?>
+        </strong>
+        <span class="step-description">
+            <?= __($steps[3]['bar_description']); ?>
+        </span>
+    </div>
+</div>

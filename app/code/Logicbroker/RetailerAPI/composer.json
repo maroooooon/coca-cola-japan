@@ -1,0 +1,17 @@
+{
+    "name": "logicbroker/dropship-edi",
+    "description": "Dropship connector for the Logicbroker API.",
+    "type": "magento2-module",
+    "version": "1.1.1",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "require": {
+      "php": "~5.5.0|~5.6.0|~7.0.0|~7.1.0|~7.2.0"
+    },
+    "autoload": {
+	  "psr-4": { "Logicbroker\\RetailerAPI\\": "" },
+      "files": [ "registration.php" ]
+    }
+}

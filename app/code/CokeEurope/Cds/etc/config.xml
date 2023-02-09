@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <coke_europe>
+            <cds>
+                <magento_send_welcome_email>false</magento_send_welcome_email>
+            </cds>
+        </coke_europe>
+    </default>
+    <websites>
+        <coke_eu>
+            <coke_europe>
+                <cds>
+                    <magento_send_welcome_email>true</magento_send_welcome_email>
+                </cds>
+            </coke_europe>
+        </coke_eu>
+        <coke_uk>
+            <coke_europe>
+                <cds>
+                    <magento_send_welcome_email>true</magento_send_welcome_email>
+                </cds>
+            </coke_europe>
+        </coke_uk>
+    </websites>
+</config>

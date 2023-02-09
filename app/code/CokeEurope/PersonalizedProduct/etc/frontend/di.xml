@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<type name="Magento\ConfigurableProduct\Block\Product\View\Type\Configurable">
+		<plugin name="CokeEurope_PersonalizedProduct_Plugin_Configurable" type="CokeEurope\PersonalizedProduct\Plugin\Configurable" sortOrder="10" disabled="false"/>
+	</type>
+	<type name="Magento\Checkout\Controller\Cart\Add">
+		<plugin name="CokeEurope_PersonalizedProduct_Plugin_AddToCartMessage" type="CokeEurope\PersonalizedProduct\Plugin\AddToCartMessage" sortOrder="10" disabled="false"/>
+	</type>
+    <type name="Magento\Wishlist\Helper\Data">
+        <plugin name="afterGetProductUrl" type="CokeEurope\PersonalizedProduct\Plugin\WishlistEmailPlugin"/>
+    </type>
+
+    <!-- Rewrite Configurable Helper Data -->
+    <preference for="Magento\ConfigurableProduct\Helper\Data" type="CokeEurope\PersonalizedProduct\Rewrite\ConfigurableProduct\Helper\Data" />
+</config>

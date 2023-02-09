@@ -1,0 +1,119 @@
+<?php
+/* @var $block \Aheadworks\Sarp2\Block\Customer\Subscriptions\Edit\Address */
+/* @var $billingAddressViewModel \Coke\Sarp2\ViewModel\BillingAddress */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+$billingAddressViewModel = $block->getBillingAddressViewModel();
+$profile = $block->getProfile();
+$billingAddress = $profile->getBillingAddress();
+$newAddressTitle = __('+ New Invoice Address');
+$saveAddressTitle = __('Save Address');
+$title =  __('Back');
+?>
+<div class="aw-sarp2__actions">
+    <button data-role="aw-sarp2-back-link"
+            type="button"
+            class="action back-btn-add"
+            title="<?= $block->escapeHtml($title) ?>">
+        <span><?= $block->escapeHtml($title) ?></span>
+    </button>
+</div>
+<div class="aw-sarp2__address-form">
+    <fieldset class="fieldset">
+        <legend class="legend">
+            <span><?= $block->escapeHtml(__('Current Invoice Address')) ?></span>
+        </legend>
+        <div class="aw-sarp2__current-address">
+            <?php if ($billingAddress): ?>
+                <?= /* @noEscape */ $block->getFormattedAddress($billingAddress) ?>
+            <?php else: ?>
+                <?= /* @noEscape */ $block->escapeHtml(__('Not Selected')) ?>
+            <?php endif; ?>
+        </div>
+    </fieldset>
+    <form class="form validate"
+          action="<?= $block->escapeUrl($block->getSaveUrl($profile->getProfileId())) ?>"
+          method="post"
+          id="form-validate"
+          data-mage-init='{"validation":{}}'>
+        <fieldset class="fieldset">
+            <?= $block->getBlockHtml('formkey') ?>
+            <div class="field customer-address required">
+                <select id="customer_address_id"
+                        title="<?= $block->escapeHtml(__('Customer Invoice Address')) ?>"
+                        name="customer_address_id"
+                        class="validate-select">
+                    <?php foreach ($block->getCustomerBillingAddress() as $addressId => $address): ?>
+                        <option value="<?= /* @noEscape */ $addressId ? : '' ?>">
+                            <?= $block->escapeHtml($address) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <button type="submit"
+                    class="action primary"
+                    title="<?= $block->escapeHtml($saveAddressTitle) ?>">
+                <span><?= $block->escapeHtml($saveAddressTitle) ?></span>
+            </button>
+        </fieldset>
+    </form>
+</div>
+<div class="actions-toolbar">
+    <button data-role="aw-sarp2-add-address"
+            type="button"
+            class="action back-btn-add fl-right"
+            title="<?= $block->escapeHtml($newAddressTitle) ?>">
+        <span><?= $block->escapeHtml($newAddressTitle) ?></span>
+    </button>
+</div>
+<style>
+    button.action.secondary{
+        display: none;
+    }
+    .back-btn-add{
+        background: #333333;
+        border: 1px solid #333333;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: 500;
+        margin: 0;
+        padding: 7px 15px;
+        font-size: 1.6rem;
+        line-height: 1.8rem;
+        box-sizing: border-box;
+        vertical-align: middle;
+        border-radius: 50px;
+        padding: 15px 25px;
+        font-size: 16px;
+        line-height: 1;
+        text-decoration: none;
+        text-align: center;
+        font-weight: 700;
+    }
+    .back-btn-add:hover{
+        background: #300000;
+        border: 1px solid #300000;
+        color: #fff;
+    }
+    .fl-right{
+        float: right;
+    }
+</style>
+<script type="text/x-magento-init">
+{
+    "[data-role=aw-sarp2-add-address]": {
+        "awSarp2ButtonControl": {
+            "newLocation": <?php /* @noEscape */ echo $block->jsonEncode($billingAddressViewModel->getAddAddressUrl()) ?>
+        }
+    },
+     "[data-role=aw-sarp2-back-link]": {
+            "awSarp2ButtonControl": {
+                "newLocation": <?php /* @noEscape */ echo $block->jsonEncode($block->getBackUrl($profile->getProfileId())) ?>
+            }
+        }
+}
+</script>

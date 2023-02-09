@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="aw_sarp2">
+            <group id="general">
+                <field id="set_shipping_address_to_order" translate="label" type="select" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Set Shipping Method on Address to Order Conversion</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>This is to address the bug where orders created by subscriptions would fail due to having invalid shipping methods.</comment>
+                </field>
+                <field id="free_shipping_subscriptions" translate="label" type="select" sortOrder="17" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Free Shipping for Subscriptions</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If a subscription product is found in the cart, apply free shipping?</comment>
+                </field>
+            </group>
+            <group id="subscription_editing">
+                <field id="can_skip_next_payment_date" translate="label" type="select" sortOrder="31" showInDefault="1" showInWebsite="1">
+                    <label>Allow Skipping Next Payment Date</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="force_login" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Force Login</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If enabled, the user will be redirected back to cart when trying to checkout if not logged in.</comment>
+                </field>
+                <field id="message" translate="label" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Message</label>
+                    <comment><![CDATA[
+                        <p><small>This message will show to the user if they are redirect to the cart.<small></p>
+                        <p><small>Allowed Variable(s):<small></p>
+                            <ul>
+                                <li><small><strong>{{url}}</strong> - Store URL (Example: https://coca-cola.com/)<small></li>
+                            </ul>
+                        ]]>
+                    </comment>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+            <group id="cancel_email_cron_setting" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Subscription Cancel Email Cron Setting</label>
+                <field id="cron_schedule" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Cron Schedule</label>
+                    <validate>validate-cron-expression</validate>
+                    <comment>Example: * * * * *</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

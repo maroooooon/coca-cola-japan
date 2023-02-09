@@ -1,0 +1,90 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .coke-faq-container {
+        .coke-faq-list {
+            > li {
+                float: right;
+                &:nth-child(2n) {
+                    clear: left;
+                }
+                &:nth-child(2n+1) {
+                    clear: right;
+                }
+            }
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .coke-faq-container {
+        .coke-faq-list {
+            > li {
+                &:nth-child(2n), &:nth-child(2n+1) {
+                    clear: none;
+                }
+                &:nth-child(3n) {
+                    clear: left;
+                }
+                &:nth-child(3n+1) {
+                    clear: right;
+                }
+            }
+        }
+    }
+
+    .coke-faq-container-items {
+        .coke-faq-content {
+            float:left;
+            padding-left:0;
+            padding-right: 2%;
+        }
+        .block-collapsible-nav {
+            float:right;
+        }
+    }
+}
+
+//
+//  Tablet
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .coke-faq-container {
+        .coke-faq-list {
+            > li {
+                float: right;
+                &:nth-child(2n) {
+                    clear: left;
+                }
+                &:nth-child(2n+1) {
+                    clear: right;
+                }
+            }
+        }
+    }
+
+    .coke-faq-container-items {
+        .coke-faq-content {
+            float:left;
+            padding-left:0;
+            padding-right: 2%;
+        }
+        .block-collapsible-nav {
+            float:right;
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+}

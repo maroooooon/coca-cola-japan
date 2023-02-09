@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <age_restriction>
+            <general>
+                <enabled>0</enabled>
+                <min_age>18</min_age>
+                <redirect_url_text>coca-cola.gr</redirect_url_text>
+                <redirect_url>https://www.coca-cola.gr/</redirect_url>
+            </general>
+            <cookie>
+                <lifetime>86400</lifetime>
+            </cookie>
+        </age_restriction>
+    </default>
+</config>

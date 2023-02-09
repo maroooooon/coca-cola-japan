@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
+    <update handle="1column"/>
+
+        <!-- Remove Breadcrumbs  -->
+        <referenceContainer name="page.top">
+            <referenceBlock name="breadcrumbs" remove="true" />
+        </referenceContainer>
+        <referenceContainer name="content">
+            <!-- Remove Sku -->
+            <referenceContainer name="product.info.stock.sku" remove="true" />
+            <!-- Remove Short Description  -->
+            <referenceBlock name="product.info.overview" remove="true" />
+            <!-- Remove AddTo Compare  -->
+            <referenceBlock name="view.addto.compare" remove="true" />
+            <!-- Remove Product Details (TEMPORARY) -->
+            <referenceBlock name="product.info.details" remove="true" />
+
+            <!-- Add custom font loader for personalized product label -->
+            <referenceContainer name="after.body.start">
+                <block class="Magento\Framework\View\Element\Template" name="personalized.product.font.loader"
+                    template="CokeEurope_PersonalizedProduct::font-loader.phtml" ifconfig="coke_europe/personalized_product/enabled" before="-">
+                    <arguments>
+                        <argument name="view_model" xsi:type="object">CokeEurope\PersonalizedProduct\ViewModel\Product\Personalization</argument>
+                    </arguments>
+                </block>
+            </referenceContainer>
+            <!-- Add containers for personalized product -->
+            <container name="personalized.product" htmlTag="section" htmlId="personalized_product"  htmlClass="section section--personalized-product" before="-">
+                <container name="personalized.product.image" htmlTag="div" htmlClass="personalized-product-column personalized-product-column--image" before="-" />
+                <container name="personalized.product.content" htmlTag="div" htmlClass="personalized-product-column personalized-product-column--content" after="-">
+                    <container name="personalized.product.top" htmlTag="div" htmlClass="personalized-product-top" before="-">
+                        <block class="Magento\Framework\View\Element\Template" name="personalized.product.steps"
+                            template="CokeEurope_PersonalizedProduct::steps.phtml" ifconfig="coke_europe/personalized_product/enabled">
+                            <arguments>
+                                <argument name="view_model" xsi:type="object">CokeEurope\PersonalizedProduct\ViewModel\Product\Personalization</argument>
+                            </arguments>
+                        </block>
+                    </container>
+                    <container name="personalized.product.middle" htmlTag="div" htmlClass="personalized-product-middle" after="personalized.product.top">
+                        <block class="Magento\Framework\View\Element\Template" name="personalized.product.instructions"
+                            template="CokeEurope_PersonalizedProduct::instructions.phtml" ifconfig="coke_europe/personalized_product/enabled">
+                            <arguments>
+                                <argument name="view_model" xsi:type="object">CokeEurope\PersonalizedProduct\ViewModel\Product\Personalization</argument>
+                            </arguments>
+                        </block>
+                    </container>
+                    <container name="personalized.product.bottom" htmlTag="div" htmlClass="personalized-product-bottom" after="-">
+                        <block class="Magento\Framework\View\Element\Template" name="personalized.product.controls"
+                                template="CokeEurope_PersonalizedProduct::controls.phtml" ifconfig="coke_europe/personalized_product/enabled">
+                            <arguments>
+                                <argument name="view_model" xsi:type="object">CokeEurope\PersonalizedProduct\ViewModel\Product\Personalization</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Catalog\Block\Product\View\Attributes" name="personalized.product.attributes" 
+                            template="CokeEurope_PersonalizedProduct::dynamic-attributes.phtml" ifconfig="coke_europe/personalized_product/enabled" />
+                    </container>
+                </container>
+            </container>
+            <!-- Custom Wishlist -->
+            <referenceBlock name="product.info.addto">
+                <referenceBlock name="view.addto.wishlist">
+                    <action method="setTemplate" ifconfig="coke_europe/personalized_product/enabled">
+                        <argument name="template" xsi:type="string">CokeEurope_PersonalizedProduct::product/view/wishlist.phtml</argument>
+                    </action>
+                </referenceBlock>
+            </referenceBlock>
+            <!-- Custom Product Options-->
+            <referenceBlock name="product.info.options.wrapper">
+                <action method="setTemplate" ifconfig="coke_europe/personalized_product/enabled">
+                    <argument name="template" xsi:type="string">CokeEurope_PersonalizedProduct::options.phtml</argument>
+                </action>
+                <referenceBlock name="product.info.options">
+                    <!-- Custom Option (Text) -->
+                    <action method="setChild">
+                        <argument name="alias" xsi:type="string">text</argument>
+                        <argument name="block" xsi:type="string">personalized.product.info.options.text</argument>
+                    </action>
+                    <block class="CokeEurope\PersonalizedProduct\Block\Product\View\Options\Type\Text" 
+                        name="personalized.product.info.options.text" 
+                        template="CokeEurope_PersonalizedProduct::options/text.phtml"
+                    />
+                </referenceBlock>
+            </referenceBlock>
+            <!-- How it Works Section -->
+            <block class="Magento\Framework\View\Element\Template" name="personalized.product.how.it.works"
+                template="CokeEurope_PersonalizedProduct::how-it-works.phtml" ifconfig="coke_europe/personalized_product/enabled" />
+            <!-- Inspiration Section -->
+            <block class="Magento\Cms\Block\Block" name="personalized.product.inspiration" ifconfig="coke_europe/personalized_product/enabled">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">personalized_product_inspiration</argument>
+                </arguments>
+            </block>
+            <!-- FAQ Section -->
+            <block class="Magento\Cms\Block\Block" name="personalized.product.faq" ifconfig="coke_europe/personalized_product/enabled">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">personalized_product_faq</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <!-- Add loader to product media -->
+        <referenceContainer name="product.info.media">
+            <block class="Magento\Framework\View\Element\Template" name="personalized.product.preview"
+                template="CokeEurope_PersonalizedProduct::preview.phtml" ifconfig="coke_europe/personalized_product/enabled" after="-" />
+        </referenceContainer>
+        <!-- Move elements to new containers -->
+        <move element="product.info.media" destination="personalized.product.image" before="-" />
+        <move element="page.main.title" destination="personalized.product.content" before="-" />
+        <move element="product.info.main" destination="personalized.product.content" />
+        <move element="personalized.product.top" destination="product.info.main" before="-" />
+        <move element="personalized.product.middle" destination="product.info.main" after="personalized.product.top" />
+        <move element="personalized.product.bottom" destination="product.info.main" after="-" />
+        <move element="product.info.price" destination="personalized.product.instructions" />
+        <move element="product.info" destination="personalized.product.middle" />
+        <move element="product.info.addto" destination="personalized.product.image" after="-" />
+
+        <!-- Add Custom Scripts -->
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Framework\View\Element\Template" 
+                name="personalized.product.scripts" template="CokeEurope_PersonalizedProduct::scripts.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">CokeEurope\PersonalizedProduct\ViewModel\Product\Personalization</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+</layout>

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <move element="product.info.overview" destination="product.info.main" before="product.info"/>
+        <move element="product.info.description" destination="content" before="product.info.details"/>
+        <referenceBlock name="product.info.sku" remove="true"/>
+        <referenceContainer name="page.top">
+            <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.personalized-header-steps" template="Magento_Catalog::product/view/attribute.phtml" after="breadcrumbs">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">getPersonalizedBottleHeaderSte</argument>
+                    <argument name="at_code" xsi:type="string">personalized_bottle_header_ste</argument>
+                    <argument name="css_class" xsi:type="string">personalized-bottle-header</argument>
+                    <argument name="at_label" xsi:type="string">none</argument>
+                    <argument name="title" translate="true" xsi:type="string">Overview</argument>
+                    <argument name="add_attribute" xsi:type="string">itemprop="description"</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="product.info.options" template="Coke_PersonalizedBottle::product/view/options.phtml"/>
+        <referenceBlock name="product.info.options.wrapper" template="Coke_PersonalizedBottle::product/view/options/wrapper.phtml">
+            <container name="pb_guideline.container" htmlClass="swatch-attribute pb-guideline-container" htmlTag="div">
+                <block class="Magento\Cms\Block\Block" name="pb-guideline">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">pb_guideline</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceBlock>
+        <referenceBlock name="product.info.addtocart" template="Coke_PersonalizedBottle::product/view/addtocart.phtml"/>
+    </body>
+</page>

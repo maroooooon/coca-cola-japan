@@ -1,0 +1,80 @@
+& when (@media-common = true) {
+    .share-site-link-container {
+        .share-site-link {
+            .share-site {
+                align-items: center;
+                display: flex;
+                justify-content: flex-start;
+            }
+
+            a {
+                color: @color-gray34;
+
+                span {
+                    color: @color-gray34;
+                }
+            }
+
+            .share-site-icon {
+                height: auto;
+                margin-right: 8px;
+                max-width: 15px;
+            }
+        }
+
+        .share-site-popup {
+            background-color: #f0f0f0;
+            border: 1px solid #333;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #333;
+            color: #000;
+            min-width: 225px;
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            top: 100%;
+            z-index: 10;
+
+            &.active {
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .content {
+                padding: 16px;
+
+                p {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .footer {
+        .share-site-link-container {
+            position: relative;
+
+            .share-site-popup {
+                top: -100%;
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .share-site-link-container {
+        .share-site-popup {
+            left: 0;
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .share-site-link-container {
+        margin-left: 30px;
+
+        .share-site-popup {
+            right: 0;
+        }
+    }
+}

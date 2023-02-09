@@ -1,0 +1,34 @@
+<?php
+/** @var \Magento\Customer\Block\Form\Register $block */
+/** @var \Magento\Framework\Escaper $escaper */
+
+$formData = $block->getFormData();
+?>
+<div class="field confirmation _required">
+    <div>
+        <input type="checkbox" name="over21_confirmation" title="<?php /* @escapeNotVerified */ echo __('I am over the age of 21.') ?>" id="over21" class="input-text" data-validate="{required:true}" autocomplete="off">
+        <label for="over21" class="label"><span><?php /* @escapeNotVerified */ echo __('I am over the age of 21.') ?></span></label>
+    </div>
+</div>
+<?php if ($block->isNewsletterEnabled()): ?>
+    <div class="field choice newsletter">
+        <input type="checkbox"
+               name="is_subscribed"
+               title="<?= $escaper->escapeHtmlAttr(__('I agree to receive email Communication, offers, and promotions from The Coca-Cola Company and its brands.')) ?>"
+               value="1"
+               id="is_subscribed"
+               <?php if ($formData->getIsSubscribed()): ?>checked="checked"<?php endif; ?>
+               class="checkbox">
+        <label for="is_subscribed" class="label">
+            <span><?= $escaper->escapeHtml(__('I agree to receive email Communication, offers, and promotions from The Coca-Cola Company and its brands.')) ?></span>
+        </label>
+    </div>
+    <?php /* Extensions placeholder */ ?>
+    <?= $block->getChildHtml('customer.form.register.newsletter') ?>
+<?php endif ?>
+<div class="field confirmation _required">
+    <div>
+        <input type="checkbox" name="privacy_confirmation" title="<?php /* @escapeNotVerified */ echo __('By creating an account, I agree to the delivery.coca-cola.eg website terms & conditions, terms of Use and acknowledge acceptance of the Privacy Policy.') ?>" id="privacy" class="input-text" data-validate="{required:true}" autocomplete="off">
+        <label for="privacy" class="label"><span><?php /* @escapeNotVerified */ echo __('By creating an account, I agree to the delivery.coca-cola.eg website terms & conditions, terms of Use and acknowledge acceptance of the Privacy Policy.') ?></span></label>
+    </div>
+</div>

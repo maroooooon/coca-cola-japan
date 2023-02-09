@@ -1,0 +1,35 @@
+<div class="min-age-invalid" data-bind="visible: isMinAgeNotMet()">
+    <h2 class="subheading" data-bind="i18n: 'Sorry!'"></h2>
+    <p>
+        <span data-bind="i18n: 'You must be over 18 to visit this website.'"></span>
+    </p>
+    <div class="actions primary">
+        <a data-bind="attr: { href: redirectUrl }" class="no-link">
+            <button class="action primary">
+                <span data-bind="text: getRedirectString()"></span>
+            </button>
+        </a>
+    </div>
+</div>
+<div class="min-age-validate no-calendar" data-bind="visible: !isMinAgeNotMet()">
+    <p>
+        <span data-bind="i18n: 'To proceed, please confirm:'"></span>
+    </p>
+    <p>
+        <span data-bind="i18n: 'Are you over 18 years old?'"></span>
+    </p>
+    <div class="actions primary">
+        <button class="action primary focused"
+                title="Enter"
+                id="validate-age"
+                data-bind="click: actionConfirm">
+            <span data-bind="i18n: 'Yes'"></span>
+        </button>
+        <button class="action primary"
+                title="Enter"
+                id="validate-age-no"
+                data-bind="click: actionDeny">
+            <span data-bind="i18n: 'No'"></span>
+        </button>
+    </div>
+</div>

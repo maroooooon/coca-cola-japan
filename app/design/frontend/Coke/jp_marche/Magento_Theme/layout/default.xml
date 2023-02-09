@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <meta name="theme-color" content="#f7f5f4" />
+    </head>
+	<body>
+        <referenceBlock name="report.bugs" remove="true" />
+        <referenceContainer name="header.panel" remove="true" />
+        <referenceBlock name="footer_links" remove="true" />
+        <referenceBlock name="form.subscribe" remove="true" />
+        <move element="navigation.sections" destination="header.container" after="header-wrapper" />
+
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/logo-marche@2x.png</argument>
+                <argument name="logo_width" xsi:type="number">326</argument>
+                <argument name="logo_height" xsi:type="number">45</argument>
+                <argument name="logo_alt" xsi:type="string">Coca-Cola Japan Marche</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceContainer name="header.container">
+            <container name="global.top.banner.wrapper" htmlTag="div" htmlClass="global-top-banner" before="-">
+                <block class="Magento\Cms\Block\Block" name="global.top.banner">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">marche_global_banner</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+
+        <referenceContainer name="header-wrapper">
+            <block name="header.account"
+                   class="Magento\Customer\Block\Account\AuthorizationLink"
+                   template="Magento_Theme::html/account-header.phtml"
+                   before="top.search">
+            </block>
+        </referenceContainer>
+
+        <referenceBlock name="catalog.topnav">
+            <block class="Magento\Cms\Block\Block" name="nav.additional">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">marche_nav_additional</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <referenceContainer name="footer-container">
+            <block name="back.to.top"
+                   class="Magento\Framework\View\Element\Template"
+                   template="Magento_Theme::html/back-to-top.phtml"
+                   before="-" />
+        </referenceContainer>
+
+        <referenceContainer name="footer">
+            <block class="Magento\Cms\Block\Block" name="footer.content" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">marche_footer_content</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

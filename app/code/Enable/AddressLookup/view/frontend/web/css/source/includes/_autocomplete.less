@@ -1,0 +1,75 @@
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+    // Address Autocomplete
+    .enable-address-autocomplete {
+        position: relative;
+
+        // Input & Loader
+        .autocomplete-input {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            input {
+                padding-right: 30px;
+            }
+            .autocomplete-loader {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                width: 20px;
+                height: 20px;
+                border-top: 1px solid @red;
+                border-right: 1px solid transparent;
+                border-radius: 50%;
+                animation: rotate 0.7s linear infinite;
+            }
+        }
+
+        // Autocomplete Results Box
+        .autocomplete-results {
+            position: absolute;
+            width: 100%;
+            max-width: 100%;
+            border: 1px solid @border;
+            border-top: none;
+            box-shadow: @shadow;
+            background-color: @white;
+            overflow: hidden;
+            z-index: 20;
+            button {
+                display: block;
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+                padding: 10px;
+                line-height: 1.25;
+                text-align: left;
+                border: none;
+                border-bottom: 1px solid @border;
+                border-radius: 0;
+                box-shadow: none;
+                color: @black;
+                background: @light;
+                font-size: 14px;
+                transition: all 0.33s ease;
+                cursor: pointer;
+                &:hover {
+                    background-color: @light2;
+                }
+                &:last-of-type {
+                    border-bottom: none;
+                }
+            }
+        }
+        // Spinner Keyframes
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+              }
+              to {
+                transform: rotate(360deg);
+             }
+        }
+    }
+}

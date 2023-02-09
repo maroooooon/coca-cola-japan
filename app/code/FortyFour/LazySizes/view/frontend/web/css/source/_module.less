@@ -1,0 +1,13 @@
+& when (@media-common = true) {
+    img {
+        &.lazyload,
+        &.lazyloading {
+            opacity: 0;
+        }
+
+        &.lazyloaded {
+            opacity: 1;
+            transition: .3s opacity ease;
+        }
+    }
+}

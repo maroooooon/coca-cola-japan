@@ -1,0 +1,58 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ * @var $block \Magento\Framework\View\Element\Template
+ * @var $viewModel \Coke\PersonalizedProduct\ViewModel\Product\Personalization
+ */
+$viewModel = $block->getViewModel();
+$steps = $viewModel->getStepsConfig();
+?>
+
+
+<div id="personalized_product_controls" class="personalized-product-controls">
+    <div class="control-step control-step--1 active" data-step="1">
+        <div class="step-action step-action--start">
+            <button class="btn btn--start" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 25 24">
+                    <path d="m14.747 8.027 1.226 1.226-12.08 12.08H2.667v-1.226l12.08-12.08ZM19.547 0c-.334 0-.68.133-.934.387l-2.44 2.44 5 5 2.44-2.44c.52-.52.52-1.36 0-1.88l-3.12-3.12A1.31 1.31 0 0 0 19.547 0Zm-4.8 4.253L0 19v5h5L19.747 9.253l-5-5Z"/>
+                </svg>
+                <span><?= __("Start personalising"); ?></span>
+            </button>
+        </div>
+        <div class="step-note step-note--date">
+            <span><?= __("Enjoy it from 30th of November"); ?></span>
+        </div>
+        <div class="how-does-it-work">
+            <strong><?= __('How does it work?'); ?></strong>
+        </div>
+    </div>
+    <div class="control-step control-step--2" data-step="2">
+        <div class="step-action step-action--back">
+            <button class="btn btn--back" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 19 17">
+                    <path  d="M9.482 14.98 4.627 9.634h11.83v5.43H19V1.643h-2.544V7.09H4.591l4.89-5.387L7.595 0 0 8.378l7.606 8.311 1.876-1.71Z"/>
+                </svg>
+                <span><?= __('Back'); ?></span>
+            </button>
+        </div>
+        <div class="step-action step-action--next">
+            <button class="btn btn--next" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 19 17">
+                    <path d="m9.518 14.98 4.855-5.345H2.543v5.43H0V1.643h2.544V7.09h11.865L9.52 1.704 11.405 0 19 8.378l-7.606 8.311-1.876-1.71Z"/>
+                </svg>
+                <span><?= $steps[3]['title']; ?></span>
+            </button>
+        </div>
+    </div>
+    <div class="control-step control-step--3" data-step="3">
+        <div class="step-action step-action--back">
+            <button class="btn btn--back" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 19 17">
+                    <path  d="M9.482 14.98 4.627 9.634h11.83v5.43H19V1.643h-2.544V7.09H4.591l4.89-5.387L7.595 0 0 8.378l7.606 8.311 1.876-1.71Z"/>
+                </svg>
+                <span><?= __('Back'); ?></span>
+            </button>
+        </div>
+    </div>
+</div>

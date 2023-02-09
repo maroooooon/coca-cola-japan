@@ -1,0 +1,55 @@
+<?php
+/**
+ * Custom Scripts for PDP
+ *
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+?>
+<script type="text/javascript">
+    function getPrefilledValueFromQueryString() {
+        var params,
+            line1 = document.querySelector('.line-0 input'),
+            line2 = document.querySelector('.line-1 input');
+
+        /* Prefill line 1 */
+        if (!line1) return;
+        params = new URLSearchParams(window.location.search);
+        if (!params.has('line1')) return;
+        var phrase1 = params.get('line1').replace(/[#$%^&*()+=';,./{}|:<>?~]/g, '');
+        if (phrase1.length < 1) return;
+        line1.value = phrase1;
+        line1.parentNode.parentNode.classList.add('valid');
+        /* Prefill line 2 */
+        if(!line2 || !params.has('line2')) return;
+        var phrase2 = params.get("line2").replace(/[#$%^&*()+=';,./{}|:<>?~]/g, '');
+        if (phrase2.length < 1) return;
+        document.getElementById('addLine').disabled = true;
+        line2.parentNode.parentNode.style.display = 'block';
+        line2.value = phrase2;
+        line2.parentNode.parentNode.classList.add('valid');
+    }
+    getPrefilledValueFromQueryString();
+</script>
+
+<script type="text/javascript">
+    require(['jquery', 'mage/gallery/gallery', 'personalizer',], function($, gallery, personalizer){
+        $('[data-gallery-role=gallery-placeholder]').on('gallery:loaded', function () {
+            $(this).on('fotorama:ready', function(){
+                var  api = $(this).data('gallery');
+                $('#addLine').click(function () {
+                    var canvas = document.getElementById('previewCanvas');
+                    personalizer.clearPreview(canvas);
+                    return api.next();
+                });
+            });
+        });
+    });
+</script>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "pdp": {}
+        }
+    }
+</script>

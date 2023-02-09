@@ -1,0 +1,48 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+use Magento\Framework\App\Action\Action;
+$collection = $block->getLoadedProductCollection();
+$datalayer = $block->getDatalayerConfig();
+if ($datalayer) {
+    $map = $datalayer->getDatalayerProductMap();
+}
+?>
+
+<!-- Product List -->
+<?= $block->getToolbarHtml(); ?>
+<?= $block->getAdditionalHtml() ?>
+<section class="personalized-product-list">
+    <?php if ($collection->count()): ?>
+        <?php $i = 0; // iterator for datalayer position ?>
+        <ol>
+            <?php foreach ($collection as $product):
+                $i++;
+                $renderer = $block->getDetailsRenderer('product_card');
+                $renderer->setProduct($product);
+                $renderer->setListBlock($block);
+                if($datalayer) {
+                    $renderer->setDatalayer($datalayer->getProductData($product, $map, $i));
+                }
+            ?>
+                <li>
+                    <?= $renderer->toHtml(); ?>
+                </li>
+            <?php endforeach; ?>
+        </ol>
+    <?php endif; ?>
+</section>
+<?= $block->getToolbarBlock()->getPagerHtml(); ?>
+<?php if (!$block->isRedirectToCartEnabled() && !empty($product)): ?>
+    <script type="text/x-magento-init">
+    {
+        "[data-role=tocart-form], .form.map.checkout": {
+            "catalogAddToCart": {
+                "product_sku": "<?= $escaper->escapeJs($product->getSku()) ?>"
+            }
+        }
+    }
+    </script>
+<?php endif; ?>

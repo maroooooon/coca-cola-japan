@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <websites>
+        <olnb_turkey>
+            <sales>
+                <maximum_order>
+                    <error_message>Gönderini tamamlamak için lütfen Daha Daha’dan aldığın kodu kullan.</error_message>
+                </maximum_order>
+            </sales>
+        </olnb_turkey>
+    </websites>
+</config>

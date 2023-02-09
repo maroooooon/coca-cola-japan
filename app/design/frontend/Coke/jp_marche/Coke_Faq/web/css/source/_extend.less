@@ -1,0 +1,99 @@
+//  Common
+& when (@media-common = true) {
+    .faq-item-show{
+        .page-main {
+            position: relative;
+        }
+    }
+    .coke-faq-container{
+        .coke-faq-list{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 0;
+            &::after {
+                content: "";
+                flex: 0 0 100%;
+            }
+
+            > li{
+                flex:0 0 100%;
+                border: 1px solid @coke-gray-button-border;
+                padding: 15px 15px 10px;
+            }
+
+            h2{
+                font-size: 20px;
+            }
+
+            h3{
+                margin: 0 0 20px;
+            }
+
+            ul{
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+        }
+    }
+
+    .coke-faq-container-items{
+        &:after {
+            clear: both;
+            content: ' ';
+            display: block;
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+        }
+        .block-collapsible-nav{
+            top: -21px
+        }
+        .block-collapsible-nav .content{
+            background: transparent;
+        }
+        .items{
+            strong{
+                color: @coke-brown;
+            }
+            a{
+                color: @coke-brown;
+            }
+        }
+    }
+
+    .other-questions,
+    .coke-faq-questions-list{
+        display: none;
+    }
+}
+
+// Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .coke-faq-container{
+        .coke-faq-list{
+            margin: 0;
+            &::after {
+                flex: 0 0 32%
+            }
+            > li{
+                flex: 0 0 32%;
+                padding: 15px 15px 10px;
+            }
+
+            h2{
+                font-size: 24px;
+            }
+
+            h3{
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+// Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+}

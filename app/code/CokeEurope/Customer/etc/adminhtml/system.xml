@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="coke_europe" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="999" translate="label">
+            <label>Europe</label>
+            <tab>Coke</tab>
+            <group id="customer" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label">
+                <label>Customer</label>
+                <group id="order_view" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1" translate="label">
+                    <label>Customer Order View</label>
+                    <field id="button_enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1" translate="label comment" type="select">
+                        <label>Add button to customer order view?</label>
+                        <comment>Select Yes to add a button to the top of the customer order view page.</comment>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="button_title" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Button Title</label>
+                        <comment>Enter the button title.</comment>
+                        <depends>
+                            <field id="button_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="button_target" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Button Target</label>
+                        <comment>Enter a target url for the button. If left empty it will default to the contact form url below.</comment>
+                        <depends>
+                            <field id="button_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="background_color" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Button Background Color</label>
+                        <comment>Enter the hex color code for the button.</comment>
+                        <depends>
+                            <field id="button_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="font_color" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Button Font Color</label>
+                        <comment>Enter the hex color code for the button title.</comment>
+                        <depends>
+                            <field id="button_enabled">1</field>
+                        </depends>
+                    </field>
+                </group>
+            </group>
+            <group id="contact" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="25" translate="label">
+                <label>Contact Form</label>
+                <field id="form_url" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Contact Form URL</label>
+                    <comment>Enter the url for the contact form. (Used in emails and help buttons).</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

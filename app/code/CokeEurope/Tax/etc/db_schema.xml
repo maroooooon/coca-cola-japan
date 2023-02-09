@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="quote" resource="checkout" comment="Sugar Tax Total">
+        <column xsi:type="decimal" precision="20" scale="4" name="sugar_tax_total" nullable="true" comment="Sugar Tax Total" />
+    </table>
+    <table name="sales_order" resource="sales" comment="Sugar Tax Total">
+        <column xsi:type="decimal" precision="20" scale="4" name="sugar_tax_total" nullable="true" comment="Sugar Tax Total" />
+    </table>
+</schema>

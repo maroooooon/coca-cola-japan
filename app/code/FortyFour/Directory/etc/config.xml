@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <general>
+            <country>
+                <optional_zip_countries>EG,HK,IE,MO,PA,GB</optional_zip_countries>
+            </country>
+        </general>
+    </default>
+</config>

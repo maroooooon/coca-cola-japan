@@ -1,0 +1,235 @@
+//  Common
+& when (@media-common = true) {
+    // Catalog Toolbar
+    .catalog-toolbar {
+        width: 100%;
+        max-width: 100%;
+        // Top of Toolbar
+        .catalog-toolbar-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        // Toolbar Items
+        .catalog-toolbar-items {
+            display: flex;
+            align-items: stretch;
+            background-color: #f5f5f5;
+            // Toolbar Item
+            .toolbar-item {
+                position: relative;
+                flex: 1;
+                // Item Label
+                .toolbar-item-label {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                    max-width: 100%;
+                    padding: 10px;
+                    cursor: pointer;
+                    strong {
+                        font-weight: normal;
+                    }
+                    &::after {
+                        display: block;
+                        content: "";
+                        width: 16px;
+                        height: 16px;
+                        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z'/%3E%3C/svg%3E");
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                }
+                // Item Content
+                .toolbar-item-content {
+                    display: none;
+                    width: 100%;
+                    max-width: 100%;
+                    padding: 10px;
+
+                    // Links
+                    a {
+                        color: #000000;
+                        &.primary {
+                            color: #fff;
+                        }
+                    }
+                    // Search
+                    .field.search {
+                        .filter-search {
+                            font-size: 12px;
+                            margin-bottom: 5px;
+                        }
+                    }
+                    // Swatch Options
+                    .swatch-attribute {
+                        .swatch-attribute-options {
+                            margin: 0;
+                            .swatch-option {
+                                &.image {
+                                    width: 50px;
+                                    height: 40px;
+                                    background-size: cover!important;
+                                }
+                                &.selected {
+                                    outline-color: red;
+                                }
+                            }
+                        }
+
+                        // Brand Swatch
+                        &.brand_swatch {
+                            .swatch-option {
+                                &.image {
+                                    width: 40px;
+                                    height: 40px;
+                                    padding: 0;
+                                    border: none;
+                                    border-radius: 50%;
+                                    background-size: cover!important;
+                                }
+                            }
+                        }
+                        // Package Swatch
+                        &.package_bev_type {
+                            .swatch-option-link-layered {
+                                .image {
+                                    width: 250px;
+                                    max-width: 100%;
+                                    margin: 0;
+                                    margin-bottom: 10px;
+                                    padding: 0;
+                                    height: auto;
+                                    aspect-ratio: 125/37;
+                                    background-size: cover!important;
+
+                                }
+                                
+                                &:last-of-type {
+                                    .image {
+                                        margin-bottom: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                // Active Toolbar Item
+                &.active {
+                    .toolbar-item-label {
+                        &::after {
+                            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M5 11h14v2H5z'/%3E%3C/svg%3E");
+                        }
+                    }
+                    .toolbar-item-content {
+                        display: block;
+                    }
+                }
+
+                // Sorter
+                &.toolbar-item--sorter {
+                    .toolbar-sorter {
+                        display: flex;
+                        align-items: center;
+                        padding-left: 10px;
+                        strong {
+                            font-weight: normal;
+                            color: #000;
+                            white-space: nowrap;
+                            font-size: 14px;
+                            margin-right: 5px;
+                        }
+                        select {
+                            border: none;
+                            background: none;
+                            appearance: none;
+                            color: #000;
+                            font-weight: normal;
+                            padding: 0;
+                            font-size: 14px;
+                            line-height: 1;
+                            text-decoration: underline;
+                            &:focus {
+                                box-shadow: none;
+                            }
+                        }
+                        // Hide sorter label where it wont fit
+                        @media(min-width:768px) and (max-width: 900px){
+                            strong {display: none;}
+                        }
+                    }
+                    // Descending
+                    .sorter-action {
+                        &[data-value="desc"] {
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    // Catalog Toolbar
+    .catalog-toolbar {
+        margin-bottom: 20px;
+        // Toolbar Items
+        .catalog-toolbar-items {
+            border: 1px solid rgba(0,0,0,0.1);
+            // Toolbar Item
+            .toolbar-item {
+                border-right: 1px solid rgba(0,0,0,0.1);
+                // Toolbar Item Content
+                .toolbar-item-content {
+                    position: absolute;
+                    top: 41px;
+                    left: 0;
+                    z-index: 100;
+                    background-color: #f5f5f5;
+                    border: 1px solid rgba(0,0,0,0.1);
+                    border-top: none;
+                }
+                // Last Toolbar Item
+                &:last-of-type {
+                    border-right: none;
+                }
+            }
+        }
+    }
+}
+
+// Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    // Catalog Toolbar
+    .catalog-toolbar {
+        margin-bottom: 20px;
+        // Toolbar Items
+        .catalog-toolbar-items {
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.1);
+            // Toolbar Item
+            .toolbar-item {
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+                // Toolbar Item Content
+                .toolbar-item-content {
+                    position: relative;
+                    border-top: 1px solid rgba(0,0,0,0.1);
+                }
+                // Last Toolbar Item
+                &:last-of-type {
+                    border-bottom: none;
+                }
+                // Sorter
+                &.toolbar-item--sorter {
+                    .toolbar-sorter {
+                        padding-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+}

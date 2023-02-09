@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Coke_Whitelist::whitelist"
+             title="Whitelist"
+             translate="title"
+             module="Coke_Whitelist"
+             parent="Magento_Catalog::catalog"
+             sortOrder="50"
+             dependsOnModule="Coke_Whitelist"
+             resource="Coke_Whitelist::whitelist_manage" />
+        <add id="Coke_Whitelist::whitelist_manage"
+             title="Manage Whitelist"
+             translate="title"
+             module="Coke_Whitelist"
+             parent="Coke_Whitelist::whitelist"
+             sortOrder="50"
+             dependsOnModule="Coke_Whitelist"
+             resource="Coke_Whitelist::whitelist_manage"
+             action="coke_whitelist/manage" />
+        <add id="Coke_Whitelist::whitelist_manage_types"
+             title="Manage Whitelist Types"
+             translate="title"
+             module="Coke_Whitelist"
+             parent="Coke_Whitelist::whitelist"
+             sortOrder="50"
+             dependsOnModule="Coke_Whitelist"
+             resource="Coke_Whitelist::whitelist_manage"
+             action="coke_whitelist/types" />
+    </menu>
+</config>

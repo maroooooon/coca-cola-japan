@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="coke_france" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="999" translate="label">
+            <label>France</label>
+            <tab>Coke</tab>
+            <resource>Coke_MegaMenu::coke_france_config</resource>
+            <group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+                <label>General</label>
+                <field id="enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label comment" type="select">
+                    <label>Enabled</label>
+                    <comment>Select Yes to enable France functionality for this store view.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="primary_bottle_sku" type="text" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Primary Bottle Sku</label>
+                    <comment>All simple product bottles will redirect to this sku.</comment>
+				</field>
+                <field id="bulk_bottle_sku" type="text" sortOrder="11" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Bulk Bottle Sku</label>
+                    <comment>Sku for bulk bottles</comment>
+				</field>
+            </group>
+        </section>
+    </system>
+</config>

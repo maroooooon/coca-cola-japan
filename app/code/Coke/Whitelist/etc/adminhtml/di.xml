@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="ff-option-type" xsi:type="array">
+                    <item name="class" xsi:type="string">Coke\Whitelist\Ui\DataProvider\Product\Form\Modifier\WhiteListTypes</item>
+                    <item name="sortOrder" xsi:type="number">72</item>
+                </item>
+                <item name="ff-option-steps" xsi:type="array">
+                    <item name="class" xsi:type="string">Coke\Whitelist\Ui\DataProvider\Product\Form\Modifier\Steps</item>
+                    <item name="sortOrder" xsi:type="number">74</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+<!--    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">-->
+<!--        <plugin name="Coke_Whitelist::orderDataProviderPlugin"-->
+<!--                type="Coke\Whitelist\Plugin\OrderDataProviderPlugin" />-->
+<!--    </type>-->
+</config>

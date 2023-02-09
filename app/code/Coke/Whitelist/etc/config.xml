@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<coke_whitelist>
+			<general>
+				<is_restriction_enabled>1</is_restriction_enabled>
+                <show_whitelist_item_status>0</show_whitelist_item_status>
+                <show_whitelist_review_disclaimer>0</show_whitelist_review_disclaimer>
+				<is_names_enabled>1</is_names_enabled>
+				<image_threshold>220</image_threshold>
+				<update_to_from_on_image>1</update_to_from_on_image>
+				<pending_whitelist_item_order_status>holded</pending_whitelist_item_order_status>
+                <approved_whitelist_item_order_status>processing</approved_whitelist_item_order_status>
+                <denied_whitelist_item_order_status>denied</denied_whitelist_item_order_status>
+			</general>
+            <denied_order>
+                <cancel_denied_order_enabled>1</cancel_denied_order_enabled>
+                <cancel_denied_order_cron_schedule>*/8 * * * *</cancel_denied_order_cron_schedule>
+            </denied_order>
+		</coke_whitelist>
+	</default>
+    <websites>
+        <jp_marche>
+            <coke_whitelist>
+                <general>
+                    <pending_whitelist_item_order_status>under_review</pending_whitelist_item_order_status>
+                    <approved_whitelist_item_order_status>pending</approved_whitelist_item_order_status>
+                    <show_whitelist_item_status>1</show_whitelist_item_status>
+                    <show_whitelist_review_disclaimer>1</show_whitelist_review_disclaimer>
+                </general>
+                <input_validation>
+                    <english_max_length>16</english_max_length>
+                    <japanese_max_length>9</japanese_max_length>
+                </input_validation>
+            </coke_whitelist>
+        </jp_marche>
+    </websites>
+</config>

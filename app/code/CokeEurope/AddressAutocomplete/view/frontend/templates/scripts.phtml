@@ -1,0 +1,25 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ * @var $block \Magento\Framework\View\Element\Template
+ * @var $viewModel \CokeEurope\AddressAutocomplete\ViewModel\Autocomplete
+ */
+$viewModel = $block->getViewModel();
+$apiKey = $viewModel->getApiKey();
+?>
+
+<script>
+    require.config({
+        map: {
+            '*': {
+                'googlePlacesApi': 
+                    'https://maps.googleapis.com/maps/api/js?key=<?= $apiKey?>&libraries=places',
+            }
+        }
+    });
+</script>
+
+<script type="text/javascript">
+    window.autocompleteConfig = <?= $viewModel->getJsonConfig(); ?>;
+</script>

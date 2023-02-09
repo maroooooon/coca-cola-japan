@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<section id="coke_egypt" sortOrder="999" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+			<label>Egypt</label>
+			<tab>Coke</tab>
+			<resource>CokeEgypt_Customer::config_cokeegypt_customer</resource>
+			<group id="customer" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+				<label>Customer</label>
+				<field id="enabled" type="select" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Enabled</label>
+					<comment>Enable Coke Egypt customer address modifications.</comment>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

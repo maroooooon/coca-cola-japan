@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <coke_europe>
+            <customer>
+                <order_view>
+                    <button_enabled>0</button_enabled>
+                </order_view>
+            </customer>
+        </coke_europe>
+    </default>
+    <websites>
+        <coke_eu>
+            <coke_europe>
+                <customer>
+                    <order_view>
+                        <button_enabled>1</button_enabled>
+                        <button_title>Do you need help with your order?</button_title>
+                        <background_color>#000000</background_color>
+                        <font_color>#ffffff</font_color>
+                    </order_view>
+                </customer>
+                <contact>
+                    <form_url>https://www.coca-cola.co.uk/our-business/contact</form_url>
+                </contact>
+            </coke_europe>
+        </coke_eu>
+        <coke_uk>
+            <coke_europe>
+                <customer>
+                    <order_view>
+                        <button_enabled>1</button_enabled>
+                        <button_title>Do you need help with your order?</button_title>
+                        <background_color>#000000</background_color>
+                        <font_color>#ffffff</font_color>
+                    </order_view>
+                </customer>
+                <contact>
+                    <form_url>https://www.coca-cola.co.uk/our-business/contact</form_url>
+                </contact>
+            </coke_europe>
+        </coke_uk>
+    </websites>
+</config>

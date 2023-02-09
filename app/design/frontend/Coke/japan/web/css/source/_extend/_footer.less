@@ -1,0 +1,80 @@
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+    .cj-footer {
+        background: @color-blue;
+        padding: 1rem 0;
+        .cj-footer-content {
+            // Nav
+            .cj-footer-nav {
+                margin: 2rem 0;
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                }
+                ul > li {
+                    margin-right: 2rem;
+                    &:last-of-type {
+                        margin-right: 0;
+                    }
+                }
+                a {
+                    color: @color-white;
+                }
+            }
+
+            // Copyright
+            .cj-footer-copyright {
+                text-transform: uppercase;
+                text-align: center;
+                margin-bottom: 1rem;
+                p {
+                    font-size: 1.5rem;
+                    color: @color-white;
+                }
+            }
+        }
+    }
+}
+
+//  Desktop
+//  _____________________________________________
+@media only screen and (min-width: @screen__m) {
+    .cj-footer {
+        .cj-footer-content {
+            // Nav
+            .cj-footer-nav {
+                ul > li {
+                    margin-right: 2rem;
+                    margin-bottom: 0;
+                    &:last-of-type {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+@media only screen and (max-width: @screen__m) {
+    .cj-footer {
+        .cj-footer-content {
+            ul > li {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 2rem;
+                text-align: center;
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

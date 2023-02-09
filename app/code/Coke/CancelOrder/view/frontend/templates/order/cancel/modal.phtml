@@ -1,0 +1,41 @@
+<?php
+/**
+ * @var \Magento\Sales\Block\Order\View $block
+ * @var \Coke\CancelOrder\ViewModel\CancelOrder $viewModel
+ * @var \Coke\CancelOrder\Helper\CancelOrderHelper $cancelOrderHelper
+ * @var \Magento\Framework\Escaper $escaper
+ */
+
+$viewModel = $block->getViewModel();
+$cancelOrderHelper = $viewModel->getCancelOrderHelper();
+?>
+
+<?php if (($_order = $block->getOrder()) && $_order->canCancel()): ?>
+    <?php $cancelOrderUrl = $cancelOrderHelper->getCancelOrderUrl($_order); ?>
+    <div class="cancel-order-modal-wrapper" style="display:none;">
+        <div id="cancel-order-modal-content" class="cancel-order-modal-content">
+            <h3 class="heading"><?= $escaper->escapeHtml(__('Cancel Order #%1', $_order->getIncrementId())) ?></h3>
+            <p><?= $escaper->escapeHtml(__('Are you sure you want to cancel your order? This action cannot be undone.')) ?></p>
+
+            <?php if ($cancelOrderHelper->hasSubscription($_order)): ?>
+                <p><?= $escaper->escapeHtml(__('Canceling this order will not cancel your subscription.')) ?></p>
+            <?php endif; ?>
+
+            <div class="actions">
+                <div class="primary">
+                    <a href="#"
+                       data-post='<?= /* @noEscape */ $viewModel->getPostHelper()->getPostData($cancelOrderUrl) ?>'
+                       class="action primary cancel-order">
+                        <span><?= $escaper->escapeHtml(__('Yes')) ?></span>
+                    </a>
+                </div>
+                <div class="secondary">
+                    <a href="#"
+                       class="action secondary close-modal">
+                        <span><?= $escaper->escapeHtml(__('No')) ?></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+   <event name="checkout_cart_product_add_after"> 
+        <observer name="coke_europe_datalayer_add_to_cart_observer" instance="CokeEurope\DataLayer\Observer\AddToCart" />
+    </event>
+    <event name="sales_quote_remove_item"> 
+        <observer name="coke_europe_datalayer_remove_from_cart_observer" instance="CokeEurope\DataLayer\Observer\RemoveFromCart" />
+    </event>
+    <event name="checkout_cart_update_items_before"> 
+        <observer name="coke_europe_datalayer_update_qty_observer" instance="CokeEurope\DataLayer\Observer\UpdateQty" />
+    </event>
+</config>

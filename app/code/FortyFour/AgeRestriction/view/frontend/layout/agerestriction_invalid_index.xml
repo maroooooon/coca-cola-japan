@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceContainer name="after.body.start">
+        <block class="Magento\Framework\View\Element\Html\Calendar"
+               name="age_restriction.calendar.config"
+               as="age_restriction_calendar_config_additional"
+               template="FortyFour_AgeRestriction::js/calendar/config.phtml"
+               ifconfig="age_restriction/general/enabled"/>
+        <block class="FortyFour\AgeRestriction\Block\Html\AgeRestriction"
+               name="age.restriction"
+               template="FortyFour_AgeRestriction::html/age-restriction.phtml"
+               ifconfig="age_restriction/general/enabled">
+            <arguments>
+                <argument name="is_minimum_age_not_met" xsi:type="boolean">1</argument>
+            </arguments>
+        </block>
+    </referenceContainer>
+</page>

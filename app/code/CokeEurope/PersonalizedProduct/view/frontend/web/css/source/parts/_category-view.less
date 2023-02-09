@@ -1,0 +1,147 @@
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+    .page-layout-personalized-product-category,
+    .coke_eu.catalogsearch-result-index,
+    .coke_uk.catalogsearch-result-index {
+        // Adjust default wrapper
+        .page-main {
+            padding: 0;
+            max-width: 100%;
+        }
+        .column.main {
+            width: 1210px;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+            padding-bottom: 0;
+        }
+
+        // Toolbar
+        .toolbar-products {
+            padding: 0;
+            margin-bottom: 0;
+            .pages {
+                display: block;
+            }
+        }
+
+        // Category Description
+        .category-description {
+            h1 {
+                font-family: "TCCC-UnityHeadline", "Montserrat",
+                    "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-weight: 700;
+                color: #ffffff;
+                line-height: 1.2;
+                span {
+                    line-height: inherit;
+                }
+            }
+            p {
+                width: 600px;
+                max-width: 100%;
+            }
+            // Text Blocks
+            [data-content-type="text"] {
+                padding: 0 20px;
+            }
+        }
+
+        // Product List
+        .personalized-product-list {
+            ol {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: stretch;
+                justify-content: flex-start;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                li {
+                    height: auto;
+                    max-width: 100%;
+                }
+            }
+        }
+
+        // CMS Block
+        .category-cms {
+            margin-bottom: 40px;
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-family: "TCCC-UnityHeadline", "Montserrat",
+                    "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .page-layout-personalized-product-category,
+    .coke_eu.catalogsearch-result-index,
+    .coke_uk.catalogsearch-result-index
+     {
+        // Category Description
+        .category-description {
+            h1 {
+                font-size: 64px;
+            }
+            p {
+                font-size: 18px;
+            }
+        }
+        // Product List
+        .personalized-product-list {
+            ol {
+                li {
+                    width: 31%;
+                    margin-right: 3.5%;
+                    margin-bottom: 40px;
+                    &:nth-child(3n + 3) {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .page-layout-personalized-product-category,
+    .coke_eu.catalogsearch-result-index,
+    .coke_uk.catalogsearch-result-index
+     {
+        // Category Description
+        .category-description {
+            h1 {
+                font-size: 32px;
+            }
+            p {
+                font-size: 16px;
+            }
+        }
+        // Product List
+        .personalized-product-list {
+            ol {
+                li {
+                    width: 49%;
+                    margin-right: 2%;
+                    margin-bottom: 20px;
+                    &:nth-child(2n + 2) {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}

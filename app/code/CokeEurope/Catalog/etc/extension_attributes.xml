@@ -1,0 +1,12 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <extension_attributes for="Magento\Quote\Api\Data\CartItemInterface">
+        <attribute code="moderation_status" type="int"/>
+    </extension_attributes>
+    <extension_attributes for="Magento\Sales\Api\Data\OrderItemInterface">
+        <attribute code="moderation_status" type="int"/>
+    </extension_attributes>
+    <extension_attributes for="Magento\Catalog\Api\Data\ProductInterface">
+        <attribute code="coke_layout_id" type="string"/>
+    </extension_attributes>
+</config>

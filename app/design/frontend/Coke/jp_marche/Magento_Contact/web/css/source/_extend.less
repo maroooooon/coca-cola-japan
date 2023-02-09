@@ -1,0 +1,26 @@
+//  Common
+& when (@media-common = true) {
+
+}
+
+// Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .contact-index-index {
+        .fieldset {
+            > .legend {
+                margin: 0;
+            }
+
+            > .field.note.no-label{
+                &:before{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+// Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+}

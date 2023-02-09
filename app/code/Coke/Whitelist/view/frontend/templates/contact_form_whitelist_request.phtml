@@ -1,0 +1,9 @@
+<?php
+/**
+ * @var $block \Coke\Whitelist\Block\ContactForm
+ */
+?>
+
+<label class="label" for="comment"><span><?= $block->escapeHtml($block->getWhitelistLabel()) ?></span></label>
+<input type="hidden" name="whitelist_sku" value="<?= $block->escapeHtmlAttr($block->getWhitelistSku()) ?>"/>
+<input type="hidden" name="whitelist_request_type" value="<?= $block->escapeHtmlAttr($block->getWhitelistRequestType()) ?>"/>

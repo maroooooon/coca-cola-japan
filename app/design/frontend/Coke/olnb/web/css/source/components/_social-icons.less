@@ -1,0 +1,31 @@
+.social-icons {
+  display: flex;
+
+  > * {
+    margin: 0 1rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  a {
+    img {
+      transition: opacity @transition-default-speed @transition-default-effect;
+      width: 40px;
+      height: 40px;
+    }
+
+    &:hover,
+    &:focus {
+      img {
+        opacity: 0.35;
+      }
+    }
+  }
+}
+

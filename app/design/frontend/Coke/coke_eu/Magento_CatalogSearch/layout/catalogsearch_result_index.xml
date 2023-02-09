@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Remove Breadcrumbs? -->
+        <referenceBlock name="breadcrumbs" remove="true" />
+        <!-- Move title to main column -->
+        <move element="page.main.title" destination="columns.top" before="-" />
+        <move element="catalogsearch.leftnav" destination="product_list_toolbar" />
+        <move element="catalogsearch.navigation.state" destination="product_list_toolbar" />
+        <referenceBlock name="page.main.title">
+            <action method="setTemplate" ifconfig="coke_europe/personalized_product/enabled">
+                <argument name="template" xsi:type="string">Magento_CatalogSearch::title.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <referenceBlock name="search.result">
+                <!-- Use custom personalized product list for search results -->
+                <referenceBlock name="search_result_list">
+                    <action method="setTemplate" ifconfig="coke_europe/personalized_product/enabled">
+                        <argument name="template" xsi:type="string">CokeEurope_PersonalizedProduct::catalog/list.phtml</argument>
+                    </action>
+                    <!-- Custom Toolbar -->
+                    <referenceBlock name="product_list_toolbar">
+                        <action method="setTemplate" ifconfig="coke_europe/personalized_product/enabled">
+                            <argument name="template" xsi:type="string">CokeEurope_PersonalizedProduct::catalog/toolbar.phtml</argument>
+                        </action>
+                    </referenceBlock>
+                    <referenceBlock name="category.product.type.details.renderers">
+                        <block class="Magento\Framework\View\Element\Template" name="category.product.type.details.renderers.card" as="product_card" template="CokeEurope_PersonalizedProduct::product/card.phtml" />
+                    </referenceBlock>
+                </referenceBlock>
+            </referenceBlock>
+        </referenceContainer>
+    </body>
+</page>
+

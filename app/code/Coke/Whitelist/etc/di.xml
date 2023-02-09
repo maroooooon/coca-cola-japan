@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Coke\Whitelist\Api\WhitelistRepositoryInterface"
+                type="Coke\Whitelist\Model\WhitelistRepository" />
+    <preference for="Coke\Whitelist\Api\Data\WhitelistInterface"
+                type="Coke\Whitelist\Model\Whitelist" />
+    <preference for="Coke\Whitelist\Api\WhitelistTypeRepositoryInterface"
+                type="Coke\Whitelist\Model\WhitelistTypeRepository" />
+    <preference for="Coke\Whitelist\Api\Data\WhitelistTypeInterface"
+                type="Coke\Whitelist\Model\WhitelistType" />
+    <preference for="Coke\Whitelist\Api\WhitelistOrderRepositoryInterface"
+                type="Coke\Whitelist\Model\WhitelistOrderRepository" />
+    <preference for="Coke\Whitelist\Api\Data\WhitelistOrderInterface"
+                type="Coke\Whitelist\Model\WhitelistOrder" />
+    <preference for="Coke\Whitelist\Api\Data\WhitelistSearchResultInterface"
+                type="Coke\Whitelist\Model\WhitelistSearchResult" />
+    <preference for="Coke\Whitelist\Api\WhitelistManagementInterface"
+                type="Coke\Whitelist\Model\Service\Whitelist" />
+    <preference for="Magento\Catalog\Model\Product\Option"
+                type="Coke\Whitelist\Model\Product\Option" />
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="coke_whitelist_whitelist_listing_data_source" xsi:type="string">CokeWhitelistWhitelistCollection</item>
+                <item name="coke_whitelist_types_listing_data_source" xsi:type="string">CokeWhitelistWhitelistTypeCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="CokeWhitelistWhitelistCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">coke_whitelist</argument>
+            <argument name="resourceModel" xsi:type="string">Coke\Whitelist\Model\ResourceModel\Whitelist</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="CokeWhitelistWhitelistTypeCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">coke_whitelist_types</argument>
+            <argument name="resourceModel" xsi:type="string">Coke\Whitelist\Model\ResourceModel\WhitelistType</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Checkout\Model\Cart">
+        <plugin name="interceptAddingProductToCart"
+                type="Coke\Whitelist\Plugin\ValidateWhitelistOptionsBeforeAddToCartPlugin"
+                sortOrder="10"
+                disabled="false"/>
+    </type>
+    <type name="Magento\Catalog\Model\ResourceModel\Product\Indexer\Eav\BatchSizeCalculator">
+        <arguments>
+            <argument name="batchSizes" xsi:type="array">
+                <item name="decimal" xsi:type="number">100</item>
+                <item name="source" xsi:type="number">100</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Catalog\Helper\Product\Configuration">
+        <plugin name="Coke_Whitelist::productConfigurationPlugin"
+                type="Coke\Whitelist\Plugin\ProductConfigurationPlugin"/>
+    </type>
+    <type name="Magento\Sales\Model\Order\Email\Sender\OrderSender">
+        <plugin name="Coke_Whitelist::emailSenderOrderSenderPlugin"
+                type="Coke\Whitelist\Plugin\EmailSenderOrderSenderPlugin" />
+    </type>
+    <type name="Magento\Sales\Model\Order">
+        <plugin name="Coke_Whitelist::salesOrderPlugin"
+                type="Coke\Whitelist\Plugin\SalesOrderPlugin" />
+    </type>
+</config>

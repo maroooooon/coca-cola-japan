@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="coke_europe" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="999" translate="label">
+            <group id="general" sortOrder="1" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+                <field id="sugar_tax_enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Is Sugar Tax Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+        <section id="sales" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="totals_sort" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1">
+                <field id="sugar_tax" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" canRestore="1">
+                    <label>Sugar Tax</label>
+                    <validate>validate-number</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,230 @@
+<?php
+/** @var \Coke\ContactAgeRestrict\Helper\Config $helper */
+$helper = $this->helper(\Coke\ContactAgeRestrict\Helper\Config::class);
+
+$form_action = $this->getUrl('coke_france/contact/index');
+$form_options = array(
+    'Etat d\'avancement de ma commande',
+    'Modification de ma commande',
+    'Réception de mon colis',
+    'Signaler un problème avec ma commande',
+    'Renseignements sur Coca Cola',
+    'Demande de partenariat Coca-Cola',
+    'Ajouter un prénom / un surnom / une expression'
+);
+
+
+$age_limit = $helper->getMinimumAge();
+
+?>
+<div class="col-main">
+    <div class="contact-form col-1">
+        <div class="page-title-wrapper">
+            <div class="page-title">
+                <h1><?php echo __('Contact Us') ?></h1>
+                <p class="contact-message"><?php echo __('N’hésitez pas à nous contacter, nous vous répondrons au plus vite.') ?></p>
+            </div>
+        </div>
+        <div class="form-wrapper">
+            <form action="<?php echo $form_action; ?>" id="contactForm" method="post" data-mage-init='{"validation":{}}'>
+                <div class="fieldset">
+                    <h2 class="legend"><?php echo __('Contact Information');
+                        ?></h2>
+                    <ul class="form-list">
+                        <li class="fields">
+                            <div class="field">
+                                <label for="name" class="required"><em>*</em><?php echo __('First Name') ?></label>
+                                <div class="input-box">
+                                    <input name="name" id="name" title="<?php echo __('First Name') ?>" class="input-text required-entry" type="text" />
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="last" class="required"><em>*</em><?php echo __('Last Name') ?></label>
+                                <div class="input-box">
+                                    <input name="last" id="last" title="<?php echo __('Last Name') ?>" class="input-text required-entry" type="text" />
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="email" class="required"><em>*</em><?php echo __('Email') ?></label>
+                                <div class="input-box">
+                                    <input name="email" id="email" title="<?php echo __('Email') ?>"
+                                           data-validate="{required:true, 'validate-email':true}"
+                                           class="input-text required-entry validate-email"
+                                           type="email"
+                                           autocapitalize="off"
+                                           autocorrect="off"
+                                           spellcheck="false" />
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="email-confirm" class="required"><em>*</em><?php echo __('Confirmer l’email') ?></label>
+                                <div class="input-box">
+                                    <input name="email-confirm" id="email-confirm" title="<?php echo __('Confirmer l’email') ?>"
+                                           data-validate="{required:true, 'validate-email':true}"
+                                           class="input-text required-entry validate-email"
+                                           type="email"
+                                           autocapitalize="off"
+                                           autocorrect="off"
+                                           spellcheck="false" />
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <label for="dob-month" class="required"><em>*</em><?php echo __('Date de naissance') ?></label>
+                            <div class="customer-dob input-box">
+                                <div class="styled-select dob-day">
+                                    <select name="sDay" id="dob-day" class="required-entry validate-selection">
+                                        <?php for ($i = 1; $i <= 31; $i++): ?>
+                                            <?php $day = (strlen($i) == 1) ? "0" . $i : $i;
+                                            ?>
+                                            <option value="<?php echo $day;
+                                            ?>"><?php echo $day;
+                                                ?></option>
+                                        <?php endfor;
+                                        ?>
+                                    </select>
+                                    <label class="date-label" for="dob-day"><?php echo __('Day') ?></label>
+                                </div>
+                                <div class="styled-select dob-month">
+                                    <select name="sMonth" id="dob-month" class="required-entry validate-selection" title="Please enter month.">
+                                        <?php for ($i = 1; $i <= 12; $i++): ?>
+                                            <?php $month = (strlen($i) == 1) ? "0" . $i : $i;
+                                            ?>
+                                            <option value="<?php echo $month;
+                                            ?>"><?php echo $month;
+                                                ?></option>
+                                        <?php endfor;
+                                        ?>
+                                    </select>
+                                    <label class="date-label" for="dob-month"><?php echo __('Month') ?></label>
+                                </div>
+                                <div class="styled-select dob-year">
+                                    <?php $currentYear = intval(date("Y"));
+                                    ?>
+                                    <select name="sYear" id="dob-year" class="required-entry validate-selection">
+                                        <?php for ($i = $currentYear; $i >= $currentYear - 100; $i--): ?>
+                                            <option value="<?php echo $i;
+                                            ?>"><?php echo $i;
+                                                ?></option>
+                                        <?php endfor;
+                                        ?>
+                                    </select>
+                                    <label class="date-label" for="dob-year"><?php echo __('Year') ?></label>
+                                </div>
+                            </div>
+                            <div class="dob-full" style="display:none;">
+                                <input type="hidden" id="customer-dob" name="customer-dob" />
+                            </div>
+                            <div class="validation-advice" style="display:none;"></div>
+                        </li>
+                        <li>
+                            <label for="nature" class="required"><em>*</em><?php echo __('Objet de votre demande') ?></label>
+                            <div id="inquiry-nature" class="full-width input-box">
+                                <div class="styled-select">
+                                    <select name="nature" id="select-inquiry-nature" class="required-entry validate-selection">
+                                        <option value=""><?php echo __('Choose') ?>:</option>
+                                        <?php foreach($form_options as $v): ?>
+                                            <option value="<?php echo $v ?>"><?php echo $v ?></option>
+                                        <?php endforeach;
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <label for="orderId"><?php echo __('Numéro de votre commande') ?></label>
+                            <div class="input-box">
+                                <input name="orderId" id="orderId" title="<?php echo __('Numéro de votre commande') ?>" class="input-text" type="text">
+                            </div>
+                        </li>
+                        <li class="wide">
+                            <label for="message" class="required"><em>*</em><?php echo __('Message') ?></label>
+                            <div class="input-box comment-box">
+                                <textarea name="comment" id="message" title="<?php echo __('Message') ?>" class="required-entry input-text" cols="5" rows="3"></textarea>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <p class="validation-message validation-message-locked hidden"><?php echo __("Sorry, we cannot accept your registration. We have not saved any of your personal information. Please see our Terms and Conditions for any questions.") ?></p>
+                <div class="buttons-set">
+                    <input type="text" name="hideit" id="hideit" style="display:none !important;" />
+                    <button type="submit" title="<?php echo __('Submit') ?>" class="action primary contact"><?php echo __('Submit') ?></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--Sidebar-->
+    <!-- <div class="contact-sidebar col-2">
+        <div class="call-us">
+            <h3>Call Us</h3>
+            <p>
+                Call Us Toll Free
+                <br>
+                <strong>1-800-557-4616</strong><em>*</em>
+                <br>
+                <em>*</em> Lines are open 9am-7pm ET Mon-Fri
+            </p>
+        </div>
+        <div class="write-us">
+            <h3>Write To Us</h3>
+            <p>The Coca-Cola Company
+                <br> P.O. Box 1734
+                <br> Atlanta, GA 30301
+            </p>
+        </div>
+    </div> -->
+</div>
+<script type="text/javascript">
+
+    function lock(){
+        localStorage.setItem('age_validation', new Date());
+    }
+    function unlock(){
+        localStorage.removeItem("age_validation");
+    }
+    function is_locked() {
+        var then = localStorage.getItem("age_validation");
+        if (!then) return false;
+        var now = new Date();
+        then = new Date(new Date(then).getTime() + 30 * 60000);
+        if (now < then) return true;
+        unlock();
+        return false;
+    }
+
+    var limit = <?php echo $age_limit ?: 'false'; ?>;
+    var form = document.getElementById('contactForm');
+    var message = document.querySelector('.validation-message-dob')
+    var locked_message = document.querySelector('.validation-message-locked')
+    var validateDob = function(e){
+        if(is_locked()){
+            locked_message.classList.remove('hidden');
+            e.preventDefault();
+            return;
+        }
+        var valid = false;
+        var now = new Date();
+        var day = document.getElementById("dob-day");
+        var year = document.getElementById("dob-year");
+        var month = document.getElementById("dob-month");
+        day = day.options[day.selectedIndex].value;
+        year = year.options[year.selectedIndex].value;
+        month = month.options[month.selectedIndex].value;
+
+        if (limit) {
+            valid = year < (now.getFullYear() - limit);
+        } else {
+            valid = true;
+        }
+
+        if(!valid){
+            e.preventDefault();
+            message.classList.remove('hidden');
+            lock();
+        }
+        else{
+            message.classList.add('hidden');
+        }
+    }
+    form.addEventListener('submit', validateDob);
+</script>

@@ -1,0 +1,22 @@
+{
+    "name": "coke/module-faqcustom",
+    "description": "",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "email": "denis.stepanenko@fortyfour.com",
+            "name": "Denis Stepanenko"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Coke\\FaqCustom\\": ""
+        }
+    }
+}

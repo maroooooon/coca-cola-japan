@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category FortyFour
+ * @copyright Copyright (c) 2020 FortyFour LLC
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="invoice_pdf_template" label="Invoice PDF template" file="pdf/invoice.html" type="html" module="Coke_EmailAttachment" area="adminhtml"/>
+</config>

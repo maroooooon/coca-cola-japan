@@ -1,0 +1,29 @@
+//  Common
+& when (@media-common = true) {
+
+}
+
+//  Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .footer{
+        &.content {
+            .links {
+                padding-right: 0;
+                padding-left: 50px;
+
+                &.social {
+                    padding-right: 50px;
+
+                    ul {
+                        padding-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//  Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+}

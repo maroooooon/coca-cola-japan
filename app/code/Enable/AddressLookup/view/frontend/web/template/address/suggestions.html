@@ -1,0 +1,21 @@
+<div
+	class="enable-address-suggestions"
+	data-bind="visible: suggestions().length"
+>
+	<div class="address-suggestions-box">
+		<div class="address-suggestions-title">
+			<strong data-bind="i18n: 'Address not found.'"></strong>
+			<p
+				data-bind="i18n: 'Please select from one of our suggestions.'"
+			></p>
+		</div>
+		<div class="address-suggestions-results">
+			<!-- ko foreach: { data: suggestions(), as: 'suggested' } -->
+			<button
+				type="button"
+				data-bind="text: suggested.address, click: $parent.useSuggestion.bind($parent)"
+			></button>
+			<!-- /ko -->
+		</div>
+	</div>
+</div>

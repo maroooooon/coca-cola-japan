@@ -1,0 +1,115 @@
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+    .header-nav-container {
+        position: relative;
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        border-top: 1px solid @border-color;
+        .header-nav {
+            display: block;
+        }
+        .nav-content {
+            position: relative;
+            ul {
+                display: flex;
+                align-items: center;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                li {
+                    &:last-of-type {
+                        margin-right: 0;
+                    }
+                    a {
+                        display: block;
+                        font-size: 1.5rem;
+                        color: @color-black;
+                        padding: 0.5rem 0;
+                        transition: color 0.33s ease;
+                        text-decoration: none;
+                        &:hover {
+                            color: @color-blue;
+                        }
+                    }
+                }
+            }
+        }
+        .nav-title {
+            position: relative;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 100%;
+            padding: 0.5rem 1.5rem;
+            &:after {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-size: 12px;
+                line-height: inherit;
+                color: inherit;
+                content: "\e622";
+                font-family: "luma-icons";
+                margin: 3px 0 0 0;
+                vertical-align: middle;
+                display: inline-block;
+                font-weight: normal;
+                overflow: hidden;
+                text-align: center;
+            }
+        }
+    }
+}
+
+//  Desktop
+//  _____________________________________________
+@media only screen and (min-width: @screen__m) {
+    .nav-title {
+        display: none;
+    }
+    .nav-content {
+        ul {
+            li {
+                margin: 0;
+                margin-right: 3rem;
+                &:last-of-type {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+@media only screen and (max-width: @screen__m) {
+    .header-nav-container > .wrapper {
+        padding: 0;
+    }
+    .nav-title {
+        display: flex;
+        cursor: pointer;
+    }
+    .nav-content {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        max-width: 100%;
+        background: @color-white;
+        border-top: 1px solid @border-color;
+        ul {
+            flex-direction: column;
+            li {
+                text-align: center;
+                width: 100%;
+                margin: 0;
+                border-bottom: 1px solid @border-color;
+            }
+        }
+        &.active {
+            display: block;
+        }
+    }
+}

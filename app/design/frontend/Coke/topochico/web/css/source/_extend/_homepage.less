@@ -1,0 +1,406 @@
+& when (@media-common = true) {
+    .cms-index-index{
+        .column.main{
+            padding-bottom: 0;
+        }
+
+        h1, .h1{
+            margin-top: 0;
+        }
+        .page-header{
+            margin-bottom: 0;
+        }
+
+        .hero{
+            position: relative;
+            display: flex;
+            .text-block{
+                h1{
+                    color: @color-white;
+                    span{
+                        color: @coke-green-dark;
+                        display: block;
+                    }
+                }
+                .action{
+                    margin-top: 30px;
+                }
+            }
+
+            .disclaimer {
+                position: absolute;
+                top: 100%;
+            }
+
+            .scroll-arrow{
+                font-weight: 600;
+                text-transform: uppercase;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                text-align: center;
+                cursor: pointer;
+                line-height: 30px;
+                span{
+                    display: none;
+                }
+                .lib-icon-font(
+                    @_icon-font-content: @icon-down,
+                    @_icon-font-size: 25px,
+                    @_icon-font-color: @coke-green-dark,
+                    @_icon-font-line-height: 30px
+                );
+            }
+
+        }
+
+        .featured-products-section{
+            .product{
+                text-align: center;
+                padding-left: 20px;
+                padding-right: 20px;
+
+                .image{
+                    margin-left:auto;
+                    margin-right: auto;
+                }
+                .item-details{
+                    .product-item-name {
+                        text-transform: uppercase;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+
+        .benefits-section{
+            color: @coke-yellow;
+            text-align: center;
+
+            h2{
+                margin: 0 0 50px;
+            }
+
+            .benefit-block{
+                padding: 0 20px;
+                .icon{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-bottom: 30px;
+                }
+                p{
+                    max-width: 190px;
+                    margin: auto;
+                    font-size: 22px;
+                }
+            }
+        }
+
+        .our-story-section{
+            .our-story-details{
+                background: @coke-yellow;
+                text-align: center;
+
+                 .wrap {
+                    max-width: 670px;
+                }
+
+                h2{
+                    span{
+                        color: @color-white;
+                    }
+                }
+            }
+            .image{
+                text-align: center;
+            }
+        }
+
+        .social-feed{
+            text-align: center;
+        }
+
+        .disclaimer{
+            font-size: 12px;
+            padding-top: 10px;
+        }
+
+        .video-wrapper {
+            margin-bottom: -7px;
+
+            iframe {
+                height: 57vw;
+                max-height: 700px;
+            }
+        }
+    }
+
+    .variety-pack-block{
+        background: url('@{baseDir}images/home/desert-cactus.jpg') left 30%;
+        background-size: cover;
+        padding: 0 20px;
+
+        .variety-pack-block-product{
+            background-color: rgba(235, 235, 235, 1);
+            margin-bottom: 120px;
+            margin-top: 120px;
+            padding: 60px 20px;
+
+            .product-item-image{
+                margin: 0 auto 30px;
+                text-align: center;
+
+                img{
+                    max-width: 255px;
+                    display: inline-block;
+                    margin: 0 0 0 -75px;
+                }
+            }
+
+            .product-content{
+                text-align: center;
+                p{
+                    font-weight: 600;
+                }
+                .price{
+                    font-size: 24px;
+                }
+                .actions{
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+}
+
+// desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .cms-index-index{
+        h1, .h1{
+            font-size: 70px;
+            line-height: 75px;
+        }
+
+        .hero{
+            min-height: ~'calc(100vh - 185px)';
+            justify-content: center !important;
+
+            .text-block{
+                max-width: 500px;
+                padding:40px 15px;
+
+                p{
+                    font-size: 16px;
+                }
+
+            }
+
+            .scroll-arrow{
+                display: block;
+            }
+
+            .disclaimer {
+                position: static;
+            }
+        }
+
+        .featured-products-section{
+            position: relative;
+            &:before,
+            &:after{
+                content: '';
+                width: 100%;
+                display: block;
+                position: absolute;
+                left:0
+            }
+            &:before{
+                height: 290px;
+                top:0;
+                z-index: -2;
+                background: url('@{baseDir}images/products-background-texture.jpg') no-repeat ~'0 0 / cover';
+            }
+            &:after{
+                height: 145px;
+                top:290px;
+                z-index: -1;
+                background: @coke-yellow;
+
+            }
+            .product{
+                .image{
+                    max-width: 150px;
+                    margin-bottom: 30px;
+                }
+                .item-details{
+                    .product-item-name {
+                        margin-bottom: 30px;
+                        font-size: 30px;
+                    }
+                }
+            }
+        }
+
+        .benefits-section{
+            h2{
+                margin: 0 0 90px;
+            }
+            .benefit-block {
+                .icon {
+                    margin-bottom: 40px;
+                }
+            }
+        }
+
+        .our-story-section{
+            .our-story-details{
+                padding-bottom: 275px;
+                h2{
+                    margin-bottom: 40px;
+                }
+
+                p{
+                    font-size: 16px;
+                }
+            }
+            .image{
+                margin-top: -185px;
+            }
+        }
+
+        .social-feed{
+            .section-title{
+                font-size: 40px;
+                margin-bottom: 50px;
+                margin-top: 20px;
+            }
+        }
+    }
+
+    .variety-pack-block{
+        align-items: center;
+        flex-wrap: nowrap;
+
+        .variety-pack-block-product{
+            display: flex;
+            align-items: center;
+            flex-basis: 840px;
+            padding: 60px;
+            left: 50%;
+            position: relative;
+            transform: translateX(-50%);
+
+            .product-item-image{
+                flex: 0 1 40%;
+                margin-bottom: 0;
+                img{
+                    margin-left: -115px;
+                    max-width: ~'calc(100% + 115px)';
+                }
+            }
+
+            .product-content{
+                padding-left: 60px;
+                flex: 0 1 60%;
+                text-align: left;
+
+                p{
+                    font-size: 16px;
+                }
+                .price{
+                    font-size: 32px;
+                }
+            }
+        }
+    }
+}
+
+// mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .cms-index-index{
+        .hero{
+            margin-bottom: 40px !important;
+
+            .text-block{
+                padding:35px 15px 300px;
+                text-align: center;
+                p{
+                    font-size: 14px;
+                    line-height: 20px;
+
+                }
+            }
+
+            .scroll-arrow{
+                display: none !important;
+            }
+        }
+
+        .featured-products-section{
+            padding-top: 0;
+            padding-bottom: 0;
+
+            .product{
+                padding-top: 60px;
+                padding-bottom: 60px;
+                .image{
+                    max-width: 110px;
+                    margin-bottom: 20px;
+                }
+                .item-details{
+                    .product-item-name {
+                        margin-bottom: 20px;
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+
+        .benefits-section{
+            padding-bottom: 30px;
+            .benefits-container{
+                margin-left: -20px;
+                margin-right: -20px;
+            }
+            .benefit-block{
+                padding: 0 20px;
+                margin-bottom: 60px;
+            }
+        }
+
+        .our-story-section{
+            .our-story-details{
+                padding-bottom: 475px;
+                h2{
+                    margin-bottom: 20px;
+                }
+            }
+            .image{
+                margin-top: -415px;
+            }
+        }
+
+        .social-feed{
+            .section-title{
+                font-size: 30px;
+                margin-bottom: 40px;
+                margin-top: 20px;
+            }
+        }
+    }
+
+    .variety-pack-block{
+        padding: 0 20px;
+
+        .image{
+            margin: 0 -20px;
+        }
+        .variety-pack-block-product{
+            margin-top: -75px;
+        }
+    }
+
+}

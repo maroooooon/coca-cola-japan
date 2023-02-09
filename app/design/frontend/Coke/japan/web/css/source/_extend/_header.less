@@ -1,0 +1,48 @@
+// Global
+//  _____________________________________________
+& when (@media-common = true) {
+    .page-header {
+        position: relative;
+        margin-bottom: 0;
+        background: @color-white;
+        box-shadow: @box-shadow-1;
+        z-index: 200;
+        .header.content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem;
+            &::before,
+            &::after {
+                content: unset;
+            }
+        }
+        .nav-toggle {
+            position: relative;
+            top: unset;
+            left: unset;
+        }
+        .logo {
+            float: unset;
+            margin: 0;
+            svg {
+                display: block;
+                width: 11rem;
+                height: auto;
+            }
+        }
+        .minicart-wrapper {
+            margin: 0;
+            float: unset;
+        }
+    }
+}
+//  Desktop
+//  _____________________________________________
+@media only screen and (min-width: @screen__m) {
+}
+
+//  Mobile
+//  _____________________________________________
+@media only screen and (max-width: @screen__m) {
+}
