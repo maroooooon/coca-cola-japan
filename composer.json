@@ -2,15 +2,15 @@
     "name": "magento/project-enterprise-edition",
     "description": "eCommerce Platform for Growth (Enterprise Edition)",
     "type": "project",
-    "version": "2.3.4",
+    "version": "2.4.5",
     "license": "OSL-3.0",
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
-            "magento/magento-composer-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
             "laminas/laminas-dependency-plugin": true,
-            "magento/inventory-composer-installer": true,
+            "magento/*": true,
             "cweagans/composer-patches": true
         }
     },
@@ -23,10 +23,6 @@
             "type": "vcs",
             "url": "git@github.com:FortyFourDigital/Coke_RestrictAge.git"
         },
-        "Coke_Security": {
-            "type": "vcs",
-            "url": "git@github.com:FortyFourDigital/Coke_Security.git"
-        },
         "Coke_SampleData": {
             "type": "vcs",
             "url": "git@github.com:FortyFourDigital/Coke_SampleData.git"
@@ -34,10 +30,6 @@
         "Coke_OpenGraph": {
             "type": "vcs",
             "url": "git@github.com:FortyFourDigital/Coke_OpenGraph.git"
-        },
-        "Coke_FAQ": {
-            "type": "vcs",
-            "url": "git@github.com:FortyFourDigital/Coke_FAQ.git"
         },
         "Coke_NameManagement": {
             "type": "vcs",
@@ -51,22 +43,6 @@
             "type": "vcs",
             "url": "git@github.com:FortyFourDigital/Coke_PlumrocketSocialLoginFree.git"
         },
-        "Coke_Janrain_M2": {
-            "type": "vcs",
-            "url": "git@github.com:FortyFourDigital/Coke_Janrain_M2.git"
-        },
-        "Coke_Theme": {
-            "type": "vcs",
-            "url": "git@github.com:FortyFourDigital/Coke_Theme.git"
-        },
-        "Coke_Salsify": {
-            "type": "vcs",
-            "url": "git@github.com:FortyFourDigital/Coke_Salsify.git"
-        },
-        "Coke_language_ar_sa": {
-            "type": "vcs",
-            "url": "git@github.com:FortyFourDigital/Coke_language_ar_sa.git"
-        },
         "Coke_Contact": {
             "type": "vcs",
             "url": "git@github.com:FortyFourDigital/Coke_Contact.git"
@@ -75,17 +51,9 @@
             "type": "vcs",
             "url": "git@github.com:FortyFourDigital/Coke_Delivery.git"
         },
-        "Coke_Language_el_GR": {
-            "type": "vcs",
-            "url": "git@github.com:FortyFourDigital/Coke_Language_el_GR.git"
-        },
         "Coke_Cds": {
             "type": "git",
             "url": "git@github.com:FortyFourDigital/Coke_Cds.git"
-        },
-        "Coke_CommerceStatistics": {
-            "type": "git",
-            "url": "git@github.com:FortyFourDigital/Coke_CommerceStatistics.git"
         },
         "aheadworks": {
             "type": "composer",
@@ -93,168 +61,26 @@
         }
     },
     "require": {
+        "magento/magento-cloud-metapackage": ">=2.4.5 <2.4.6",
+        "magento/composer-root-update-plugin": "^2.0.2",
         "aheadworks/module-sarp2": "^2.9.2",
         "aheadworks/module-sarp2-stripe": "^1.0",
-        "avada/module-proofo": "^1.0",
         "coke/cds": "^3.0.0",
-        "coke/commercestatistics": "^1.1",
         "coke/contact": "^1.0",
         "coke/delivery": "^1.1",
-        "coke/faq": "^1.0",
-        "coke/janrain": "2.3.4.x-dev",
-        "coke/language_ar_sa": "^1.0",
-        "coke/language_el_gr": "^1.0.1",
         "coke/opengraph": "2.3.4.x-dev",
-        "coke/salsify": "^2.0",
-        "coke/security": "2.3.4.x-dev",
-        "coke/theme": "^1.0",
         "creativestyle/magesuite-magepack": "^1.1",
         "cweagans/composer-patches": "^1.7",
         "elgentos/regenerate-catalog-urls": "^0.2.5",
         "intervention/image": "^2.5",
         "magemojo/m2-ce-cron": "^1.4",
-        "magento/ece-tools": "2002.1.8",
-        "magento/magento-cloud-metapackage": ">=2.4.2 <2.4.3",
-        "mageplaza/magento-2-dutch-belgium-language-pack": "dev-master",
-        "mageplaza/magento-2-dutch-language-pack": "dev-master",
-        "mageplaza/magento-2-finnish-language-pack": "dev-master",
-        "mageplaza/magento-2-french-language-pack": "dev-master",
-        "mageplaza/magento-2-german-language-pack": "dev-master",
-        "mageplaza/magento-2-japanese-language-pack": "dev-master",
-        "mageplaza/magento-2-norwegian-language-pack": "dev-master",
-        "mageplaza/magento-2-turkish-language-pack": "dev-master",
         "mageplaza/module-social-share": "^1.0",
         "mpdf/mpdf": "^8.0",
-        "sifuen/module-backend-google-sso": "^1.0",
         "smile/elasticsuite": "^2.10",
-        "stripe/stripe-payments": "^2.5",
+        "stripe/stripe-payments": "^3.3.0",
         "zendesk/zendesk_api_client_php": "^2.2",
-        "ext-json": "*"
-    },
-    "replace": {
-        "amzn/amazon-pay-and-login-magento-2-module": "*",
-        "amzn/amazon-pay-and-login-with-amazon-core-module": "*",
-        "amzn/amazon-pay-module": "*",
-        "amzn/amazon-pay-sdk-php": "*",
-        "amzn/login-with-amazon-module": "*",
-        "dotmailer/dotmailer-magento2-extension": "*",
-        "dotmailer/dotmailer-magento2-extension-package": "*",
-        "dotmailer/dotmailer-magento2-extension-enterprise": "*",
-        "dotmailer/dotmailer-magento2-extension-enterprise-package": "*",
-        "dotmailer/dotmailer-magento2-extension-chat": "*",
-        "dotmailer/dotmailer-magento2-extension-b2b": "*",
-        "dotmailer/dotmailer-magento2-extension-sms": "*",
-        "klarna/m2-payments": "*",
-        "klarna/module-core": "*",
-        "klarna/module-kp": "*",
-        "klarna/module-ordermanagement": "*",
-        "klarna/module-onsitemessaging": "*",
-        "temando/module-shipping": "*",
-        "temando/module-shipping-m2": "*",
-        "temando/module-shipping-remover": "*",
-        "vertex/product-magento-module": "*",
-        "vertex/module-tax": "*",
-        "vertex/sdk": "*",
-        "vertexinc/module-tax-staging": "*",
-        "vertexinc/product-magento-module": "*",
-        "vertexinc/product-magento-module-commerce": "*",
-        "vertex/module-address-validation": "*",
-        "vertex/module-tax-staging": "*",
-        "yotpo/magento2-module-yotpo-reviews": "*",
-        "yotpo/magento2-module-yotpo-reviews-bundle": "*",
-
-        "magento/module-authorizenet": "*",
-        "magento/module-authorizenet-acceptjs": "*",
-        "magento/module-authorizenet-cardinal": "*",
-        "magento/module-cardinal-commerce": "*",
-        "magento/module-cybersource": "*",
-        "magento/module-dhl": "*",
-        "magento/module-eway": "*",
-        "magento/module-fedex": "*",
-        "magento/module-marketplace": "*",
-        "magento/module-send-friend": "*",
-        "magento/module-signifyd": "*",
-        "magento/module-worldpay": "*",
-
-        "klarna/module-kp-graph-ql":"*",
-        "magento/module-authorizenet-graph-ql":"*",
-        "magento/module-braintree-graph-ql":"*",
-        "magento/module-bundle-graph-ql": "*",
-        "magento/module-catalog-cms-graph-ql":"*",
-        "magento/module-catalog-customer-ql": "*",
-        "magento/module-catalog-customer-graph-ql":"*",
-        "magento/module-catalog-inventory-graph-ql": "*",
-        "magento/module-catalog-permissions-graph-ql": "*",
-        "magento/module-catalog-rule-graph-ql": "*",
-        "magento/module-catalog-staging-graph-ql": "*",
-        "magento/module-catalog-url-rewrite-graph-ql": "*",
-        "magento/module-checkout-agreements-graph-ql":"*",
-        "magento/module-cms-graph-ql": "*",
-        "magento/module-cms-url-rewrite-graph-ql": "*",
-        "magento/module-compare-list-graph-ql": "*",
-        "magento/module-configurable-product-graph-ql": "*",
-        "magento/module-customer-balance-graph-ql": "*",
-        "magento/module-customer-downloadable-graph-ql":"*",
-        "magento/module-customer-graph-ql": "*",
-        "magento/module-directory-graph-ql": "*",
-        "magento/module-downloadable-graph-ql": "*",
-        "magento/module-gift-card-account-graph-ql": "*",
-        "magento/module-gift-card-graph-ql": "*",
-        "magento/module-gift-message-graph-ql": "*",
-        "magento/module-gift-wrapping-graph-ql": "*",
-        "magento/module-graph-ql": "*",
-        "magento/module-graph-ql-cache": "*",
-        "magento/module-grouped-product-graph-ql": "*",
-        "magento/module-inventory-graph-ql": "*",
-        "magento/module-inventory-in-store-pickup-graph-ql": "*",
-        "magento/module-inventory-in-store-pickup-quote-graph-ql": "*",
-        "magento/module-login-as-customer-graph-ql": "*",
-        "magento/module-multiple-wishlist-graph-ql": "*",
-        "magento/module-newsletter-graph-ql": "*",
-        "magento/module-quote-graph-ql": "*",
-        "magento/module-paypal-graph-ql": "*",
-        "magento/module-related-product-graph-ql":"*",
-        "magento/module-review-graph-ql": "*",
-        "magento/module-reward-graph-ql": "*",
-        "magento/module-rma-graph-ql": "*",
-        "magento/module-sales-graph-ql": "*",
-        "magento/module-send-friend-graph-ql": "*",
-        "magento/module-staging-graph-ql": "*",
-        "magento/module-store-graph-ql": "*",
-        "magento/module-swatches-graph-ql": "*",
-        "magento/module-target-rule-graph-ql": "*",
-        "magento/module-tax-graph-ql": "*",
-        "magento/module-theme-graph-ql": "*",
-        "magento/module-url-rewrite-graph-ql": "*",
-        "magento/module-vault-graph-ql": "*",
-        "magento/module-versions-cms-url-rewrite-graph-ql": "*",
-        "magento/module-weee-graph-ql": "*",
-        "magento/module-wishlist-graph-ql": "*",
-        "paypal/module-braintree-graph-ql":"*",
-
-        "magento/module-bundle-sample-data": "*",
-        "magento/module-catalog-rule-sample-data": "*",
-        "magento/module-catalog-sample-data": "*",
-        "magento/module-cms-sample-data": "*",
-        "magento/module-configurable-sample-data": "*",
-        "magento/module-customer-sample-data": "*",
-        "magento/module-downloadable-sample-data": "*",
-        "magento/module-grouped-product-sample-data": "*",
-        "magento/module-msrp-sample-data": "*",
-        "magento/module-offline-shipping-sample-data": "*",
-        "magento/module-product-links-sample-data": "*",
-        "magento/module-review-sample-data": "*",
-        "magento/module-sales-rule-sample-data": "*",
-        "magento/module-sales-sample-data": "*",
-        "magento/module-sample-data": "*",
-        "magento/module-swatches-sample-data": "*",
-        "magento/module-tax-sample-data": "*",
-        "magento/module-theme-sample-data": "*",
-        "magento/module-widget-sample-data": "*",
-        "magento/module-wishlist-sample-data": "*",
-        "magento/sample-data-media": "*",
-
-        "magento/module-two-factor-auth": "*"
+        "ext-json": "*",
+        "league/oauth2-google": "^2.2"
     },
     "suggest": {
         "ext-pcntl": "Need for run processes in parallel mode"
@@ -309,23 +135,24 @@
             "twbs/bootstrap": [
                 "lib/web/jquery/jquery.tabs.js"
             ],
-            "tinymce/tinymce": "lib/web/tiny_mce_4"
+            "tinymce/tinymce": "lib/web/tiny_mce_5"
         },
+        "magento-force": true,
         "magento-deploystrategy": "copy",
-        "magento-force": "override",
-        "composer-exit-on-patch-failure": true,
-        "patches": {
-            "magento/module-customer": {
-                "MARCHE-619: Admin read-only": "m2-hotfixes/composer/MARCHE-619_customer_module_acl.patch",
-                "MARCHE-657: Persist address form data": "m2-hotfixes/composer/MARCHE-657_address_save_exception.patch"
-            },
-            "aheadworks/module-sarp2": {
-                "MARCHE-619: Admin read-only": "m2-hotfixes/composer/MARCHE-619_sarp2_module_acl.patch"
-            }
+        "magento-deploy-ignore": {
+            "*": [
+                "/.gitignore"
+            ]
         }
     },
-    "require-dev": {
-        "mage2tv/magento-cache-clean": "^1.0",
-        "magento/magento-coding-standard": "^6.0"
+    "composer-exit-on-patch-failure": true,
+    "patches": {
+        "magento/module-customer": {
+            "MARCHE-619: Admin read-only": "m2-hotfixes/composer/MARCHE-619_customer_module_acl.patch",
+            "MARCHE-657: Persist address form data": "m2-hotfixes/composer/MARCHE-657_address_save_exception.patch"
+        },
+        "aheadworks/module-sarp2": {
+            "MARCHE-619: Admin read-only": "m2-hotfixes/composer/MARCHE-619_sarp2_module_acl.patch"
+        }
     }
 }

@@ -1,0 +1,142 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .coke-faq-container {
+        .coke-faq-list {
+            margin: 0 -10px;
+            overflow: hidden;
+            > li {
+                float: left;
+                width: 50%;
+                padding: 0 10px;
+                &:nth-child(2n) {
+                    clear: right;
+                }
+                &:nth-child(2n+1) {
+                    clear: left;
+                }
+            }
+        }
+        .coke-faq-list {
+            .lib-css(box-sizing, border-box , 1);
+            &:extend(.abs-reset-list all);
+            > li {
+                .lib-css(box-sizing, border-box , 1);
+                margin-bottom: 20px;
+            }
+        }
+    }
+    .coke-faq-container-items {
+        .block-collapsible-nav {
+            width: 100%;
+            top: 70px;
+        }
+    }
+
+    // Other settings
+    .bold {
+        font-weight: 700;
+    }
+    .coke-faq-questions-list {
+        list-style: none none;
+        padding: 0;
+    }
+    h4.other-questions {
+        font-weight: normal;
+        text-transform: uppercase;
+        margin-top: 5rem;
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .coke-faq-container {
+        .coke-faq-list {
+            > li {
+                width: 33.3333%;
+                &:nth-child(2n), &:nth-child(2n+1) {
+                    clear: none;
+                }
+                &:nth-child(3n) {
+                    clear: right;
+                }
+                &:nth-child(3n+1) {
+                    clear: left;
+                }
+            }
+        }
+    }
+    .coke-faq-container-items {
+        padding-top: 0px;
+        .coke-faq-content {
+            box-sizing: border-box;
+            width:77.7%;
+            float:right;
+            padding-left:2%;
+        }
+        .block-collapsible-nav {
+            box-sizing:border-box;
+            width:22.3%;
+            float:left;
+        }
+    }
+}
+
+//
+//  Tablet
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .coke-faq-container {
+        .coke-faq-list {
+            margin: 0 -10px;
+            overflow: hidden;
+            > li {
+                float: left;
+                width: 50%;
+                padding: 0 10px;
+                &:nth-child(2n) {
+                    clear: right;
+                }
+                &:nth-child(2n+1) {
+                    clear: left;
+                }
+            }
+        }
+    }
+
+    .coke-faq-container-items {
+        padding-top: 0px;
+        .coke-faq-content {
+            box-sizing: border-box;
+            width:77.7%;
+            float:right;
+            padding-left:2%;
+        }
+        .block-collapsible-nav {
+            box-sizing:border-box;
+            width:22.3%;
+            float:left;
+        }
+    }
+}
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .faq-item-show {
+        .column.main {
+            margin-top: 40px;
+        }
+    }
+    .faq-category-show {
+        .column.main {
+            margin-top: 40px;
+        }
+    }
+}

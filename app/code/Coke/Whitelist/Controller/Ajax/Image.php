@@ -211,11 +211,11 @@ class Image extends Action
 
             $encodedImage = $this->imageGenerator->generate(
                 $imageUrl,
-                $this->getFieldPositions($product, $fieldPositions),
                 $pledgeTextLines,
                 $nameTextLines,
                 $nameOffset,
                 $sku,
+                $this->getFieldPositions($product, $fieldPositions),
                 $fontType,
                 $debug
             );

@@ -1,0 +1,31 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <!-- Top level -->
+        <add id="Coke_Faq::faq"
+             title="FAQ"
+             module="Coke_Faq"
+             sortOrder="59"
+             resource="Magento_Backend::content"/>
+        
+        <add id="Coke_Faq::faq_menu" 
+             title="FAQ Manage" 
+             module="Coke_Faq" 
+             parent="Coke_Faq::faq" 
+             sortOrder="30" 
+             resource="Magento_Backend::content"/>
+        <add id="Coke_Faq::categories" 
+             title="Categories" 
+             module="Coke_Faq" 
+             sortOrder="10" 
+             parent="Coke_Faq::faq_menu" 
+             action="faq/category/"
+             resource="Magento_Backend::content"/>
+        <add id="Coke_Faq::items" 
+             title="Items" 
+             module="Coke_Faq" 
+             sortOrder="11" 
+             parent="Coke_Faq::faq_menu" 
+             action="faq/item/"
+             resource="Magento_Backend::content"/>
+    </menu>
+</config>

@@ -1,0 +1,50 @@
+<div class="page-title-wrapper">
+    <h1 class="page-title"><span class="base" data-ui-id="page-title-wrapper"><?php echo $block->getFaqPageTitle(); ?></span></h1>
+</div>
+<div class="coke-faq-container">
+
+    <?php
+    $categories = $block->getFaqCategoriesAndItems();
+
+        if (count($categories) > 0) {
+    ?>
+    <ul class="coke-faq-list">
+        <?php
+            foreach ($categories as $category) {
+        ?>
+        <li>
+            <h3><?php echo $category['name']; ?></h3>
+            <?php
+            if (count($category['items']) > 0) {
+            ?>
+            <ul>
+                <?php
+                foreach ($category['items'] as $item) {
+                ?>
+                <li>
+                    <a href="<?php echo $block->getUrl('faq/item/show/').$item['url_key']; ?>">
+                        <?php echo $item['title'];?>
+                    </a>
+                </li>
+                <?php
+                }
+                ?>
+            </ul>
+            <div>
+                <a href="<?php echo $block->getUrl('faq/category/show/').$category['url_key']; ?>">
+                    <?php /* @escapeNotVerified */ echo __('View all') ?>
+                </a>
+            </div>
+            <?php
+            }
+            ?>
+        </li>
+        <?php
+            }
+        ?>
+    </ul>
+    <?php
+    }
+    ?>
+
+</div>
