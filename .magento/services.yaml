@@ -9,11 +9,7 @@ mysql:
 redis:
     type: redis:6.2
 
-elasticsearch:
-    type: elasticsearch:7.17
-    disk: 2048
-    configuration:
-      plugins:
-        - analysis-icu
-        - analysis-phonetic
+opensearch:
+  type: opensearch:1.2
+  disk: 1024
 
