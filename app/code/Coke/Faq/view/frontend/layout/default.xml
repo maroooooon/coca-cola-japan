@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceBlock name="footer_links">
+        <block class="Magento\Framework\View\Element\Html\Link" name="coke-faq-link">
+            <arguments>
+                <argument name="label" xsi:type="string" translate="true">FAQ</argument>
+                <argument name="path" xsi:type="string">faq</argument>
+            </arguments>
+        </block>
+    </referenceBlock>
+</page>

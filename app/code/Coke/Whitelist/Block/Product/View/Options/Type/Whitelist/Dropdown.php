@@ -36,12 +36,12 @@ class Dropdown extends AbstractOptions
         \Magento\Framework\View\Element\Template\Context $context,
         \Magento\Framework\Pricing\Helper\Data $pricingHelper,
         \Magento\Catalog\Helper\Data $catalogData,
+        CollectionFactory $whitelistCollectionFactory,
+        StoreManager $storeManager,
         array $data = [],
         CalculateCustomOptionCatalogRule $calculateCustomOptionCatalogRule = null,
         CalculatorInterface $calculator = null,
-        PriceCurrencyInterface $priceCurrency = null,
-        CollectionFactory $whitelistCollectionFactory,
-        StoreManager $storeManager
+        PriceCurrencyInterface $priceCurrency = null
     ) {
         parent::__construct($context, $pricingHelper, $catalogData, $data, $calculateCustomOptionCatalogRule, $calculator, $priceCurrency);
         $this->whitelistCollectionFactory = $whitelistCollectionFactory;

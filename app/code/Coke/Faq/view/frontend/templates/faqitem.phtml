@@ -1,0 +1,39 @@
+<?php
+$item = $block->getItem();
+$items = $block->getItemsByCategoryId($item['category_id'], $item['id']);
+$category = $block->getCategory($item['category_id']);
+$categoryName = $category->getName();
+$categories = $block->getFaqCategories();
+$blockFilter = $block->getViewModel()->getFilterProvider();
+?>
+<div class="page-title-wrapper">
+    <h1 class="page-title"><span class="base" data-ui-id="page-title-wrapper"><?php echo $block->getFaqPageTitle(); ?></span></h1>
+</div>
+<div class="coke-faq-container-items">
+    <div class="coke-faq-content">
+        <h2><?php echo $item['title']; ?></h2>
+        <p><?php echo $blockFilter->filter($item['description']); ?></p>
+        <?php if (count($items) > 0) { ?>
+            <h4 class="other-questions"><?php echo __('Other questions in this category') ?></h4>
+            <ul class="coke-faq-questions-list">
+                <?php foreach($items as $key => $i){ ?>
+                    <li><a href="<?php echo $block->getUrl('faq/item/show/').$i['url_key']; ?>"><?php echo $i['title']; ?></a></li>
+                <?php } ?>
+            </ul>
+        <?php } ?>
+    </div>
+    <div class="block block-collapsible-nav">
+        <div class="title block-collapsible-nav-title" data-mage-init='{"toggleAdvanced": {"toggleContainers": "#faq-nav-content", "selectorsToggleClass": "active"}}'><?php echo __('Category Menu') ?></div>
+        <div class="block-collapsible-content content" id="faq-nav-content">
+            <ul class="items">
+                <?php if (count($categories) > 0) { ?>
+                    <?php foreach ($categories as $c) { ?>
+                        <li class="item <?php echo ($categoryName == $c['name']) ? 'current' : '' ?>"><a href="<?php echo $block->getUrl('faq/category/show/').$c['url_key']; ?>"><?php echo $c['name'];?></a></li>
+                    <?php } ?>
+                <?php } else { ?>
+                    <li class="item"><a href="#" onClick="return false;"><?php echo __('No categories found') ?></a></li>
+                <?php } ?>
+            </ul>
+        </div>
+    </div>
+</div>

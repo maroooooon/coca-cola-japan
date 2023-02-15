@@ -31,7 +31,7 @@ class ImageGenerator
         $this->config     = $config;
     }
 
-    public function generate($imageUrl, $fieldPositions = null, $pledgeTextLines, $nameTextLines, $nameOffset, $sku, $fontType = 0, $debug = false): ?string
+    public function generate($imageUrl, $pledgeTextLines, $nameTextLines, $nameOffset, $sku, $fieldPositions = null, $fontType = 0, $debug = false): ?string
     {
         $image = ImageManagerStatic::make($imageUrl);
 

@@ -1,0 +1,13 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd" layout="1column">
+    <update handle="2columns"/>
+    <body>
+        <referenceBlock name="page.main.title" remove="true" />
+        <referenceContainer name="content">
+            <block class="Coke\Faq\Block\Item\Show" name="faqitem" template="faqitem.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Coke\Faq\ViewModel\OutputHelper</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
