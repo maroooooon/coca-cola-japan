@@ -15,7 +15,7 @@
         }
     },
     "repositories": {
-        "repo": {
+        "0": {
             "type": "composer",
             "url": "https://repo.magento.com"
         },
