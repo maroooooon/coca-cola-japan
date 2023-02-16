@@ -77,7 +77,6 @@
         "magemojo/m2-ce-cron": "^1.4",
         "mageplaza/module-social-share": "^1.0",
         "mpdf/mpdf": "^8.0",
-        "smile/elasticsuite": "^2.10",
         "stripe/stripe-payments": "^3.3.0",
         "zendesk/zendesk_api_client_php": "^2.2",
         "ext-json": "*",
