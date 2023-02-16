@@ -418,6 +418,9 @@ return [
             'catalog' => [
                 'price' => [
                     'scope' => '1'
+                ],
+                'search' => [
+                    'engine' => 'elasticsearch7'
                 ]
             ],
             'dev' => [
