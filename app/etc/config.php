@@ -418,14 +418,6 @@ return [
             'catalog' => [
                 'price' => [
                     'scope' => '1'
-                ],
-                'search' => [
-                    'engine' => 'elasticsuite'
-                ]
-            ],
-            'smile_elasticsuite_core_base_settings' => [
-                'es_client' => [
-                    'servers' => 'http://opensearch.internal:9200'
                 ]
             ],
             'dev' => [
