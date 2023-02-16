@@ -17,7 +17,8 @@
     "repositories": {
         "0": {
             "type": "composer",
-            "url": "https://repo.magento.com"
+            "url": "https://repo.magento.com",
+            "canonical":  false
         },
         "Coke_RestrictAge": {
             "type": "vcs",
