@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace CokeJapan\Magento_Checkout\ViewModel;
+namespace CokeJapan\Checkout\ViewModel;
 
 use Magento\Checkout\Block\Cart;
 use Magento\Framework\View\Element\Block\ArgumentInterface;

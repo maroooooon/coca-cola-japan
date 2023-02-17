@@ -1,8 +1,8 @@
 <?php
 
-namespace CokeJapan\Magento_Customer\Plugin;
+namespace CokeJapan\Customer\Plugin;
 
-use CokeJapan\Magento_Customer\Helper\Config;
+use CokeJapan\Customer\Helper\Config;
 use Magento\Customer\Model\Session;
 use Magento\Store\Model\StoreManagerInterface;
 

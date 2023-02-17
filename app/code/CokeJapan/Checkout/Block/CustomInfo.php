@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace CokeJapan\Magento_Checkout\Block;
+namespace CokeJapan\Checkout\Block;
 
 use Magento\Customer\Block\Form\Login\Info;
 /**

@@ -31,7 +31,7 @@
         <referenceContainer name="content">
             <container name="cart.login.container" label="cart Login Container" htmlTag="div" htmlClass="cart-login-container">
                 <container name="customer.login.container" label="Customer Login Container" htmlTag="div" htmlClass="login-container">
-                    <block class="CokeJapan\Magento_Customer\Block\Form\CustomLogin" name="checkout_customer_form_login" template="Magento_Checkout::cart/login.phtml">
+                    <block class="CokeJapan\Customer\Block\Form\CustomLogin" name="checkout_customer_form_login" template="Magento_Checkout::cart/login.phtml">
                         <container name="form.additional.info" as="form_additional_info"/>
                     </block>
                     <referenceContainer name="form.additional.info">
@@ -40,12 +40,12 @@
                         <container name="container.login.button">
                             <block class="Magento\Checkout\Block\Cart" name="checkout.cart.login.button" template="Magento_Checkout::cart/accountbutton.phtml" after="-">
                                 <arguments>
-                                    <argument name="view_model" xsi:type="object">CokeJapan\Magento_Checkout\ViewModel\CartCustom</argument>
+                                    <argument name="view_model" xsi:type="object">CokeJapan\Checkout\ViewModel\CartCustom</argument>
                                 </arguments>
                             </block>
                         </container>
                     </referenceContainer>
-                    <block class="CokeJapan\Magento_Checkout\Block\CustomInfo" name="checkout.customer.new" template="Magento_Checkout::cart/newcustomer.phtml"/>
+                    <block class="CokeJapan\Checkout\Block\CustomInfo" name="checkout.customer.new" template="Magento_Checkout::cart/newcustomer.phtml"/>
                 </container>
                 <block class="Magento\Cookie\Block\RequireCookie" name="require-cookie" template="Magento_Cookie::require_cookie.phtml">
                     <arguments>
