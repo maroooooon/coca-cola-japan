@@ -64,6 +64,10 @@ class SalesRule extends AbstractHelper
      */
     public function canApplyToFpt(\Magento\Quote\Model\Quote $quote): bool
     {
+        if (is_null($quote->getAppliedRuleIds())) {
+            return false;
+        }
+
         $ruleIds = explode(',', $quote->getAppliedRuleIds());
         foreach ($ruleIds as $key => $ruleId) {
             if ($this->getApplyToFpt((int)$ruleId)) {

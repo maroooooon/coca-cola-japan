@@ -3,7 +3,7 @@ namespace Enable\AddressLookup\Model;
 
 use Enable\AddressLookup\Api\LookupInterface;
 use Magento\Framework\HTTP\Client\Curl;
-use Enable\AddressLookUp\Helper\Config;
+use Enable\AddressLookup\Helper\Config;
 use Magento\Framework\UrlInterface;
 
 class Lookup implements LookupInterface

@@ -2,7 +2,7 @@
 namespace Enable\AddressLookup\Model;
 
 use Enable\AddressLookup\Api\AutocompleteInterface;
-use Enable\AddressLookUp\Helper\Config;
+use Enable\AddressLookup\Helper\Config;
 use Magento\Framework\HTTP\Client\Curl;
 use Magento\Framework\UrlInterface;
 
