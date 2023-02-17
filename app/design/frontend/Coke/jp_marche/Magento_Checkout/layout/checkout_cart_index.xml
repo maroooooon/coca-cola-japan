@@ -31,7 +31,7 @@
         <referenceContainer name="content">
             <container name="cart.login.container" label="cart Login Container" htmlTag="div" htmlClass="cart-login-container">
                 <container name="customer.login.container" label="Customer Login Container" htmlTag="div" htmlClass="login-container">
-                    <block class="CokeJapan\Magento_Customer\Block\Form\CustomLogin" name="checkout_customer_form_login" template="Magento_Checkout::cart/login.phtml">
+                    <block class="CokeJapan\Customer\Block\Form\CustomLogin" name="checkout_customer_form_login" template="Magento_Checkout::cart/login.phtml">
                         <container name="form.additional.info" as="form_additional_info"/>
                     </block>
                     <referenceContainer name="form.additional.info">

@@ -1,6 +1,6 @@
 <?php
 
-namespace CokeJapan\Magento_Checkout\Plugin;
+namespace CokeJapan\Checkout\Plugin;
 
 class RedirectCustomUrl
 {

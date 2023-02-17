@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace CokeJapan\Magento_Customer\Helper;
+namespace CokeJapan\Customer\Helper;
 
 use Magento\Store\Model\ScopeInterface;
 use Magento\Framework\App\Helper\AbstractHelper;

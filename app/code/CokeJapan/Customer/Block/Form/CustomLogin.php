@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace CokeJapan\Magento_Customer\Block\Form;
+namespace CokeJapan\Customer\Block\Form;
 
 use \Magento\Customer\Block\Form\Login;
 /**
