@@ -9,7 +9,7 @@ define([
             function (formData) {
                 /* Checking if the formData is empty. If it is empty, it will return the formData. */
                 /* This happens when there are no addresses in the account */
-                if (!formData) {
+                if (!formData || !formData.custom_attributes) {
                     return this._super(formData);
                 }
 
