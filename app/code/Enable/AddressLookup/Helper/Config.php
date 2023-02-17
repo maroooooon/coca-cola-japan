@@ -1,6 +1,6 @@
 <?php
 
-namespace Enable\AddressLookUp\Helper;
+namespace Enable\AddressLookup\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Store\Model\ScopeInterface;
