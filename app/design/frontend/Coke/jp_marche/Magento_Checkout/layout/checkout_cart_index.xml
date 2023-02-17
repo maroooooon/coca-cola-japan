@@ -40,12 +40,12 @@
                         <container name="container.login.button">
                             <block class="Magento\Checkout\Block\Cart" name="checkout.cart.login.button" template="Magento_Checkout::cart/accountbutton.phtml" after="-">
                                 <arguments>
-                                    <argument name="view_model" xsi:type="object">CokeJapan\Magento_Checkout\ViewModel\CartCustom</argument>
+                                    <argument name="view_model" xsi:type="object">CokeJapan\Checkout\ViewModel\CartCustom</argument>
                                 </arguments>
                             </block>
                         </container>
                     </referenceContainer>
-                    <block class="CokeJapan\Magento_Checkout\Block\CustomInfo" name="checkout.customer.new" template="Magento_Checkout::cart/newcustomer.phtml"/>
+                    <block class="CokeJapan\Checkout\Block\CustomInfo" name="checkout.customer.new" template="Magento_Checkout::cart/newcustomer.phtml"/>
                 </container>
                 <block class="Magento\Cookie\Block\RequireCookie" name="require-cookie" template="Magento_Cookie::require_cookie.phtml">
                     <arguments>
