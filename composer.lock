@@ -53,35 +53,36 @@
         },
         {
             "name": "aheadworks/module-sarp2",
-            "version": "2.16.1",
+            "version": "2.19.3",
             "dist": {
                 "type": "zip",
-                "url": "https://dist.aheadworks.com/packages/aheadworks/module-sarp2/module-sarp2-2.16.1.zip"
+                "url": "https://dist.aheadworks.com/packages/aheadworks/module-sarp2/module-sarp2-2.19.3.zip"
             },
             "require": {
-                "magento/framework": ">100.0",
-                "magento/module-backend": ">100.0",
-                "magento/module-bundle": ">100.0",
-                "magento/module-catalog": ">100.0",
-                "magento/module-checkout": ">100.0",
-                "magento/module-checkout-agreements": ">100.0",
-                "magento/module-config": ">100.0",
-                "magento/module-configurable-product": ">100.0",
-                "magento/module-customer": ">100.0",
-                "magento/module-directory": ">100.0",
-                "magento/module-downloadable": ">100.0",
-                "magento/module-instant-purchase": ">100.0",
-                "magento/module-multishipping": ">100.0",
-                "magento/module-payment": ">100.0",
-                "magento/module-paypal": ">100.0",
-                "magento/module-quote": ">100.0",
-                "magento/module-sales": ">100.0",
-                "magento/module-sales-sequence": ">100.0",
-                "magento/module-tax": ">100.0",
-                "magento/module-theme": ">100.0",
-                "magento/module-ui": ">100.0",
-                "magento/module-vault": ">100.0",
-                "magento/module-weee": ">100.0"
+                "magento/framework": ">=103.0.4",
+                "magento/module-backend": ">=102.0.4",
+                "magento/module-bundle": ">=101.0.4",
+                "magento/module-catalog": ">=104.0.4",
+                "magento/module-checkout": ">=100.4.4",
+                "magento/module-checkout-agreements": ">=100.4.3",
+                "magento/module-config": ">=101.2.4",
+                "magento/module-configurable-product": ">=100.4.4",
+                "magento/module-customer": ">=103.0.4",
+                "magento/module-directory": ">=100.4.4",
+                "magento/module-downloadable": ">=100.4.4",
+                "magento/module-instant-purchase": ">=100.4.3",
+                "magento/module-multishipping": ">=100.4.4",
+                "magento/module-payment": ">=100.4.4",
+                "magento/module-paypal": ">=101.0.4",
+                "magento/module-quote": ">=101.2.4",
+                "magento/module-sales": ">=103.0.4",
+                "magento/module-sales-sequence": ">=100.4.2",
+                "magento/module-tax": ">=100.4.4",
+                "magento/module-theme": ">=101.1.4",
+                "magento/module-ui": ">=101.2.4",
+                "magento/module-vault": ">=101.2.4",
+                "magento/module-weee": ">=100.4.4",
+                "php": ">=8.1"
             },
             "type": "magento2-module",
             "autoload": {
@@ -95,18 +96,18 @@
             "license": [
                 "proprietary"
             ],
-            "description": "Advanced Subscription Products for Magento 2"
+            "description": "Advanced Subscription Products for Magento 2",
+            "homepage": "https://aheadworks.com/"
         },
         {
             "name": "aheadworks/module-sarp2-stripe",
-            "version": "1.0.7",
+            "version": "1.0.10",
             "dist": {
                 "type": "zip",
-                "url": "https://dist.aheadworks.com/packages/aheadworks/module-sarp2-stripe/module-sarp2-stripe-1.0.7.zip"
+                "url": "https://dist.aheadworks.com/packages/aheadworks/module-sarp2-stripe/module-sarp2-stripe-1.0.10.zip"
             },
             "require": {
-                "aheadworks/module-sarp2": ">=2.11.1",
-                "stripe/module-payments": ">=1.8.6"
+                "aheadworks/module-sarp2": ">=2.18.0"
             },
             "type": "magento2-module",
             "autoload": {
@@ -22370,6 +22371,50 @@
             "time": "2022-06-21T01:22:39+00:00"
         },
         {
+            "name": "mageplaza/magento-2-japanese-language-pack",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/magento-2-japanese-language-pack.git",
+                "reference": "da23ad656af0c79f1fc39b8852e1ec8f8c2d035c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/magento-2-japanese-language-pack/zipball/da23ad656af0c79f1fc39b8852e1ec8f8c2d035c",
+                "reference": "da23ad656af0c79f1fc39b8852e1ec8f8c2d035c",
+                "shasum": ""
+            },
+            "require": {
+                "mageplaza/module-core": "^1.3.13"
+            },
+            "default-branch": true,
+            "type": "magento2-language",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza team",
+                    "email": "hi@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Leader"
+                }
+            ],
+            "description": "Japanese language package for Magento 2",
+            "homepage": "https://www.mageplaza.com",
+            "support": {
+                "issues": "https://github.com/mageplaza/magento-2-japanese-language-pack/issues",
+                "source": "https://github.com/mageplaza/magento-2-japanese-language-pack/tree/master"
+            },
+            "time": "2022-02-22T09:04:39+00:00"
+        },
+        {
             "name": "mageplaza/module-core",
             "version": "1.5.2",
             "source": {
@@ -22413,20 +22458,20 @@
         },
         {
             "name": "mageplaza/module-social-share",
-            "version": "1.0.3",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mageplaza/magento-2-social-share.git",
-                "reference": "a9e55f1c3bc5dc145821029f564ec5814dd58a67"
+                "reference": "7f169171510f489d788f7205c287717e8530d7bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mageplaza/magento-2-social-share/zipball/a9e55f1c3bc5dc145821029f564ec5814dd58a67",
-                "reference": "a9e55f1c3bc5dc145821029f564ec5814dd58a67",
+                "url": "https://api.github.com/repos/mageplaza/magento-2-social-share/zipball/7f169171510f489d788f7205c287717e8530d7bb",
+                "reference": "7f169171510f489d788f7205c287717e8530d7bb",
                 "shasum": ""
             },
             "require": {
-                "mageplaza/module-core": "^1.4.5"
+                "mageplaza/module-core": "^1.5.0"
             },
             "type": "magento2-module",
             "autoload": {
@@ -22452,9 +22497,9 @@
             "description": "Magento 2 Social Share Extension",
             "support": {
                 "issues": "https://github.com/mageplaza/magento-2-social-share/issues",
-                "source": "https://github.com/mageplaza/magento-2-social-share/tree/v1.0.3"
+                "source": "https://github.com/mageplaza/magento-2-social-share/tree/v4.0.2"
             },
-            "time": "2020-12-31T07:47:46+00:00"
+            "time": "2022-11-08T16:33:52+00:00"
         },
         {
             "name": "mmucklo/inflect",
@@ -28167,7 +28212,8 @@
     "aliases": [],
     "minimum-stability": "alpha",
     "stability-flags": {
-        "coke/opengraph": 20
+        "coke/opengraph": 20,
+        "mageplaza/magento-2-japanese-language-pack": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

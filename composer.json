@@ -74,8 +74,9 @@
         "elgentos/regenerate-catalog-urls": "^0.2.5",
         "intervention/image": "^2.5",
         "magemojo/m2-ce-cron": "^1.4",
-        "mageplaza/module-social-share": "^1.0",
+        "mageplaza/module-social-share": "^4.0.2",
         "mpdf/mpdf": "^8.0",
+        "mageplaza/magento-2-japanese-language-pack": "dev-master",
         "stripe/stripe-payments": "^3.3.0",
         "zendesk/zendesk_api_client_php": "^2.2",
         "ext-json": "*",
@@ -142,16 +143,6 @@
             "*": [
                 "/.gitignore"
             ]
-        }
-    },
-    "composer-exit-on-patch-failure": true,
-    "patches": {
-        "magento/module-customer": {
-            "MARCHE-619: Admin read-only": "m2-hotfixes/composer/MARCHE-619_customer_module_acl.patch",
-            "MARCHE-657: Persist address form data": "m2-hotfixes/composer/MARCHE-657_address_save_exception.patch"
-        },
-        "aheadworks/module-sarp2": {
-            "MARCHE-619: Admin read-only": "m2-hotfixes/composer/MARCHE-619_sarp2_module_acl.patch"
         }
     }
 }
