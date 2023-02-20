@@ -6,6 +6,7 @@ use Aheadworks\Sarp2\Api\Data\PlanDefinitionInterface;
 use Aheadworks\Sarp2\Model\Config;
 use Aheadworks\Sarp2\Model\Plan\Period\Formatter as PeriodFormatter;
 use Aheadworks\Sarp2\Model\Directory\PriceCurrency;
+use Magento\Framework\Phrase;
 use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 
@@ -108,7 +109,7 @@ class CustomFormatter extends Formatter
     /**
      * Retrieve first payment label
      *
-     * @return \Magento\Framework\Phrase
+     * @return Phrase
      */
     public function getInitialPaymentLabel()
     {
@@ -119,18 +120,17 @@ class CustomFormatter extends Formatter
      * Retrieve trial offer label
      *
      * @param PlanDefinitionInterface $planDefinition
-     * @param float $trialPrice
      * @param bool $skipInitialFee
-     * @return \Magento\Framework\Phrase
+     * @return Phrase
      */
-    public function getTrialOfferLabel($planDefinition, $trialPrice, $skipInitialFee = true)
+    public function getTrialOfferLabel($planDefinition, $skipInitialFee = true)
     {
         $trialCycles = $planDefinition->getTrialTotalBillingCycles();
         if ($planDefinition->getIsInitialFeeEnabled() && $skipInitialFee) {
             $trialCycles--;
         }
 
-        if ($trialCycles > 1 && $trialPrice > 0) {
+        if ($trialCycles > 1) {
             $period = $this->periodFormatter->formatPeriodicity(
                 $planDefinition->getTrialBillingPeriod(),
                 $planDefinition->getTrialBillingFrequency()
@@ -149,7 +149,7 @@ class CustomFormatter extends Formatter
      *
      * @param PlanDefinitionInterface $planDefinition
      * @param bool $skipInitialFee
-     * @return \Magento\Framework\Phrase
+     * @return Phrase
      */
     public function getRegularOfferLabel($planDefinition, $skipInitialFee = true)
     {
@@ -204,7 +204,7 @@ class CustomFormatter extends Formatter
      * @param float $fee
      * @param float $firstPaymentAmount
      * @param string|null $currencyCode
-     * @return \Magento\Framework\Phrase
+     * @return Phrase
      */
     public function getInitialPaymentPrice($fee, $firstPaymentAmount, $currencyCode = null)
     {
@@ -223,7 +223,7 @@ class CustomFormatter extends Formatter
      * @param bool $skipInitialFee
      * @param bool $withoutPrice
      * @param string|null $currencyCode
-     * @return \Magento\Framework\Phrase
+     * @return Phrase
      */
     public function getTrialPriceAndCycles(
         $trialPrice,
@@ -273,7 +273,7 @@ class CustomFormatter extends Formatter
      * @param bool $skipInitialFee
      * @param bool $withoutPrice
      * @param string|null $currencyCode
-     * @return \Magento\Framework\Phrase
+     * @return Phrase
      */
     public function getRegularPriceAndCycles(
         $regularPrice,
@@ -335,7 +335,7 @@ class CustomFormatter extends Formatter
     /**
      * Retrieve subscription ends label
      *
-     * @return \Magento\Framework\Phrase
+     * @return Phrase
      */
     public function getSubscriptionEndsDateLabel()
     {
