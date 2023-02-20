@@ -420,7 +420,7 @@ return [
                     'scope' => '1'
                 ],
                 'search' => [
-                    'engine' => 'elasticsearch7'
+                    'engine' => 'elasticsuite'
                 ]
             ],
             'dev' => [
