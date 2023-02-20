@@ -80,7 +80,8 @@
         "stripe/stripe-payments": "^3.3.0",
         "zendesk/zendesk_api_client_php": "^2.2",
         "ext-json": "*",
-        "league/oauth2-google": "^2.2"
+        "league/oauth2-google": "^2.2",
+        "smile/elasticsuite": "~2.10.12"
     },
     "suggest": {
         "ext-pcntl": "Need for run processes in parallel mode"
