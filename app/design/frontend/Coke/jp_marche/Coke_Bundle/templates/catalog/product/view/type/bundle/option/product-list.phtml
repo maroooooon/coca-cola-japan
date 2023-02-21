@@ -41,7 +41,7 @@
                         '%s %s %s',
                         $_selection->getData('brand'),
                         $_selection->getData('container'),
-                        str_replace(',',' ', $_selection->getData('product_category'))
+                        $_selection->getData('product_category') ? str_replace(',',' ', $_selection->getData('product_category')) : ''
                     ) ?>
                     <?php if($_selection->isSaleable()):?>
                         <?php $image = $_imageHelper->init($_selection, 'image', ['type' => 'image'])->keepAspectRatio(true)->resize('230', '230')->getUrl(); ?>
