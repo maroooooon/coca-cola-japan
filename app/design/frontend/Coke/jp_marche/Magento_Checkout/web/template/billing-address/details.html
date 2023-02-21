@@ -5,15 +5,15 @@
  */
 -->
 <div if="isAddressDetailsVisible() && currentBillingAddress()" class="billing-address-details">
-    <text args="currentBillingAddress().prefix"/> <text args="currentBillingAddress().lastname"/> <text args="currentBillingAddress().middlename"/>
-    <text args="currentBillingAddress().firstname"/> <text args="currentBillingAddress().suffix"/><br/>
-    <text args="getCountryName(currentBillingAddress().countryId)"/><br/>
-    <text args="currentBillingAddress().postcode"/><br/>
-    <span text="currentBillingAddress().region"></span><text args="currentBillingAddress().city "/><text args="currentBillingAddress().street.join(', ')"/><br/>
+    <text args="currentBillingAddress().prefix"></text> <text args="currentBillingAddress().lastname"></text> <text args="currentBillingAddress().middlename"></text>
+    <text args="currentBillingAddress().firstname"></text> <text args="currentBillingAddress().suffix"></text><br/>
+    <text args="getCountryName(currentBillingAddress().countryId)"></text><br/>
+    <text args="currentBillingAddress().postcode"></text><br/>
+    <span text="currentBillingAddress().region"></span><text args="currentBillingAddress().city "></text><text args="currentBillingAddress().street.join(', ')"></text><br/>
     <span if="currentBillingAddress().telephone" text="currentBillingAddress().telephone"></span><br/>
 
     <each args="data: currentBillingAddress().customAttributes, as: 'element'">
-        <text args="$parent.getCustomAttributeLabel(element)"/>
+        <text args="$parent.getCustomAttributeLabel(element)"></text>
         <br/>
     </each>
 
