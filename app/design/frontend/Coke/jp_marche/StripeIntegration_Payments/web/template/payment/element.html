@@ -13,11 +13,6 @@
         <label class="label" data-bind="attr: {'for': getCode()}">
             <span data-bind="text: getTitle()"></span>
         </label>
-        <span class="stripe-icon-container" data-bind="css: { right: iconsRight }, if: hasIcons">
-            <span data-bind="foreach: icons()">
-              <img class="stripe-icon" data-bind="attr:{src: path}">
-            </span>
-        </span>
     </div>
 
     <div class="payment-method-content" data-bind="if: stripePaymentsError()">
