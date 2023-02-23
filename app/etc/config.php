@@ -597,11 +597,6 @@ return [
                         'name' => 'Coca Cola'
                     ]
                 ],
-                'design' => [
-                    'theme' => [
-                        'theme_id' => 'Coke/coke_eu'
-                    ]
-                ],
                 'mpsocialshare' => [
                     'general' => [
                         'enabled' => '1'
@@ -619,11 +614,6 @@ return [
                 'general' => [
                     'store_information' => [
                         'name' => 'Coca Cola'
-                    ]
-                ],
-                'design' => [
-                    'theme' => [
-                        'theme_id' => 'Coke/coke_eu'
                     ]
                 ],
                 'mpsocialshare' => [
@@ -645,11 +635,6 @@ return [
                         'default' => 'EUR',
                         'allow' => 'EUR',
                         'base' => 'EUR'
-                    ]
-                ],
-                'design' => [
-                    'theme' => [
-                        'theme_id' => 'Coke/france_d2c'
                     ]
                 ],
                 'checkout' => [
@@ -1268,69 +1253,6 @@ return [
             'area' => 'frontend',
             'type' => '0',
             'code' => 'Coke/global'
-        ],
-        'frontend/Coke/egypt' => [
-            'parent_id' => 'Coke/global',
-            'theme_path' => 'Coke/egypt',
-            'theme_title' => 'Coca-Cola Egypt',
-            'is_featured' => '0',
-            'area' => 'frontend',
-            'type' => '0',
-            'code' => 'Coke/egypt'
-        ],
-        'frontend/Coke/egypt_rtl' => [
-            'parent_id' => 'Coke/egypt',
-            'theme_path' => 'Coke/egypt_rtl',
-            'theme_title' => 'Coca-Cola Egypt Arabic(rtl)',
-            'is_featured' => '0',
-            'area' => 'frontend',
-            'type' => '0',
-            'code' => 'Coke/egypt_rtl'
-        ],
-        'frontend/Coke/topochico' => [
-            'parent_id' => 'Coke/global',
-            'theme_path' => 'Coke/topochico',
-            'theme_title' => 'Coca-Cola TopoChico Greece',
-            'is_featured' => '0',
-            'area' => 'frontend',
-            'type' => '0',
-            'code' => 'Coke/topochico'
-        ],
-        'frontend/Coke/olnb' => [
-            'parent_id' => 'Magento/blank',
-            'theme_path' => 'Coke/olnb',
-            'theme_title' => 'Coca-Cola OLNB',
-            'is_featured' => '0',
-            'area' => 'frontend',
-            'type' => '0',
-            'code' => 'Coke/olnb'
-        ],
-        'frontend/Coke/coke_eu' => [
-            'parent_id' => 'Magento/blank',
-            'theme_path' => 'Coke/coke_eu',
-            'theme_title' => 'Coca-Cola Europe',
-            'is_featured' => '0',
-            'area' => 'frontend',
-            'type' => '0',
-            'code' => 'Coke/coke_eu'
-        ],
-        'frontend/Coke/olnb_turkey' => [
-            'parent_id' => 'Coke/coke_eu',
-            'theme_path' => 'Coke/olnb_turkey',
-            'theme_title' => 'Coca-Cola OLNB Turkey',
-            'is_featured' => '0',
-            'area' => 'frontend',
-            'type' => '0',
-            'code' => 'Coke/olnb_turkey'
-        ],
-        'frontend/Coke/france_d2c' => [
-            'parent_id' => 'Coke/global',
-            'theme_path' => 'Coke/france_d2c',
-            'theme_title' => 'Coke France',
-            'is_featured' => '0',
-            'area' => 'frontend',
-            'type' => '0',
-            'code' => 'Coke/france_d2c'
         ],
         'frontend/Coke/jp_marche' => [
             'parent_id' => 'Magento/blank',
