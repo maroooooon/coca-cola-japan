@@ -494,57 +494,6 @@ return [
             ]
         ],
         'websites' => [
-            'egypt_website' => [
-                'general' => [
-                    'country' => [
-                        'default' => 'EG',
-                        'allow' => 'EG'
-                    ],
-                    'locale' => [
-                        'timezone' => 'Asia/Aden'
-                    ]
-                ],
-                'currency' => [
-                    'options' => [
-                        'default' => 'EGP',
-                        'allow' => 'EGP',
-                        'base' => 'EGP'
-                    ]
-                ]
-            ],
-            'topo_chico_gr_website' => [
-                'general' => [
-                    'country' => [
-                        'default' => 'GR',
-                        'allow' => 'GR'
-                    ],
-                    'locale' => [
-                        'timezone' => 'Europe/Athens'
-                    ]
-                ],
-                'currency' => [
-                    'options' => [
-                        'default' => 'EUR',
-                        'allow' => 'EUR',
-                        'base' => 'EUR'
-                    ]
-                ],
-                'wishlist' => [
-                    'general' => [
-                        'active' => '0'
-                    ]
-                ],
-                'catalog' => [
-                    'review' => [
-                        'active' => '0'
-                    ]
-                ],
-                'contact' => [
-                    'email' => [
-                        'recipient_email' => 'greece.cic@coca-cola.com'
-                    ]
-                ]
-            ],
             'jp_marche' => [
                 'design' => [
                     'theme' => [
@@ -588,71 +537,6 @@ return [
                 'aw_sarp2' => [
                     'subscription_editing' => [
                         'can_edit_next_payment_date' => 0
-                    ]
-                ]
-            ],
-            'coke_uk' => [
-                'general' => [
-                    'store_information' => [
-                        'name' => 'Coca Cola'
-                    ]
-                ],
-                'mpsocialshare' => [
-                    'general' => [
-                        'enabled' => '1'
-                    ]
-                ],
-                'coke_whitelist' => [
-                    'general' => [
-                        'enabled' => '1',
-                        'is_restriction_enabled' => '1',
-                        'is_names_enabled' => '1'
-                    ]
-                ]
-            ],
-            'coke_eu' => [
-                'general' => [
-                    'store_information' => [
-                        'name' => 'Coca Cola'
-                    ]
-                ],
-                'mpsocialshare' => [
-                    'general' => [
-                        'enabled' => '1'
-                    ]
-                ],
-                'coke_whitelist' => [
-                    'general' => [
-                        'enabled' => '1',
-                        'is_restriction_enabled' => '1',
-                        'is_names_enabled' => '1'
-                    ]
-                ]
-            ],
-            'france_d2c' => [
-                'currency' => [
-                    'options' => [
-                        'default' => 'EUR',
-                        'allow' => 'EUR',
-                        'base' => 'EUR'
-                    ]
-                ],
-                'checkout' => [
-                    'postcode_restrictions' => [
-                        'enabled' => '1'
-                    ],
-                    'options' => [
-                        'enable_agreements' => '1'
-                    ]
-                ],
-                'payment' => [
-                    'braintree' => [
-                        'title' => 'Carte de crédit',
-                        'payment_action' => 'authorize_capture'
-                    ],
-                    'braintree_paypal' => [
-                        'title' => 'PayPal',
-                        'payment_action' => 'authorize_capture'
                     ]
                 ]
             ]
@@ -1206,6 +1090,18 @@ return [
         'PayPal_BraintreeGraphQl' => 1,
         'FortyFour_Payfort' => 1,
         'Sifuen_BackendGoogleSso' => 1,
+        'Smile_ElasticsuiteAdminNotification' => 1,
+        'Smile_ElasticsuiteCore' => 1,
+        'Smile_ElasticsuiteCatalog' => 1,
+        'Smile_ElasticsuiteCatalogGraphQl' => 1,
+        'Smile_ElasticsuiteCatalogRule' => 1,
+        'Smile_ElasticsuiteCatalogOptimizer' => 1,
+        'Smile_ElasticsuiteTracker' => 1,
+        'Smile_ElasticsuiteThesaurus' => 1,
+        'Smile_ElasticsuiteSwatches' => 1,
+        'Smile_ElasticsuiteIndices' => 1,
+        'Smile_ElasticsuiteAnalytics' => 1,
+        'Smile_ElasticsuiteVirtualCategory' => 1,
         'Coke_Japan' => 1,
         'Temando_ShippingRemover' => 1,
         'Zendesk_Zendesk' => 1
@@ -1216,55 +1112,5 @@ return [
                 'en_US'
             ]
         ]
-    ],
-    'themes' => [
-        'frontend/Magento/blank' => [
-            'parent_id' => null,
-            'theme_path' => 'Magento/blank',
-            'theme_title' => 'Magento Blank',
-            'is_featured' => '0',
-            'area' => 'frontend',
-            'type' => '0',
-            'code' => 'Magento/blank'
-        ],
-        'frontend/Magento/luma' => [
-            'parent_id' => 'Magento/blank',
-            'theme_path' => 'Magento/luma',
-            'theme_title' => 'Magento Luma',
-            'is_featured' => '0',
-            'area' => 'frontend',
-            'type' => '0',
-            'code' => 'Magento/luma'
-        ],
-        'adminhtml/Magento/backend' => [
-            'parent_id' => null,
-            'theme_path' => 'Magento/backend',
-            'theme_title' => 'Magento 2 backend',
-            'is_featured' => '0',
-            'area' => 'adminhtml',
-            'type' => '0',
-            'code' => 'Magento/backend'
-        ],
-        'frontend/Coke/global' => [
-            'parent_id' => 'Magento/luma',
-            'theme_path' => 'Coke/global',
-            'theme_title' => 'Coca-Cola Global Template',
-            'is_featured' => '0',
-            'area' => 'frontend',
-            'type' => '0',
-            'code' => 'Coke/global'
-        ],
-        'frontend/Coke/jp_marche' => [
-            'parent_id' => 'Magento/blank',
-            'theme_path' => 'Coke/jp_marche',
-            'theme_title' => 'Coke Japan Marche',
-            'is_featured' => '0',
-            'area' => 'frontend',
-            'type' => '0',
-            'code' => 'Coke/jp_marche'
-        ]
-    ],
-    'i18n' => [
-
     ]
 ];

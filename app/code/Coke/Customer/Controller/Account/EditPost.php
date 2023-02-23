@@ -28,7 +28,7 @@ class EditPost extends \Magento\Customer\Controller\Account\EditPost
                 throw new InputException(__('Password confirmation doesn\'t match entered password.'));
             }
 
-            $isPasswordChanged = $this->customerAccountManagement->changePassword($email, $currPass, $newPass);
+            $isPasswordChanged = $this->accountManagement->changePassword($email, $currPass, $newPass);
         }
 
         return $isPasswordChanged;
