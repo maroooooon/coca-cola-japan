@@ -60,4 +60,42 @@ class EmailNotificationPluginPreference extends EmailNotificationPlugin
 
 		// Do nothing
 	}
+
+    /**
+     * @param EmailNotificationInterface $subject
+     * @param callable $proceed
+     * @param CustomerInterface $savedCustomer
+     * @param string $origCustomerEmail
+     * @param bool $isPasswordChanged
+     */
+    public function aroundCredentialsChanged(
+        EmailNotificationInterface $subject,
+        callable $proceed,
+        CustomerInterface $savedCustomer,
+                                   $origCustomerEmail,
+                                   $isPasswordChanged = false
+    ) {
+        if (!$this->cdsHelper->isEnabled()) {
+            $proceed($savedCustomer, $origCustomerEmail, $isPasswordChanged);
+        }
+
+        // Do nothing
+    }
+
+    /**
+     * @param EmailNotificationInterface $subject
+     * @param callable $proceed
+     * @param CustomerInterface $savedCustomer
+     */
+    public function aroundPasswordReminder(
+        EmailNotificationInterface $subject,
+        callable $proceed,
+        CustomerInterface $savedCustomer
+    ) {
+        if (!$this->cdsHelper->isEnabled()) {
+            $proceed($savedCustomer);
+        }
+
+        // Do nothing
+    }
 }
