@@ -7,7 +7,6 @@ define([
     'jquery',
     'matchMedia',
     'jquery-ui-modules/menu',
-    'jquery/jquery.mobile.custom',
     'mage/translate'
 ], function ($, mediaCheck) {
     'use strict';
@@ -22,7 +21,7 @@ define([
             showDelay: 42,
             hideDelay: 300,
             delay: 0,
-            mediaBreakpoint: '(max-width: 767px)'
+            mediaBreakpoint: '(max-width: 768px)'
         },
 
         /**
@@ -72,8 +71,7 @@ define([
          */
         _assignControls: function () {
             this.controls = {
-                toggleBtn: $('[data-action="toggle-nav"]'),
-                swipeArea: $('.nav-sections')
+                toggleBtn: $('[data-action="toggle-nav"]')
             };
 
             return this;
@@ -88,8 +86,6 @@ define([
 
             controls.toggleBtn.off('click');
             controls.toggleBtn.on('click', toggle.bind(this));
-            controls.swipeArea.off('swipeleft');
-            controls.swipeArea.on('swipeleft', toggle.bind(this));
         },
 
         /**
@@ -144,7 +140,7 @@ define([
                 classes,
                 classNav;
 
-            if (!activeCategoryLink || !activeCategoryLink.hasClass('ui-corner-all')) {
+            if (!activeCategoryLink || !activeCategoryLink.hasClass('ui-menu-item-wrapper')) {
 
                 //category was not found by provided URL
                 return false;
