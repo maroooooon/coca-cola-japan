@@ -62,7 +62,7 @@ class StripePaymentsWebhookChargeSucceededCard implements ObserverInterface
         $eventName = $observer->getEvent()->getName();
         $arrEvent = $observer->getData('arrEvent');
 
-        if ($eventName == 'stripe_payments_webhook_charge_succeeded_card') {
+        if ($eventName == 'stripe_payments_webhook_charge_succeeded') {
             if (!($order = $this->webhooksHelper->loadOrderFromEvent($arrEvent))
                 || !$this->config->isEnabled($order->getStoreId())
                 || $order->hasInvoices()) {
