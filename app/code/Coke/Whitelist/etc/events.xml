@@ -4,7 +4,7 @@
         <observer name="Coke_Whitelist::CheckoutSubmitAllAfter"
                   instance="Coke\Whitelist\Observer\CheckoutSubmitAllAfter" />
     </event>
-    <event name="stripe_payments_webhook_charge_succeeded_card">
+    <event name="stripe_payments_webhook_charge_succeeded">
         <observer name="Coke_Whitelist::StripePaymentsWebhookChargeSucceededCard"
                   instance="Coke\Whitelist\Observer\StripePaymentsWebhookChargeSucceededCard" />
     </event>
