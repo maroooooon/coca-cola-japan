@@ -34,6 +34,7 @@ $configValue = $config->getConfigValue('coke_bundledControls/bundled_controls/bu
                 <button type="submit"
                         title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
                         class="action primary tocart"
+                        data-name="<?php echo $_product->getName() ?>"
                         id="product-addtocart-button" disabled
                         data-mage-init='{
                             "FortyFour_DataLayer/js/action/brand": {
@@ -53,15 +54,26 @@ $configValue = $config->getConfigValue('coke_bundledControls/bundled_controls/bu
     {
         "#product_addtocart_form": {
             "Magento_Catalog/js/validate-product": {}
-        },
+        }
+    }
+</script>
 
-        "*": {
+    <!--Applicable to Japanese stores only-->
+<?php $isEnabled = $this->helper('CokeJapan\BottledCola\Helper\Config')->isEnabled(); ?>
+<?php if ($isEnabled) : ?>
+    <script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
             "Magento_Checkout/js/bundled_controls": {
                 "addToCartMessage":"<?= __('The order cannot proceed') ?>",
                 "bundledControlMessage":"<?= __('Cannot be included in the package') ?>",
                 "pleaseEmptyCart":"<?= __('Please empty cart') ?>",
                 "bundledControlsSku":"<?= $configValue ?>"
+            },
+            "Coke_PersonalizedBottle/js/add-to-cart-modal": {
+                "bundledControlsSku":"<?= $configValue ?>"
             }
         }
     }
 </script>
+<?php endif;?>

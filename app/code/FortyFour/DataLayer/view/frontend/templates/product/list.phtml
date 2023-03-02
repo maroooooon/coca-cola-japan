@@ -96,6 +96,7 @@ $configValue = $config->getConfigValue('coke_bundledControls/bundled_controls/bu
                                                 <button type="submit"
                                                         title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>"
                                                         class="action tocart primary"
+                                                        data-name="<?=/* @noEscape */ $_helper->productAttribute($_product, $_product->getName(), 'name')?>"
                                                         data-mage-init='{
                                                             "FortyFour_DataLayer/js/action/brand": {
                                                                 "brand": "<?= $block->escapeHtml($_product->getAttributeText('brand')) ?>",
@@ -148,16 +149,20 @@ $configValue = $config->getConfigValue('coke_bundledControls/bundled_controls/bu
         </script>
     <?php endif; ?>
 
-    <script type="text/x-magento-init">
-        {
-            "*": {
-                "Magento_Checkout/js/bundled_controls": {
-                    "addToCartMessage":"<?= __('The order cannot proceed') ?>",
-                    "bundledControlMessage":"<?= __('Cannot be included in the package') ?>",
-                    "pleaseEmptyCart":"<?= __('Please empty cart') ?>",
-                    "bundledControlsSku":"<?= $configValue ?>"
+    <!--Applicable to Japanese stores only-->
+    <?php $isEnabled = $this->helper('CokeJapan\BottledCola\Helper\Config')->isEnabled(); ?>
+    <?php if ($isEnabled) : ?>
+        <script type="text/x-magento-init">
+            {
+                "*": {
+                    "Magento_Checkout/js/bundled_controls": {
+                        "addToCartMessage":"<?= __('The order cannot proceed') ?>",
+                        "bundledControlMessage":"<?= __('Cannot be included in the package') ?>",
+                        "pleaseEmptyCart":"<?= __('Please empty cart') ?>",
+                        "bundledControlsSku":"<?= $configValue ?>"
+                    }
                 }
             }
-        }
-    </script>
+        </script>
+    <?php endif;?>
 <?php endif; ?>
