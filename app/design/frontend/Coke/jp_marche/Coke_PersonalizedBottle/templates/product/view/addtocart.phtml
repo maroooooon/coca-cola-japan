@@ -32,7 +32,7 @@
                     title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
                     class="action primary tocart"
                     id="product-addtocart-button" disabled>
-                <span><?= $block->escapeHtml($buttonTitle) ?></span>
+                <span><?= __($block->escapeHtml($buttonTitle)) ?></span>
             </button>
             <?= $block->getChildHtml('', true) ?>
         </div>

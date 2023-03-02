@@ -435,6 +435,6 @@ canceled,キャンセル
 "Sign In","サインイン"
 "delivery text","お支払い方法とご注文の確認"
 "My billing and shipping address are the same","請求先住所"
-
 "This coupon is for registered members only","本クーポンは会員登録者限定のため<span class=""coupon-area-color"" id=""scroll-login-section"">ログイン</span>いただくか<a href=""/customer/account/create/"" class=""coupon-area-color"">新規会員登録</a>をお願いします。"
 "You must login to use the coupon code you entered. Please login and try again.","入力されたクーポンコードの利用にはログインが必須です。ログインの上、再度お試しください。"
+"has been added","が追加されました。"
