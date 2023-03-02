@@ -19,6 +19,7 @@
         <referenceContainer name="product.info.stock.sku" remove="true" />
 
         <move element="product.price.render.bundle.customization" destination="bundle.summary" before="-"/>
+        <move element="page.messages" destination="page.top" before='custom.bundle.hero' />
 
         <referenceBlock name="product.info.bundle.options">
             <action method="setTemplate">
