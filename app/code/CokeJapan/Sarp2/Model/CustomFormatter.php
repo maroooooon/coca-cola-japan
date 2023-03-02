@@ -171,7 +171,7 @@ class CustomFormatter extends Formatter
             );
 
             $valueFromStoreConfig = $this->scopeConfig->getValue(
-                'coke_Japan/StoreName/enable',
+                'coke_japan/StoreName/enable',
                 \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
             );
 
