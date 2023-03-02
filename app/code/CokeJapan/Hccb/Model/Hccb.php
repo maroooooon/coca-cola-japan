@@ -5,6 +5,8 @@ namespace CokeJapan\Hccb\Model;
 class Hccb implements \CokeJapan\Hccb\Api\HccbManagementInterface
 {
     /**
+     * Create shipment order
+     *
      * @return string
      */
     public function createShipments(): string
@@ -13,6 +15,8 @@ class Hccb implements \CokeJapan\Hccb\Api\HccbManagementInterface
     }
 
     /**
+     * Get order processing
+     *
      * @return string
      */
     public function getOrders(): string
