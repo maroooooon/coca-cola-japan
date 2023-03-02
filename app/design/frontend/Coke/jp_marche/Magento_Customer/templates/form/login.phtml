@@ -44,6 +44,9 @@ $loginButtonViewModel = $block->getData('login_button_view_model');
                                data-validate="{required:true}">
                     </div>
                 </div>
+                <div class="field choice choice-show-password" data-bind="scope: 'showPassword'">
+                    <!-- ko template: getTemplate() --><!-- /ko -->
+                </div>
                 <?= $block->getChildHtml('form_additional_info') ?>
                 <div class="actions-toolbar">
                     <div class="primary"><button type="submit" class="action login primary" name="send" id="send2" <?php if ($loginButtonViewModel->disabled()): ?> disabled="disabled" <?php endif; ?>><span><?= $block->escapeHtml(__('Sign In')) ?></span></button></div>
