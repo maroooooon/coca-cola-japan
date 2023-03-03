@@ -1,0 +1,22 @@
+Index: vendor/stripe/module-payments/Helper/Webhooks.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/vendor/stripe/module-payments/Helper/Webhooks.php b/vendor/stripe/module-payments/Helper/Webhooks.php
+--- a/vendor/stripe/module-payments/Helper/Webhooks.php	
++++ b/vendor/stripe/module-payments/Helper/Webhooks.php	(date 1672889162000)
+@@ -81,6 +81,13 @@
+ 
+                 // Retrieve the request's body and parse it as JSON
+                 $body = $this->request->getContent();
++
++                try {
++                    \Magento\Framework\App\ObjectManager::getInstance()->create(\Coke\CancelOrder\Logger\Logger::class)
++                        ->info('Got a webhook ' . $body);
++                } catch (\Exception $e) {
++                }
++
+                 $event = json_decode($body, true);
+                 $stdEvent = json_decode($body);
+ 

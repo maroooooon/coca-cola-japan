@@ -1,0 +1,29 @@
+Index: vendor/aheadworks/module-sarp2/Model/Payment/SamplerManagement.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/vendor/aheadworks/module-sarp2/Model/Payment/SamplerManagement.php b/vendor/aheadworks/module-sarp2/Model/Payment/SamplerManagement.php
+--- a/vendor/aheadworks/module-sarp2/Model/Payment/SamplerManagement.php	
++++ b/vendor/aheadworks/module-sarp2/Model/Payment/SamplerManagement.php	(date 1672736272000)
+@@ -189,15 +189,19 @@
+     public function revertPaymentBySamplerInfo(
+         SamplerInfo $samplerInfo
+     ): ?SamplerInfo {
++        /** @var \Magento\Store\Model\App\Emulation $emulation */
++        $emulation = \Magento\Framework\App\ObjectManager::getInstance()->create(\Magento\Store\Model\App\Emulation::class);
++        $emulation->startEnvironmentEmulation($samplerInfo->getStoreId(), \Magento\Framework\App\Area::AREA_FRONTEND, true);
+         try {
+             $paymentMethodCode = $samplerInfo->getMethod();
+             $sampler = $this->samplerPool->getSampler($paymentMethodCode);
+             $this->revertProcessor->processRevert($sampler, $samplerInfo);
+-
++            $emulation->stopEnvironmentEmulation();
+             return $samplerInfo;
+         } catch (\Exception $e) {
+             $this->revertProcessor->processError($samplerInfo);
+             $this->logger->critical($e);
++            $emulation->stopEnvironmentEmulation();
+             return null;
+         }
+     }
