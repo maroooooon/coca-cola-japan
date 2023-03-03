@@ -6,6 +6,8 @@
 
 /** @var  $block \Magento\Sales\Block\Order\Item\Renderer\DefaultRenderer */
 $_item = $block->getItem();
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$request = $objectManager->get('Magento\Framework\App\Action\Context')->getRequest();
 ?>
 <tr id="order-item-row-<?= (int) $_item->getId() ?>">
     <td class="col name" data-th="<?= $block->escapeHtml(__('Product Name')) ?>">
@@ -46,9 +48,11 @@ $_item = $block->getItem();
     <td class="col sku" data-th="<?= $block->escapeHtml(__('SKU')) ?>">
         <?= /* @noEscape */ $block->prepareSku($block->getSku()) ?>
     </td>
+    <?php if($request->getFullActionName() == 'sales_order_view'): ?>
     <td class="col price" data-th="<?= $block->escapeHtml(__('Price')) ?>">
         <?= $block->getItemPriceHtml() ?>
     </td>
+    <?php endif; ?>
     <td class="col qty" data-th="<?= $block->escapeHtml(__('Qty')) ?>">
         <ul class="items-qty">
             <?php if ($block->getItem()->getQtyOrdered() > 0): ?>
@@ -77,7 +81,9 @@ $_item = $block->getItem();
             <?php endif; ?>
         </ul>
     </td>
+    <?php if($request->getFullActionName() == 'sales_order_view'): ?>
     <td class="col subtotal" data-th="<?= $block->escapeHtml(__('Subtotal')) ?>">
         <?= $block->getItemRowTotalHtml() ?>
     </td>
+    <?php endif; ?>
 </tr>
