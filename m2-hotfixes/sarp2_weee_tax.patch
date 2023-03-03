@@ -1,0 +1,54 @@
+Index: vendor/aheadworks/module-sarp2/Model/Sales/Total/Profile/Collector/WeeeTax.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/vendor/aheadworks/module-sarp2/Model/Sales/Total/Profile/Collector/WeeeTax.php b/vendor/aheadworks/module-sarp2/Model/Sales/Total/Profile/Collector/WeeeTax.php
+--- a/vendor/aheadworks/module-sarp2/Model/Sales/Total/Profile/Collector/WeeeTax.php	
++++ b/vendor/aheadworks/module-sarp2/Model/Sales/Total/Profile/Collector/WeeeTax.php	(date 1677819042409)
+@@ -9,6 +9,7 @@
+ use Aheadworks\Sarp2\Model\Sales\Total\Profile\CollectorInterface;
+ use Magento\Framework\Pricing\PriceCurrencyInterface;
+ use Magento\Framework\Serialize\SerializerInterface;
++use Magento\Store\Model\StoreManagerInterface;
+ use Magento\Weee\Helper\Data as WeeHelper;
+ 
+ /**
+@@ -41,6 +42,11 @@
+      */
+     private SerializerInterface $serializer;
+ 
++    /**
++     * @var StoreManagerInterface
++     */
++    private $storeManager;
++
+     /**
+      * @param WeeHelper $weeeData
+      * @param GroupInterface $totalsGroup
+@@ -53,13 +59,15 @@
+         GroupInterface $totalsGroup,
+         Summator $grandSummator,
+         PriceCurrencyInterface $priceCurrency,
+-        SerializerInterface $serializer
++        SerializerInterface $serializer,
++        StoreManagerInterface $storeManager
+     ) {
+         $this->weeeData = $weeeData;
+         $this->totalsGroup = $totalsGroup;
+         $this->grandSummator = $grandSummator;
+         $this->priceCurrency = $priceCurrency;
+         $this->serializer = $serializer;
++        $this->storeManager = $storeManager;
+     }
+ 
+     /**
+@@ -87,7 +95,7 @@
+                     $item->getProduct(),
+                     null,
+                     $profile->getBillingAddress(),
+-                    $profile->getStoreId()
++                    $this->storeManager->getStore($profile->getStoreId())->getWebsiteId()
+                 );
+ 
+                 foreach ($attributes as $attribute) {
