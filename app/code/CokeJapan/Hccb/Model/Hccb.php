@@ -287,6 +287,9 @@ class Hccb implements HccbManagementInterface
 
         foreach ($data->items as $key => $shipment) {
             foreach (self::ALL_FIELD_HCCB as $field => $type) {
+                if (!property_exists($shipment, $field)) {
+                    continue;
+                }
                 $val = $shipment->{"$field"};
                 switch ($type) {
                     case 'date':
@@ -305,7 +308,7 @@ class Hccb implements HccbManagementInterface
                         }
                         break;
                     case 'decimal':
-                        if (!is_float($shipment->{"$field"})) {
+                        if (!is_numeric($shipment->{"$field"})) {
                             $this->throwWebApiException($val.' value field is not decimal for item '.$key, 400);
                         }
                         break;
