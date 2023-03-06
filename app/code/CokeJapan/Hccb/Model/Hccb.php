@@ -2,6 +2,7 @@
 
 namespace CokeJapan\Hccb\Model;
 
+use DateTime;
 use Magento\Sales\Api\OrderRepositoryInterface;
 use Magento\Framework\Api\SearchCriteriaBuilder;
 use CokeJapan\Hccb\Model\Hccb\PullShipments;
@@ -10,6 +11,7 @@ use Magento\Framework\App\Request\Http;
 use CokeJapan\Hccb\Api\HccbManagementInterface;
 use CokeJapan\Hccb\Api\Response\ShipmentResponseInterface;
 use CokeJapan\Hccb\Api\Response\ResponseInterface;
+use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
 
 class Hccb implements HccbManagementInterface
 {
@@ -59,36 +61,68 @@ class Hccb implements HccbManagementInterface
     protected $httpRequest;
 
     /**
+     * @var TimezoneInterface
+     */
+    protected $timezone;
+
+    /**
      * @param SearchCriteriaBuilder $searchCriteriaBuilder
      * @param OrderRepositoryInterface $orderRepository
      * @param PullShipments $pullShipments
      * @param SendOrder $sendOrder
      * @param Http $httpRequest
+     * @param TimezoneInterface $timezone
      */
     public function __construct(
         SearchCriteriaBuilder $searchCriteriaBuilder,
         OrderRepositoryInterface $orderRepository,
         PullShipments $pullShipments,
         SendOrder $sendOrder,
-        Http $httpRequest
+        Http $httpRequest,
+        TimezoneInterface $timezone
     ) {
         $this->searchCriteriaBuilder = $searchCriteriaBuilder;
         $this->orderRepository = $orderRepository;
         $this->pullShipments = $pullShipments;
         $this->sendOrder = $sendOrder;
         $this->httpRequest = $httpRequest;
+        $this->timezone = $timezone;
     }
 
     /**
-     * Get order processing
+     * GetOrder
      *
-     * @return string
+     * @return array
      */
-    public function getOrders(): string
+    public function getOrders()
     {
-        $ordersData = $this->sendOrder->execute();
-        // todo
-        return "to do return response order ...";
+        $request = $this->httpRequest->getParams();
+        $timezone = $this->timezone->getConfigTimezone(\Magento\Store\Model\ScopeInterface::SCOPE_STORES);
+        $nowDate =  new \DateTime('now', new \DateTimeZone($timezone));
+        if (isset($request['timestamp'])) {
+            if (!$this->isValidDate($request['timestamp'])) {
+                $this->throwWebApiException('timestamp is not formatted correctly.', 400);
+            };
+            $timestamp = $request['timestamp'];
+        } else {
+            $timestamp =  new \DateTime('1450 minutes ago', new \DateTimeZone($timezone));
+        }
+
+        $ordersData[]['items'] = $this->sendOrder->execute($nowDate, $timestamp);
+        return $ordersData;
+    }
+
+    /**
+     * Validate time
+     *
+     * @param string $date
+     * @param string $format
+     * @return bool
+     */
+    function isValidDate(string $date, string $format = 'Y-m-d H:i:s'): bool
+    {
+        $dateObj = DateTime::createFromFormat($format, $date);
+        return $dateObj && $dateObj->format($format) == $date;
     }
 
     /**

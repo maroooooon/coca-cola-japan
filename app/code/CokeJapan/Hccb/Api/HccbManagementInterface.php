@@ -3,7 +3,6 @@
 namespace CokeJapan\Hccb\Api;
 
 use CokeJapan\Hccb\Api\Response\ShipmentResponseInterface;
-use CokeJapan\Hccb\Api\Response\ResponseInterface;
 
 interface HccbManagementInterface
 {
@@ -17,7 +16,7 @@ interface HccbManagementInterface
     /**
      * Get order processing
      *
-     * @return string
+     * @return array
      */
-    public function getOrders(): string;
+    public function getOrders();
 }
