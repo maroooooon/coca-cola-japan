@@ -9,6 +9,7 @@
     <body>
         <move element="product.info.overview" destination="product.info.main" before="product.info"/>
         <move element="product.info.description" destination="content" before="product.info.details"/>
+        <move element="page.messages" destination="page.top" before='product.info.personalized-header-steps' />
         <referenceBlock name="product.info.sku" remove="true"/>
         <referenceContainer name="page.top">
             <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.personalized-header-steps" template="Magento_Catalog::product/view/attribute.phtml" after="breadcrumbs">

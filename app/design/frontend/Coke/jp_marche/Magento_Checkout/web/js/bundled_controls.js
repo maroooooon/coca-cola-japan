@@ -16,6 +16,7 @@ define([
                 '<p class="custom-modal-popup-p">' + config.bundledControlMessage + '<br>' + config.pleaseEmptyCart + '</p>'
             )
                 .modal({
+                    modalClass: 'coke-validate-popup',
                     buttons: [
                         {
                             text: 'OK',

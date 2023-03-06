@@ -27,7 +27,7 @@ class RedirectCustomUrl
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
         );
         $valueFromStoreConfig = $this->scopeConfig->getValue(
-            'coke_Japan/StoreName/enable',
+            'coke_japan/StoreName/enable',
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
         );
         $items = $this->cart->getQuote()->getAllItems();

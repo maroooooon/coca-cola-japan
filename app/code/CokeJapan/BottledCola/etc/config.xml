@@ -7,19 +7,19 @@
                 <bundled_controls_sku>SKU-Sub-1-regcoke-24pz</bundled_controls_sku>
             </bundled_controls>
         </coke_bundledControls>
-        <coke_Japan>
+        <coke_japan>
             <StoreName>
                 <enable>0</enable>
             </StoreName>
-        </coke_Japan>
+        </coke_japan>
     </default>
     <websites>
         <jp_marche>
-            <coke_Japan>
+            <coke_japan>
                 <StoreName>
                     <enable>1</enable>
                 </StoreName>
-            </coke_Japan>
+            </coke_japan>
         </jp_marche>
     </websites>
 </config>
