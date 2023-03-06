@@ -8,12 +8,15 @@
  * @var $block \Magento\Sales\Block\Order\Totals
  * @see \Magento\Sales\Block\Order\Totals
  */
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$request = $objectManager->get('Magento\Framework\App\Action\Context')->getRequest();
 ?>
 <?php foreach ($block->getTotals() as $_code => $_total) : ?>
     <?php if ($_total->getBlockName()) : ?>
         <?= $block->getChildHtml($_total->getBlockName(), false) ?>
     <?php else :?>
-        <?php if(floatval($_total->getValue()) != 0): ?>
+        <?php if($request->getFullActionName() == 'sales_order_view'): ?>
         <tr class="<?= $block->escapeHtmlAttr($_code) ?>">
             <th <?= /* @noEscape */ $block->getLabelProperties() ?> scope="row">
                 <?php if ($_total->getStrong()) : ?>
