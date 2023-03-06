@@ -2,14 +2,17 @@
 
 namespace CokeJapan\Hccb\Api;
 
+use CokeJapan\Hccb\Api\Response\ShipmentResponseInterface;
+use CokeJapan\Hccb\Api\Response\ResponseInterface;
+
 interface HccbManagementInterface
 {
     /**
      * Create shipment order
      *
-     * @return string
+     * @return ShipmentResponseInterface
      */
-    public function createShipments(): string;
+    public function createShipments();
 
     /**
      * Get order processing
