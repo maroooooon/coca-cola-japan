@@ -131,7 +131,6 @@ class SendOrder
      */
     public function convertOrder($order)
     {
-        $tmp = [];
         $i = 1;
         foreach ($order->getItems() as $item) {
             if ($item->getProductType() === "configurable") {
@@ -146,6 +145,11 @@ class SendOrder
             $billingStreetAddress2 = isset($billingAddress->getStreet()[1]) ? $billingAddress->getStreet()[1] : "";
             $bundleItemId = $item->getProductType() === "bundle" ? $item->getItemId() : "";
 
+            /**
+             * Product model
+             *
+             * @var Product $product
+             */
             $product = $this->productRepository->getById($item->getProductId(), $order->getStoreId());
             $salesUnit = $product ? $this->getAttributeLabel($product, 'sales_unit') ?: '' : '';
             $jsCode = $product ? $this->getAttributeLabel($product, 'js_code') ?: '' : '';
@@ -155,15 +159,32 @@ class SendOrder
             $productOptions = $item->getProductOptions();
             $isSubscription = isset($productOptions['aw_sarp2_subscription_option']);
 
+            $created = $order->getCreatedAt();
+            $time = strtotime($created);
+            $createdFormat = date("m/d/Y H:i:s", $time);
+
+            $line1 = $line2 = '';
+            $options = $item->getProductOptions();
+            if (!empty($options['options'])) {
+                foreach ($options['options'] as $option) {
+                    if ($option['label'] == '1行目 入力テキスト') {
+                        $line1 = $option['value'];
+                    }
+                    if ($option['label'] == '2行目 入力テキスト') {
+                        $line2 = $option['value'];
+                    }
+                }
+            }
+
             $apiOrder = [
                 "Id" => $order->getEntityId(),
                 "OrderNumber" => $order->getIncrementId(),
-                "Date" => $order->getCreatedAt(),
+                "Date" => $createdFormat,
                 "StatusCode" => $order->getStatus(),
                 "SenderCompanyId" => "",
                 "PartnerPO" => $order->getIncrementId(),
                 "TaxPercentage" => $order->getTaxAmount(),
-                "DiscountTotal" => $order->getDiscountAmount(),
+                "DiscountTotal" => $order->getDiscountAmount() ?? '',
                 "SubTotal" => $order->getSubtotal(),
                 "TotalAmount" => $order->getGrandTotal(),
                 "ShipMethod" => $order->getShippingDescription(),
@@ -189,8 +210,8 @@ class SendOrder
                 "OrderLine.ExtendedAttribute.sales_unit" => $salesUnit,
                 "OrderLine.ExtendedAttribute.js_code" => $jsCode,
                 "OrderLine.ExtendedAttribute.label_design" => "",
-                "OrderLine.ExtendedAttribute.Line_1" => "",
-                "OrderLine.ExtendedAttribute.Line_2" => "",
+                "OrderLine.ExtendedAttribute.Line_1" => $line1,
+                "OrderLine.ExtendedAttribute.Line_2" => $line2,
                 "OrderLine.ExtendedAttribute.pack_size_number" => $packSizeNumber,
                 "OrderLine.ExtendedAttribute.single_bottle_price" => $singleBottlePrice,
                 "OrderLine.ExtendedAttribute.original_product_price" => $originalProductPrice,
@@ -208,11 +229,10 @@ class SendOrder
             ];
 
             $this->ordersData[] = $apiOrder;
-            $tmp[] = $apiOrder;
             $i++;
         }
 
-        return $tmp;
+        return [];
     }
 
     /**
