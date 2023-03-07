@@ -153,9 +153,10 @@ class Hccb implements HccbManagementInterface
             $date = date_create($request['timestamp']);
             $timestamp = date_format($date, "Y-m-d H:i:s");
         } else {
-            $timestamp = new \DateTime('1450 minutes ago', new \DateTimeZone($timezone));
+            $timestamp = $nowDate->setTime(00, 00, 00);
         }
         $ordersData[]['items'] = $this->sendOrder->execute($nowDate, $timestamp);
+
         return $ordersData;
     }
 

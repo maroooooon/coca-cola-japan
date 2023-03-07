@@ -13,5 +13,8 @@
             </argument>
         </arguments>
     </type>
+    <type name="Magento\Framework\Webapi\Response">
+        <plugin name="CokeJapan_Hccb::set_status_code" type="CokeJapan\Hccb\Plugin\Webapi\ResponsePlugin" sortOrder="10" disabled="false"  />
+    </type>
     <preference for="CokeJapan\Hccb\Api\HccbManagementInterface" type="CokeJapan\Hccb\Model\Hccb" />
 </config>
