@@ -156,7 +156,11 @@ class SendOrder
             $jsCode = $product ? $this->getAttributeLabel($product, 'js_code') ?: '' : '';
             $originalProductPrice = $product ? $product->getPrice() ?: '' : '';
             $singleBottlePrice = $product ? $product->getData('single_bottle_price') ?: '' : '';
-            $packSizeNumber = $product ? preg_replace('/[^0-9]/', '', $this->getAttributeLabel($product, 'pack_size', true)) ?: '' : '';
+            $packSizeNumber = $product ? preg_replace(
+                '/[^0-9]/',
+                '',
+                $this->getAttributeLabel($product, 'pack_size', true)
+            ) ?: '' : '';
             $productOptions = $item->getProductOptions();
             $isSubscription = isset($productOptions['aw_sarp2_subscription_option']);
 
@@ -164,7 +168,7 @@ class SendOrder
             $time = strtotime($created);
             $createdFormat = date("m/d/Y H:i:s", $time);
 
-            $line1 = $line2 = '';
+            $line1 = $line2 = $labelDesign = '';
             $options = $item->getProductOptions();
             if (!empty($options['options'])) {
                 foreach ($options['options'] as $option) {
@@ -176,6 +180,13 @@ class SendOrder
                     }
                 }
             }
+            if (!empty($options['attributes_info'])) {
+                foreach ($options['attributes_info'] as $option) {
+                    if ($option['label'] == 'ラベルのデザインをお選びください') {
+                        $labelDesign = $option['value'];
+                    }
+                }
+            }
 
             $apiOrder = [
                 "Id" => $order->getEntityId(),
@@ -184,7 +195,7 @@ class SendOrder
                 "StatusCode" => $order->getStatus(),
                 "SenderCompanyId" => "",
                 "PartnerPO" => $order->getIncrementId(),
-                "TaxPercentage" => $order->getTaxAmount(),
+                "TaxPercentage" => '8.00',
                 "DiscountTotal" => $order->getDiscountAmount() ?? '',
                 "SubTotal" => $order->getSubtotal(),
                 "TotalAmount" => $order->getGrandTotal(),
@@ -210,7 +221,7 @@ class SendOrder
                 "OrderLine.ExtendedAttribute.bundle_item_id" => $bundleItemId,
                 "OrderLine.ExtendedAttribute.sales_unit" => $salesUnit,
                 "OrderLine.ExtendedAttribute.js_code" => $jsCode,
-                "OrderLine.ExtendedAttribute.label_design" => "",
+                "OrderLine.ExtendedAttribute.label_design" => $labelDesign,
                 "OrderLine.ExtendedAttribute.Line_1" => $line1,
                 "OrderLine.ExtendedAttribute.Line_2" => $line2,
                 "OrderLine.ExtendedAttribute.pack_size_number" => $packSizeNumber,

@@ -22,11 +22,14 @@ class ResponsePlugin
     }
 
     /**
+     * Set status code
+     *
      * @param Response $subject
-     * @param $result
-     * @return mixed
+     * @param array $result
+     * @return array
      */
-    public function afterGetMessages(Response $subject, $result) {
+    public function afterGetMessages(Response $subject, $result)
+    {
 
         $pathInfo = $this->request->getPathInfo();
         $body = $subject->getBody();
