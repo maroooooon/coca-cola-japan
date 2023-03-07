@@ -16,8 +16,7 @@ $request = $objectManager->get('Magento\Framework\App\Action\Context')->getReque
     <?php if ($_total->getBlockName()) : ?>
         <?= $block->getChildHtml($_total->getBlockName(), false) ?>
     <?php else :?>
-        <?php if($request->getFullActionName() == 'sales_order_view'): ?>
-        <tr class="<?= $block->escapeHtmlAttr($_code) ?>">
+        <tr class="<?= $block->escapeHtmlAttr($_code) ?> <?php if(floatval($_total->getValue()) == 0){ echo 'value-0-in-row'; } ?>">
             <th <?= /* @noEscape */ $block->getLabelProperties() ?> scope="row">
                 <?php if ($_total->getStrong()) : ?>
                     <strong><?= $block->escapeHtml($_total->getLabel()) ?></strong>
@@ -33,6 +32,5 @@ $request = $objectManager->get('Magento\Framework\App\Action\Context')->getReque
                 <?php endif?>
             </td>
         </tr>
-        <?php endif; ?>
     <?php endif; ?>
 <?php endforeach?>
