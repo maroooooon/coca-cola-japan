@@ -289,29 +289,29 @@ class Hccb implements HccbManagementInterface
 
         foreach ($data->items as $key => $shipment) {
             foreach (self::ALL_FIELD_HCCB as $field => $type) {
-                if (!property_exists($shipment, $field)) {
+                if (!property_exists($shipment, $field) || $shipment->{"$field"} == '') {
                     continue;
                 }
                 $val = $shipment->{"$field"};
                 switch ($type) {
                     case 'date':
                         if (!$this->isValidDate($shipment->{"$field"}, $format = 'm/d/Y H:i:s')) {
-                            $this->throwWebApiException($val.' value field is not date time for item '.$key, 400);
+                            $this->throwWebApiException($val.' value field isn\'t timestamp type for item '.$key, 400);
                         }
                         break;
                     case 'string':
                         if (!is_string($shipment->{"$field"})) {
-                            $this->throwWebApiException($val.' value field is not string for item '.$key, 400);
+                            $this->throwWebApiException($val.' value field isn\'t string type for item '.$key, 400);
                         }
                         break;
                     case 'int':
                         if (!is_int($shipment->{"$field"})) {
-                            $this->throwWebApiException($val.' value field is not int for item '.$key, 400);
+                            $this->throwWebApiException($val.' value field isn\'t integer type for item '.$key, 400);
                         }
                         break;
                     case 'decimal':
                         if (!is_numeric($shipment->{"$field"})) {
-                            $this->throwWebApiException($val.' value field is not decimal for item '.$key, 400);
+                            $this->throwWebApiException($val.' value field isn\'t numberic type for item '.$key, 400);
                         }
                         break;
                     default:
@@ -321,6 +321,10 @@ class Hccb implements HccbManagementInterface
             foreach (self::FIELDS_REQUIRED as $field) {
                 if (!property_exists($shipment, $field)) {
                     $this->throwWebApiException($field.' field not found for item '.$key, 400);
+                }
+
+                if ($shipment->{"$field"} == '') {
+                    $this->throwWebApiException($field.' is a required field '.$key, 400);
                 }
             }
         }
