@@ -138,6 +138,13 @@ class SendOrder
                 continue;
             }
 
+            $itemName = $item->getName();
+            if ($item->getProductType() === "simple" && $item->getParentItemId() !== null) {
+                $parent = $item->getParentItem();
+                if ($parent != null && $parent->getProductType() === "configurable") {
+                    $item = $parent;
+                }
+            }
             $shippingAddress = $order->getShippingAddress();
             $billingAddress = $order->getBillingAddress();
             $shippingStreetAddress1 = isset($shippingAddress->getStreet()[0]) ? $shippingAddress->getStreet()[0] : "";
@@ -213,7 +220,7 @@ class SendOrder
                 "ItemIdentifier.SupplierSKU" => $item->getSku(),
                 "ItemIdentifier.PartnerSKU" => $item->getSku(),
                 "ItemIdentifier.UPC" => $item->getProduct()->getUpc() ?? '',
-                "Description" => $item->getName(),
+                "Description" => $itemName,
                 "Quantity" => floor(floatval($item->getQtyOrdered())),
                 "Price" => $item->getPrice(),
                 "LinkKey" => "",
