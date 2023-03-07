@@ -156,7 +156,11 @@ class SendOrder
             $jsCode = $product ? $this->getAttributeLabel($product, 'js_code') ?: '' : '';
             $originalProductPrice = $product ? $product->getPrice() ?: '' : '';
             $singleBottlePrice = $product ? $product->getData('single_bottle_price') ?: '' : '';
-            $packSizeNumber = $product ? preg_replace('/[^0-9]/', '', $this->getAttributeLabel($product, 'pack_size', true)) ?: '' : '';
+            $packSizeNumber = $product ? preg_replace(
+                '/[^0-9]/',
+                '',
+                $this->getAttributeLabel($product, 'pack_size', true)
+            ) ?: '' : '';
             $productOptions = $item->getProductOptions();
             $isSubscription = isset($productOptions['aw_sarp2_subscription_option']);
 

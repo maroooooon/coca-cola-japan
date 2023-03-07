@@ -36,51 +36,51 @@ class Hccb implements HccbManagementInterface
         ];
 
     /**
-     * field hccb
+     * Field hccb
      *
      */
-     public const ALL_FIELD_HCCB = [
-        "DocumentDate" => "date",
-        "ShipmentNumber" => "int",
-        "PartnerPO" => "string",
-        "OrderDate" => "date",
-        "OrderNumber" => "string",
-        "ExpectedDeliveryDate" => "date",
-        "Payment.Method" => "string",
-        "ShipToAddress.CompanyName" => "string",
-        "ShipToAddress.FirstName" => "string",
-        "ShipToAddress.LastName" => "string",
-        "ShipToAddress.Address1" => "string",
-        "ShipToAddress.Address2" => "string",
-        "ShipToAddress.City" => "string",
-        "ShipToAddress.Zip" => "string",
-        "ShipToAddress.State" => "string",
-        "ShipToAddress.Phone" => "string",
-        "ShipToAddress.Email" => "string",
-        "ShipFromAddress.CompanyName" => "string",
-        "ShipFromAddress.FirstName" => "string",
-        "ShipFromAddress.Address1" => "string",
-        "ShipFromAddress.Address2" => "string",
-        "ShipFromAddress.City" => "string",
-        "ShipFromAddress.Zip" => "string",
-        "ShipFromAddress.State" => "string",
-        "ShipmentLine.LineNumber" => "int",
-        "ShipmentLine.ItemIdentifier.SupplierSKU" => "string",
-        "ShipmentLine.ItemIdentifier.PartnerSKU" =>"string",
-        "ShipmentLine.Description" => "string",
-        "ShipmentLine.Quantity" => "int",
-        "ShipmentLine.QuantityUOM" =>"string",
-        "ShipmentLine.Price" => "decimal",
-        "ShipmentLine.ShipmentInfo.DateShipped" => "date",
-        "ShipmentLine.ShipmentInfo.Qty" => "int",
-        "ShipmentLine.ShipmentInfo.TrackingNumber" => "string",
-        "ShipmentLine.ShipmentInfo.CarrierCode" => "string",
-        "ShipmentLine.ShipmentInfo.ClassCode" => "string",
-        "ShipmentLine.ShipmentInfo.Weight" => "decimal",
-        "ShipmentLine.ShipmentInfo.Length" => "decimal",
-        "ShipmentLine.ShipmentInfo.Width" =>"decimal",
-        "ShipmentLine.ShipmentInfo.Height" =>"decimal"
-    ];
+    public const ALL_FIELD_HCCB = [
+            "DocumentDate" => "date",
+            "ShipmentNumber" => "int",
+            "PartnerPO" => "string",
+            "OrderDate" => "date",
+            "OrderNumber" => "string",
+            "ExpectedDeliveryDate" => "date",
+            "Payment.Method" => "string",
+            "ShipToAddress.CompanyName" => "string",
+            "ShipToAddress.FirstName" => "string",
+            "ShipToAddress.LastName" => "string",
+            "ShipToAddress.Address1" => "string",
+            "ShipToAddress.Address2" => "string",
+            "ShipToAddress.City" => "string",
+            "ShipToAddress.Zip" => "string",
+            "ShipToAddress.State" => "string",
+            "ShipToAddress.Phone" => "string",
+            "ShipToAddress.Email" => "string",
+            "ShipFromAddress.CompanyName" => "string",
+            "ShipFromAddress.FirstName" => "string",
+            "ShipFromAddress.Address1" => "string",
+            "ShipFromAddress.Address2" => "string",
+            "ShipFromAddress.City" => "string",
+            "ShipFromAddress.Zip" => "string",
+            "ShipFromAddress.State" => "string",
+            "ShipmentLine.LineNumber" => "int",
+            "ShipmentLine.ItemIdentifier.SupplierSKU" => "string",
+            "ShipmentLine.ItemIdentifier.PartnerSKU" =>"string",
+            "ShipmentLine.Description" => "string",
+            "ShipmentLine.Quantity" => "int",
+            "ShipmentLine.QuantityUOM" =>"string",
+            "ShipmentLine.Price" => "decimal",
+            "ShipmentLine.ShipmentInfo.DateShipped" => "date",
+            "ShipmentLine.ShipmentInfo.Qty" => "int",
+            "ShipmentLine.ShipmentInfo.TrackingNumber" => "string",
+            "ShipmentLine.ShipmentInfo.CarrierCode" => "string",
+            "ShipmentLine.ShipmentInfo.ClassCode" => "string",
+            "ShipmentLine.ShipmentInfo.Weight" => "decimal",
+            "ShipmentLine.ShipmentInfo.Length" => "decimal",
+            "ShipmentLine.ShipmentInfo.Width" =>"decimal",
+            "ShipmentLine.ShipmentInfo.Height" =>"decimal"
+        ];
 
     /**
      * @var SearchCriteriaBuilder
@@ -149,7 +149,12 @@ class Hccb implements HccbManagementInterface
         if (isset($request['timestamp'])) {
             if (!$this->isValidDate($request['timestamp'])) {
                 $this->throwWebApiException('timestamp is not formatted correctly.', 400);
-            };
+            }
+            $strToTimeNow = strtotime($nowDate->format('Y-m-d H:i:s'));
+            $strToTimestamp = strtotime($request['timestamp']);
+            if ($strToTimestamp > $strToTimeNow) {
+                $this->throwWebApiException('input future date.', 400);
+            }
             $date = date_create($request['timestamp']);
             $timestamp = date_format($date, "Y-m-d H:i:s");
         } else {
@@ -168,7 +173,7 @@ class Hccb implements HccbManagementInterface
      * @param string $format
      * @return bool
      */
-    function isValidDate(string $date, string $format = 'm/d/Y H:i:s'): bool
+    public function isValidDate(string $date, string $format = 'm/d/Y H:i:s'): bool
     {
         $dateObj = DateTime::createFromFormat($format, $date);
         return $dateObj && $dateObj->format($format) == $date;
