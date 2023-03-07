@@ -153,7 +153,8 @@ class Hccb implements HccbManagementInterface
             $date = date_create($request['timestamp']);
             $timestamp = date_format($date, "Y-m-d H:i:s");
         } else {
-            $timestamp = $nowDate->setTime(00, 00, 00);
+            $dateDefault = new \DateTime('now', new \DateTimeZone($timezone));
+            $timestamp = $dateDefault->setTime(00, 00, 00);
         }
         $ordersData[]['items'] = $this->sendOrder->execute($nowDate, $timestamp);
 
