@@ -117,6 +117,7 @@ class SendOrder
     {
         $searchCriteria = $this->searchCriteriaBuilder
             ->addFilter('entity_id', $orderIds, 'in')
+            ->addFilter('status', self::ORDER_STATUS, 'eq')
             ->create();
 
         $orderList = $this->orderRepository->getList($searchCriteria);
