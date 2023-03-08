@@ -146,14 +146,20 @@ class Hccb implements HccbManagementInterface
         $request = $this->httpRequest->getParams();
         $timezone = $this->timezone->getConfigTimezone(\Magento\Store\Model\ScopeInterface::SCOPE_STORES);
         $nowDate =  new \DateTime('now', new \DateTimeZone($timezone));
+
         if (isset($request['timestamp'])) {
             if (!$this->isValidDate($request['timestamp'])) {
                 $this->throwWebApiException('Timestamp is not formatted correctly.', 400);
             }
+            $maxDate =  new \DateTime('1 month ago');
+            $strToTimeMaxDate = strtotime($maxDate->format('Y-m-d H:i:s'));
             $strToTimeNow = strtotime($nowDate->format('Y-m-d H:i:s'));
             $strToTimestamp = strtotime($request['timestamp']);
             if ($strToTimestamp > $strToTimeNow) {
                 $this->throwWebApiException('Don\'t input future date.', 400);
+            }
+            if ($strToTimeMaxDate > $strToTimestamp) {
+                $this->throwWebApiException('Timestamp period too long - maximum 1 month ago.', 400);
             }
             $date = date_create($request['timestamp']);
             $timestamp = date_format($date, "Y-m-d H:i:s");
