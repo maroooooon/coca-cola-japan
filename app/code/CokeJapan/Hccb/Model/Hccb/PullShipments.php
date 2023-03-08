@@ -151,7 +151,14 @@ class PullShipments
                     );
                 }
 
-                if ($order->getItems() && count($order->getItems()) != count($shipment['ShipmentLines'])) {
+                $countItem = 0;
+                foreach ($order->getItems() as $item) {
+                    if ($item->getProductType() !== "configurable") {
+                        $countItem ++;
+                    }
+                }
+
+                if ($order->getItems() && $countItem != count($shipment['ShipmentLines'])) {
                     throw new \Magento\Framework\Exception\LocalizedException(
                         __('Incorrect item number for order number %1', $incrementId)
                     );
@@ -218,11 +225,20 @@ class PullShipments
             $totalQty = 0;
 
             foreach ($order->getItems() as $item) {
-                $productSku = $item->getProduct()->getSku();
+                $productSku = $item->getSku();
                 if (!isset($shipment['ShipmentLines'][$productSku]['ShipmentInfos'])) {
                     throw new \Magento\Framework\Exception\LocalizedException(
                         __('Sku %1 does not exist for order number %2', $productSku, $order->getIncrementId())
                     );
+                }
+                if ($item->getProductType() === "configurable") {
+                    continue;
+                }
+                if ($item->getProductType() === "simple" && $item->getParentItemId() !== null) {
+                    $parent = $item->getParentItem();
+                    if ($parent != null && $parent->getProductType() === "configurable") {
+                        $item = $parent;
+                    }
                 }
 
                 $productInfo = $shipment['ShipmentLines'][$productSku]['ShipmentInfos'];
