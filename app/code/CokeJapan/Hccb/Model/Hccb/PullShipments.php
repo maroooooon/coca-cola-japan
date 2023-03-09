@@ -145,7 +145,7 @@ class PullShipments
                     );
                 }
                 $order = reset($orderList);
-                if (!$order->canShip()) {
+                if (!$order->canShip() || !$order->hasInvoices() || $order->getStatus() != 'processing') {
                     throw new \Magento\Framework\Exception\LocalizedException(
                         __('You can\'t create an shipment.')
                     );
@@ -191,6 +191,7 @@ class PullShipments
 
                 $order = $converted->getOrder()->load($converted->getOrder()->getId());
                 $order->setState("complete")->setStatus("complete");
+                $order->addCommentToStatusHistory('Order has created shipment.');
                 $order->save();
             } catch (\Exception $e) {
                 $this->hccbLogger->error(
