@@ -7,7 +7,7 @@
     </type>
     <type name="CokeJapan\Hccb\Model\Logger">
         <arguments>
-            <argument name="name" xsi:type="string">SapLogger</argument>
+            <argument name="name" xsi:type="string">hccb_coke_Logger</argument>
             <argument name="handlers" xsi:type="array">
                 <item name="system" xsi:type="object">CokeJapan\Hccb\Model\Logger\Handler</item>
             </argument>
