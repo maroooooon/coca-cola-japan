@@ -2,4 +2,8 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Aheadworks\Sarp2\Model\Sales\Quote\Item\Option\SubscriptionOptions\Provider" type="CokeJapan\Sarp2\Model\CustomProvider"/>
     <preference for="Aheadworks\Sarp2\Model\Profile\Details\Formatter" type="CokeJapan\Sarp2\Model\CustomFormatter"/>
+    <type name="Aheadworks\Sarp2Stripe\Model\Payment\Sampler\RequestDataBuilder\InitiatePaymentIntent">
+        <plugin name="CokeJapan_Sarp2::InitiatePaymentIntentPlugin"
+                type="CokeJapan\Sarp2\Plugin\Payment\InitiatePaymentIntentPlugin"/>
+    </type>
 </config>
