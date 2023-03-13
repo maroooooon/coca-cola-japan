@@ -35,7 +35,8 @@ define([
 
         var mixin = {
             isChecked: ko.computed(function () {
-                return quote.paymentMethod() ? quote.paymentMethod().method : 'stripe_payments';
+                var defaultMethod = $('body').hasClass('checkout-index-index') ? 'stripe_payments' : null;
+                return quote.paymentMethod() ? quote.paymentMethod().method : defaultMethod;
             }),
         };
 
