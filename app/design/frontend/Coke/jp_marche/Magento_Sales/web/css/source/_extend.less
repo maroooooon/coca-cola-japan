@@ -1,9 +1,18 @@
 & when (@media-common = true) {
-    .sales-order-view {
+    .account {
         .table-order-items {
             tfoot {
                 .shipping.value-0-in-row {
                     display: none;
+                }
+            }
+        }
+        &.sales-order-view {
+            .table-order-items {
+                tfoot {
+                    .shipping.value-0-in-row {
+                        display: table-row;
+                    }
                 }
             }
         }

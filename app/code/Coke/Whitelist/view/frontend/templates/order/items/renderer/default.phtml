@@ -48,7 +48,7 @@ $request = $objectManager->get('Magento\Framework\App\Action\Context')->getReque
     <td class="col sku" data-th="<?= $block->escapeHtml(__('SKU')) ?>">
         <?= /* @noEscape */ $block->prepareSku($block->getSku()) ?>
     </td>
-    <?php if($request->getFullActionName() == 'sales_order_view'): ?>
+    <?php if($request->getFullActionName() !== 'sales_order_shipment'): ?>
     <td class="col price" data-th="<?= $block->escapeHtml(__('Price')) ?>">
         <?= $block->getItemPriceHtml() ?>
     </td>
@@ -81,7 +81,7 @@ $request = $objectManager->get('Magento\Framework\App\Action\Context')->getReque
             <?php endif; ?>
         </ul>
     </td>
-    <?php if($request->getFullActionName() == 'sales_order_view'): ?>
+    <?php if($request->getFullActionName() !== 'sales_order_shipment'): ?>
     <td class="col subtotal" data-th="<?= $block->escapeHtml(__('Subtotal')) ?>">
         <?= $block->getItemRowTotalHtml() ?>
     </td>
