@@ -18,69 +18,13 @@ return [
                 'default_group_id' => '1',
                 'is_default' => '0'
             ],
-            'egypt_website' => [
-                'website_id' => '2',
-                'code' => 'egypt_website',
-                'name' => 'Coke Egypt',
-                'sort_order' => '1',
-                'default_group_id' => '2',
-                'is_default' => '1'
-            ],
-            'topo_chico_gr_website' => [
-                'website_id' => '3',
-                'code' => 'topo_chico_gr_website',
-                'name' => 'Topo Chico GR',
-                'sort_order' => '0',
-                'default_group_id' => '3',
-                'is_default' => '0'
-            ],
-            'coke_uk' => [
-                'website_id' => '9',
-                'code' => 'coke_uk',
-                'name' => 'Coke United Kingdom',
-                'sort_order' => '0',
-                'default_group_id' => '9',
-                'is_default' => '0'
-            ],
-            'coke_eu' => [
-                'website_id' => '12',
-                'code' => 'coke_eu',
-                'name' => 'Coke Europe',
-                'sort_order' => '0',
-                'default_group_id' => '21',
-                'is_default' => '0'
-            ],
-            'olnb_norway' => [
-                'website_id' => '15',
-                'code' => 'olnb_norway',
-                'name' => 'Open Like Never Before Norway',
-                'sort_order' => '0',
-                'default_group_id' => '30',
-                'is_default' => '0'
-            ],
-            'olnb_turkey' => [
-                'website_id' => '18',
-                'code' => 'olnb_turkey',
-                'name' => 'Open Like Never Before Turkey',
-                'sort_order' => '0',
-                'default_group_id' => '33',
-                'is_default' => '0'
-            ],
-            'france_d2c' => [
-                'website_id' => '23',
-                'code' => 'france_d2c',
-                'name' => 'Coke France',
-                'sort_order' => '0',
-                'default_group_id' => '35',
-                'is_default' => '0'
-            ],
             'jp_marche' => [
-                'website_id' => '26',
+                'website_id' => '25',
                 'code' => 'jp_marche',
                 'name' => 'Coke Japan Marche',
                 'sort_order' => '0',
-                'default_group_id' => '38',
-                'is_default' => '0'
+                'default_group_id' => '37',
+                'is_default' => '1'
             ]
         ],
         'groups' => [
@@ -100,117 +44,13 @@ return [
                 'default_store_id' => '1',
                 'code' => 'main_website_store'
             ],
-            2 => [
-                'group_id' => '2',
-                'website_id' => '2',
-                'name' => 'Coke Egypt',
-                'root_category_id' => '2',
-                'default_store_id' => '2',
-                'code' => 'egypt_store'
-            ],
-            3 => [
-                'group_id' => '3',
-                'website_id' => '3',
-                'name' => 'Topo Chico GR',
-                'root_category_id' => '36',
-                'default_store_id' => '9',
-                'code' => 'topo_chico_gr'
-            ],
-            9 => [
-                'group_id' => '9',
-                'website_id' => '9',
-                'name' => 'Great Britain',
-                'root_category_id' => '45',
-                'default_store_id' => '18',
-                'code' => 'great_britain'
-            ],
-            12 => [
-                'group_id' => '12',
-                'website_id' => '9',
-                'name' => 'Northern Ireland',
-                'root_category_id' => '45',
-                'default_store_id' => '21',
-                'code' => 'northern_ireland'
-            ],
-            15 => [
-                'group_id' => '15',
-                'website_id' => '12',
-                'name' => 'Belgium',
-                'root_category_id' => '45',
-                'default_store_id' => '24',
-                'code' => 'belgium'
-            ],
-            18 => [
-                'group_id' => '18',
-                'website_id' => '12',
-                'name' => 'Ireland',
-                'root_category_id' => '45',
-                'default_store_id' => '30',
-                'code' => 'ireland'
-            ],
-            21 => [
-                'group_id' => '21',
-                'website_id' => '12',
-                'name' => 'Germany',
-                'root_category_id' => '45',
-                'default_store_id' => '33',
-                'code' => 'germany'
-            ],
-            24 => [
-                'group_id' => '24',
-                'website_id' => '12',
-                'name' => 'Netherlands',
-                'root_category_id' => '45',
-                'default_store_id' => '36',
-                'code' => 'netherlands'
-            ],
-            27 => [
-                'group_id' => '27',
-                'website_id' => '12',
-                'name' => 'Finland',
-                'root_category_id' => '45',
-                'default_store_id' => '39',
-                'code' => 'finland'
-            ],
-            30 => [
-                'group_id' => '30',
-                'website_id' => '15',
-                'name' => 'Norway',
-                'root_category_id' => '45',
-                'default_store_id' => '42',
-                'code' => 'olnb_norway'
-            ],
-            33 => [
-                'group_id' => '33',
-                'website_id' => '18',
-                'name' => 'Turkey',
-                'root_category_id' => '45',
-                'default_store_id' => '45',
-                'code' => 'olnb_turkey'
-            ],
-            35 => [
-                'group_id' => '35',
-                'website_id' => '23',
-                'name' => 'Coke France',
-                'root_category_id' => '2',
-                'default_store_id' => '47',
-                'code' => 'france_d2c'
-            ],
-            38 => [
-                'group_id' => '38',
-                'website_id' => '26',
+            37 => [
+                'group_id' => '37',
+                'website_id' => '25',
                 'name' => 'Coke Japan Marche Store',
                 'root_category_id' => '113',
-                'default_store_id' => '50',
+                'default_store_id' => '49',
                 'code' => 'jp_marche_store'
-            ],
-            39 => [
-                'group_id' => '39',
-                'website_id' => '12',
-                'name' => 'France',
-                'root_category_id' => '45',
-                'default_store_id' => '47',
-                'code' => 'france'
             ]
         ],
         'stores' => [
@@ -232,155 +72,11 @@ return [
                 'sort_order' => '0',
                 'is_active' => '1'
             ],
-            'egypt' => [
-                'store_id' => '2',
-                'code' => 'egypt',
-                'website_id' => '2',
-                'group_id' => '2',
-                'name' => 'عربي',
-                'sort_order' => '0',
-                'is_active' => '1'
-            ],
-            'egypt_en' => [
-                'store_id' => '3',
-                'code' => 'egypt_en',
-                'website_id' => '2',
-                'group_id' => '2',
-                'name' => 'ENGLISH',
-                'sort_order' => '1',
-                'is_active' => '1'
-            ],
-            'topo_chico_gr_en' => [
-                'store_id' => '6',
-                'code' => 'topo_chico_gr_en',
-                'website_id' => '3',
-                'group_id' => '3',
-                'name' => 'English',
-                'sort_order' => '1',
-                'is_active' => '1'
-            ],
-            'topo_chico_gr_gr' => [
-                'store_id' => '9',
-                'code' => 'topo_chico_gr_gr',
-                'website_id' => '3',
-                'group_id' => '3',
-                'name' => 'Greek',
-                'sort_order' => '0',
-                'is_active' => '1'
-            ],
-            'great_britain_english' => [
-                'store_id' => '18',
-                'code' => 'great_britain_english',
-                'website_id' => '9',
-                'group_id' => '9',
-                'name' => 'English',
-                'sort_order' => '1',
-                'is_active' => '1'
-            ],
-            'northern_ireland_english' => [
-                'store_id' => '21',
-                'code' => 'northern_ireland_english',
-                'website_id' => '9',
-                'group_id' => '12',
-                'name' => 'English',
-                'sort_order' => '1',
-                'is_active' => '1'
-            ],
-            'belgium_french' => [
-                'store_id' => '24',
-                'code' => 'belgium_french',
-                'website_id' => '12',
-                'group_id' => '15',
-                'name' => 'French',
-                'sort_order' => '1',
-                'is_active' => '1'
-            ],
-            'belgium_dutch' => [
-                'store_id' => '27',
-                'code' => 'belgium_dutch',
-                'website_id' => '12',
-                'group_id' => '15',
-                'name' => 'Dutch',
-                'sort_order' => '1',
-                'is_active' => '1'
-            ],
-            'ireland_english' => [
-                'store_id' => '30',
-                'code' => 'ireland_english',
-                'website_id' => '12',
-                'group_id' => '18',
-                'name' => 'English',
-                'sort_order' => '1',
-                'is_active' => '1'
-            ],
-            'germany_german' => [
-                'store_id' => '33',
-                'code' => 'germany_german',
-                'website_id' => '12',
-                'group_id' => '21',
-                'name' => 'German',
-                'sort_order' => '1',
-                'is_active' => '1'
-            ],
-            'netherlands_dutch' => [
-                'store_id' => '36',
-                'code' => 'netherlands_dutch',
-                'website_id' => '12',
-                'group_id' => '24',
-                'name' => 'Dutch',
-                'sort_order' => '1',
-                'is_active' => '1'
-            ],
-            'finland_finnish' => [
-                'store_id' => '39',
-                'code' => 'finland_finnish',
-                'website_id' => '12',
-                'group_id' => '27',
-                'name' => 'Finnish',
-                'sort_order' => '1',
-                'is_active' => '1'
-            ],
-            'france_french' => [
-                'store_id' => '52',
-                'code' => 'france_french',
-                'website_id' => '12',
-                'group_id' => '39',
-                'name' => 'France',
-                'sort_order' => '1',
-                'is_active' => '1'
-            ],
-            'norway_norwegian' => [
-                'store_id' => '42',
-                'code' => 'norway_norwegian',
-                'website_id' => '15',
-                'group_id' => '30',
-                'name' => 'Norwegian',
-                'sort_order' => '1',
-                'is_active' => '1'
-            ],
-            'turkey_turkish' => [
-                'store_id' => '45',
-                'code' => 'turkey_turkish',
-                'website_id' => '18',
-                'group_id' => '33',
-                'name' => 'Turkish',
-                'sort_order' => '1',
-                'is_active' => '1'
-            ],
-            'france_d2c' => [
-                'store_id' => '47',
-                'code' => 'france_d2c',
-                'website_id' => '23',
-                'group_id' => '35',
-                'name' => 'French',
-                'sort_order' => '0',
-                'is_active' => '1'
-            ],
             'jp_marche_ja' => [
-                'store_id' => '50',
+                'store_id' => '49',
                 'code' => 'jp_marche_ja',
-                'website_id' => '26',
-                'group_id' => '38',
+                'website_id' => '25',
+                'group_id' => '37',
                 'name' => 'Coke Japan Marche - Japanese',
                 'sort_order' => '0',
                 'is_active' => '1'
