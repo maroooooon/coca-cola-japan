@@ -2,8 +2,7 @@ define([
     'jquery',
     "Magento_Ui/js/modal/modal",
     'mage/translate',
-    'Magento_Catalog/js/catalog-add-to-cart',
-    'jquery/jquery.cookie'
+    'Magento_Catalog/js/catalog-add-to-cart'
 ], function ($, modal, $t) {
     $(function() {
         const body = $('body');
