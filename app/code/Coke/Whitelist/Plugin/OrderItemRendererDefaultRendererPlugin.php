@@ -11,6 +11,8 @@ use Psr\Log\LoggerInterface;
 
 class OrderItemRendererDefaultRendererPlugin
 {
+    const ORDER_ITEM_LAYOUT_NAME = 'sales.order.items.renderers.default';
+
     /**
      * @var LoggerInterface
      */
@@ -53,7 +55,7 @@ class OrderItemRendererDefaultRendererPlugin
      */
     public function beforeSetTemplate(\Magento\Sales\Block\Order\Item\Renderer\DefaultRenderer $subject, $template)
     {
-        if (!$this->config->canShowWhitelistItemStatus()) {
+        if (!$this->config->canShowWhitelistItemStatus() || $subject->getNameInLayout() != self::ORDER_ITEM_LAYOUT_NAME) {
             return [$template];
         }
 
