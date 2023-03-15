@@ -67,5 +67,23 @@ define(['jquery'],
                 return this.passwordErrorMessage;
             }
         );
+
+        $.validator.addMethod(
+            'required',
+            function (value, element, param) {
+                if ( !this.depend( param, element ) ) {
+                    return "dependency-mismatch";
+                }
+                if ( element.nodeName.toLowerCase() === "select" ) {
+                    var val = $( element ).val();
+                    return val && val.length > 0;
+                }
+                if ( this.checkable( element ) ) {
+                    return this.getLength( value, element ) > 0;
+                }
+                return value !== undefined && value !== null && value.trim().length > 0;
+            },
+            $.mage.__('This is a required field.')
+        );
     }
 });
