@@ -63,6 +63,13 @@
             </div>
         </div>
 
+        <div class="stripe-payments-elements">
+            <p class="payment-date-message">
+                <!-- ko i18n: '支払時期：決済日はクレジットカード会社ごとに定める日となります'--><!-- /ko --><br/>
+                <!-- ko i18n: '※ 定期購入サービスの場合をお申込みの方は、ご指定の間隔毎に引き落としが発生いたします。'--><!-- /ko -->
+            </p>
+        </div>
+
         <div class="stripe-card-cvc stripe-element-font no-wrap" data-bind="visible: collectCvc">
             <div class="instructions" data-bind="if: isAmex">
                 <!-- ko i18n: 'To use this card, please enter the 4-digit security code displayed at the front of your card.' --><!-- /ko -->
