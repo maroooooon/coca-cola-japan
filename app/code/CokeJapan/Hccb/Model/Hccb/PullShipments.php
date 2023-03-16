@@ -247,6 +247,9 @@ class PullShipments
                 $newItem->setOrderItemId($item->getItemId());
                 $newItem->setOrderItem($item);
                 $newItem->setSku($item->getSku());
+                $newItem->setName($item->getName());
+                $newItem->setProductId($item->getProductId());
+                $newItem->setPrice($item->getPrice());
 
                 $qtyShipped = $item->getQtyShipped();
                 if ($qtyShipped === null) {
