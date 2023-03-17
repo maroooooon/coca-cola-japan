@@ -9,12 +9,4 @@
         <plugin name="Coke_Sarp2::profileGridCollectionPlugin"
                 type="Coke\Sarp2\Plugin\Adminhtml\ProfileGridCollectionPlugin"/>
     </type>
-    <type name="Magento\Shipping\Model\Carrier\AbstractCarrier">
-        <plugin name="Coke_Sarp2::abstractCarrierPlugin"
-                type="Coke\Sarp2\Plugin\AbstractCarrierPlugin"/>
-    </type>
-    <type name="Aheadworks\Sarp2\Model\Sales\Total\Profile\Collector\Shipping\RatesCollector">
-        <plugin name="Coke_Sarp2::collectorPlugin"
-                type="Coke\Sarp2\Plugin\CollectorPlugin"/>
-    </type>
 </config>
