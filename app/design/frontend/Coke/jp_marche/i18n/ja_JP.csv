@@ -3,4 +3,6 @@
 "My Payment Methods","保存済クレジットカード",
 "Sorry, it is not possible to delete this payment method because order #%1 which was placed using it is still being processed.","このカードはご注文番号#%1でお支払いに使用されておりますので削除できません。",
 "Please complete the payment method details.","支払方法詳細を完了してください。"
+"Save Payment","保存",module,Aheadworks_Sarp2
+"New payment method","新しいカードを使う",module,StripeIntegration_Payments
 
