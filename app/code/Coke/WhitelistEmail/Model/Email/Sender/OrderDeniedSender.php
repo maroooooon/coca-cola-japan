@@ -15,6 +15,7 @@ class OrderDeniedSender extends MagentoSender
     {
         $this->templateContainer->setTemplateVars([
             'order' => $order,
+            'order_id' => $order->getId(),
             'billing' => $order->getBillingAddress(),
             'store' => $order->getStore(),
             'formattedShippingAddress' => $this->getFormattedShippingAddress($order),
