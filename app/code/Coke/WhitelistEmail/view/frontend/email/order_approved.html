@@ -25,7 +25,7 @@
 <table>
     <tr class="email-intro">
         <td>
-            <p class="greeting">{{trans "Hello, %customerName," customerName=$order_data.customer_name}}</p>
+            <p class="greeting">{{trans "Hello, %customer_name," customer_name=$order_data.customer_name}}</p>
             <p>{{trans 'Thank you for your request to customize a product on %store_name.' store_name=$store.getFrontendName()}}</p>
             <p>{{trans 'We will inform you that your order has been accepted as we have completed the examination of your desired input text.'}}</p>
             <p>{{trans 'You can check the status of your order by <a href="%account_url">logging into your account</a>.' account_url=$this.getUrl($store,'customer/account/',[_nosid:1]) |raw}}</p>
@@ -70,7 +70,7 @@
                     </td>
                 </tr>
             </table>
-            {{layout handle="sales_email_order_items" order=$order}}
+            {{layout handle="sales_email_order_items" order_id=$order_id area="frontend"}}
         </td>
     </tr>
 </table>
