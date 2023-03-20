@@ -55,7 +55,7 @@ class CustomerHelperViewPlugin
             }
 
             return $this->escaper->escapeHtml(
-                __('%1 %2', $customerData->getLastname(), $customerData->getFirstname())
+                __('%1 %2', $customerData->getLastname(), $customerData->getFirstname())->render()
             );
         } catch (NoSuchEntityException $e) {
             $this->logger->info(__('[CustomerHelperViewPlugin] %1', $e->getMessage()));
