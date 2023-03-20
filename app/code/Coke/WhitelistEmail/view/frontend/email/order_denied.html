@@ -25,7 +25,7 @@
 <table>
     <tr class="email-intro">
         <td>
-            <p class="greeting">{{trans "Hello, %customerName," customerName=$order_data.customer_name}}</p>
+            <p class="greeting">{{trans "Hello, %customer_name," customer_name=$order_data.customer_name}}</p>
             <p>
                 {{trans 'Thank you for your request to customize a product on %store_name.' store_name=$store.getFrontendName()}}
                 <br/>
@@ -80,7 +80,7 @@
                     </td>
                 </tr>
             </table>
-            {{layout handle="sales_email_order_items" order=$order}}
+            {{layout handle="sales_email_order_items" order_id=$order_id area="frontend"}}
         </td>
     </tr>
 </table>
