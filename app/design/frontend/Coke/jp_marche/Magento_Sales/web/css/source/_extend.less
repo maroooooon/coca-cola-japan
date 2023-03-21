@@ -18,3 +18,16 @@
         }
     }
 }
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .account {
+        &.sales-order-view {
+            .table-order-items {
+                tfoot {
+                    .shipping.value-0-in-row {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
