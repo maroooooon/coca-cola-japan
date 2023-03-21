@@ -191,6 +191,7 @@ canceled,キャンセル
 "Dear %customerName","%customerName さま"
 "Dear %customerName,","%customerName さま"
 "Hello, %customerName,","%customerName さま"
+"Hello, %customer_name,","%customer_name さま"
 "You have successfully subscribed to:","My Coke Storeへ定期便のご注文いただきましてありがとうございます。"
 "Your subscription ID is #%incrementProfileId.","定期便ご注文番号: #%incrementProfileId"
 "You can access your subscription by following this <a href=""%secureLink"">link</a>.","お客様の定期便について確認するときは<a href=""%secureLink"">こちら</a>をご覧ください。"
