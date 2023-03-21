@@ -25,7 +25,7 @@ define([
                         ]
                     });
                 popup.modal('openModal');
-                $.cookie('productSku', null);
+                $.cookieStorage.set('productSku', null);
             }
         }
     })
@@ -47,7 +47,7 @@ define([
 
                 if(!judgment) {
                     var dataName = String($(this).closest('form').data('productSku'));
-                    $.cookie('productSku', dataName);
+                    $.cookieStorage.set('productSku', dataName);
                 }
             }
         });
