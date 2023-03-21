@@ -11,11 +11,6 @@ use Magento\Framework\Stdlib\Cookie\CookieMetadataFactory;
 class CartItemAdd implements ObserverInterface
 {
     /**
-     * Path Bunbled Sku
-     */
-    const PATH_BUNDLED_SKU = 'coke_bundledControls/bundled_controls/bundled_controls_sku';
-
-    /**
      * @var Config
      */
     protected $helper;
@@ -74,12 +69,11 @@ class CartItemAdd implements ObserverInterface
     public function setcookieProduct($sku)
     {
         $publicCookieMetadata = $this->cookieMetadataFactory->createPublicCookieMetadata();
-        $publicCookieMetadata->setDuration(1800);
+        $publicCookieMetadata->setDuration($this->helper->getCookieLifetime());
         $publicCookieMetadata->setPath('/');
         $publicCookieMetadata->setHttpOnly(false);
         $this->cookieManager->setPublicCookie('productSku', $sku , $publicCookieMetadata);
 
         return true;
     }
-
 }
