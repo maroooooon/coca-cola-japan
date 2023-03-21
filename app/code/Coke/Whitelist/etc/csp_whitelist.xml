@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category FortyFour
+ * @copyright Copyright (c) 2020 FortyFour LLC
+ */
+-->
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="connect-src">
+            <values>
+                <value id="adobedtm" type="host">*.adobedtm.com</value>
+                <value id="yimg.jp" type="host">*.yimg.jp</value>
+                <value id="ads_twitter.com" type="host">*.ads-twitter.com</value>
+                <value id="facebook.net" type="host">*.facebook.net</value>
+                <value id="line_scdn.net" type="host">*.line-scdn.net</value>
+                <value id="clarity.ms" type="host">*.clarity.ms</value>
+                <value id="smartnews_ads.com" type="host">*.smartnews-ads.com</value>
+                <value id="yahoo.co.jp" type="host">*.yahoo.co.jp</value>
+                <value id="doubleclick.net" type="host">*.doubleclick.net</value>
+                <value id="line.me" type="host">*.line.me</value>
+                <value id="google.com.vn" type="host">*.google.com.vn</value>
+            </values>
+        </policy>
+        <policy id="script-src">
+            <values>
+                <value id="adobedtm" type="host">*.adobedtm.com</value>
+                <value id="yimg.jp" type="host">*.yimg.jp</value>
+                <value id="ads_twitter.com" type="host">*.ads-twitter.com</value>
+                <value id="facebook.net" type="host">*.facebook.net</value>
+                <value id="line_scdn.net" type="host">*.line-scdn.net</value>
+                <value id="clarity.ms" type="host">*.clarity.ms</value>
+                <value id="smartnews_ads.com" type="host">*.smartnews-ads.com</value>
+                <value id="yahoo.co.jp" type="host">*.yahoo.co.jp</value>
+                <value id="doubleclick.net" type="host">*.doubleclick.net</value>
+                <value id="line.me" type="host">*.line.me</value>
+                <value id="google.com.vn" type="host">*.google.com.vn</value>
+            </values>
+        </policy>
+        <policy id="frame-src">
+            <values>
+                <value id="adobedtm" type="host">*.adobedtm.com</value>
+                <value id="yimg.jp" type="host">*.yimg.jp</value>
+                <value id="ads_twitter.com" type="host">*.ads-twitter.com</value>
+                <value id="facebook.net" type="host">*.facebook.net</value>
+                <value id="line_scdn.net" type="host">*.line-scdn.net</value>
+                <value id="clarity.ms" type="host">*.clarity.ms</value>
+                <value id="smartnews_ads.com" type="host">*.smartnews-ads.com</value>
+                <value id="yahoo.co.jp" type="host">*.yahoo.co.jp</value>
+                <value id="doubleclick.net" type="host">*.doubleclick.net</value>
+                <value id="line.me" type="host">*.line.me</value>
+                <value id="google.com.vn" type="host">*.google.com.vn</value>
+            </values>
+        </policy>
+        <policy id="img-src">
+            <values>
+                <value id="adobedtm" type="host">*.adobedtm.com</value>
+                <value id="yimg.jp" type="host">*.yimg.jp</value>
+                <value id="ads_twitter.com" type="host">*.ads-twitter.com</value>
+                <value id="facebook.net" type="host">*.facebook.net</value>
+                <value id="line_scdn.net" type="host">*.line-scdn.net</value>
+                <value id="clarity.ms" type="host">*.clarity.ms</value>
+                <value id="smartnews_ads.com" type="host">*.smartnews-ads.com</value>
+                <value id="yahoo.co.jp" type="host">*.yahoo.co.jp</value>
+                <value id="doubleclick.net" type="host">*.doubleclick.net</value>
+                <value id="line.me" type="host">*.line.me</value>
+                <value id="google.com.vn" type="host">*.google.com.vn</value>
+            </values>
+        </policy>
+        <policy id="media-src">
+            <values>
+                <value id="adobedtm" type="host">*.adobedtm.com</value>
+                <value id="yimg.jp" type="host">*.yimg.jp</value>
+                <value id="ads_twitter.com" type="host">*.ads-twitter.com</value>
+                <value id="facebook.net" type="host">*.facebook.net</value>
+                <value id="line_scdn.net" type="host">*.line-scdn.net</value>
+                <value id="clarity.ms" type="host">*.clarity.ms</value>
+                <value id="smartnews_ads.com" type="host">*.smartnews-ads.com</value>
+                <value id="yahoo.co.jp" type="host">*.yahoo.co.jp</value>
+                <value id="doubleclick.net" type="host">*.doubleclick.net</value>
+                <value id="line.me" type="host">*.line.me</value>
+                <value id="google.com.vn" type="host">*.google.com.vn</value>
+            </values>
+        </policy>
+        <policy id="style-src">
+            <values>
+                <value id="adobedtm" type="host">*.adobedtm.com</value>
+                <value id="yimg.jp" type="host">*.yimg.jp</value>
+                <value id="ads_twitter.com" type="host">*.ads-twitter.com</value>
+                <value id="facebook.net" type="host">*.facebook.net</value>
+                <value id="line_scdn.net" type="host">*.line-scdn.net</value>
+                <value id="clarity.ms" type="host">*.clarity.ms</value>
+                <value id="smartnews_ads.com" type="host">*.smartnews-ads.com</value>
+                <value id="yahoo.co.jp" type="host">*.yahoo.co.jp</value>
+                <value id="doubleclick.net" type="host">*.doubleclick.net</value>
+                <value id="line.me" type="host">*.line.me</value>
+                <value id="google.com.vn" type="host">*.google.com.vn</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>
