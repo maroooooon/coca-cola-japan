@@ -13,6 +13,14 @@ $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 $request = $objectManager->get('Magento\Framework\App\Action\Context')->getRequest();
 ?>
 <?php foreach ($block->getTotals() as $_code => $_total) : ?>
+    <?php
+        if ($block->getNameInLayout() == 'invoice_totals' && $_code == 'shipping') {
+               $price = (int) $_total->getData('value');
+               if ($price == 0) {
+                   continue;
+               }
+        }
+    ?>
     <?php if ($_total->getBlockName()) : ?>
         <?= $block->getChildHtml($_total->getBlockName(), false) ?>
     <?php else :?>
