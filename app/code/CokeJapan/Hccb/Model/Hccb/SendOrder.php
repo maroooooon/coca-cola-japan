@@ -157,15 +157,10 @@ class SendOrder
             $isSubscription = isset($productOptions['aw_sarp2_subscription_option']);
             $itemName = $item->getName();
 
-            $bundleItemId = "";
             if ($item->getProductType() === "simple" && $item->getParentItemId() !== null) {
                 $parent = $item->getParentItem();
                 if ($parent != null && $parent->getProductType() === "configurable") {
                     $item = $parent;
-                }
-
-                if ($parent != null && $parent->getProductType() === "bundle") {
-                    $bundleItemId = $parent->getItemId();
                 }
             }
             $shippingAddress = $order->getShippingAddress();
@@ -174,6 +169,7 @@ class SendOrder
             $shippingStreetAddress2 = isset($shippingAddress->getStreet()[1]) ? $shippingAddress->getStreet()[1] : "";
             $billingStreetAddress1 = isset($billingAddress->getStreet()[0]) ? $billingAddress->getStreet()[0] : "";
             $billingStreetAddress2 = isset($billingAddress->getStreet()[1]) ? $billingAddress->getStreet()[1] : "";
+            $bundleItemId = $item->getParentItem() ? $item->getParentItem()->getItemId() : "";
             $created = $order->getCreatedAt();
             $time = strtotime($created);
             $createdFormat = date("m/d/Y H:i:s", $time);
