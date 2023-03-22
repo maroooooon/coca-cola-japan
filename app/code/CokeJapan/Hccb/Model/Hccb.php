@@ -249,7 +249,8 @@ class Hccb implements HccbManagementInterface
     public function addItemShipment($convertShipments, $shipment)
     {
         $convertShipments[$shipment->{"OrderNumber"}]['ShipmentLines']
-        [$shipment->{"ShipmentLine.ItemIdentifier.SupplierSKU"}] = [
+        [] = [
+            'sku' => $shipment->{"ShipmentLine.ItemIdentifier.SupplierSKU"},
             'ShipmentNumber' => $shipment->{"ShipmentNumber"},
             'ItemIdentifier' => [
                 'SupplierSKU' => $shipment->{"ShipmentLine.ItemIdentifier.SupplierSKU"},

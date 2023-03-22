@@ -229,14 +229,26 @@ class PullShipments
 
             foreach ($order->getItems() as $item) {
                 $productSku = $item->getSku();
-                if (!isset($shipment['ShipmentLines'][$productSku]['ShipmentInfos'])) {
+                if ($item->getProductType() === "configurable") {
+                    continue;
+                }
+
+                $checkSku = false;
+                foreach ($shipment['ShipmentLines'] as $key => $shipmentLine) {
+                    if ($productSku == $shipmentLine['sku']) {
+                        $checkSku = true;
+                        $productInfo = $shipmentLine['ShipmentInfos'];
+                        unset($shipment['ShipmentLines'][$key]);
+                        break;
+                    }
+                }
+
+                if (!$checkSku) {
                     throw new \Magento\Framework\Exception\LocalizedException(
                         __('Sku %1 does not exist for order number %2', $productSku, $order->getIncrementId())
                     );
                 }
-                if ($item->getProductType() === "configurable") {
-                    continue;
-                }
+
                 if ($item->getProductType() === "simple" && $item->getParentItemId() !== null) {
                     $parent = $item->getParentItem();
                     if ($parent != null && $parent->getProductType() === "configurable") {
@@ -244,7 +256,7 @@ class PullShipments
                     }
                 }
 
-                $productInfo = $shipment['ShipmentLines'][$productSku]['ShipmentInfos'];
+//                $productInfo = $shipment['ShipmentLines'][$productSku]['ShipmentInfos'];
                 $newItem = $this->itemFactory->create();
                 $newItem->setOrderItemId($item->getItemId());
                 $newItem->setOrderItem($item);
