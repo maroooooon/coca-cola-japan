@@ -133,6 +133,7 @@ class PullShipments
      */
     public function execute($shipments)
     {
+        $this->hccbLogger->info('Shipment by Hccb start ---data : ' . var_export($shipments, true));
         foreach ($shipments as $incrementId => $shipment) {
             try {
                 $criteria = $this->search;
@@ -202,6 +203,7 @@ class PullShipments
             }
         }
 
+        $this->hccbLogger->info('Shipment by Hccb end.');
         return $this->order_skip;
     }
 
