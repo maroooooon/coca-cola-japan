@@ -43,7 +43,7 @@ class OrderInterfacePlugin
                 return $result;
             }
 
-            return __('%1 %2', $subject->getCustomerLastname(), $subject->getCustomerFirstname());
+            return __('%1 %2', $subject->getCustomerLastname(), $subject->getCustomerFirstname())->render();
         } catch (NoSuchEntityException $e) {
             $this->logger->info(__('[OrderInterfacePlugin] %1', $e->getMessage()));
         }

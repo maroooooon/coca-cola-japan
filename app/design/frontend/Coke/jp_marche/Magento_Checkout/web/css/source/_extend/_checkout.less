@@ -505,6 +505,12 @@
     .required-text-bottom {
         color: #e02b27;
     }
+
+    .checkout-payment-method hr{
+        border-top: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
 }
 
 // Desktop
@@ -637,6 +643,22 @@
             display: block;
             float: none;
             top: 0;
+        }
+    }
+}
+@media (max-width: 419px) {
+    .checkout-index-index {
+        .modal-popup {
+            .modal-inner-wrap {
+                overflow-y: hidden;
+
+                .modal-footer {
+                    .action-save-address, .action-hide-popup {
+                        font-size: 1.2rem;
+                        padding: 10px 15px;
+                    }
+                }
+            }
         }
     }
 }

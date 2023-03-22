@@ -138,21 +138,6 @@ class SendOrder
                 continue;
             }
 
-            $itemName = $item->getName();
-            if ($item->getProductType() === "simple" && $item->getParentItemId() !== null) {
-                $parent = $item->getParentItem();
-                if ($parent != null && $parent->getProductType() === "configurable") {
-                    $item = $parent;
-                }
-            }
-            $shippingAddress = $order->getShippingAddress();
-            $billingAddress = $order->getBillingAddress();
-            $shippingStreetAddress1 = isset($shippingAddress->getStreet()[0]) ? $shippingAddress->getStreet()[0] : "";
-            $shippingStreetAddress2 = isset($shippingAddress->getStreet()[1]) ? $shippingAddress->getStreet()[1] : "";
-            $billingStreetAddress1 = isset($billingAddress->getStreet()[0]) ? $billingAddress->getStreet()[0] : "";
-            $billingStreetAddress2 = isset($billingAddress->getStreet()[1]) ? $billingAddress->getStreet()[1] : "";
-            $bundleItemId = $item->getProductType() === "bundle" ? $item->getItemId() : "";
-
             /**
              * Product model
              *
@@ -170,7 +155,21 @@ class SendOrder
             ) ?: '' : '';
             $productOptions = $item->getProductOptions();
             $isSubscription = isset($productOptions['aw_sarp2_subscription_option']);
+            $itemName = $item->getName();
 
+            if ($item->getProductType() === "simple" && $item->getParentItemId() !== null) {
+                $parent = $item->getParentItem();
+                if ($parent != null && $parent->getProductType() === "configurable") {
+                    $item = $parent;
+                }
+            }
+            $shippingAddress = $order->getShippingAddress();
+            $billingAddress = $order->getBillingAddress();
+            $shippingStreetAddress1 = isset($shippingAddress->getStreet()[0]) ? $shippingAddress->getStreet()[0] : "";
+            $shippingStreetAddress2 = isset($shippingAddress->getStreet()[1]) ? $shippingAddress->getStreet()[1] : "";
+            $billingStreetAddress1 = isset($billingAddress->getStreet()[0]) ? $billingAddress->getStreet()[0] : "";
+            $billingStreetAddress2 = isset($billingAddress->getStreet()[1]) ? $billingAddress->getStreet()[1] : "";
+            $bundleItemId = $item->getProductType() === "bundle" ? $item->getItemId() : "";
             $created = $order->getCreatedAt();
             $time = strtotime($created);
             $createdFormat = date("m/d/Y H:i:s", $time);
@@ -203,7 +202,7 @@ class SendOrder
                 "SenderCompanyId" => "",
                 "PartnerPO" => $order->getIncrementId(),
                 "TaxPercentage" => '8.00',
-                "DiscountTotal" => $order->getDiscountAmount() ?? '',
+                "DiscountTotal" => $order->getDiscountAmount() ?? "0",
                 "SubTotal" => $order->getSubtotal(),
                 "TotalAmount" => $order->getGrandTotal(),
                 "ShipMethod" => $order->getShippingDescription(),
@@ -222,7 +221,7 @@ class SendOrder
                 "ItemIdentifier.UPC" => $item->getProduct()->getUpc() ?? '',
                 "Description" => $itemName,
                 "Quantity" => floor(floatval($item->getQtyOrdered())),
-                "Price" => $item->getPrice(),
+                "Price" => $item->getData('price') ?? "0",
                 "LinkKey" => "",
                 "OrderLine.ExtendedAttribute.item_Id" => $item->getItemId(),
                 "OrderLine.ExtendedAttribute.bundle_item_id" => $bundleItemId,

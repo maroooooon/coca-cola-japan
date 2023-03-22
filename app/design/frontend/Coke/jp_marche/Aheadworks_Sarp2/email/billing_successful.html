@@ -1,6 +1,6 @@
 <!--@subject {{trans "Subscription billing successful"}} @-->
 <!--@vars {
-"layout handle=\"aw_sarp2_email_order_items\" order=$order area=\"frontend\"":"Subscription Items Grid",
+"layout handle=\"aw_sarp2_email_order_items\" order_id=$orderId area=\"frontend\"":"Subscription Items Grid",
 "var profileId":"System Subscription Profile Id",
 "var extendLink":"Extend Subscription Link",
 "var secureLink":"Secure Link"
@@ -19,7 +19,7 @@
     <tr class="email-information">
         <td>
             <p>{{trans "Subscription product(s):"}}</p>
-            {{layout handle="aw_sarp2_email_order_items" order=$order area="frontend"}}
+            {{layout handle="aw_sarp2_email_order_items" order_id=$orderId area="frontend"}}
             <p>{{trans "The invoice for this payment will be sent in a separate email."}}</p>
         </td>
     </tr>

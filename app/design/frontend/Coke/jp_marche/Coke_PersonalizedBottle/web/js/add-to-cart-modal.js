@@ -2,8 +2,7 @@ define([
     'jquery',
     "Magento_Ui/js/modal/modal",
     'mage/translate',
-    'Magento_Catalog/js/catalog-add-to-cart',
-    'jquery/jquery.cookie'
+    'Magento_Catalog/js/catalog-add-to-cart'
 ], function ($, modal, $t) {
     $(function() {
         const body = $('body');
@@ -26,7 +25,7 @@ define([
                         ]
                     });
                 popup.modal('openModal');
-                $.cookie('productSku', null);
+                $.cookieStorage.set('productSku', null);
             }
         }
     })
@@ -48,7 +47,7 @@ define([
 
                 if(!judgment) {
                     var dataName = String($(this).closest('form').data('productSku'));
-                    $.cookie('productSku', dataName);
+                    $.cookieStorage.set('productSku', dataName);
                 }
             }
         });

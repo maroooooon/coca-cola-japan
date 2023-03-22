@@ -7,10 +7,6 @@
             <argument name="order" xsi:type="object">Magento\Sales\Model\Order\Proxy</argument>
         </arguments>
     </type>
-    <type name="Logicbroker\RetailerAPI\Jobs\Cron\PullShipments">
-        <plugin name="beforeExecute"
-                type="CokeEurope\PersonalizedProduct\Plugin\ApproveOrdersPlugin"/>
-    </type>
     <preference for="CokeEurope\PersonalizedProduct\Api\Data\EnableRejectionCodesInterface"
                 type="CokeEurope\PersonalizedProduct\Model\Data\EnableRejectionCodesData"/>
 </config>

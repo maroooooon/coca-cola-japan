@@ -436,6 +436,9 @@ define([
 
                     event.preventDefault();
                     target = $(event.target).closest('.ui-menu-item');
+                    if (target.has('.ui-menu').length) {
+                        this.expand(event);
+                    }
                     target.get(0).scrollIntoView();
 
                     if (!target.hasClass('level-top') || !target.has('.ui-menu').length) {
