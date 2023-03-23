@@ -196,8 +196,8 @@ class SendOrder
 
             if ($order->getDiscountAmount() == 0) {
                 $discAmt = "0";
-            }else{
-                $discAmt = substr($order->getDiscountAmount(),1);
+            } else {
+                $discAmt = substr($order->getDiscountAmount(), 1);
             }
             $apiOrder = [
                 "Id" => $order->getEntityId(),
