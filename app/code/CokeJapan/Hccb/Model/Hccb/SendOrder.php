@@ -146,7 +146,7 @@ class SendOrder
             $product = $this->productRepository->getById($item->getProductId(), $order->getStoreId());
             $salesUnit = $product ? $this->getAttributeLabel($product, 'sales_unit') ?: '' : '';
             $jsCode = $product ? $this->getAttributeLabel($product, 'js_code') ?: '' : '';
-            $originalProductPrice = $product->getData('single_bottle_price') ? $this->formatNumber($product->getData('single_bottle_price')) : '';
+            $originalProductPrice = $product->getPrice() ? $this->formatNumber($product->getPrice()) : '';
             $singleBottlePrice = $product->getData('single_bottle_price') ? $this->formatNumber($product->getData('single_bottle_price')) : '';
 
             $packSizeNumber = $product ? preg_replace(
