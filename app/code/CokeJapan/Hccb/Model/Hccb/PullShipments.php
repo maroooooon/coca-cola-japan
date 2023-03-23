@@ -233,19 +233,30 @@ class PullShipments
                     continue;
                 }
 
+                $checkQtyItem = false;
                 $checkSku = false;
+                $inCre = $order->getIncrementId();
                 foreach ($shipment['ShipmentLines'] as $key => $shipmentLine) {
                     if ($productSku == $shipmentLine['sku']) {
                         $checkSku = true;
-                        $productInfo = $shipmentLine['ShipmentInfos'];
-                        unset($shipment['ShipmentLines'][$key]);
-                        break;
+                        if ($shipmentLine['ShipmentInfos']['Qty'] == $item->getQtyOrdered()) {
+                            $productInfo = $shipmentLine['ShipmentInfos'];
+                            unset($shipment['ShipmentLines'][$key]);
+                            $checkQtyItem = true;
+                            break;
+                        }
                     }
                 }
 
                 if (!$checkSku) {
                     throw new \Magento\Framework\Exception\LocalizedException(
-                        __('Sku %1 does not exist for order number %2', $productSku, $order->getIncrementId())
+                        __('Sku %1 does not exist for order number %2', $productSku, $inCre)
+                    );
+                }
+
+                if (!$checkQtyItem) {
+                    throw new \Magento\Framework\Exception\LocalizedException(
+                        __('%1 : The quantity required for creating shipment, does not match.', $inCre)
                     );
                 }
 
@@ -256,7 +267,6 @@ class PullShipments
                     }
                 }
 
-//                $productInfo = $shipment['ShipmentLines'][$productSku]['ShipmentInfos'];
                 $newItem = $this->itemFactory->create();
                 $newItem->setOrderItemId($item->getItemId());
                 $newItem->setOrderItem($item);
@@ -270,10 +280,9 @@ class PullShipments
                     $qtyShipped = 0;
                 }
                 $qty = $item->getQtyOrdered() - $qtyShipped;
-                $incre = $order->getIncrementId();
                 if ($productInfo['Qty'] != $qty) {
                     throw new \Magento\Framework\Exception\LocalizedException(
-                        __('%1 : The quantity required for creating shipment, does not match.', $incre)
+                        __('%1 : The quantity required for creating shipment, does not match.', $inCre)
                     );
                 }
 
