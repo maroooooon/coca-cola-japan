@@ -194,6 +194,11 @@ class SendOrder
                 }
             }
 
+            if ($order->getDiscountAmount() == 0) {
+                $discAmt = "0";
+            }else{
+                $discAmt = substr($order->getDiscountAmount(),1);
+            }
             $apiOrder = [
                 "Id" => $order->getEntityId(),
                 "OrderNumber" => $order->getIncrementId(),
@@ -202,7 +207,7 @@ class SendOrder
                 "SenderCompanyId" => "",
                 "PartnerPO" => $order->getIncrementId(),
                 "TaxPercentage" => '8.00',
-                "DiscountTotal" => $order->getDiscountAmount() ?? "0",
+                "DiscountTotal" => $discAmt,
                 "SubTotal" => $order->getSubtotal(),
                 "TotalAmount" => $order->getGrandTotal(),
                 "ShipMethod" => $order->getShippingDescription(),
