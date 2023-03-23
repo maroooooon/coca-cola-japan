@@ -11,7 +11,14 @@ use Psr\Log\LoggerInterface;
 
 class OrderItemRendererDefaultRendererPlugin
 {
-    const ORDER_ITEM_LAYOUT_NAME = 'sales.order.items.renderers.default';
+    // layouts name will apply template
+    const ITEM_LAYOUT_LIST = [
+        'sales.order.items.renderers.default',
+        'sales.order.creditmemo.renderers.bundle',
+        'sales.order.invoice.renderers.bundle',
+        'sales.order.items.renderers.bundle',
+        'sales.order.shipment.renderers.bundle'
+    ];
 
     /**
      * @var LoggerInterface
@@ -55,7 +62,7 @@ class OrderItemRendererDefaultRendererPlugin
      */
     public function beforeSetTemplate(\Magento\Sales\Block\Order\Item\Renderer\DefaultRenderer $subject, $template)
     {
-        if (!$this->config->canShowWhitelistItemStatus() || $subject->getNameInLayout() != self::ORDER_ITEM_LAYOUT_NAME) {
+        if (!$this->config->canShowWhitelistItemStatus() || !in_array($subject->getNameInLayout(), self::ITEM_LAYOUT_LIST)) {
             return [$template];
         }
 
