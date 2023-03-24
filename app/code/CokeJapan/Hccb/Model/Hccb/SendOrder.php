@@ -204,6 +204,9 @@ class SendOrder
             } else {
                 $discAmt = $this->formatNumber($order->getDiscountAmount() * -1);
             }
+            $grandTotal = $order->getData('reward_points_balance') ?
+                $this->formatNumber($order->getGrandTotal()) + $this->formatNumber($order->getData('reward_points_balance')) :
+                $this->formatNumber($order->getGrandTotal());
             $apiOrder = [
                 "Id" => $order->getEntityId(),
                 "OrderNumber" => $order->getIncrementId(),
@@ -214,7 +217,7 @@ class SendOrder
                 "TaxPercentage" => 8,
                 "DiscountTotal" => $discAmt,
                 "SubTotal" => $this->formatNumber($order->getSubtotal()),
-                "TotalAmount" => $this->formatNumber($order->getGrandTotal()),
+                "TotalAmount" => $grandTotal,
                 "ShipMethod" => $order->getShippingDescription(),
                 "ShipToAddress.CompanyName" => $shippingAddress->getCompany() ?? '',
                 "ShipToAddress.FirstName" => $shippingAddress->getFirstName(),
