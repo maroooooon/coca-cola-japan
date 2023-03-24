@@ -85,6 +85,11 @@ return [
     ],
     'system' => [
         'default' => [
+            'advanced' => [
+                'modules_disable_output' => [
+                    'Magento_Banner' => '1'
+                ]
+            ],
             'admin' => [
                 'backend_google_sso' => [
                     'status' => '1',
