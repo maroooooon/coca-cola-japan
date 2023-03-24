@@ -5,6 +5,10 @@
         <plugin name="Coke_Sarp2::abstractCarrierPlugin"
                 type="Coke\Sarp2\Plugin\AbstractCarrierPlugin"/>
     </type>
+    <type name="Aheadworks\Sarp2\Model\Sales\Total\Profile\Collector\Shipping\RatesCollector">
+        <plugin name="Coke_Sarp2::collectorPlugin"
+                type="Coke\Sarp2\Plugin\CollectorPlugin"/>
+    </type>
     <type name="Coke\Sarp2\Plugin\AbstractCarrierPlugin">
         <arguments>
             <argument name="checkoutSession" xsi:type="object">Magento\Checkout\Model\Session\Proxy</argument>

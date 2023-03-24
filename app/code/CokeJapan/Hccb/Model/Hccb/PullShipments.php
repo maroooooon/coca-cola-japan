@@ -133,6 +133,7 @@ class PullShipments
      */
     public function execute($shipments)
     {
+        $this->hccbLogger->info('Shipment by Hccb start ---data : ' . var_export($shipments, true));
         foreach ($shipments as $incrementId => $shipment) {
             try {
                 $criteria = $this->search;
@@ -202,6 +203,7 @@ class PullShipments
             }
         }
 
+        $this->hccbLogger->info('Shipment by Hccb end.');
         return $this->order_skip;
     }
 
@@ -227,14 +229,37 @@ class PullShipments
 
             foreach ($order->getItems() as $item) {
                 $productSku = $item->getSku();
-                if (!isset($shipment['ShipmentLines'][$productSku]['ShipmentInfos'])) {
-                    throw new \Magento\Framework\Exception\LocalizedException(
-                        __('Sku %1 does not exist for order number %2', $productSku, $order->getIncrementId())
-                    );
-                }
                 if ($item->getProductType() === "configurable") {
                     continue;
                 }
+
+                $checkQtyItem = false;
+                $checkSku = false;
+                $inCre = $order->getIncrementId();
+                foreach ($shipment['ShipmentLines'] as $key => $shipmentLine) {
+                    if ($productSku == $shipmentLine['sku']) {
+                        $checkSku = true;
+                        if ($shipmentLine['ShipmentInfos']['Qty'] == $item->getQtyOrdered()) {
+                            $productInfo = $shipmentLine['ShipmentInfos'];
+                            unset($shipment['ShipmentLines'][$key]);
+                            $checkQtyItem = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!$checkSku) {
+                    throw new \Magento\Framework\Exception\LocalizedException(
+                        __('Sku %1 does not exist for order number %2', $productSku, $inCre)
+                    );
+                }
+
+                if (!$checkQtyItem) {
+                    throw new \Magento\Framework\Exception\LocalizedException(
+                        __('%1 : The quantity required for creating shipment, does not match.', $inCre)
+                    );
+                }
+
                 if ($item->getProductType() === "simple" && $item->getParentItemId() !== null) {
                     $parent = $item->getParentItem();
                     if ($parent != null && $parent->getProductType() === "configurable") {
@@ -242,7 +267,6 @@ class PullShipments
                     }
                 }
 
-                $productInfo = $shipment['ShipmentLines'][$productSku]['ShipmentInfos'];
                 $newItem = $this->itemFactory->create();
                 $newItem->setOrderItemId($item->getItemId());
                 $newItem->setOrderItem($item);
@@ -256,10 +280,9 @@ class PullShipments
                     $qtyShipped = 0;
                 }
                 $qty = $item->getQtyOrdered() - $qtyShipped;
-                $incre = $order->getIncrementId();
                 if ($productInfo['Qty'] != $qty) {
                     throw new \Magento\Framework\Exception\LocalizedException(
-                        __('%1 : The quantity required for creating shipment, does not match.', $incre)
+                        __('%1 : The quantity required for creating shipment, does not match.', $inCre)
                     );
                 }
 

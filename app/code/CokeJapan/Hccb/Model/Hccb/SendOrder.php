@@ -146,8 +146,13 @@ class SendOrder
             $product = $this->productRepository->getById($item->getProductId(), $order->getStoreId());
             $salesUnit = $product ? $this->getAttributeLabel($product, 'sales_unit') ?: '' : '';
             $jsCode = $product ? $this->getAttributeLabel($product, 'js_code') ?: '' : '';
-            $originalProductPrice = $product ? $product->getPrice() ?: '' : '';
-            $singleBottlePrice = $product ? $product->getData('single_bottle_price') ?: '' : '';
+            $originalProductPrice = $product->getPrice() ? $this->formatNumber($product->getPrice()) : '';
+            if ($product->getTypeId() === 'bundle') {
+                $originalProductPrice = '';
+            }
+
+            $singleBottlePrice = $product->getData('single_bottle_price') ? $this->formatNumber($product->getData('single_bottle_price')) : '';
+
             $packSizeNumber = $product ? preg_replace(
                 '/[^0-9]/',
                 '',
@@ -169,7 +174,7 @@ class SendOrder
             $shippingStreetAddress2 = isset($shippingAddress->getStreet()[1]) ? $shippingAddress->getStreet()[1] : "";
             $billingStreetAddress1 = isset($billingAddress->getStreet()[0]) ? $billingAddress->getStreet()[0] : "";
             $billingStreetAddress2 = isset($billingAddress->getStreet()[1]) ? $billingAddress->getStreet()[1] : "";
-            $bundleItemId = $item->getProductType() === "bundle" ? $item->getItemId() : "";
+            $bundleItemId = $item->getParentItem() ? $item->getParentItem()->getItemId() : "";
             $created = $order->getCreatedAt();
             $time = strtotime($created);
             $createdFormat = date("m/d/Y H:i:s", $time);
@@ -194,6 +199,11 @@ class SendOrder
                 }
             }
 
+            if ($order->getDiscountAmount() == 0) {
+                $discAmt = 0;
+            } else {
+                $discAmt = $this->formatNumber($order->getDiscountAmount() * -1);
+            }
             $apiOrder = [
                 "Id" => $order->getEntityId(),
                 "OrderNumber" => $order->getIncrementId(),
@@ -201,10 +211,10 @@ class SendOrder
                 "StatusCode" => $order->getStatus(),
                 "SenderCompanyId" => "",
                 "PartnerPO" => $order->getIncrementId(),
-                "TaxPercentage" => '8.00',
-                "DiscountTotal" => $order->getDiscountAmount() ?? "0",
-                "SubTotal" => $order->getSubtotal(),
-                "TotalAmount" => $order->getGrandTotal(),
+                "TaxPercentage" => 8,
+                "DiscountTotal" => $discAmt,
+                "SubTotal" => $this->formatNumber($order->getSubtotal()),
+                "TotalAmount" => $this->formatNumber($order->getGrandTotal()),
                 "ShipMethod" => $order->getShippingDescription(),
                 "ShipToAddress.CompanyName" => $shippingAddress->getCompany() ?? '',
                 "ShipToAddress.FirstName" => $shippingAddress->getFirstName(),
@@ -221,7 +231,7 @@ class SendOrder
                 "ItemIdentifier.UPC" => $item->getProduct()->getUpc() ?? '',
                 "Description" => $itemName,
                 "Quantity" => floor(floatval($item->getQtyOrdered())),
-                "Price" => $item->getData('price') ?? "0",
+                "Price" => $item->getPrice() ? $this->formatNumber($item->getPrice()) : 0,
                 "LinkKey" => "",
                 "OrderLine.ExtendedAttribute.item_Id" => $item->getItemId(),
                 "OrderLine.ExtendedAttribute.bundle_item_id" => $bundleItemId,
@@ -234,8 +244,8 @@ class SendOrder
                 "OrderLine.ExtendedAttribute.single_bottle_price" => $singleBottlePrice,
                 "OrderLine.ExtendedAttribute.original_product_price" => $originalProductPrice,
                 "IsSubscriptionItem" => $isSubscription ? 'Yes' : 'No',
-                "RewardPointsUsage" => $order->getData('reward_points_balance') ?? '',
-                "ShippingAmount" => $order->getShippingAmount(),
+                "RewardPointsUsage" => $order->getData('reward_points_balance') ? $this->formatNumber($order->getData('reward_points_balance')) : '',
+                "ShippingAmount" => $this->formatNumber($order->getShippingAmount()),
                 "BillToAddress.FirstName" => $billingAddress->getFirstName(),
                 "BillToAddress.LastName" => $billingAddress->getLastName(),
                 "BillToAddress.Address1" => $billingStreetAddress1,
@@ -275,5 +285,16 @@ class SendOrder
         }
 
         return $value;
+    }
+
+    /**
+     * Format number
+     *
+     * @param $number
+     * @return float
+     */
+    public function formatNumber($number)
+    {
+        return round((float)$number,0,PHP_ROUND_HALF_UP);
     }
 }
