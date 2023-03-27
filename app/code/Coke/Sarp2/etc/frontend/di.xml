@@ -14,4 +14,8 @@
             <argument name="checkoutSession" xsi:type="object">Magento\Checkout\Model\Session\Proxy</argument>
         </arguments>
     </type>
+    <type name="Aheadworks\Sarp2\Model\Profile\Finder">
+        <plugin name="Coke_Sarp2::information_subscription_fe"
+                type="Coke\Sarp2\Plugin\Model\Profile\FinderPlugin" />
+    </type>
 </config>
