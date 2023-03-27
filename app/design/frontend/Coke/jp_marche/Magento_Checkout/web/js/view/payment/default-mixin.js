@@ -35,8 +35,11 @@ define([
 
         var mixin = {
             isChecked: ko.computed(function () {
-                var defaultMethod = $('body').hasClass('checkout-index-index') ? 'stripe_payments' : null;
-                return quote.paymentMethod() ? quote.paymentMethod().method : defaultMethod;
+                var paymentMethod = $('body').hasClass('checkout-index-index') ? 'stripe_payments' : null;
+                if (quote.totals()['grand_total'] <= 0 && !quote.isAwSarp2QuoteSubscription()) {
+                    paymentMethod = 'free';
+                }
+                return quote.paymentMethod() ? quote.paymentMethod().method : paymentMethod;
             }),
         };
 
