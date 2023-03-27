@@ -169,7 +169,7 @@ class Hccb implements HccbManagementInterface
                 $this->throwWebApiException('Timestamp period too long - maximum 1 month ago.', 400);
             }
         } else {
-            $dateDefault = new \DateTime('now');
+            $dateDefault = new \DateTime('now', new \DateTimeZone($timezone));
             $timestamp = $dateDefault->setTime(00, 00, 00);
         }
         $ordersData[]['items'] = $this->sendOrder->execute($nowDate, $timestamp);
