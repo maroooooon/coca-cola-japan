@@ -27,7 +27,6 @@ function isHttpHost($host)
 //];
 
 $urls = [
-    'integration-5ojmyuq-xqng52md7niyo.ap-3.magentosite.cloud' => ['website', 'jp_marche'],
     'mcstaging.cocacola.co.jp' => ['website', 'jp_marche'],
     'mycokestore.cocacola.co.jp' => ['website', 'jp_marche'],
     'mcprod.cocacola.co.jp' => ['website', 'jp_marche'],
