@@ -21,6 +21,10 @@
                 <value id="doubleclick.net" type="host">*.doubleclick.net</value>
                 <value id="line.me" type="host">*.line.me</value>
                 <value id="google.com.vn" type="host">*.google.com.vn</value>
+                <value id="facebook.com" type="host">*.facebook.com</value>
+                <value id="co" type="host">*.co</value>
+                <value id="twitter.com" type="host">*.twitter.com</value>
+                <value id="bing.com" type="host">*.bing.com</value>
             </values>
         </policy>
         <policy id="script-src">
@@ -36,6 +40,10 @@
                 <value id="doubleclick.net" type="host">*.doubleclick.net</value>
                 <value id="line.me" type="host">*.line.me</value>
                 <value id="google.com.vn" type="host">*.google.com.vn</value>
+                <value id="facebook.com" type="host">*.facebook.com</value>
+                <value id="co" type="host">*.co</value>
+                <value id="twitter.com" type="host">*.twitter.com</value>
+                <value id="bing.com" type="host">*.bing.com</value>
             </values>
         </policy>
         <policy id="frame-src">
@@ -51,6 +59,10 @@
                 <value id="doubleclick.net" type="host">*.doubleclick.net</value>
                 <value id="line.me" type="host">*.line.me</value>
                 <value id="google.com.vn" type="host">*.google.com.vn</value>
+                <value id="facebook.com" type="host">*.facebook.com</value>
+                <value id="co" type="host">*.co</value>
+                <value id="twitter.com" type="host">*.twitter.com</value>
+                <value id="bing.com" type="host">*.bing.com</value>
             </values>
         </policy>
         <policy id="img-src">
@@ -66,6 +78,10 @@
                 <value id="doubleclick.net" type="host">*.doubleclick.net</value>
                 <value id="line.me" type="host">*.line.me</value>
                 <value id="google.com.vn" type="host">*.google.com.vn</value>
+                <value id="facebook.com" type="host">*.facebook.com</value>
+                <value id="co" type="host">*.co</value>
+                <value id="twitter.com" type="host">*.twitter.com</value>
+                <value id="bing.com" type="host">*.bing.com</value>
             </values>
         </policy>
         <policy id="media-src">
@@ -81,6 +97,10 @@
                 <value id="doubleclick.net" type="host">*.doubleclick.net</value>
                 <value id="line.me" type="host">*.line.me</value>
                 <value id="google.com.vn" type="host">*.google.com.vn</value>
+                <value id="facebook.com" type="host">*.facebook.com</value>
+                <value id="co" type="host">*.co</value>
+                <value id="twitter.com" type="host">*.twitter.com</value>
+                <value id="bing.com" type="host">*.bing.com</value>
             </values>
         </policy>
         <policy id="style-src">
@@ -96,6 +116,29 @@
                 <value id="doubleclick.net" type="host">*.doubleclick.net</value>
                 <value id="line.me" type="host">*.line.me</value>
                 <value id="google.com.vn" type="host">*.google.com.vn</value>
+                <value id="facebook.com" type="host">*.facebook.com</value>
+                <value id="co" type="host">*.co</value>
+                <value id="twitter.com" type="host">*.twitter.com</value>
+                <value id="bing.com" type="host">*.bing.com</value>
+            </values>
+        </policy>
+        <policy id="form-action">
+            <values>
+                <value id="adobedtm" type="host">*.adobedtm.com</value>
+                <value id="yimg.jp" type="host">*.yimg.jp</value>
+                <value id="ads_twitter.com" type="host">*.ads-twitter.com</value>
+                <value id="facebook.net" type="host">*.facebook.net</value>
+                <value id="line_scdn.net" type="host">*.line-scdn.net</value>
+                <value id="clarity.ms" type="host">*.clarity.ms</value>
+                <value id="smartnews_ads.com" type="host">*.smartnews-ads.com</value>
+                <value id="yahoo.co.jp" type="host">*.yahoo.co.jp</value>
+                <value id="doubleclick.net" type="host">*.doubleclick.net</value>
+                <value id="line.me" type="host">*.line.me</value>
+                <value id="google.com.vn" type="host">*.google.com.vn</value>
+                <value id="facebook.com" type="host">*.facebook.com</value>
+                <value id="co" type="host">*.co</value>
+                <value id="twitter.com" type="host">*.twitter.com</value>
+                <value id="bing.com" type="host">*.bing.com</value>
             </values>
         </policy>
     </policies>
