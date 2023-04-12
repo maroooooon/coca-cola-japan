@@ -29,13 +29,4 @@ $viewModel = $block->getViewModel();
             <span><?= $viewModel->escapeHtml(__('Sign In')) ?></span>
         </button>
     </div>
-    <script type="text/javascript">
-        require([
-            'jquery'
-        ], function ($) {
-            $(document).ready(function () {
-                $('ul.checkout-methods-items').css('display','none');
-            })
-        });
-    </script>
 <?php endif; ?>
